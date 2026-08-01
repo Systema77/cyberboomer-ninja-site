@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lezione n.001 — Il pacco che non aspettavi · Cyber Boomer</title>
+<meta name="description" content="Lezione dal 2077 n.001: l'SMS del corriere fantasma. Come funziona la trappola della finta giacenza e le tre mosse per non cascarci.">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    /* Camera oscura — canone JUDY, stessa stanza del hub */
+    --bg-deep:    #0C0B0E;
+    --bg-surface: #141216;
+    --amber:      #C9A15E;
+    --amber-soft: rgba(201,161,94,.10);
+    --text-hi:    #ECE7DF;
+    --text-lo:    #A7A29B;
+    --line:       #3A3730;
+    --font-mono:  'Courier Prime','Courier New','Lucida Console',monospace;
+    --font-serif: 'Iowan Old Style','Palatino Linotype',Palatino,'Georgia',serif;
+  }
+
+  body{
+    background:var(--bg-deep); color:var(--text-hi);
+    font-family:var(--font-serif); line-height:1.7; min-height:100vh; overflow-x:hidden;
+  }
+  body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:9998;
+    background:radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.55) 100%);
+  }
+  body::after{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap{ max-width:680px; margin:0 auto; padding:0 1.5rem; }
+
+  /* testata */
+  .masthead{
+    padding:2.2rem 0 0; font-family:var(--font-mono); text-align:center;
+  }
+  .masthead a{
+    color:var(--text-lo); text-decoration:none; font-size:.7rem;
+    letter-spacing:.28em; text-transform:uppercase;
+  }
+  .masthead a:hover{ color:var(--amber); }
+
+  header.lesson{
+    padding:3.2rem 0 2.4rem; text-align:center; border-bottom:1px solid var(--line);
+  }
+  .serial{
+    font-family:var(--font-mono); font-size:.68rem; letter-spacing:.32em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:1rem;
+  }
+  h1{
+    font-size:clamp(1.6rem,5vw,2.4rem); line-height:1.25; font-weight:600;
+  }
+  .standfirst{
+    margin-top:1rem; color:var(--text-lo); font-size:1.02rem;
+  }
+
+  /* battute */
+  section.beat{ padding:2.6rem 0 0; }
+  .beat-label{
+    font-family:var(--font-mono); font-size:.68rem; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:1.1rem;
+  }
+  .beat-label .num{ opacity:.65; margin-right:.7em; }
+  .prose{ color:var(--text-lo); }
+  .prose p + p{ margin-top:1em; }
+  .prose strong{ color:var(--text-hi); font-weight:600; }
+  .prose em{ color:var(--text-hi); }
+
+  /* l'SMS ricostruito */
+  .sms{
+    margin:1.4rem 0 0; background:var(--bg-surface); border:1px solid var(--line);
+    padding:1.1rem 1.3rem; font-family:var(--font-mono); font-size:.9rem;
+    color:var(--text-hi); line-height:1.6;
+  }
+  .sms .from{
+    display:block; font-size:.65rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--text-lo); margin-bottom:.5rem;
+  }
+
+  /* le tre mosse */
+  ol.moves{ list-style:none; counter-reset:mossa; margin-top:1.4rem; }
+  ol.moves li{
+    counter-increment:mossa; position:relative;
+    background:var(--bg-surface); border:1px solid var(--line);
+    padding:1.1rem 1.3rem 1.1rem 3.4rem; margin-bottom:.8rem; color:var(--text-lo);
+  }
+  ol.moves li::before{
+    content:counter(mossa); position:absolute; left:1.1rem; top:1.05rem;
+    font-family:var(--font-mono); font-weight:700; font-size:1.1rem; color:var(--amber);
+  }
+  ol.moves li strong{ color:var(--text-hi); }
+
+  /* il proverbio — la chiusa tweetabile */
+  .proverbio{
+    margin:3rem 0 0; padding:2rem 1.6rem; text-align:center;
+    border-top:1px solid var(--amber); border-bottom:1px solid var(--amber);
+    background:var(--amber-soft);
+  }
+  .proverbio .q{
+    font-size:clamp(1.15rem,3.4vw,1.5rem); line-height:1.5; font-style:italic;
+  }
+  .proverbio .who{
+    margin-top:1rem; font-family:var(--font-mono); font-size:.68rem;
+    letter-spacing:.28em; text-transform:uppercase; color:var(--text-lo);
+  }
+
+  .share{
+    margin-top:1.6rem; text-align:center; font-family:var(--font-mono); font-size:.8rem;
+  }
+  .share a{
+    color:var(--amber); text-decoration:none; border-bottom:1px solid var(--line);
+  }
+  .share a:hover{ border-color:var(--amber); }
+
+  footer{
+    margin-top:3.5rem; border-top:1px solid var(--line);
+    padding:2.2rem 1.5rem 3rem; text-align:center;
+    font-family:var(--font-mono); color:var(--text-lo); font-size:.72rem;
+    letter-spacing:.18em; text-transform:uppercase;
+  }
+  footer a{ color:var(--amber); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<nav class="masthead"><a href="../index.html">← Cyber Boomer · la voce</a></nav>
+
+<div class="wrap">
+
+  <header class="lesson">
+    <p class="serial">Lezione dal 2077 · n.001</p>
+    <h1>Il pacco che non aspettavi</h1>
+    <p class="standfirst">L'SMS del corriere fantasma, la giacenza da €1,99
+    e il pacco che non è mai esistito.</p>
+  </header>
+
+  <section class="beat">
+    <h2 class="beat-label"><span class="num">01</span>La trappola</h2>
+    <div class="prose">
+      <p>Sabato mattina. Sto aspettando un caricatore che ho ordinato martedì —
+      quindi quando il telefono vibra, ci casco con tutto il ciabattino:</p>
+    </div>
+    <div class="sms" role="img" aria-label="Ricostruzione di un SMS truffa">
+      <span class="from">SMS · mittente: «DHLL-EXPRESS»</span>
+      Il tuo pacco e' in giacenza presso il nostro magazzino.
+      Per la riconsegna paga la tassa di €1,99: <span style="text-decoration:underline">dhll-riconsegna-24.top</span>
+    </div>
+    <div class="prose">
+      <p>Un euro e novantanove. Meno di un caffè al bar del 2077.
+      Il dito era già a mezz'aria quando l'occhio mi è caduto sul mittente:
+      <em>due elle</em>. Da quando i corrieri balbettano?</p>
+    </div>
+  </section>
+
+  <section class="beat">
+    <h2 class="beat-label"><span class="num">02</span>Cos'è successo davvero</h2>
+    <div class="prose">
+      <p>Si chiama <strong>smishing</strong>: phishing via SMS, cioè pesca a strascico col telefonino.
+      Mandano lo stesso messaggio a centinaia di migliaia di numeri; per statistica,
+      qualcuno starà davvero aspettando un pacco. Quel giorno, io.</p>
+      <p>Il link porta a una copia quasi perfetta del sito del corriere.
+      E qui il trucco: <strong>l'€1,99 non è il prezzo, è l'esca.</strong>
+      Per pagarlo digiti i dati della carta — e quelli valgono molto più di due euro.
+      Nessun corriere vero chiede soldi via SMS con un link.</p>
+    </div>
+  </section>
+
+  <section class="beat">
+    <h2 class="beat-label"><span class="num">03</span>La mossa del ninja</h2>
+    <ol class="moves">
+      <li><strong>Non toccare il link.</strong> Mai, nemmeno «solo per vedere».
+        Il dito curioso è il migliore amico del truffatore.</li>
+      <li><strong>Vai tu dal corriere, non lui da te.</strong> Apri a mano l'app o il sito
+        ufficiale e incolla lì il tuo numero di tracciamento. Se il pacco esiste, sta lì.</li>
+      <li><strong>Guarda il mittente come guarderesti un documento.</strong> Nomi storpiati,
+        domini strani, urgenza e mini-cifre da pagare: tre indizi, una truffa.</li>
+    </ol>
+  </section>
+
+  <section class="beat">
+    <h2 class="beat-label"><span class="num">04</span>Il proverbio del Boomer</h2>
+    <figure class="proverbio">
+      <blockquote class="q">«Se non hai ordinato niente, il pacco non esiste.
+      Come i miei capelli.»</blockquote>
+      <figcaption class="who">— Cyber Boomer, lezione n.001</figcaption>
+    </figure>
+    <p class="share">✳ Portalo in giro: <a href="https://x.com/cyberboomer" rel="me noopener" target="_blank">@cyberboomer</a></p>
+  </section>
+
+</div>
+
+<footer>
+  <p><a href="../index.html">cyberboomer.ninja</a> · la voce · SYSTEMA 77</p>
+</footer>
+
+</body>
+</html>
