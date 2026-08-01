@@ -9,14 +9,15 @@
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
   :root{
-    /* Camera oscura — canone JUDY, stessa stanza del hub */
-    --bg-deep:    #0C0B0E;
-    --bg-surface: #141216;
-    --amber:      #C9A15E;
-    --amber-soft: rgba(201,161,94,.10);
-    --text-hi:    #ECE7DF;
-    --text-lo:    #A7A29B;
-    --line:       #3A3730;
+    /* La voce è MAGENTA su nero — direzione JUDY (AD), DA-JUDY cantieri 01/08.
+       Ogni casa il suo colore: voce=magenta · gioco=verde · agenzia=giallo · mito=ambra. */
+    --bg-deep:    #0C0A0C;
+    --bg-surface: #161216;
+    --voice:      #FF2E88;
+    --voice-soft: rgba(255,46,136,.09);
+    --text-hi:    #EFE6EB;
+    --text-lo:    #A89DA4;
+    --line:       #3B2E36;
     --font-mono:  'Courier Prime','Courier New','Lucida Console',monospace;
     --font-serif: 'Iowan Old Style','Palatino Linotype',Palatino,'Georgia',serif;
   }
@@ -44,14 +45,14 @@
     color:var(--text-lo); text-decoration:none; font-size:.7rem;
     letter-spacing:.28em; text-transform:uppercase;
   }
-  .masthead a:hover{ color:var(--amber); }
+  .masthead a:hover{ color:var(--voice); }
 
   header.lesson{
     padding:3.2rem 0 2.4rem; text-align:center; border-bottom:1px solid var(--line);
   }
   .serial{
     font-family:var(--font-mono); font-size:.68rem; letter-spacing:.32em;
-    text-transform:uppercase; color:var(--amber); margin-bottom:1rem;
+    text-transform:uppercase; color:var(--voice); margin-bottom:1rem;
   }
   h1{
     font-size:clamp(1.6rem,5vw,2.4rem); line-height:1.25; font-weight:600;
@@ -64,7 +65,7 @@
   section.beat{ padding:2.6rem 0 0; }
   .beat-label{
     font-family:var(--font-mono); font-size:.68rem; letter-spacing:.3em;
-    text-transform:uppercase; color:var(--amber); margin-bottom:1.1rem;
+    text-transform:uppercase; color:var(--voice); margin-bottom:1.1rem;
   }
   .beat-label .num{ opacity:.65; margin-right:.7em; }
   .prose{ color:var(--text-lo); }
@@ -92,15 +93,15 @@
   }
   ol.moves li::before{
     content:counter(mossa); position:absolute; left:1.1rem; top:1.05rem;
-    font-family:var(--font-mono); font-weight:700; font-size:1.1rem; color:var(--amber);
+    font-family:var(--font-mono); font-weight:700; font-size:1.1rem; color:var(--voice);
   }
   ol.moves li strong{ color:var(--text-hi); }
 
   /* il proverbio — la chiusa tweetabile */
   .proverbio{
     margin:3rem 0 0; padding:2rem 1.6rem; text-align:center;
-    border-top:1px solid var(--amber); border-bottom:1px solid var(--amber);
-    background:var(--amber-soft);
+    border-top:1px solid var(--voice); border-bottom:1px solid var(--voice);
+    background:var(--voice-soft);
   }
   .proverbio .q{
     font-size:clamp(1.15rem,3.4vw,1.5rem); line-height:1.5; font-style:italic;
@@ -114,9 +115,9 @@
     margin-top:1.6rem; text-align:center; font-family:var(--font-mono); font-size:.8rem;
   }
   .share a{
-    color:var(--amber); text-decoration:none; border-bottom:1px solid var(--line);
+    color:var(--voice); text-decoration:none; border-bottom:1px solid var(--line);
   }
-  .share a:hover{ border-color:var(--amber); }
+  .share a:hover{ border-color:var(--voice); }
 
   footer{
     margin-top:3.5rem; border-top:1px solid var(--line);
@@ -124,7 +125,7 @@
     font-family:var(--font-mono); color:var(--text-lo); font-size:.72rem;
     letter-spacing:.18em; text-transform:uppercase;
   }
-  footer a{ color:var(--amber); text-decoration:none; }
+  footer a{ color:var(--voice); text-decoration:none; }
 </style>
 </head>
 <body>
