@@ -1,0 +1,10 @@
+# repo pubblico due volte: quello che entra qui è in piazza (dottrina SUONO)
+.DS_Store
+Thumbs.db
+
+# ── Segreti: non dovrebbero mai arrivare qui, ma la porta si chiude lo stesso
+.env
+.env.*
+*.pem
+*.key
+.dev.vars
