@@ -1,0 +1,41 @@
+{
+  "n": "006",
+  "titolo": "Chiedi il tuo fascicolo",
+  "standfirst": "«Ma che vuoi che abbiano su di me.» Me lo sono chiesto per vent'anni. Poi ho premuto scarica, e ci ho messo un pomeriggio a finire di leggere.",
+  "x_aperto": false,
+  "trappola": {
+    "prosa": [
+      "Discussione al bar. Io faccio quello tranquillo: <em>«Sarò mica interessante. Che vuoi che abbiano su di me — la spesa e i video dei gatti.»</em>",
+      "Un ragazzo di ventidue anni mi guarda e dice una cosa che non mi aspettavo: <strong>«Scaricalo.»</strong>",
+      "«Scaricalo cosa?»",
+      "«Il tuo fascicolo. Te lo danno. È un tuo diritto.»"
+    ]
+  },
+  "davvero": {
+    "prosa": [
+      "Aveva ragione, e non era un trucco da smanettoni. Sia Google sia Meta hanno una pagina ufficiale dove <strong>ti consegnano una copia di quello che hanno</strong>: da Google si chiama <em>Takeout</em>, da Meta <em>Scarica le tue informazioni</em>. Prepari la richiesta, aspetti, ti arriva un archivio da scaricare.",
+      "Non è cortesia aziendale: è il <strong>diritto di accesso</strong>, quello di cui parlavamo nella lezione precedente. Loro hanno costruito il pulsante perché la legge dice che devono darti i dati.",
+      "Cosa c'è dentro, in concreto: le ricerche, i video, le posizioni, i messaggi, i contatti, le foto, ogni «mi piace», le pubblicità su cui hai cliccato, e liste di aziende che hanno caricato il tuo contatto senza che tu lo sapessi. <strong>Non è un file. È un archivio.</strong>",
+      "Il punto della lezione non è spaventarti: è che <em>finché non lo apri, stai indovinando.</em> Dopo che l'hai aperto, tutte le decisioni delle altre lezioni — spegni, cancella, metti la scadenza — le prendi guardando una cosa vera invece che una tua impressione."
+    ]
+  },
+  "mossa": {
+    "intro": [
+      "Si fa una volta all'anno, come il controllo della caldaia. Ci vogliono cinque minuti a chiederlo, e il resto lo fa la macchina mentre tu vivi."
+    ],
+    "passi": [
+      {"forte": "Chiedi il fascicolo a Google.", "testo": "<a href=\"https://takeout.google.com/\" rel=\"noopener\" target=\"_blank\">takeout.google.com</a>: scegli cosa vuoi (la prima volta, prendi tutto), lancia la richiesta e aspetta la mail. Non è immediato: per gli account vecchi possono volerci ore."},
+      {"forte": "Chiedi il fascicolo a Meta.", "testo": "Nelle impostazioni dell'account, alla voce <em>Scarica le tue informazioni</em>. Puoi scegliere il formato: prendi <strong>HTML</strong>, che si apre nel browser e si legge come un sito, invece del formato per programmatori."},
+      {"forte": "Aprilo con qualcuno che ti vuole bene.", "testo": "Sul serio: è più utile e fa meno paura. Cerca due cose per cominciare — <em>l'elenco degli inserzionisti che hanno il tuo contatto</em> e <em>le posizioni</em>. Sono le due cartelle che convincono chiunque a cambiare due impostazioni."}
+    ]
+  },
+  "proverbio": {
+    "testo": "Non sai cosa hanno su di te finché non lo scarichi. Dopo lo sai per sempre, e dormi meglio lo stesso."
+  },
+  "fonte": {
+    "titolo": "Guida di Account Google — «Scaricare i dati di Google» (Takeout)",
+    "url": "https://support.google.com/accounts/answer/3024190?hl=it",
+    "chi": "Le istruzioni ufficiali di Google per farsi consegnare la propria copia. Per Meta, la pagina equivalente è «Scarica le tue informazioni» dentro le impostazioni dell'account.",
+    "chi_corto": "Guida ufficiale Google"
+  }
+}

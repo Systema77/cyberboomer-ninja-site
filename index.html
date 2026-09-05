@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Boomer — la voce · cyberboomer.ninja</title>
-<meta name="description" content="La voce di Cyber Boomer: divulgazione dal 2077. Trappole digitali vere, smontate ridendo. L'educatore che diverte.">
+<meta name="description" content="Trappole digitali vere, smontate ridendo. Come funzionano i tuoi dati dentro Meta e Google, spiegato senza paroloni — con la fonte, sempre. Gratis, senza account, senza cookie.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://cyberboomer.ninja/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cyber Boomer — la voce">
+<meta property="og:description" content="Trappole digitali vere, smontate ridendo. Con la fonte, sempre.">
+<meta property="og:url" content="https://cyberboomer.ninja/">
+<meta property="og:image" content="https://cyberboomer.ninja/og-image.png">
+<meta property="og:site_name" content="Cyber Boomer">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -190,6 +200,71 @@
   .badge b{ color:var(--voice); font-weight:700; }
   footer .sig{ letter-spacing:.18em; text-transform:uppercase; }
 
+
+  /* la promessa: cosa regala, in tre gettoni, leggibile in 5 secondi */
+  .promessa{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; margin-top:2rem;
+  }
+  .promessa span{
+    font-family:var(--font-mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase;
+    border:1px solid var(--line); background:var(--bg-surface); color:var(--text-lo);
+    padding:.45em .8em;
+  }
+  .promessa b{ color:var(--voice); font-weight:700; }
+
+  /* il filo in corso */
+  .filo{
+    margin-top:1.75rem; border-left:2px solid var(--voice); padding:.2rem 0 .2rem 1.25rem;
+  }
+  .filo .et{
+    font-family:var(--font-mono); font-size:.62rem; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--voice); display:block; margin-bottom:.4rem;
+  }
+  .filo .t{ color:var(--text-hi); font-size:1.05rem; }
+
+  /* le lezioni in vetrina */
+  .vetrina{ margin-top:1.5rem; }
+  .vetrina a{
+    display:block; text-decoration:none; color:inherit; margin-bottom:.8rem;
+    background:var(--bg-surface); border:1px solid var(--line); padding:1.1rem 1.25rem;
+    transition:border-color .25s, background .25s, transform .25s;
+  }
+  .vetrina a:hover, .vetrina a:focus-visible{
+    border-color:var(--voice); background:var(--voice-soft); transform:translateY(-2px);
+  }
+  .vetrina .n{
+    font-family:var(--font-mono); font-size:.6rem; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--voice); display:block; margin-bottom:.35rem;
+  }
+  .vetrina .t{ display:block; color:var(--text-hi); font-size:1.02rem; margin-bottom:.3rem; }
+  .vetrina .d{ display:block; color:var(--text-lo); font-size:.9rem; line-height:1.5; }
+  .tutte{
+    display:inline-block; margin-top:.6rem; font-family:var(--font-mono);
+    font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--voice);
+    text-decoration:none; border-bottom:1px solid var(--line);
+  }
+  .tutte:hover, .tutte:focus-visible{ border-color:var(--voice); }
+
+  /* uno stato onesto: quello che non c'e' ancora si dice, non si promette */
+  .inarrivo{
+    margin-top:1.25rem; font-family:var(--font-mono); font-size:.72rem;
+    letter-spacing:.1em; color:var(--text-lo);
+    border:1px dashed var(--line); padding:.9rem 1.1rem;
+  }
+  .inarrivo b{ color:var(--voice); letter-spacing:.18em; text-transform:uppercase; font-size:.65rem; }
+
+  /* la costellazione: link veri */
+  .constellation a{ color:var(--text-hi); text-decoration:none; border-bottom:1px solid var(--line); }
+  .constellation a:hover, .constellation a:focus-visible{ border-color:var(--voice); color:var(--voice); }
+
+  @media (prefers-reduced-motion: reduce){
+    .vetrina a{ transition:none; }
+    .vetrina a:hover, .vetrina a:focus-visible{ transform:none; }
+    a.tool{ transition:none; }
+    a.tool:hover, a.tool:focus-visible{ transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+
   @keyframes rise{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
   @keyframes blink{ 0%,55%{ opacity:1;} 56%,100%{ opacity:0;} }
   @media (prefers-reduced-motion: reduce){
@@ -209,6 +284,11 @@
       <p><em>Adesso tocca a me spiegarti i trucchi.</em> Qui si impara a difendersi ridendo,
       perché la paura non ha mai insegnato niente a nessuno.</p>
     </div>
+    <p class="promessa">
+      <span>Trappole <b>vere</b>, smontate</span>
+      <span>Con la <b>fonte</b>, sempre</span>
+      <span><b>Gratis</b>, senza account</span>
+    </p>
     <p class="counter" aria-label="Contatore visite, scherzo retrò">
       Visite:
       <span class="digits" aria-hidden="true"><span>0</span><span>0</span><span>0</span><span>0</span><span>4</span><span>2</span></span>
@@ -244,6 +324,8 @@
       <p>Ogni lezione è una trappola vera: raccontata, spiegata come si deve
       e smontata in tre mosse. Alla fine, un proverbio da portare a casa.
       <strong>Si entra spaventati, si esce ridendo</strong> — e molto più difficili da fregare.</p>
+      <p><strong>E ogni lezione ha una fonte pubblica cliccabile.</strong> Qui si parla di aziende
+      grandi come nazioni: una cosa detta senza fonte è una chiacchiera da bar. <em>Controlla tu.</em></p>
     </div>
     <div class="beats">
       <div class="beat"><span class="n">01</span><span class="t">LA TRAPPOLA</span>
@@ -256,28 +338,59 @@
         <span class="d">Una riga da ricordare. E da citare al pranzo di Natale.</span></div>
     </div>
 
-    <a class="tool" href="lezioni/lezione-001.html">
-      <span class="t">LEZIONE N.001 — Il pacco che non aspettavi</span>
-      <span class="d">L'SMS del corriere fantasma: €1,99 di giacenza per un pacco che non esiste.
-      Come funziona la trappola, e le tre mosse per lasciarla scattare a vuoto.</span>
-      <span class="go">Entra nel dojo →</span>
-    </a>
+    <div class="filo">
+      <span class="et">✳ Il filo in corso</span>
+      <span class="t"><strong>I nostri dati e le grandi corporazioni.</strong>
+      Cosa accetti quando dici «sì», cosa regali a Meta e a Google, e che se ne fanno.
+      Cinque lezioni, cinque fonti ufficiali.</span>
+    </div>
+
+    <div class="vetrina">
+      <a href="lezioni/lezione-002.html">
+        <span class="n">Lezione n.002</span>
+        <span class="t">Il bottone che sparisce</span>
+        <span class="d">C'era un interruttore per staccare da Meta quello che fai fuori da Meta.
+        Meta ha annunciato che lo ritira. Cosa resta, e cosa no.</span>
+      </a>
+      <a href="lezioni/lezione-003.html">
+        <span class="n">Lezione n.003</span>
+        <span class="t">Google si ricorda tutto</span>
+        <span class="d">C'è una pagina con ogni cosa che hai cercato e guardato.
+        Non è di un hacker: è tua, ed è aperta. Con la scadenza da metterci.</span>
+      </a>
+      <a href="lezioni/lezione-004.html">
+        <span class="n">Lezione n.004</span>
+        <span class="t">Non ti ascoltano. È peggio.</span>
+        <span class="d">Parlo di materassi a pranzo, la sera vedo materassi.
+        Il microfono è innocente — e la spiegazione vera fa più impressione.</span>
+      </a>
+      <a class="tutte" href="lezioni/index.html">Tutte le lezioni →</a>
+    </div>
   </section>
 
   <section id="ponte-x">
     <h2 class="eyebrow">Il Boomer cinguetta</h2>
     <div class="prose">
-      <p>I proverbi escono in diretta dal 2077, un cinguettio alla volta.</p>
+      <p>Ogni proverbio è lungo quanto un cinguettio, e non è un caso:
+      nascono per essere ripetuti.</p>
     </div>
-    <p class="xbridge">✳ <a href="https://x.com/cyberboomer" rel="me noopener" target="_blank">@cyberboomer su X</a></p>
+    <p class="inarrivo"><b>In arrivo</b> — il nido del Boomer sta ancora prendendo forma.
+    Quando c'è, lo trovi scritto qui. <em>Non mettiamo link a posti che non abbiamo ancora aperto:
+    è il primo trucco che insegniamo a riconoscere.</em></p>
   </section>
 
   <section id="costellazione">
     <h2 class="eyebrow">La costellazione</h2>
+    <div class="prose">
+      <p><strong>SYSTEMA 77 costruisce, qui si spiega.</strong> Chi vende e chi spiega non
+      devono essere la stessa voce — per questo la divulgazione ha un dominio suo,
+      e <em>qui non si vende niente</em>.</p>
+    </div>
     <ul class="constellation">
-      <li><span class="k">systema77.com</span> — l'agenzia. Facciamo con l'AI quello che non hai tempo di imparare. <span class="s">✳</span></li>
-      <li><span class="k">anima.solar</span> — il mito. La versione lunga, per quelli che chiedono «ma perché?». <span class="s">✳</span></li>
-      <li><span class="k">il gioco</span> — a invito. Non cercarlo: ti trova lui. <span class="s">✳</span></li>
+      <li><a href="https://systema77.com/divulgazione.html" rel="noopener">systema77.com</a>
+        — l'agenzia. Facciamo con l'AI quello che non hai tempo di imparare. <span class="s">✳</span></li>
+      <li><a href="https://anima.solar/" rel="noopener">anima.solar</a>
+        — il mito. La versione lunga, per quelli che chiedono «ma perché?». <span class="s">✳</span></li>
     </ul>
   </section>
 

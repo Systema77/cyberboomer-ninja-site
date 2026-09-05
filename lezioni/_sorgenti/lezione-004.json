@@ -1,0 +1,37 @@
+{
+  "n": "004",
+  "titolo": "Non ti ascoltano. È peggio.",
+  "standfirst": "Parlo di materassi a pranzo, la sera vedo annunci di materassi. Il microfono è innocente — e la spiegazione vera fa più impressione.",
+  "x_aperto": false,
+  "trappola": {
+    "prosa": [
+      "Pranzo di famiglia. Mia cognata dice che le fa male la schiena, io dico che è il materasso, parte mezz'ora di dibattito sulle molle insacchettate.",
+      "La sera apro il telefono. Materassi. <strong>Materassi ovunque.</strong>",
+      "E lì parte la frase che ho detto anch'io per anni, con l'aria di quello che ha capito tutto: <em>«Hai visto? Ci ascoltano.»</em>"
+    ]
+  },
+  "davvero": {
+    "prosa": [
+      "Quasi mai. Ascoltare di nascosto milioni di persone costerebbe una montagna di soldi, lascerebbe tracce e sarebbe illegale in modo molto rumoroso. <strong>Non serve.</strong> Perché quello che hanno è più economico e funziona meglio: <em>un profilo.</em>",
+      "Il profilo è fatto di cose che hai fatto davvero: cosa hai cercato, su che siti sei passato, che video guardi, che età hai, in che zona vivi, che telefono usi. Da lì si <strong>deduce</strong>. Un uomo di cinquant'anni, in quella zona, che la settimana scorsa ha cercato «dolore lombare»: quanto vuoi scommettere che gli interessa un materasso?",
+      "Non hanno sentito il pranzo. <strong>Hanno indovinato il pranzo.</strong> E hanno indovinato anche i pranzi di altre diecimila persone come me — a mia cognata gli annunci sono arrivati per la sua strada, non per la mia.",
+      "Google chiama quel pannello <strong>«Il mio centro per gli annunci»</strong> e lì dentro puoi vedere i temi e i marchi che ti ha attaccato addosso, toglierli, o spegnere del tutto la personalizzazione. Meta ha un pannello suo, con le stesse idee dentro."
+    ]
+  },
+  "mossa": {
+    "passi": [
+      {"forte": "Guardati con i loro occhi.", "testo": "Apri <a href=\"https://myadcenter.google.com/\" rel=\"noopener\" target=\"_blank\">Il mio centro per gli annunci</a> e leggi la lista dei temi che ti hanno assegnato. È un ritratto fatto da uno che non ti ha mai visto. A volte è imbarazzante perché sbaglia; più spesso perché ci prende."},
+      {"forte": "Togli i temi che non vuoi, o spegni tutto.", "testo": "Puoi disattivare i singoli argomenti oppure disattivare in blocco gli annunci personalizzati. Attenzione all'aspettativa: <strong>gli annunci non spariscono</strong>, diventano a caso. Vedrai la stessa quantità di pubblicità, scelta peggio."},
+      {"forte": "Fai la stessa passeggiata dentro Meta.", "testo": "Nelle impostazioni account, alla voce delle preferenze pubblicitarie, trovi l'elenco degli interessi che ti attribuisce e da dove pensa di averli presi. Stessa medicina, altro ambulatorio."}
+    ]
+  },
+  "proverbio": {
+    "testo": "Non ti ascoltano: ti conoscono. E si dorme peggio, altro che materasso."
+  },
+  "fonte": {
+    "titolo": "Guida di «Il mio centro per gli annunci» — Come funzionano gli annunci personalizzati",
+    "url": "https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=it",
+    "chi": "La spiegazione ufficiale di Google, in italiano, su quali informazioni usa per scegliere cosa mostrarti e come si cambiano.",
+    "chi_corto": "Guida ufficiale Google"
+  }
+}

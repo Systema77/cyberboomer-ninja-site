@@ -1,0 +1,49 @@
+{
+  "n": "002",
+  "titolo": "Il bottone che sparisce",
+  "standfirst": "Cerco l'interruttore per staccare da Meta quello che faccio fuori da Meta. L'interruttore c'era. Meta ha annunciato che lo toglie.",
+  "x_aperto": false,
+  "trappola": {
+    "prosa": [
+      "Guardo un paio di scarpe da ginnastica su un sito qualsiasi. Non compro niente, chiudo, vado a farmi un caffè.",
+      "Torno, apro Facebook. Indovina."
+    ],
+    "scena": {
+      "tipo": "schermo",
+      "alt": "Ricostruzione di un annuncio",
+      "da": "Nel diario, fra un compleanno e un gattino",
+      "testo": "Sponsorizzato · <strong>Quelle scarpe lì</strong>\n      «Le stavi guardando. Le pensavamo anche noi.»"
+    },
+    "dopo": [
+      "Sul sito delle scarpe non ho fatto login. Non ho scritto la mia mail. Non ho messo «mi piace» a niente. <em>E allora chi glielo ha detto?</em>",
+      "Gliel'ha detto il sito. E per anni c'è stato un posto dove si poteva rispondere: <strong>no grazie.</strong>"
+    ]
+  },
+  "davvero": {
+    "prosa": [
+      "Moltissimi negozi e app installano un pezzetto di codice di Meta — si chiama <em>pixel</em>, ed è grande come un puntino invisibile. Quando ci passi, quel puntino racconta a Meta cosa hai guardato. <strong>Non serve che tu abbia Facebook aperto, e non serve che tu abbia fatto login lì.</strong>",
+      "Fino a oggi Meta offriva un'impostazione chiamata <strong>«La tua attività fuori dalle tecnologie di Meta»</strong>: serviva a <em>staccare</em> quelle informazioni dal tuo account. Il 9 giugno 2026 Meta ha annunciato che <strong>quell'impostazione viene ritirata</strong> — parole loro: «non offriremo più l'impostazione <em>Your activity off Meta technologies</em>».",
+      "Al suo posto resta un controllo che si chiama <strong>«Attività da altre aziende»</strong>. E qui sta la differenza che conta, ed è tutta in una parola: quel controllo decide se Meta <strong>usa</strong> quei dati per personalizzarti la pubblicità e i contenuti — <strong>non se quei dati le arrivano</strong>. Le aziende continuano a mandarli.",
+      "Onestà sui tempi: Meta scrive che il cambio parte «negli Stati Uniti e in alcuni altri Paesi» dal mese successivo all'annuncio, «con altri Paesi a seguire». <strong>Quando leggi questa lezione, da te può essere già cambiato oppure no.</strong> Vai a guardare: è l'unico modo di saperlo."
+    ]
+  },
+  "mossa": {
+    "intro": [
+      "Non è una battaglia persa. È una battaglia che si è spostata: se non puoi più impedire che il dato parta, puoi decidere cosa ne fanno — e puoi rendergli la vita più difficile a monte."
+    ],
+    "passi": [
+      {"forte": "Vai a vedere cosa c'è.", "testo": "Su Facebook: la tua foto in alto a destra → <em>Le tue informazioni e autorizzazioni</em> → <em>Attività da altre aziende</em>. Lì trovi l'elenco di chi ha parlato di te. La prima volta fa impressione: è il senso della lezione."},
+      {"forte": "Metti il no dove il no esiste ancora.", "testo": "Nella stessa schermata puoi cancellare l'attività passata e dire a Meta di <strong>non usare</strong> quella futura per contenuti e pubblicità. Non ferma l'invio: ferma l'uso. È quello che ti è rimasto, e vale la pena prenderlo."},
+      {"forte": "Il vero interruttore è nel browser, non dentro Meta.", "testo": "Il puntino invisibile sta sul sito del negozio, non su Facebook: un browser che blocca i traccianti di terze parti gli chiude la porta prima che bussi. È l'unica mossa che non dipende da un'impostazione che qualcuno può togliere."}
+    ]
+  },
+  "proverbio": {
+    "testo": "Quando un'azienda semplifica le impostazioni, guarda bene quale hanno semplificato via."
+  },
+  "fonte": {
+    "titolo": "Meta Newsroom — «Better Personalization and Changes to Controls for Your Activity From Other Businesses» (9 giugno 2026)",
+    "url": "https://about.fb.com/news/2026/06/better-personalization-and-changes-to-controls-for-your-activity-from-other-businesses/",
+    "chi": "L'annuncio ufficiale di Meta, scritto da Meta. Non è un'accusa di qualcuno: è il comunicato dell'azienda che dice cosa cambia. Leggilo, sono poche righe.",
+    "chi_corto": "Meta Newsroom (ufficiale)"
+  }
+}
