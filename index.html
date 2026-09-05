@@ -172,6 +172,8 @@
   /* costellazione */
   .constellation{ list-style:none; margin-top:1.5rem; font-family:var(--font-mono); font-size:.85rem; }
   .constellation li{ padding:.55rem 0; border-bottom:1px dashed var(--line); color:var(--text-lo); }
+  .constellation a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--line); }
+  .constellation a:hover .k, .constellation a:focus-visible .k{ color:var(--voice); }
   .constellation .k{ color:var(--text-hi); letter-spacing:.06em; }
   .constellation .s{ color:var(--voice); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; }
 
@@ -275,9 +277,12 @@
   <section id="costellazione">
     <h2 class="eyebrow">La costellazione</h2>
     <ul class="constellation">
-      <li><span class="k">systema77.com</span> — l'agenzia. Facciamo con l'AI quello che non hai tempo di imparare. <span class="s">✳</span></li>
-      <li><span class="k">anima.solar</span> — il mito. La versione lunga, per quelli che chiedono «ma perché?». <span class="s">✳</span></li>
-      <li><span class="k">il gioco</span> — a invito. Non cercarlo: ti trova lui. <span class="s">✳</span></li>
+      <!-- 05/09, JUDY: la costellazione era scritta, non cliccabile — da qui non si
+           andava da nessuna parte. Adesso ogni stella è una porta, come nelle altre
+           case della galassia. anima.solar oggi dice «in sviluppo»: qui si dice lo stesso. -->
+      <li><a href="https://systema77.com"><span class="k">systema77.com</span></a> — l'agenzia. Facciamo con l'AI quello che non hai tempo di imparare. <span class="s">✳</span></li>
+      <li><a href="https://animagame.io"><span class="k">animagame.io</span></a> — il gioco, a invito. Senza carta si guarda e basta. <span class="s">✳</span></li>
+      <li><a href="https://anima.solar"><span class="k">anima.solar</span></a> — in sviluppo. Quando ci sarà qualcosa da vedere, è lì. <span class="s">✳</span></li>
     </ul>
   </section>
 
