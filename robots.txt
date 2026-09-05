@@ -1,0 +1,7 @@
+# cyberboomer.ninja — la voce di SYSTEMA 77
+# Qui si spiega, non si vende. Tutto quello che c'e' e' pubblico apposta.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://cyberboomer.ninja/sitemap.xml

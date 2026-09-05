@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Il pacco che non aspettavi — Lezione n.001 · Cyber Boomer</title>
-<meta name="description" content="L&#x27;SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.">
+<title>Il dojo — Lezioni dal 2077 · Cyber Boomer</title>
+<meta name="description" content="Le lezioni del dojo: trappole digitali vere, spiegate in quattro battute. Ogni lezione ha una fonte pubblica che puoi controllare.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://cyberboomer.ninja/lezioni/lezione-001.html">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Il pacco che non aspettavi — Lezione n.001">
-<meta property="og:description" content="L&#x27;SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.">
-<meta property="og:url" content="https://cyberboomer.ninja/lezioni/lezione-001.html">
+<link rel="canonical" href="https://cyberboomer.ninja/lezioni/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Il dojo — Lezioni dal 2077">
+<meta property="og:description" content="Trappole digitali vere, spiegate in quattro battute. Con la fonte, sempre.">
+<meta property="og:url" content="https://cyberboomer.ninja/lezioni/">
 <meta property="og:image" content="https://cyberboomer.ninja/og-image.png">
 <meta property="og:site_name" content="Cyber Boomer">
 <meta name="twitter:card" content="summary_large_image">
@@ -125,68 +125,94 @@
   }
   footer a{ color:var(--voice); text-decoration:none; }
   footer a:hover, footer a:focus-visible{ border-bottom:1px solid var(--voice); }
+
+  .intro{ padding:2.6rem 0 0; }
+  .intro .prose{ color:var(--text-lo); }
+  ul.lezioni{ list-style:none; margin:2rem 0 0; }
+  ul.lezioni li{ margin-bottom:1rem; }
+  ul.lezioni a{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--bg-surface); border:1px solid var(--line);
+    padding:1.3rem 1.4rem; transition:border-color .25s, background .25s, transform .25s;
+  }
+  ul.lezioni a:hover, ul.lezioni a:focus-visible{
+    border-color:var(--voice); background:var(--voice-soft); transform:translateY(-2px);
+  }
+  ul.lezioni .n{
+    font-family:var(--font-mono); font-size:.62rem; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--voice); display:block; margin-bottom:.45rem;
+  }
+  ul.lezioni .t{ font-size:1.12rem; color:var(--text-hi); display:block; margin-bottom:.4rem; }
+  ul.lezioni .d{ font-size:.92rem; color:var(--text-lo); line-height:1.55; display:block; }
+  ul.lezioni .f{
+    display:block; margin-top:.8rem; font-family:var(--font-mono); font-size:.62rem;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--text-lo);
+  }
+  @media (prefers-reduced-motion: reduce){
+    ul.lezioni a{ transition:none; }
+    ul.lezioni a:hover, ul.lezioni a:focus-visible{ transform:none; }
+  }
 </style>
 </head>
 <body>
 
-<nav class="masthead"><a href="index.html">← Il dojo · tutte le lezioni</a></nav>
+<nav class="masthead"><a href="../index.html">← Cyber Boomer · la voce</a></nav>
 
 <div class="wrap">
 
   <header class="lesson">
-    <p class="serial">Lezione dal 2077 · n.001</p>
-    <h1>Il pacco che non aspettavi</h1>
-    <p class="standfirst">L'SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.</p>
+    <p class="serial">Il dojo</p>
+    <h1>Lezioni dal 2077</h1>
+    <p class="standfirst">Una trappola vera per volta, in quattro battute.
+    Si entra spaventati, si esce ridendo — e molto più difficili da fregare.</p>
   </header>
 
-  <section class="beat">
-    <h2 class="beat-label"><span class="num">01</span>La trappola</h2>
+  <section class="intro">
     <div class="prose">
-      <p>Sabato mattina. Sto aspettando un caricatore che ho ordinato martedì — quindi quando il telefono vibra, ci casco con tutto il ciabattino:</p>
-    </div>
-    <div class="scena" role="img" aria-label="Ricostruzione di un SMS truffa">
-      <span class="from">SMS · mittente: «DHLL-EXPRESS»</span>
-      Il tuo pacco e' in giacenza presso il nostro magazzino.
-      Per la riconsegna paga la tassa di €1,99: <span class="falso">dhll-riconsegna-24.top</span>
-    </div>
-    <div class="prose">
-      <p>Un euro e novantanove. Meno di un caffè al bar del 2077. Il dito era già a mezz'aria quando l'occhio mi è caduto sul mittente: <em>due elle</em>. Da quando i corrieri balbettano?</p>
+      <p><strong>Ogni lezione ha una fonte pubblica cliccabile.</strong> Non perché sia
+      elegante: perché qui si parla di aziende grandi come nazioni, e una cosa detta
+      senza fonte è una chiacchiera da bar. <em>Controlla tu.</em></p>
     </div>
   </section>
 
-  <section class="beat">
-    <h2 class="beat-label"><span class="num">02</span>Cos&#x27;è successo davvero</h2>
-    <div class="prose">
-      <p>Si chiama <strong>smishing</strong>: phishing via SMS, cioè pesca a strascico col telefonino. Mandano lo stesso messaggio a centinaia di migliaia di numeri; per statistica, qualcuno starà davvero aspettando un pacco. Quel giorno, io.</p>
-      <p>Il link porta a una copia quasi perfetta del sito del corriere. E qui il trucco: <strong>l'€1,99 non è il prezzo, è l'esca.</strong> Per pagarlo digiti i dati della carta — e quelli valgono molto più di due euro. Nessun corriere vero chiede soldi via SMS con un link.</p>
-    </div>
-  </section>
-
-  <section class="beat">
-    <h2 class="beat-label"><span class="num">03</span>La mossa del ninja</h2>
-    <ol class="moves">
-      <li><strong>Non toccare il link.</strong> Mai, nemmeno «solo per vedere». Il dito curioso è il migliore amico del truffatore.</li>
-      <li><strong>Vai tu dal corriere, non lui da te.</strong> Apri a mano l'app o il sito ufficiale e incolla lì il tuo numero di tracciamento. Se il pacco esiste, sta lì.</li>
-      <li><strong>Guarda il mittente come guarderesti un documento.</strong> Nomi storpiati, domini strani, urgenza e mini-cifre da pagare: tre indizi, una truffa.</li>
-    </ol>
-  </section>
-
-  <section class="beat">
-    <h2 class="beat-label"><span class="num">04</span>Il proverbio del Boomer</h2>
-    <figure class="proverbio">
-      <blockquote class="q">«Se non hai ordinato niente, il pacco non esiste. Come i miei capelli.»</blockquote>
-      <figcaption class="who">— Cyber Boomer, lezione n.001</figcaption>
-    </figure>
-  </section>
-
-
-  <div class="fonte">
-    <span class="et">✳ La fonte — controlla tu</span>
-    <a href="https://www.commissariatodips.it/notizie/articolo/sms-truffa-pacco-in-arrivo/index.html" rel="noopener" target="_blank">Polizia Postale — «SMS truffa: pacco in arrivo»</a>
-    <span class="chi">L'avviso ufficiale della Polizia Postale sulla stessa campagna di SMS. Se ci sei cascato, è anche il posto dove si segnala.</span>
-  </div>
-
-  <p class="share">✳ Portalo in giro: raccontalo a voce a qualcuno che ci sarebbe cascato. <em>Funziona meglio del retweet.</em></p>
+  <ul class="lezioni">
+    <li><a href="lezione-001.html">
+      <span class="n">Lezione n.001</span>
+      <span class="t">Il pacco che non aspettavi</span>
+      <span class="d">L'SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.</span>
+      <span class="f">Fonte: Polizia Postale</span>
+    </a></li>
+    <li><a href="lezione-002.html">
+      <span class="n">Lezione n.002</span>
+      <span class="t">Il bottone che sparisce</span>
+      <span class="d">Cerco l'interruttore per staccare da Meta quello che faccio fuori da Meta. L'interruttore c'era. Meta ha annunciato che lo toglie.</span>
+      <span class="f">Fonte: Meta Newsroom (ufficiale)</span>
+    </a></li>
+    <li><a href="lezione-003.html">
+      <span class="n">Lezione n.003</span>
+      <span class="t">Google si ricorda tutto (anche quello che hai dimenticato tu)</span>
+      <span class="d">C'è una pagina che contiene ogni cosa che hai cercato, guardato e chiesto. Non è di un hacker: è tua, ed è aperta.</span>
+      <span class="f">Fonte: Guida ufficiale Google</span>
+    </a></li>
+    <li><a href="lezione-004.html">
+      <span class="n">Lezione n.004</span>
+      <span class="t">Non ti ascoltano. È peggio.</span>
+      <span class="d">Parlo di materassi a pranzo, la sera vedo annunci di materassi. Il microfono è innocente — e la spiegazione vera fa più impressione.</span>
+      <span class="f">Fonte: Guida ufficiale Google</span>
+    </a></li>
+    <li><a href="lezione-005.html">
+      <span class="n">Lezione n.005</span>
+      <span class="t">Il «sì» che dai in tre secondi</span>
+      <span class="d">Volevo una ricetta per la parmigiana. Per arrivarci ho firmato un accordo che non ho letto, con gente che non conosco.</span>
+      <span class="f">Fonte: Garante Privacy</span>
+    </a></li>
+    <li><a href="lezione-006.html">
+      <span class="n">Lezione n.006</span>
+      <span class="t">Chiedi il tuo fascicolo</span>
+      <span class="d">«Ma che vuoi che abbiano su di me.» Me lo sono chiesto per vent'anni. Poi ho premuto scarica, e ci ho messo un pomeriggio a finire di leggere.</span>
+      <span class="f">Fonte: Guida ufficiale Google</span>
+    </a></li>
+  </ul>
 
 </div>
 
