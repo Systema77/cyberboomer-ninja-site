@@ -63,6 +63,11 @@ CSS = """
   body{
     background:var(--bg-deep); color:var(--text-hi);
     font-family:var(--font-serif); line-height:1.7; min-height:100vh; overflow-x:hidden;
+    /* la luce 2077 (JUDY, 05/09): riga al neon in cima e alba blu dal bordo alto. Ferma. */
+    border-top:2px solid transparent;
+    border-image:linear-gradient(90deg, var(--voice) 0%, rgba(92,124,255,.35) 55%, transparent 100%) 1;
+    background-image:radial-gradient(60% 38% at 50% 0%, rgba(92,124,255,.10), transparent 70%);
+    background-repeat:no-repeat;
   }
   body::before{
     content:''; position:fixed; inset:0; pointer-events:none; z-index:9998;

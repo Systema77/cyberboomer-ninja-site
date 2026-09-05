@@ -42,6 +42,13 @@
     line-height:1.6;
     min-height:100vh;
     overflow-x:hidden;
+    /* la luce 2077 (JUDY, 05/09) — uguale in tutta la galassia, col colore di
+       questa casa: una riga al neon in cima e un'alba blu dal bordo alto.
+       Ferma, alfa al 10%: il blu resta la voce, il buio resta il fondale. */
+    border-top:2px solid transparent;
+    border-image:linear-gradient(90deg, var(--voice) 0%, rgba(92,124,255,.35) 55%, transparent 100%) 1;
+    background-image:radial-gradient(60% 38% at 50% 0%, rgba(92,124,255,.10), transparent 70%);
+    background-repeat:no-repeat;
   }
 
   /* vignettatura */
@@ -74,7 +81,7 @@
     font-weight:700; letter-spacing:.12em; text-transform:uppercase;
     color:var(--text-hi); margin-bottom:.3em;
   }
-  .logo .dot{ color:var(--voice); opacity:.8; }
+  .logo .dot{ color:var(--voice); opacity:.8; text-shadow:0 0 16px rgba(92,124,255,.55); }
   /* cursore da terminale: il boomer sta ancora scrivendo */
   .logo .cursor{
     display:inline-block; width:.55em; height:1em; margin-left:.1em;
