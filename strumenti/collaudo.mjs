@@ -56,7 +56,9 @@ const CASA = {
   lessicoVietato: [
     { re: /cyberboomer\.io/gi, perche: 'il .io e\' la console privata: non si nomina sul sito pubblico' },
     { re: /\bCyberboomer\b/g,  perche: '«Cyber Boomer» si scrive in DUE parole (eccetto nel dominio)' },
-    { re: /animagame|anima\s*game/gi, perche: 'il gioco tace: nessun nome, nessun dominio' },
+    // 05/09, ordine del Direttore: il NOME del gioco si può dire (la costellazione
+    // lo dice con le sue parole); il DOMINIO no, il gioco resta a invito.
+    { re: /animagame/gi, perche: 'il gioco è a invito: il dominio non si scrive' },
     { re: /\bsocial\b/gi, perche: 'lessico vietato in casa' },
   ],
   // Dove il lessico non si applica (il dominio contiene per forza «cyberboomer»).
