@@ -50,10 +50,17 @@ node strumenti/collaudo.mjs --veloce  # solo statico, due secondi
 ```
 
 Controlla, con i numeri: colori di altre case, lessico vietato, link interni rotti,
-link esterni non dichiarati, meta obbligatorie, cookie e tracker, `prefers-reduced-motion`,
-e — aprendo davvero le pagine in un browser headless a **320 / 768 / 1600 px** —
-che nessuna pagina sbordi in orizzontale e che la console sia pulita.
+indirizzi esterni non dichiarati (dove il lettore clicca **e** dove la pagina attinge
+da sola: `src`, `url()`, `@import`, `fetch`), la fonte cliccabile su ogni scheda,
+i pesi (nessun file sopra 4 MB, niente audio/video/master), meta obbligatorie,
+cookie e tracker, `prefers-reduced-motion`, e — aprendo davvero le pagine in un
+browser headless a **320 / 768 / 1600 px** — che nessuna pagina sbordi in
+orizzontale e che la console sia pulita.
 Colori, lessico e movimento li cerca **anche in `stile.css`**, non solo negli HTML.
+
+Il browser lo cerca sul Mac, su Linux e nella cache di Playwright, oppure dove dice
+`COLLAUDO_BROWSER=/percorso`. **Se non lo trova, il collaudo completo è rosso**: non
+finge di aver guardato. Per i soli controlli statici c'è `--veloce`, e lo dichiara.
 
 Esce con codice `1` se trova anche un solo rosso. Non ha dipendenze: niente `npm install`.
 
