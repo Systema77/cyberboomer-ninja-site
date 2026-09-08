@@ -18,14 +18,17 @@ Il contenuto vive in `lezioni/_sorgenti/*.json`.
 > Modificare a mano una lezione è lavoro buttato: la prossima rigenerazione lo cancella.
 > Se una lezione va corretta, si corregge il **JSON**.
 
-Per una lezione nuova: copia un JSON esistente, cambia `n` e il contenuto, rigenera.
-Una corsa sola, che fa anche la sitemap:
+Per una lezione nuova: copia un JSON esistente per il corpo (le quattro battute), ma
+scrivila **sulla spina**: `tipo: "lezione"`, `id` (il numero, «007»), `titolo`,
+`standfirst`, `data`, `tag`, `provenienza: "casa"`, `fonte`. Il formato vecchio con
+`n` lo legge un adattatore, ma nasce senza data né tag: va bene per le sei che c'erano,
+non per le nuove. Una corsa sola, che fa anche la sitemap:
 
 ```bash
 python3 scripts/genera-tutto.py
 ```
 
-Lo schema di ogni scheda (lezione, verdetto, e i tipi che verranno) è la spina in
+Lo schema di ogni scheda (lezione, verdetto, dispensa, ascolto) è la spina in
 `scripts/comune.py`: `tipo · id · titolo · standfirst · data · tag · provenienza · fonte`.
 Le sei lezioni del formato vecchio **non si migrano**: le legge un adattatore.
 
@@ -62,8 +65,13 @@ node strumenti/collaudo.mjs
 ```
 
 Rosso = non si pubblica. Il guardiano non è un parere: apre le pagine in un browser
-vero a 320 / 768 / 1600 px e misura. Se qualcosa gli sfugge, **si aggiunge un controllo**
-al blocco `CASA` in cima al file — non si aggira.
+vero a 320 / 768 / 1600 px e misura — anche quali host la pagina chiama davvero e se
+scrive cookie. Se qualcosa gli sfugge, **si aggiunge un controllo** al blocco `CASA`
+in cima al file — non si aggira. Legge tutto ciò che Pages serve (HTML, CSS, JS, SVG,
+JSON…); `scripts/` e `strumenti/` stanno fuori dal sito grazie a `_config.yml`. Il browser lo cerca da solo (Mac,
+Linux, cache di Playwright, o `COLLAUDO_BROWSER=/percorso`): **se non lo trova, il
+collaudo completo è rosso**, non una nota. Per i soli controlli statici c'è `--veloce`,
+che lo dichiara.
 
 ## Cosa non si scrive, mai
 
@@ -92,6 +100,9 @@ solo chi è del mestiere, è sbagliata.
 
 ## Attribuzione
 
-Ogni file nuovo finisce con una riga tipo `— creato da NOME, AAAA-MM-GG`.
+Ogni file nuovo porta una riga tipo `— creato da NOME, AAAA-MM-GG`: in coda nei
+documenti, **nell'intestazione** negli script e nei fogli di stile (è così in tutti
+quelli della casa: la regola qui diceva «in coda» e nessun file la seguiva —
+corretta l'08/09 per dire ciò che si fa).
 
 — creato da FLUX, 2026-09-05

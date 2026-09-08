@@ -18,12 +18,17 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 SITO = os.path.abspath(os.path.join(QUI, ".."))
 DOMINIO = "https://cyberboomer.ninja"
 FUORI = {"404.html"}
+# Le cartelle che il sito pubblica: la radice e le stanze delle schede. Un HTML lasciato
+# altrove (una bozza, una prova) non finisce nella mappa che leggono i motori.
+DENTRO = ("lezioni", "verdetti", "dispense", "ascolti")
 
 
 def pagine():
     for radice, dirs, files in os.walk(SITO):
-        dirs[:] = sorted(d for d in dirs
-                         if not d.startswith(".") and d not in ("node_modules", "scripts", "strumenti", "_sorgenti"))
+        if radice == SITO:
+            dirs[:] = sorted(d for d in dirs if d in DENTRO)
+        else:
+            dirs[:] = []   # dentro una stanza non ci sono sottocartelle da pubblicare
         for f in sorted(files):
             if f.endswith(".html") and f not in FUORI:
                 yield os.path.join(radice, f)

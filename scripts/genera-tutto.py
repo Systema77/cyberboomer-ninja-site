@@ -6,12 +6,12 @@
 Fino all'08/09 c'erano un generatore per le lezioni e uno per la sitemap, da
 lanciare in fila e nell'ordine giusto. Adesso la corsa e' una, e fa in ordine:
 
-    0. il banco di ricco()      — se il sanitizer non passa i suoi 58 casi, non si genera
+    0. il banco di ricco()      — se il sanitizer non passa il suo banco, non si genera
     1. le LEZIONI               — lezioni/_sorgenti/*.json (formato v1, adattato al volo)
     2. i VERDETTI               — verdetti/_sorgenti/*.json: solo quelli RILETTI e firmati
-    3. L'INDICE DELLA RICERCA   — archivio.json: una riga per scheda, col testo puro
-    4. la MAPPA DEL SITO        — sitemap.xml, dai file veri
-   (5. i tipi che verranno      — dispense, ascolti: una riga ciascuno qui sotto)
+    3. le DISPENSE e gli ASCOLTI — dispense/_sorgenti, ascolti/_sorgenti (oggi vuote)
+    4. L'INDICE DELLA RICERCA   — archivio.json: una riga per scheda, col testo puro
+    5. la MAPPA DEL SITO        — sitemap.xml, dai file veri
 
 Si ferma al primo errore, e dice quale. Nessuna dipendenza: solo la libreria standard.
 
@@ -26,6 +26,8 @@ import sys
 QUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, QUI)
 
+import tipo_ascolto  # noqa: E402
+import tipo_dispensa  # noqa: E402
 import tipo_lezione  # noqa: E402
 import tipo_verdetto  # noqa: E402
 from comune import SITO, carica  # noqa: E402
@@ -44,7 +46,7 @@ def passo(nome, script):
 
 def main():
     # 0. il banco: un generatore che non si fida del proprio sanitizer non parte
-    if not passo("il banco di ricco() non passa: non si genera niente", "prova-ricco.py"):
+    if not passo("il banco di ricco() (prova-ricco.py) non passa: non si genera niente", "prova-ricco.py"):
         return 1
 
     # 1. le lezioni
@@ -58,7 +60,7 @@ def main():
     if scritti is None:
         return 1
     print(f"✓ {len(lezioni)} lezioni + l'indice del dojo")
-    for d in sorted(lezioni, key=lambda d: d["id"]):
+    for d in sorted(lezioni, key=tipo_lezione.ordine):
         print(f"  – n.{d['id']}  {d['titolo']}")
         print(f"           fonte: {d['fonte']['url']}")
 
@@ -77,18 +79,34 @@ def main():
         for nome, motivo in attesa:
             print(f"  ⏸ {nome}: {motivo}")
 
-    # 3. l'indice della ricerca: una riga per scheda, di ogni tipo, col testo puro.
+    # 3. le dispense e gli ascolti: nascono sulla spina, niente adattatore. Zero
+    #    sorgenti = zero pagine e nessun indice: non si pubblica una stanza vuota.
+    dispense = carica(tipo_dispensa.SORGENTI)
+    if dispense is None or tipo_dispensa.genera(dispense) is None:
+        return 1
+    if dispense:
+        print(f"✓ {len(dispense)} dispense + l'indice")
+    ascolti = carica(tipo_ascolto.SORGENTI)
+    if ascolti is None or tipo_ascolto.genera(ascolti) is None:
+        return 1
+    if ascolti:
+        print(f"✓ {len(ascolti)} ascolti + l'indice")
+
+    # 4. l'indice della ricerca: una riga per scheda, di ogni tipo, col testo puro.
     #    Lo legge il <script> inline dell'indice del dojo, stessa origine, per cercare
     #    anche dentro le lezioni e non solo nei titoli. Oltre le ~1500 voci questo
     #    disegno e' finito: la soglia sta nel guardiano, cosi' ce ne accorgiamo noi.
-    voci = [tipo_lezione.voce_archivio(d) for d in lezioni] + [tipo_verdetto.voce_archivio(d) for d in pubblicati]
+    voci = ([tipo_lezione.voce_archivio(d) for d in lezioni]
+            + [tipo_verdetto.voce_archivio(d) for d in pubblicati]
+            + [tipo_dispensa.voce_archivio(d) for d in dispense]
+            + [tipo_ascolto.voce_archivio(d) for d in ascolti])
     voci.sort(key=lambda v: (v["data"] or "", v["tipo"], v["id"]), reverse=True)
     with open(ARCHIVIO, "w", encoding="utf-8") as f:
         json.dump(voci, f, ensure_ascii=False, indent=1)
         f.write("\n")
     print(f"✓ archivio.json — {len(voci)} voci")
 
-    # 4. la mappa del sito, dai file che esistono adesso
+    # 5. la mappa del sito, dai file che esistono adesso
     if not passo("la sitemap non si e' rigenerata", "genera-sitemap.py"):
         return 1
     print("✓ sitemap.xml rigenerata")

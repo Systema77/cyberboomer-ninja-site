@@ -24,7 +24,7 @@ le porta sulla spina al volo, senza toccare il file. Cosa mette e perche':
 La prova che l'adattatore non altera niente: le sei pagine e l'indice escono
 BYTE-IDENTICI a quelli generati prima che esistesse (misurato l'08/09).
 
-— creato da FLUX, 2026-09-05 (come genera-lezione.py) · riorganizzato da JUDY, 2026-09-08
+— creato da FLUX, 2026-09-05 (nato come genera-lezione.py, tolto l'08/09) · riorganizzato da JUDY, 2026-09-08
 """
 
 import os
@@ -178,7 +178,22 @@ def adatta(d):
 
 def difetti_corpo(d):
     """Cio' che una lezione deve avere oltre alla spina."""
-    return [f"manca «{c}»" for c in CORPO if not d.get(c)]
+    difetti = [f"manca «{c}»" for c in CORPO if not d.get(c)]
+    if difetti:
+        return difetti
+    if not d["trappola"].get("prosa") or not d["davvero"].get("prosa"):
+        difetti.append("«trappola.prosa» e «davvero.prosa» sono elenchi di paragrafi, non vuoti")
+    passi = d["mossa"].get("passi") or []
+    if not passi or not all(isinstance(p, dict) and p.get("forte") and p.get("testo") for p in passi):
+        difetti.append("ogni passo di «mossa.passi» ha «forte» e «testo»")
+    if not d["proverbio"].get("testo"):
+        difetti.append("manca «proverbio.testo»")
+    return difetti
+
+
+def ordine(d):
+    """Le lezioni per numero: «7» prima di «10», anche se le nuove nascono a tre cifre."""
+    return (int(d["id"]) if d["id"].isdigit() else float("inf"), d["id"])
 
 
 def testo(d):
@@ -266,7 +281,7 @@ def share(x_aperto):
 
 def genera(schede):
     """Scrive le pagine e l'indice. Torna i percorsi scritti, o None se si ferma."""
-    schede = sorted(schede, key=lambda d: d["id"])
+    schede = sorted(schede, key=ordine)
     scritti, voci = [], []
 
     for d in schede:
@@ -276,7 +291,8 @@ def genera(schede):
             return None
         n = e(d["id"])
         titolo = e(d["titolo"])
-        desc = e(d["standfirst"])
+        # nelle meta (description, og:) va il testo puro: senza tag, entita' sciolte
+        desc = e(piano(d["standfirst"]))
         url = f"{DOMINIO}/lezioni/lezione-{n}.html"
         pr = d["provenienza"]
         try:

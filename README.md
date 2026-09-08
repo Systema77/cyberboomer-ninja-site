@@ -21,14 +21,20 @@ lezioni/index.html    il dojo — l'indice delle lezioni, con la ricerca  ← GE
 lezioni/lezione-*.html  le lezioni                          ← GENERATE
 lezioni/_sorgenti/*.json  il contenuto delle lezioni        ← QUI SI SCRIVE
 404.html · robots.txt · sitemap.xml · favicon.svg · og-image.png
+_config.yml           cosa Pages NON serve: scripts/, strumenti/, i manuali
 scripts/genera-tutto.py   LA CORSA: tutte le schede, gli indici, la sitemap
 scripts/comune.py         il tronco: la spina dello schema, ricco(), head, piede
 scripts/tipo_lezione.py   il tipo lezione: adattatore del formato v1 + le pagine
 scripts/tipo_verdetto.py  il tipo verdetto: pubblica solo ciò che è stato riletto e firmato
+scripts/tipo_dispensa.py  il tipo dispensa: un PDF in dispense/file/ con una scheda davanti
+scripts/tipo_ascolto.py   il tipo ascolto: audio fuori da git, trascrizione in pagina
 scripts/porta-verdetti.py porta i verdetti KIROSHI da anima-console (lo lancia una persona)
+scripts/genera-sitemap.py la mappa del sito (la corsa lo chiama; si può lanciare da solo)
+scripts/genera-og-image.mjs  l'immagine che si vede incollando il link (a mano, dal Mac)
 scripts/prova-ricco.py    il banco dei casi cattivi di ricco()
 strumenti/collaudo.mjs    il guardiano
 verdetti/_sorgenti/       i verdetti importati, in attesa di rilettura (non serviti)
+dispense/_sorgenti/ · dispense/file/ · ascolti/_sorgenti/   nascono col primo contenuto
 ```
 
 **I verdetti non si rispecchiano: si riscrivono.** `porta-verdetti.py` li porta da
@@ -64,8 +70,16 @@ node    scripts/genera-og-image.mjs   # l'immagine che si vede incollando il lin
 ```
 
 `genera-tutto.py` si ferma al primo errore e dice quale: una scheda senza fonte, un
-tag fuori dalla allowlist, un JSON rotto. Non esiste più un generatore per tipo da
-lanciare a mano nell'ordine giusto.
+tag fuori dalla allowlist, un JSON rotto. Il generatore delle lezioni da lanciare a
+parte non c'è più; la sitemap la fa ancora `genera-sitemap.py`, ma è la corsa a
+chiamarlo per ultimo, sui file che esistono davvero.
+
+**Le dispense** sono PDF nel repo (`dispense/file/`, tetto 4 MB a file, 200 MB la
+cartella) con una scheda davanti che dice il peso prima del clic: mai `<embed>`. Una
+versione nuova è un file nuovo (`-v2`). **Gli ascolti** hanno l'audio fuori da git,
+su un host dichiarato in `hostMediaAmmessi` del guardiano, e la trascrizione intera
+in pagina: senza trascrizione non si generano. Entrambe le stanze nascono col primo
+contenuto: zero sorgenti, zero pagine, nessun indice vuoto.
 
 **La ricerca** è un campo sull'indice del dojo che compare solo se c'è JavaScript:
 senza, l'elenco è già tutto in pagina. Il JS filtra nascondendo le voci e legge
@@ -80,14 +94,26 @@ node strumenti/collaudo.mjs           # completo: statico + browser vero
 node strumenti/collaudo.mjs --veloce  # solo statico, due secondi
 ```
 
-Controlla, con i numeri: colori di altre case, lessico vietato, link interni rotti,
-indirizzi esterni non dichiarati (dove il lettore clicca **e** dove la pagina attinge
-da sola: `src`, `url()`, `@import`, `fetch`), la fonte cliccabile su ogni scheda,
-i pesi (nessun file sopra 4 MB, niente audio/video/master), meta obbligatorie,
-cookie e tracker, `prefers-reduced-motion`, e — aprendo davvero le pagine in un
-browser headless a **320 / 768 / 1600 px** — che nessuna pagina sbordi in
-orizzontale e che la console sia pulita.
-Colori, lessico e movimento li cerca **anche in `stile.css`**, non solo negli HTML.
+Controlla, con i numeri: colori di altre case (anche scritti in `rgb()` o nascosti in
+un data-URI), lessico vietato (anche scritto a entità o con caratteri invisibili in
+mezzo), link interni rotti, indirizzi esterni non dichiarati — tre regole per tre
+posti: dove il lettore **clicca** (`<a href>`), dove la pagina **attinge da sola**
+(`src`, `srcset`, `href` di `<link>`, `action`, `poster`, `url()`, `@import`, qualunque
+URL dentro uno `<script>`), dove si **nomina** soltanto — la fonte cliccabile dentro
+il blocco `.fonte` di ogni scheda, i pesi (nessun file sopra 4 MB, niente audio/video/
+master), meta obbligatorie (non nei commenti), cookie e tracker, `prefers-reduced-motion`.
+Legge **tutto ciò che Pages serve**: HTML, CSS, JS, SVG, JSON, XML, TXT, con qualunque
+maiuscola nell'estensione; `scripts/` e `strumenti/` no, perché `_config.yml` li toglie
+dal sito.
+
+Poi — aprendo davvero le pagine in un browser headless a **320 / 768 / 1600 px** —
+misura che nessuna pagina sbordi in orizzontale, che la console sia pulita, **quali
+host la pagina chiama davvero** (rete intercettata: un URL costruito a pezzi in uno
+script non sfugge qui) e che **non scriva cookie**.
+
+Il guardiano è stato messo alla prova l'08/09 da una revisione avversaria con 95 casi:
+21 modi di passare in verde violando le regole. La meccanica è stata riscritta su quei
+casi, che restano il suo banco.
 
 Il browser lo cerca sul Mac, su Linux e nella cache di Playwright, oppure dove dice
 `COLLAUDO_BROWSER=/percorso`. **Se non lo trova, il collaudo completo è rosso**: non

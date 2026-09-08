@@ -1,0 +1,19 @@
+# _config.yml — cosa GitHub Pages NON deve servire di questo repo.
+#
+# Pages passa il repo da Jekyll: le cartelle che cominciano con «_» restano fuori da
+# sole (per questo le sorgenti stanno in `_sorgenti/`), ma `scripts/` e `strumenti/`
+# no: fino all'08/09 erano online, con dentro il guardiano che per forza nomina i
+# colori vietati, e il guardiano stesso non li leggeva. Qui si tolgono dal sito.
+#
+# ⚠️ Da misurare dal runner dopo la prima pubblicazione (prova-porta.yml, anima-console):
+#    https://cyberboomer.ninja/strumenti/collaudo.mjs deve rispondere 404.
+#    Finche' non e' misurato, e' una dichiarazione.
+#
+# — creato da JUDY, 2026-09-08
+exclude:
+  - scripts
+  - strumenti
+  - node_modules
+  - README.md
+  - CLAUDE.md
+  - .gitignore
