@@ -146,6 +146,26 @@ footer.firma a:hover, footer.firma a:focus-visible{ border-bottom:1px solid var(
 /* l'indice del dojo */
 .intro{ padding:2.6rem 0 0; }
 .intro .prose{ color:var(--text-lo); }
+/* la ricerca: un campo solo, e compare solo se c'e' JavaScript a farlo funzionare */
+.cerca{ margin:2rem 0 0; }
+.cerca label{
+  display:block; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--voice); margin-bottom:.5rem;
+}
+.cerca input{
+  width:100%; appearance:none; -webkit-appearance:none; border-radius:0;
+  background:var(--bg-surface); border:1px solid var(--line); color:var(--text-hi);
+  font:inherit; font-size:1rem; padding:.8rem 1rem;
+}
+.cerca input::placeholder{ color:var(--text-lo); opacity:.7; }
+.cerca input:focus{ outline:none; border-color:var(--voice); }
+.cerca .esito{ margin-top:.8rem; color:var(--text-lo); font-size:.92rem; }
+.cerca button{
+  font:inherit; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--voice); background:none; border:1px solid var(--line);
+  padding:.4em .8em; cursor:pointer; margin-left:.4em;
+}
+.cerca button:hover, .cerca button:focus-visible{ border-color:var(--voice); }
 ul.lezioni{ list-style:none; margin:2rem 0 0; }
 ul.lezioni li{ margin-bottom:1rem; }
 ul.lezioni a{

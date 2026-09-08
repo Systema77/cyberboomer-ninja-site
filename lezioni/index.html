@@ -37,38 +37,50 @@
     </div>
   </section>
 
+  <!-- La ricerca: compare solo se c'è JavaScript. Senza, l'elenco è già tutto qui sotto
+       e non c'è niente da cercare che non si veda. Il JS filtra nascondendo le voci,
+       non ne carica altre: legge /archivio.json (stessa origine) per cercare anche
+       dentro il testo delle lezioni, non solo nei titoli. -->
+  <form class="cerca" role="search" hidden>
+    <label for="cerca-q">✳ Cerca nel dojo</label>
+    <input id="cerca-q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="una parola: SMS, Google, cookie, pacco…">
+    <p class="esito" hidden>Nessuna lezione con «<span></span>».
+      <button type="button">Mostra tutte</button></p>
+  </form>
+
   <ul class="lezioni">
-    <li><a href="lezione-001.html">
+    <li data-voce="lezione-001"><a href="lezione-001.html">
       <span class="n">Lezione n.001</span>
       <span class="t">Il pacco che non aspettavi</span>
       <span class="d">L'SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.</span>
       <span class="f">Fonte: Polizia Postale</span>
     </a></li>
-    <li><a href="lezione-002.html">
+    <li data-voce="lezione-002"><a href="lezione-002.html">
       <span class="n">Lezione n.002</span>
       <span class="t">Il bottone che sparisce</span>
       <span class="d">Cerco l'interruttore per staccare da Meta quello che faccio fuori da Meta. L'interruttore c'era. Meta ha annunciato che lo toglie.</span>
       <span class="f">Fonte: Meta Newsroom (ufficiale)</span>
     </a></li>
-    <li><a href="lezione-003.html">
+    <li data-voce="lezione-003"><a href="lezione-003.html">
       <span class="n">Lezione n.003</span>
       <span class="t">Google si ricorda tutto (anche quello che hai dimenticato tu)</span>
       <span class="d">C'è una pagina che contiene ogni cosa che hai cercato, guardato e chiesto. Non è di un hacker: è tua, ed è aperta.</span>
       <span class="f">Fonte: Guida ufficiale Google</span>
     </a></li>
-    <li><a href="lezione-004.html">
+    <li data-voce="lezione-004"><a href="lezione-004.html">
       <span class="n">Lezione n.004</span>
       <span class="t">Non ti ascoltano. È peggio.</span>
       <span class="d">Parlo di materassi a pranzo, la sera vedo annunci di materassi. Il microfono è innocente — e la spiegazione vera fa più impressione.</span>
       <span class="f">Fonte: Guida ufficiale Google</span>
     </a></li>
-    <li><a href="lezione-005.html">
+    <li data-voce="lezione-005"><a href="lezione-005.html">
       <span class="n">Lezione n.005</span>
       <span class="t">Il «sì» che dai in tre secondi</span>
       <span class="d">Volevo una ricetta per la parmigiana. Per arrivarci ho firmato un accordo che non ho letto, con gente che non conosco.</span>
       <span class="f">Fonte: Garante Privacy</span>
     </a></li>
-    <li><a href="lezione-006.html">
+    <li data-voce="lezione-006"><a href="lezione-006.html">
       <span class="n">Lezione n.006</span>
       <span class="t">Chiedi il tuo fascicolo</span>
       <span class="d">«Ma che vuoi che abbiano su di me.» Me lo sono chiesto per vent'anni. Poi ho premuto scarica, e ci ho messo un pomeriggio a finire di leggere.</span>
@@ -81,6 +93,34 @@
 <footer class="firma">
   <p><a href="../index.html">cyberboomer.ninja</a> · la voce · SYSTEMA 77</p>
 </footer>
+
+<script>
+(function () {
+  var form = document.querySelector('form.cerca');
+  var q = document.getElementById('cerca-q');
+  var voci = [].slice.call(document.querySelectorAll('ul.lezioni li'));
+  var esito = form.querySelector('.esito');
+  var testi = {};
+  function norma(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  function filtra() {
+    var k = norma(q.value.trim()), n = 0;
+    voci.forEach(function (li) {
+      var t = norma(li.textContent + ' ' + (testi[li.getAttribute('data-voce')] || ''));
+      var ok = !k || t.indexOf(k) > -1;
+      li.hidden = !ok; if (ok) n++;
+    });
+    esito.querySelector('span').textContent = q.value.trim();
+    esito.hidden = !(k && n === 0);
+  }
+  form.addEventListener('submit', function (ev) { ev.preventDefault(); });
+  q.addEventListener('input', filtra);
+  esito.querySelector('button').addEventListener('click', function () { q.value = ''; filtra(); q.focus(); });
+  fetch('/archivio.json').then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (v) { v.forEach(function (x) { testi[x.tipo + '-' + x.id] = x.testo; }); filtra(); })
+    .catch(function () {});
+  form.hidden = false;
+})();
+</script>
 
 </body>
 </html>
