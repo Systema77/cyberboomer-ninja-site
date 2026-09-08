@@ -16,7 +16,8 @@ Pubblicato con GitHub Pages su `main`, path `/`.
 ```
 index.html            la home
 stile.css             IL VESTITO — uno per tutta la casa, linkato da ogni pagina
-lezioni/index.html    il dojo — l'indice delle lezioni      ← GENERATO
+archivio.json         l'indice della ricerca: una riga per scheda   ← GENERATO
+lezioni/index.html    il dojo — l'indice delle lezioni, con la ricerca  ← GENERATO
 lezioni/lezione-*.html  le lezioni                          ← GENERATE
 lezioni/_sorgenti/*.json  il contenuto delle lezioni        ← QUI SI SCRIVE
 404.html · robots.txt · sitemap.xml · favicon.svg · og-image.png
@@ -53,6 +54,12 @@ node    scripts/genera-og-image.mjs   # l'immagine che si vede incollando il lin
 `genera-tutto.py` si ferma al primo errore e dice quale: una scheda senza fonte, un
 tag fuori dalla allowlist, un JSON rotto. Non esiste più un generatore per tipo da
 lanciare a mano nell'ordine giusto.
+
+**La ricerca** è un campo sull'indice del dojo che compare solo se c'è JavaScript:
+senza, l'elenco è già tutto in pagina. Il JS filtra nascondendo le voci e legge
+`archivio.json` (stessa origine, nessuno script esterno) per cercare anche dentro il
+testo delle lezioni. Oltre le 1500 voci il guardiano diventa rosso: quel disegno è
+finito e si riprogetta, non si alza il tetto.
 
 ## Il guardiano — si lancia PRIMA di ogni push
 

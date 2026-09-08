@@ -163,6 +163,13 @@ def e(t):
     return html.escape(str(t), quote=True)
 
 
+def piano(t):
+    """Testo puro da un testo con marcatura: via i tag, sciolte le entita', un solo
+    spazio fra le parole. Serve all'indice della ricerca, non alle pagine."""
+    t = _TAG.sub(" ", str(t))
+    return " ".join(html.unescape(t).split())
+
+
 def _tag_ammesso(tag):
     m = _CHIUSURA.match(tag)
     if m:

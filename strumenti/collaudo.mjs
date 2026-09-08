@@ -93,12 +93,18 @@ const CASA = {
 
   // Quello che un sito pubblico deve avere.
   fileObbligatori: ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.svg',
-                    'og-image.png', 'README.md', 'CLAUDE.md', 'lezioni/index.html', 'stile.css'],
+                    'og-image.png', 'README.md', 'CLAUDE.md', 'lezioni/index.html', 'stile.css',
+                    'archivio.json'],
 
   // Le cartelle delle SCHEDE generate: ogni pagina che ci sta dentro (tranne l'indice)
   // porta una fonte pubblica cliccabile. La regola nasce per le lezioni e vale per
   // ogni tipo che verra' — dispense, ascolti, verdetti — perche' e' la stessa regola.
   schede: ['lezioni', 'dispense', 'ascolti', 'verdetti'],
+
+  // LA RICERCA. L'indice e' un JSON generato che il <script> inline dell'indice del dojo
+  // legge per intero: oltre le ~1500 voci questo disegno e' finito, e ce ne dobbiamo
+  // accorgere noi prima dei lettori. Ogni voce deve puntare a una pagina che esiste.
+  ricerca: { indice: 'archivio.json', tettoVoci: 1500 },
 
   // I PESI. Un repo pubblico non dimentica: un file da 60 MB committato e tolto il
   // giorno dopo resta scaricabile per sempre da chi conosce il commit. Il tetto di
@@ -271,6 +277,23 @@ function statici() {
     }
   }
   if (!senzaFonte) ok('fonte: ogni scheda ne porta una cliccabile', `${schedeViste} schede in ${CASA.schede.filter(c => existsSync(join(CASA_DIR, c))).join(', ')}`);
+
+  // l'indice della ricerca: c'e', e' JSON, sta sotto il tetto, ogni voce punta a una pagina vera
+  {
+    const f = join(CASA_DIR, CASA.ricerca.indice);
+    let voci = null, guasti = 0;
+    if (!existsSync(f)) { male(`ricerca: manca ${CASA.ricerca.indice}`, 'lo scrive scripts/genera-tutto.py'); guasti++; }
+    else {
+      try { voci = JSON.parse(readFileSync(f, 'utf8')); } catch (err) { male(`ricerca: ${CASA.ricerca.indice} non e' JSON`, String(err.message).slice(0, 80)); guasti++; }
+    }
+    if (Array.isArray(voci)) {
+      if (voci.length > CASA.ricerca.tettoVoci) { male(`ricerca: ${voci.length} voci, oltre il tetto di ${CASA.ricerca.tettoVoci}`, 'il disegno «tutto in un JSON, filtro in pagina» e\' finito: si riprogetta, non si alza il tetto'); guasti++; }
+      for (const v of voci) {
+        if (!v.url || !existsSync(join(CASA_DIR, String(v.url).replace(/^\/+/, '')))) { male(`ricerca: voce ${v.tipo}-${v.id} punta a una pagina che non c'e'`, String(v.url)); guasti++; }
+      }
+      if (!guasti) ok('ricerca: indice sano', `${voci.length} voci · tetto ${CASA.ricerca.tettoVoci}`);
+    }
+  }
 
   // i pesi, e i formati che qui non entrano
   const tuttiIFile = (dir = CASA_DIR, out = []) => {

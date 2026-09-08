@@ -29,7 +29,7 @@ BYTE-IDENTICI a quelli generati prima che esistesse (misurato l'08/09).
 
 import os
 
-from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, ricco, testa
+from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, piano, ricco, testa
 
 SORGENTI = os.path.join(SITO, "lezioni", "_sorgenti")
 USCITA = os.path.join(SITO, "lezioni")
@@ -100,6 +100,18 @@ __TESTA__
     </div>
   </section>
 
+  <!-- La ricerca: compare solo se c'è JavaScript. Senza, l'elenco è già tutto qui sotto
+       e non c'è niente da cercare che non si veda. Il JS filtra nascondendo le voci,
+       non ne carica altre: legge /archivio.json (stessa origine) per cercare anche
+       dentro il testo delle lezioni, non solo nei titoli. -->
+  <form class="cerca" role="search" hidden>
+    <label for="cerca-q">✳ Cerca nel dojo</label>
+    <input id="cerca-q" type="search" autocomplete="off" spellcheck="false"
+           placeholder="una parola: SMS, Google, cookie, pacco…">
+    <p class="esito" hidden>Nessuna lezione con «<span></span>».
+      <button type="button">Mostra tutte</button></p>
+  </form>
+
   <ul class="lezioni">
 __VOCI__
   </ul>
@@ -107,6 +119,34 @@ __VOCI__
 </div>
 
 __FIRMA__
+
+<script>
+(function () {
+  var form = document.querySelector('form.cerca');
+  var q = document.getElementById('cerca-q');
+  var voci = [].slice.call(document.querySelectorAll('ul.lezioni li'));
+  var esito = form.querySelector('.esito');
+  var testi = {};
+  function norma(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, ''); }
+  function filtra() {
+    var k = norma(q.value.trim()), n = 0;
+    voci.forEach(function (li) {
+      var t = norma(li.textContent + ' ' + (testi[li.getAttribute('data-voce')] || ''));
+      var ok = !k || t.indexOf(k) > -1;
+      li.hidden = !ok; if (ok) n++;
+    });
+    esito.querySelector('span').textContent = q.value.trim();
+    esito.hidden = !(k && n === 0);
+  }
+  form.addEventListener('submit', function (ev) { ev.preventDefault(); });
+  q.addEventListener('input', filtra);
+  esito.querySelector('button').addEventListener('click', function () { q.value = ''; filtra(); q.focus(); });
+  fetch('/archivio.json').then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (v) { v.forEach(function (x) { testi[x.tipo + '-' + x.id] = x.testo; }); filtra(); })
+    .catch(function () {});
+  form.hidden = false;
+})();
+</script>
 
 </body>
 </html>
@@ -139,6 +179,26 @@ def adatta(d):
 def difetti_corpo(d):
     """Cio' che una lezione deve avere oltre alla spina."""
     return [f"manca «{c}»" for c in CORPO if not d.get(c)]
+
+
+def testo(d):
+    """Tutto il testo della lezione, in un pezzo solo: e' quello in cui la ricerca cerca."""
+    pezzi = list(d["trappola"].get("prosa", [])) + list(d["trappola"].get("dopo", []))
+    if d["trappola"].get("scena"):
+        pezzi.append(d["trappola"]["scena"].get("testo", ""))
+    pezzi += list(d["davvero"].get("prosa", [])) + list(d["mossa"].get("intro", []))
+    pezzi += [f'{p.get("forte", "")} {p.get("testo", "")}' for p in d["mossa"].get("passi", [])]
+    pezzi += [d["proverbio"].get("testo", ""), d["fonte"].get("chi", "")]
+    return " ".join(pezzi)
+
+
+def voce_archivio(d):
+    """La riga di questa lezione nell'indice della ricerca (/archivio.json)."""
+    return {
+        "tipo": "lezione", "id": d["id"], "url": f"/lezioni/lezione-{d['id']}.html",
+        "titolo": d["titolo"], "standfirst": piano(d["standfirst"]),
+        "tag": d["tag"], "data": d["data"], "testo": piano(testo(d)),
+    }
 
 
 # ————————————————————————————————— il corpo ————————————————————————————————
@@ -244,7 +304,7 @@ def genera(schede):
         scritti.append(dest)
 
         voci.append(
-            f'    <li><a href="lezione-{n}.html">\n'
+            f'    <li data-voce="lezione-{n}"><a href="lezione-{n}.html">\n'
             f'      <span class="n">Lezione n.{n}</span>\n'
             f'      <span class="t">{titolo}</span>\n'
             f'      <span class="d">{ricco(d["standfirst"], pr)}</span>\n'
