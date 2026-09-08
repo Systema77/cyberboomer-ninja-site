@@ -4,6 +4,32 @@ Thumbs.db
 # lo lascia Python quando un generatore importa scripts/comune.py
 __pycache__/
 
+# ── Audio, video e master NON entrano in git ────────────────────────────────
+# Git non dimentica: un episodio da 60 MB committato e tolto il giorno dopo resta
+# scaricabile per sempre da chiunque conosca il commit, su un repo pubblico. Gli
+# ascolti vivono su un host media dichiarato nel blocco CASA del guardiano; qui
+# entrano solo la pagina e la trascrizione. Il guardiano controlla la stessa cosa
+# (pesi.estensioniVietate): due serrature, perché una sola si dimentica.
+# ⚠️ Se un giorno serve, NON si toglie una riga: si discute prima.
+*.mp3
+*.m4a
+*.wav
+*.aac
+*.flac
+*.mp4
+*.mov
+*.webm
+*.tif
+*.tiff
+*.psd
+*.raw
+*.cr2
+*.nef
+*.dng
+
+# ── Gli attrezzi dei guardiani, non il sito
+node_modules/
+
 # ── Segreti: non dovrebbero mai arrivare qui, ma la porta si chiude lo stesso
 .env
 .env.*

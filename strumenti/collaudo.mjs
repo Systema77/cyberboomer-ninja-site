@@ -11,9 +11,12 @@
  *      non devono esserci: colori di altre case, parole vietate, link a posti che
  *      non esistono o che non abbiamo aperto, file obbligatori di un sito pubblico.
  *
- *   ② VIVO — apre davvero le pagine in un browser headless (Chrome o Brave, quello
- *      che c'e' sul Mac) a 320, 768 e 1600 px e guarda due cose che nessun grep
+ *   ② VIVO — apre davvero le pagine in un browser headless (Chrome, Brave o Chromium:
+ *      quello che trova sul Mac, su Linux, nella cache di Playwright, o dove dice
+ *      COLLAUDO_BROWSER) a 320, 768 e 1600 px e guarda due cose che nessun grep
  *      puo' vedere: se la pagina sborda in orizzontale e se la console e' pulita.
+ *      Se un browser NON c'e', il collaudo completo e' ROSSO: «non ho guardato» non
+ *      e' un verde. Per i soli controlli statici c'e' --veloce, e lo dice.
  *
  * PERCHE' NON HA DIPENDENZE. Niente `npm install`: usa il protocollo di debug del
  * browser via WebSocket, che Node ha di serie dalla 22. Un collaudo che per girare
@@ -73,6 +76,16 @@ const CASA = {
     'https://takeout.google.com/',
   ],
 
+  // Chi puo' SERVIRCI file da fuori — audio, immagini, PDF, fogli, script — cioe' tutto
+  // cio' che una pagina carica da sola con src=, url(), @import, fetch(). E' un'altra
+  // cosa da un link su cui il lettore sceglie di cliccare: qui la pagina attinge senza
+  // chiedere. Oggi VUOTO: gli ascolti avranno un host media, e si scrivera' qui prima.
+  hostMediaAmmessi: [],
+
+  // Indirizzi che compaiono ma non sono destinazioni: identificatori dentro un data-URI
+  // (lo spazio dei nomi SVG della grana). Non vengono mai scaricati.
+  spazioNomi: ['http://www.w3.org/'],
+
   // Link che NON devono comparire finche' qualcuno non li verifica.
   linkNonAncoraAperti: [
     { re: /x\.com\/cyberboomer/gi, perche: 'l\'account X non e\' stato verificato da ROGUE: fino ad allora si scrive «in arrivo»' },
@@ -81,6 +94,22 @@ const CASA = {
   // Quello che un sito pubblico deve avere.
   fileObbligatori: ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.svg',
                     'og-image.png', 'README.md', 'CLAUDE.md', 'lezioni/index.html', 'stile.css'],
+
+  // Le cartelle delle SCHEDE generate: ogni pagina che ci sta dentro (tranne l'indice)
+  // porta una fonte pubblica cliccabile. La regola nasce per le lezioni e vale per
+  // ogni tipo che verra' — dispense, ascolti, verdetti — perche' e' la stessa regola.
+  schede: ['lezioni', 'dispense', 'ascolti', 'verdetti'],
+
+  // I PESI. Un repo pubblico non dimentica: un file da 60 MB committato e tolto il
+  // giorno dopo resta scaricabile per sempre da chi conosce il commit. Il tetto di
+  // GitHub non e' il vincolo — la cronologia lo e'.
+  pesi: {
+    tettoFile: 4 * 1024 * 1024,                    // nessun file sopra i 4 MB (una dispensa PDF ci sta)
+    cartelle: { 'dispense/file': 200 * 1024 * 1024 }, // e la cartella delle dispense sotto i 200 MB
+    // formati che qui non entrano MAI: vivono fuori da git (seconda serratura, la prima e' .gitignore)
+    estensioniVietate: ['.mp3', '.m4a', '.wav', '.aac', '.flac', '.mp4', '.mov', '.webm',
+                        '.tif', '.tiff', '.psd', '.raw', '.cr2', '.nef', '.dng'],
+  },
 
   // Meta obbligatorie su ogni pagina che il pubblico puo' aprire.
   metaObbligatorie: [
@@ -194,21 +223,76 @@ function statici() {
   }
   if (!rotti) ok('link interni: tutti risolvono', `${controllati} controllati`);
 
-  // link esterni: solo quelli ammessi
-  let fuoriElenco = 0;
-  for (const p of html) {
+  // indirizzi esterni: tre porte, tre elenchi. Una pagina esce da casa in tre modi e
+  // fino all'08/09 il guardiano ne guardava uno solo (<a href>): un <audio src="https://…">
+  // sarebbe passato con rapporto verde (rischio 5 del piano).
+  const diCasa = u => u.startsWith(CASA.dominio);
+  const inElenco = (u, elenco) => elenco.some(a => u.startsWith(a));
+  const URL_ = String.raw`https?:\/\/[^\s"'<>)]+`;
+  let fuoriElenco = 0, attinti = 0, nominati = 0;
+  for (const p of tutte) {
     const t = readFileSync(p, 'utf8');
-    // solo i link su cui il lettore puo' cliccare: <a href>. Il canonical e og:url
-    // sono l'indirizzo di casa propria, non una destinazione.
-    for (const m of t.matchAll(/<a\b[^>]*\bhref="(https?:\/\/[^"]+)"/g)) {
-      const u = m[1];
-      if (u.startsWith(CASA.dominio)) continue;
-      if (!CASA.linkAmmessi.some(a => u.startsWith(a))) {
-        male(`link esterno non dichiarato in ${rel(p)}`, u); fuoriElenco++;
-      }
+    // ① dove il LETTORE clicca: <a href> → linkAmmessi
+    for (const m of t.matchAll(new RegExp(String.raw`<a\b[^>]*\bhref="(${URL_})"`, 'g'))) {
+      if (!diCasa(m[1]) && !inElenco(m[1], CASA.linkAmmessi)) { male(`link esterno non dichiarato in ${rel(p)}`, m[1]); fuoriElenco++; }
+    }
+    // ② dove la PAGINA attinge da sola: src= poster= data= url() @import fetch() WebSocket() → hostMediaAmmessi
+    const attingono = [
+      new RegExp(String.raw`\b(?:src|poster|data)="(${URL_})"`, 'g'),
+      new RegExp(String.raw`url\(\s*["']?(${URL_})`, 'g'),
+      new RegExp(String.raw`@import\s+(?:url\()?["']?(${URL_})`, 'g'),
+      new RegExp(String.raw`\b(?:fetch|WebSocket|XMLHttpRequest|import)\(\s*["'](${URL_})`, 'g'),
+    ];
+    for (const re of attingono) for (const m of t.matchAll(re)) {
+      attinti++;
+      if (!diCasa(m[1]) && !inElenco(m[1], CASA.hostMediaAmmessi)) { male(`la pagina attinge da un host non dichiarato in ${rel(p)}`, m[1]); fuoriElenco++; }
+    }
+    // un indirizzo senza schema («//host/…») e' esterno e sfugge a tutto: qui non si scrive
+    for (const m of t.matchAll(/\b(?:src|href|poster)="(\/\/[^"]+)"/g)) { male(`indirizzo senza schema in ${rel(p)}`, m[1]); fuoriElenco++; }
+    // ③ tutto il resto (meta, canonical, testo, commenti): deve stare in UNO degli elenchi
+    for (const m of t.matchAll(new RegExp(URL_, 'g'))) {
+      nominati++;
+      const u = m[0];
+      if (diCasa(u) || inElenco(u, CASA.linkAmmessi) || inElenco(u, CASA.hostMediaAmmessi) || inElenco(u, CASA.spazioNomi)) continue;
+      male(`indirizzo esterno non dichiarato in ${rel(p)}`, u); fuoriElenco++;
     }
   }
-  if (!fuoriElenco) ok('link esterni: tutti dichiarati nel blocco CASA');
+  if (!fuoriElenco) ok('indirizzi esterni: tutti dichiarati nel blocco CASA', `${nominati} nominati · ${attinti} attinti dalla pagina (src/url/@import/fetch)`);
+
+  // la fonte su ogni scheda, qualunque sia il tipo
+  let senzaFonte = 0, schedeViste = 0;
+  for (const cartella of CASA.schede) {
+    const dir = join(CASA_DIR, cartella);
+    if (!existsSync(dir)) continue;
+    for (const p of html.filter(x => x.startsWith(dir + sep) && !x.endsWith(sep + 'index.html'))) {
+      schedeViste++;
+      const t = readFileSync(p, 'utf8');
+      if (!/class="fonte"[\s\S]*?<a\b[^>]*\bhref="https?:\/\//.test(t)) { male(`scheda senza fonte cliccabile: ${rel(p)}`, 'ogni scheda porta un blocco .fonte con un link http(s)'); senzaFonte++; }
+    }
+  }
+  if (!senzaFonte) ok('fonte: ogni scheda ne porta una cliccabile', `${schedeViste} schede in ${CASA.schede.filter(c => existsSync(join(CASA_DIR, c))).join(', ')}`);
+
+  // i pesi, e i formati che qui non entrano
+  const tuttiIFile = (dir = CASA_DIR, out = []) => {
+    for (const n of readdirSync(dir).sort()) {
+      if (n === '.git' || n === 'node_modules') continue;
+      const p = join(dir, n);
+      statSync(p).isDirectory() ? tuttiIFile(p, out) : out.push(p);
+    }
+    return out;
+  };
+  const MB = b => `${(b / 1024 / 1024).toFixed(1)} MB`;
+  let pesanti = 0, totale = 0; const perCartella = {};
+  for (const p of tuttiIFile()) {
+    const { size } = statSync(p); totale += size;
+    if (CASA.pesi.estensioniVietate.includes(extname(p).toLowerCase())) { male(`formato che qui non entra: ${rel(p)}`, 'audio, video e master vivono FUORI da git: la cronologia di un repo pubblico e\' per sempre'); pesanti++; }
+    if (size > CASA.pesi.tettoFile) { male(`file troppo pesante: ${rel(p)}`, `${MB(size)} > tetto ${MB(CASA.pesi.tettoFile)}`); pesanti++; }
+    for (const c of Object.keys(CASA.pesi.cartelle)) if (rel(p).startsWith(c + '/')) perCartella[c] = (perCartella[c] ?? 0) + size;
+  }
+  for (const [c, tetto] of Object.entries(CASA.pesi.cartelle)) {
+    if ((perCartella[c] ?? 0) > tetto) { male(`cartella troppo pesante: ${c}/`, `${MB(perCartella[c])} > tetto ${MB(tetto)}`); pesanti++; }
+  }
+  if (!pesanti) ok('pesi: nessun file sopra il tetto, nessun formato vietato', `${MB(totale)} in tutto · tetto ${MB(CASA.pesi.tettoFile)} a file`);
 
   // meta obbligatorie
   let metaMancanti = 0;
@@ -245,9 +329,27 @@ function statici() {
 
 /* ─────────────────────── ② CONTROLLI VIVI (browser) ─────────────────────── */
 
-const BROWSER = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-                 '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser',
-                 '/Applications/Chromium.app/Contents/MacOS/Chromium'].find(existsSync);
+/* Dove si cerca il browser. Fino all'08/09 solo in /Applications: su Linux e in CI i
+   controlli vivi saltavano in silenzio e il processo usciva 0 (rischio 6 del piano).
+   Ordine: quello indicato a mano, il Mac, Linux, la cache di Playwright. */
+const dentro = (dir, coda) => {
+  try { return readdirSync(dir).filter(n => n.startsWith('chromium')).sort().reverse().map(n => join(dir, n, coda)); }
+  catch { return []; }
+};
+const CANDIDATI_BROWSER = [
+  process.env.COLLAUDO_BROWSER,
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser',
+  '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser',
+  ...dentro(process.env.PLAYWRIGHT_BROWSERS_PATH ?? '', 'chrome-linux/chrome'),
+  ...dentro('/opt/pw-browsers', 'chrome-linux/chrome'),
+  ...dentro(join(process.env.HOME ?? '', '.cache/ms-playwright'), 'chrome-linux/chrome'),
+].filter(Boolean);
+const BROWSER = CANDIDATI_BROWSER.find(existsSync);
+// Come root (contenitori, CI) Chromium rifiuta di partire senza --no-sandbox: non e' una
+// scelta di sicurezza nostra, e' la condizione per misurare qualcosa in quelle stanze.
+const FLAG_ROOT = process.getuid?.() === 0 ? ['--no-sandbox'] : [];
 
 function cdp(ws) {
   let id = 0; const attesa = new Map(); const eventi = [];
@@ -295,7 +397,12 @@ function servi() {
 }
 
 async function vivi(html) {
-  if (!BROWSER) { nota('browser non trovato: saltati i controlli vivi', 'nessun Chrome/Brave/Chromium in /Applications'); return; }
+  if (!BROWSER) {
+    male('controlli vivi NON eseguiti: nessun browser trovato',
+         `sbordamenti e console restano NON misurati. Cercato in ${CANDIDATI_BROWSER.length} posti (Mac, Linux, cache Playwright). ` +
+         `Indica il tuo: COLLAUDO_BROWSER=/percorso/del/browser — o lancia --veloce, che dichiara di fare solo gli statici`);
+    return;
+  }
 
   const { srv, porta: portaWeb } = await servi();
   const indirizzo = p => `http://127.0.0.1:${portaWeb}/${relative(CASA_DIR, p).split(sep).join('/')}`;
@@ -303,14 +410,14 @@ async function vivi(html) {
   const porta = 9000 + Math.floor(Math.random() * 900);
   const proc = spawn(BROWSER, ['--headless=new', `--remote-debugging-port=${porta}`,
     `--user-data-dir=/tmp/collaudo-${porta}`, '--no-first-run', '--no-default-browser-check',
-    '--disable-gpu', '--hide-scrollbars'], { stdio: 'ignore' });
+    '--disable-gpu', '--hide-scrollbars', ...FLAG_ROOT], { stdio: 'ignore' });
 
   let vers = null;
   for (let i = 0; i < 40 && !vers; i++) {
     await dormi(250);
     try { vers = await (await fetch(`http://127.0.0.1:${porta}/json/version`)).json(); } catch {}
   }
-  if (!vers) { proc.kill(); male('browser: non si è avviato', `porta ${porta}`); return; }
+  if (!vers) { proc.kill(); male('browser: non si è avviato', `${BROWSER} — porta ${porta}`); return; }
 
   const b = cdp(vers.webSocketDebuggerUrl); await b.pronto;
 
@@ -353,7 +460,7 @@ async function vivi(html) {
   }
 
   if (!sbordi) ok(`nessuna pagina sborda`, `${html.length} pagine × ${CASA.larghezze.join('/')} px`);
-  if (!rumore) ok(`console pulita su tutte le pagine`, `${html.length} pagine`);
+  if (!rumore) ok(`console pulita su tutte le pagine`, `${html.length} pagine · ${BROWSER}`);
 
   b.chiudi(); proc.kill(); srv.close();
 }
