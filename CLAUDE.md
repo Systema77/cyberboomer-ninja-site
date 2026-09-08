@@ -38,6 +38,12 @@ gente che non ha modo di verificarci.
 Si spiega, **non si accusa**. La differenza fra le due cose è esattamente quel link.
 E la vittima della storia è sempre il Boomer, **mai il lettore**.
 
+Nei testi c'è marcatura minima (`strong`, `em`, `span.falso`, `a` con `href` http(s))
+**solo se il testo è di casa**. La lista è chiusa in `scripts/comune.py` e un tag fuori
+lista ferma il generatore: si corregge il JSON, non si allarga la lista. Un testo che
+arriva da un terzo ha provenienza `proposta` ed esce sempre come testo puro.
+Prima di toccare `ricco()`: `python3 scripts/prova-ricco.py`.
+
 ## La regola numero tre: si collauda prima di pubblicare
 
 ```bash
