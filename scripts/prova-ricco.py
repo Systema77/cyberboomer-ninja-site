@@ -9,7 +9,8 @@ si comporta bene. Qui ci sono tre banchi:
   ① CASA, deve passare COM'E'     la marcatura minima che le sorgenti usano davvero
   ② CASA, deve FERMARE            tutto cio' che non e' nella allowlist — script,
                                   attributi-evento, href non http, tag maiuscoli,
-                                  virgolette singole, un `<` nudo nel testo
+                                  virgolette singole, un `<` nudo nel testo, un tag
+                                  aperto e mai chiuso, una `&` nuda
   ③ PROPOSTA, esce sempre TESTO   anche la marcatura ammessa in casa: per un terzo
                                   <strong> e' quattro caratteri, non un comando
 
@@ -35,6 +36,8 @@ PASSANO = [
     '<a href="https://x/" rel="noopener noreferrer">due rel</a>',
     "due righe\n      con l'a capo dentro",
     "3 &lt; 5 scritto bene",
+    "AT&amp;T &copy; 2077 &#8217; &#x2019; — entita' vere",
+    "un > da solo va bene, e <em>a <strong>b</strong> c</em> e' annidato bene",
 ]
 
 FERMANO = [
@@ -59,6 +62,17 @@ FERMANO = [
     "<svg onload=\"x()\"></svg>",
     "un < nudo e poi un > dopo",
     "<strong>aperto e <em>mescolato</strong> male</em> con <u>u</u>",
+    # trovati dalla revisione dell'08/09: passavano, e nel DOM facevano danno
+    "a <script src=https://evil.example/x.js e poi",     # il browser si prende il primo > a valle: <script> vero
+    "prezzo <a",                                          # idem, tag monco
+    "<!-- tutto il resto sparisce",                       # commento mai chiuso: la pagina si tronca
+    '<a href="https://evil.example/">tutto link da qui',  # aperto e mai chiuso: il resto della pagina e' cliccabile
+    "<strong>tutto grassetto da qui",
+    "</strong> orfano",
+    "<strong>a <em>b</strong> c</em>",                    # chiusure nell'ordine sbagliato
+    '<a href="https://">host vuoto</a>',
+    '<a href="https://admin:pass@x.example/">credenziali</a>',
+    "AT&T &copy 2077",                                    # & nuda ed entita' senza ; cambiano il testo
 ]
 
 

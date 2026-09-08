@@ -73,10 +73,13 @@ PROVENIENZE = ("casa", "proposta")
 TIPI = ("lezione", "dispensa", "ascolto", "verdetto")
 SPINA = ("tipo", "id", "titolo", "standfirst", "data", "tag", "provenienza", "fonte")
 _DATA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_ID = re.compile(r"^[0-9a-z][0-9a-z-]*$")   # finisce in un indirizzo: minuscole, cifre, trattini
 
 
 def valida(d):
     """I difetti di una scheda rispetto alla spina. Lista vuota = passa."""
+    if not isinstance(d, dict):
+        return ["non e' un oggetto JSON ({…}): e' " + type(d).__name__]
     difetti = []
     for c in SPINA:
         if c not in d:
@@ -88,6 +91,8 @@ def valida(d):
     for c in ("id", "titolo", "standfirst"):
         if not isinstance(d[c], str) or not d[c].strip():
             difetti.append(f"«{c}» vuoto")
+    if isinstance(d["id"], str) and not _ID.match(d["id"]):
+        difetti.append(f"«id» {d['id']!r} finisce in un indirizzo: solo minuscole, cifre e trattini, niente spazi")
     if d["data"] is None:
         if d.get("_formato") != "lezione-v1":
             difetti.append("«data» manca (AAAA-MM-GG)")
@@ -98,8 +103,8 @@ def valida(d):
     if d["provenienza"] not in PROVENIENZE:
         difetti.append(f"«provenienza» deve essere una di: {', '.join(PROVENIENZE)}")
     f = d["fonte"] if isinstance(d["fonte"], dict) else {}
-    if not str(f.get("url", "")).startswith("http"):
-        difetti.append("la fonte non ha un URL cliccabile — "
+    if not url_ok(f.get("url")):
+        difetti.append("la fonte non ha un URL cliccabile (https://host/…) — "
                        "non si pubblicano affermazioni che il lettore non puo' controllare")
     for c in ("titolo", "chi", "chi_corto"):
         if not f.get(c):
@@ -112,34 +117,54 @@ def carica(cartella, adatta=None):
     file e motivo e torna None: una scheda storta ferma tutta la corsa, apposta."""
     if not os.path.isdir(cartella):
         return []
-    schede = []
+    schede, visti = [], {}
     for nome in sorted(os.listdir(cartella)):
-        if not nome.endswith(".json"):
+        percorso = os.path.join(cartella, nome)
+        # solo i .json veri, non nascosti: un «.bozza.json» non si pubblica per sbaglio
+        if not nome.endswith(".json") or nome.startswith(".") or not os.path.isfile(percorso):
             continue
-        with open(os.path.join(cartella, nome), encoding="utf-8") as fh:
+        with open(percorso, encoding="utf-8") as fh:
             try:
                 d = json.load(fh)
             except json.JSONDecodeError as err:
                 print(f"✗ {nome}: JSON rotto — {err}")
                 return None
+        if not isinstance(d, dict):
+            print(f"✗ {nome}: non e' un oggetto JSON ({{…}}): e' {type(d).__name__}")
+            return None
+        d.pop("_formato", None)          # lo decide l'adattatore, non il file
         if adatta:
             d = adatta(d)
         difetti = valida(d)
         if difetti:
             print(f"✗ {nome}: " + " · ".join(difetti))
             return None
+        if d["id"] in visti:
+            print(f"✗ {nome}: id «{d['id']}» gia' usato da {visti[d['id']]} — due schede, un indirizzo: "
+                  f"la seconda sovrascriverebbe la prima in silenzio")
+            return None
+        visti[d["id"]] = nome
         d["_file"] = nome
         schede.append(d)
     return schede
 
 # La marcatura ammessa nel grado `casa`: tag → {attributo → regola sul valore}.
 # Chiusa. Per allargarla si aggiunge una riga QUI e si passa il banco (prova-ricco.py).
+_URL = re.compile(r"^https?://[^\s/@]+(?:/\S*)?$")   # schema, un host vero, niente credenziali, niente spazi
+
+
+def url_ok(u):
+    """Un indirizzo cliccabile: la stessa regola per l'href della marcatura, per la
+    fonte della spina e per le fonti dei verdetti. «http» da solo non lo e'."""
+    return isinstance(u, str) and _URL.match(u) is not None
+
+
 MARCATURA = {
     "strong": {},
     "em": {},
     "span": {"class": lambda v: v == "falso"},
     "a": {
-        "href": lambda v: re.match(r"^https?://", v) is not None,
+        "href": url_ok,
         "rel": lambda v: v and set(v.split()) <= {"noopener", "noreferrer", "nofollow", "me"},
         "target": lambda v: v == "_blank",
     },
@@ -153,6 +178,8 @@ _TAG = re.compile(r"<[^>]*>")
 _APERTURA = re.compile(r'^<([a-z]+)((?:\s+[a-z-]+="[^"]*")*)\s*>$')
 _ATTRIBUTO = re.compile(r'\s+([a-z-]+)="([^"]*)"')
 _CHIUSURA = re.compile(r"^</([a-z]+)>$")
+# un «&» e' ammesso solo se comincia un'entita' vera: &amp; &lt; &#8217; &#x2019;
+_E_COMMERCIALE_NUDA = re.compile(r"&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#[0-9]+|#x[0-9a-fA-F]+);)")
 
 
 class MarcaturaVietata(ValueError):
@@ -191,14 +218,36 @@ def ricco(t, provenienza):
 
     casa     → i tag della allowlist passano come sono scritti; il primo tag fuori
                elenco alza MarcaturaVietata (il generatore si ferma e dice quale).
+               E si ferma anche su: un «<» che non e' un tag (il browser lo legge
+               come inizio di tag e si prende il primo «>» a valle: «a <script src=x
+               e poi» diventa uno <script> vero, misurato l'08/09), un tag aperto e
+               mai chiuso o chiuso senza apertura (il browser lo ricostruisce in ogni
+               blocco seguente: un <a> aperto rende cliccabile il resto della pagina),
+               una «&» che non comincia un'entita' (le entita' senza «;» cambiano il
+               testo in silenzio).
     proposta → escaping totale: e' testo di terzi, la marcatura non esiste.
     """
     t = str(t)
     if provenienza != "casa":
         return e(t)
+    aperti = []
     for tag in _TAG.findall(t):
         if not _tag_ammesso(tag):
             raise MarcaturaVietata(tag)
+        m = _CHIUSURA.match(tag)
+        if m:
+            if not aperti or aperti[-1] != m.group(1):
+                raise MarcaturaVietata(f"{tag} chiude un tag che non e' aperto (o non nell'ordine giusto)")
+            aperti.pop()
+        else:
+            aperti.append(_APERTURA.match(tag).group(1))
+    if aperti:
+        raise MarcaturaVietata(f"<{aperti[-1]}> aperto e mai chiuso")
+    senza_tag = _TAG.sub("", t)
+    if "<" in senza_tag:
+        raise MarcaturaVietata("un «<» che non e' un tag: si scrive &lt;")
+    if _E_COMMERCIALE_NUDA.search(senza_tag):
+        raise MarcaturaVietata("una «&» nuda: si scrive &amp;")
     return t
 
 

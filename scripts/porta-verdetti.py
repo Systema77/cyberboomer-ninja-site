@@ -42,7 +42,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from comune import SITO, valida  # noqa: E402
+from comune import SITO, url_ok, valida  # noqa: E402
 
 DEST = os.path.join(SITO, "verdetti", "_sorgenti")
 FERMANO = (
@@ -69,8 +69,8 @@ def link_ammessi():
 def host_non_dichiarati(fonti, ammessi):
     fuori = set()
     for f in fonti:
-        u = str(f.get("url", ""))
-        if u.startswith("http") and not any(u.startswith(a) for a in ammessi):
+        u = str(f.get("url", "")) if isinstance(f, dict) else ""
+        if url_ok(u) and not any(u.startswith(a) for a in ammessi):
             fuori.add(re.sub(r"^(https?://[^/]+/).*$", r"\1", u + "/"))
     return sorted(fuori)
 
@@ -81,7 +81,7 @@ def impronta(percorso):
 
 
 def fonte_principale(fonti):
-    buone = [f for f in fonti if str(f.get("url", "")).startswith("http")]
+    buone = [f for f in fonti if isinstance(f, dict) and url_ok(f.get("url"))]
     if not buone:
         return None
     f = max(buone, key=lambda x: (x.get("autorevolezza") or 0))

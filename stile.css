@@ -1,7 +1,8 @@
 /* stile.css — il vestito di cyberboomer.ninja, UNO per tutta la casa.
 
    Fino all'08/09 questo CSS viveva in TRE copie: dentro index.html, dentro 404.html e
-   come costante `CSS` in scripts/genera-lezione.py. Non erano identiche — misurato
+   come costante `CSS` nel generatore delle lezioni di allora (genera-lezione.py, tolto
+   lo stesso giorno: oggi c'e' genera-tutto.py). Non erano identiche — misurato
    prima di unirle, perché un'unificazione a occhio perde pezzi:
 
      comune alle tre    reset · :root (stessi valori, il 404 li scriveva compatti) ·
@@ -232,3 +233,24 @@ ul.crono time{
   color:var(--text-lo); border-left:2px solid var(--voice); padding-left:1rem;
 }
 .riletto{ margin:2rem 0 0; font-size:.88rem; color:var(--text-lo); line-height:1.6; }
+
+/* la dispensa: una scheda davanti al PDF, il peso prima del clic. E l'ascolto: il
+   lettore non parte da solo, la trascrizione sta sotto. Stesso riquadro della fonte. */
+.scheda-file, .ascolto{
+  margin:2.4rem 0 0; border:1px solid var(--line); background:var(--bg-surface);
+  padding:1.2rem 1.3rem;
+}
+.scheda-file .et, .ascolto .et{
+  font-family:var(--font-mono); font-size:.62rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--voice); display:block; margin-bottom:.6rem;
+}
+.scheda-file a{
+  display:inline-block; font-family:var(--font-mono); font-size:.8rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--text-hi); text-decoration:none;
+  border:1px solid var(--voice); padding:.7em 1.1em;
+}
+.scheda-file a:hover, .scheda-file a:focus-visible{ background:var(--voice-soft); color:var(--voice); }
+.scheda-file .chi, .ascolto .chi{ display:block; margin-top:.7rem; font-size:.85rem; color:var(--text-lo); }
+.ascolto audio{ display:block; width:100%; margin-top:.2rem; }
+.ascolto audio a{ color:var(--voice); }
+.trascrizione p + p{ margin-top:1em; }

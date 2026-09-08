@@ -26,7 +26,7 @@ import json
 import os
 import re
 
-from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, piano, ricco, testa
+from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, piano, ricco, testa, url_ok
 
 SORGENTI = os.path.join(SITO, "verdetti", "_sorgenti")
 USCITA = os.path.join(SITO, "verdetti")
@@ -133,7 +133,7 @@ def difetti_corpo(d):
         difetti.append("«punteggio» non e' un intero da 0 a 100")
     if d.get("soggetto") == "persona":
         difetti.append("e' su una persona: qui non entra, in nessuna forma")
-    if not any(str(f.get("url", "")).startswith("http") for f in d.get("fonti") or []):
+    if not any(isinstance(f, dict) and url_ok(f.get("url")) for f in d.get("fonti") or []):
         difetti.append("nessuna fonte con URL cliccabile")
     if not (d.get("_ninja") or {}).get("impronta"):
         difetti.append("manca _ninja.impronta: la scrive porta-verdetti.py, non si compila a mano")
@@ -183,7 +183,7 @@ def sezioni(d, pr):
 def fonti(d, pr):
     righe = []
     for f in d["fonti"]:
-        if not str(f.get("url", "")).startswith("http"):
+        if not url_ok(f.get("url")):
             continue
         chi = " · ".join(x for x in (f.get("tipo"), f.get("sostiene")) if x)
         righe.append(f'      <li><a href="{e(f["url"])}" rel="noopener" target="_blank">{e(f.get("titolo") or f["url"])}</a>'
@@ -258,7 +258,7 @@ def genera(schede):
             f'      <span class="t">{titolo}</span>\n'
             f'      <span class="d">{ricco(d["standfirst"], pr)}</span>\n'
             f'      <span class="f">{d["punteggio"]}/100 · {e(d["etichetta"])} · '
-            f'{sum(1 for x in d["fonti"] if str(x.get("url", "")).startswith("http"))} fonti</span>\n'
+            f'{sum(1 for x in d["fonti"] if url_ok(x.get("url")))} fonti</span>\n'
             f'    </a></li>')
 
     if pronti:
