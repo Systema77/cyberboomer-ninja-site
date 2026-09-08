@@ -61,6 +61,11 @@ Esce con codice `1` se trova anche un solo rosso. Non ha dipendenze: niente `npm
 
 - **Nessuna lezione senza fonte pubblica cliccabile.** Il generatore si rifiuta di
   costruirla. Qui si parla di aziende grandi come nazioni: senza fonte è una chiacchiera.
+- **Due provenienze, e la seconda non ha marcatura.** Un testo di `casa` può portare
+  solo `strong`, `em`, `span.falso` e `a` con `href` http(s): la lista è chiusa in
+  `scripts/comune.py`, e un tag fuori lista **ferma il generatore**. Un testo di
+  `proposta` (scritto da un terzo) esce sempre come testo, qualunque cosa contenga.
+  Il banco dei casi cattivi: `python3 scripts/prova-ricco.py`.
 - **«Cyber Boomer» in due parole**, sempre (tranne nel dominio).
 - **Un colore = un significato.** Qui il colore è il blu link `#5C7CFF` su nero.
   Il giallo dell'agenzia, il ciano del Systema, il verde del gioco e il magenta

@@ -35,7 +35,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from comune import DOMINIO, FIRMA, SITO, e, testa  # noqa: E402
+from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, ricco, testa  # noqa: E402
 
 SORGENTI = os.path.join(SITO, "lezioni", "_sorgenti")
 USCITA = os.path.join(SITO, "lezioni")
@@ -119,52 +119,46 @@ __FIRMA__
 """
 
 
-def ricco(t):
-    """Il testo delle sorgenti puo' contenere <strong> <em> <a>: si scrive nel JSON
-    come marcatura minima e si fida — le sorgenti le scriviamo noi, non il pubblico."""
-    return str(t)
+def prosa(righe, pr):
+    return "\n".join(f"      <p>{ricco(r, pr)}</p>" for r in righe)
 
 
-def prosa(righe):
-    return "\n".join(f"      <p>{ricco(r)}</p>" for r in righe)
-
-
-def scena(sc):
+def scena(sc, pr):
     if not sc:
         return ""
     da = f'      <span class="from">{e(sc["da"])}</span>\n' if sc.get("da") else ""
     return (f'    <div class="scena" role="img" aria-label="{e(sc.get("alt", "Ricostruzione"))}">\n'
-            f'{da}      {ricco(sc["testo"])}\n    </div>\n')
+            f'{da}      {ricco(sc["testo"], pr)}\n    </div>\n')
 
 
-def battute(d):
+def battute(d, pr):
     fuori = []
 
     # 01 · la trappola
-    corpo = f'    <div class="prose">\n{prosa(d["trappola"]["prosa"])}\n    </div>\n'
-    corpo += scena(d["trappola"].get("scena"))
+    corpo = f'    <div class="prose">\n{prosa(d["trappola"]["prosa"], pr)}\n    </div>\n'
+    corpo += scena(d["trappola"].get("scena"), pr)
     if d["trappola"].get("dopo"):
-        corpo += f'    <div class="prose">\n{prosa(d["trappola"]["dopo"])}\n    </div>\n'
+        corpo += f'    <div class="prose">\n{prosa(d["trappola"]["dopo"], pr)}\n    </div>\n'
     fuori.append((BATTUTE[0], corpo))
 
     # 02 · cos'e' successo davvero
     fuori.append((BATTUTE[1],
-                  f'    <div class="prose">\n{prosa(d["davvero"]["prosa"])}\n    </div>\n'))
+                  f'    <div class="prose">\n{prosa(d["davvero"]["prosa"], pr)}\n    </div>\n'))
 
     # 03 · la mossa del ninja
     passi = "\n".join(
-        f'      <li><strong>{ricco(p["forte"])}</strong> {ricco(p["testo"])}</li>'
+        f'      <li><strong>{ricco(p["forte"], pr)}</strong> {ricco(p["testo"], pr)}</li>'
         for p in d["mossa"]["passi"])
     intro = ""
     if d["mossa"].get("intro"):
-        intro = f'    <div class="prose">\n{prosa(d["mossa"]["intro"])}\n    </div>\n'
+        intro = f'    <div class="prose">\n{prosa(d["mossa"]["intro"], pr)}\n    </div>\n'
     fuori.append((BATTUTE[2], intro + f'    <ol class="moves">\n{passi}\n    </ol>\n'))
 
     # 04 · il proverbio
     pv = d["proverbio"]
     fuori.append((BATTUTE[3],
                   '    <figure class="proverbio">\n'
-                  f'      <blockquote class="q">«{ricco(pv["testo"])}»</blockquote>\n'
+                  f'      <blockquote class="q">«{ricco(pv["testo"], pr)}»</blockquote>\n'
                   f'      <figcaption class="who">— Cyber Boomer, lezione n.{e(d["n"])}</figcaption>\n'
                   '    </figure>\n'))
 
@@ -231,19 +225,29 @@ def main():
         titolo = e(d["titolo"])
         desc = e(d["standfirst"])
         url = f"{DOMINIO}/lezioni/lezione-{n}.html"
-        pagina = (PAGINA
-                  .replace("__TESTA__", testa(f"{titolo} — Lezione n.{n} · Cyber Boomer", desc, url,
-                                              "article", f"{titolo} — Lezione n.{n}", desc,
-                                              "../favicon.svg"))
-                  .replace("__FIRMA__", FIRMA)
-                  .replace("__BATTUTE__", battute(d))
-                  .replace("__TITOLO__", titolo)
-                  .replace("__STANDFIRST__", ricco(d["standfirst"]))
-                  .replace("__FONTE_URL__", e(d["fonte"]["url"]))
-                  .replace("__FONTE_TITOLO__", e(d["fonte"]["titolo"]))
-                  .replace("__FONTE_CHI__", ricco(d["fonte"]["chi"]))
-                  .replace("__SHARE__", share(d.get("x_aperto", False)))
-                  .replace("__N__", n))
+        # Le lezioni di questo formato le ha scritte la casa: provenienza `casa`, e
+        # la marcatura passa dalla allowlist di comune.py. Un testo di terzi non
+        # entra da qui: entrera' dallo schema unico, con la provenienza dichiarata.
+        pr = "casa"
+        try:
+            pagina = (PAGINA
+                      .replace("__TESTA__", testa(f"{titolo} — Lezione n.{n} · Cyber Boomer", desc, url,
+                                                  "article", f"{titolo} — Lezione n.{n}", desc,
+                                                  "../favicon.svg"))
+                      .replace("__FIRMA__", FIRMA)
+                      .replace("__BATTUTE__", battute(d, pr))
+                      .replace("__TITOLO__", titolo)
+                      .replace("__STANDFIRST__", ricco(d["standfirst"], pr))
+                      .replace("__FONTE_URL__", e(d["fonte"]["url"]))
+                      .replace("__FONTE_TITOLO__", e(d["fonte"]["titolo"]))
+                      .replace("__FONTE_CHI__", ricco(d["fonte"]["chi"], pr))
+                      .replace("__SHARE__", share(d.get("x_aperto", False)))
+                      .replace("__N__", n))
+        except MarcaturaVietata as tag:
+            print(f"✗ {d['_file']}: marcatura fuori dalla allowlist: {tag}\n"
+                  f"  Nei testi di casa passano solo strong, em, span.falso e a con href http(s). "
+                  f"Si corregge il JSON, non si allarga la lista.", file=sys.stderr)
+            return 1
         dest = os.path.join(USCITA, f"lezione-{d['n']}.html")
         with open(dest, "w", encoding="utf-8") as f:
             f.write(pagina)
@@ -252,7 +256,7 @@ def main():
             f'    <li><a href="lezione-{n}.html">\n'
             f'      <span class="n">Lezione n.{n}</span>\n'
             f'      <span class="t">{titolo}</span>\n'
-            f'      <span class="d">{ricco(d["standfirst"])}</span>\n'
+            f'      <span class="d">{ricco(d["standfirst"], pr)}</span>\n'
             f'      <span class="f">Fonte: {e(d["fonte"]["chi_corto"])}</span>\n'
             f'    </a></li>')
 
