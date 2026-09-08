@@ -7,10 +7,33 @@ domani. I generatori dei singoli tipi importano da qui e ci mettono sopra il cor
 
 COSA C'E'.
   · i percorsi della casa (SITO, DOMINIO)
+  · LA SPINA DORSALE — i campi che ogni scheda ha, di qualunque tipo — e `valida()`
+  · `carica()` — legge una cartella di sorgenti JSON, adatta, valida, e si ferma al primo errore
   · `e()`   — l'escaping di un testo che va dentro l'HTML
   · `ricco()` — il testo con la marcatura minima, e I DUE GRADI DI PROVENIENZA
   · `testa()` — il blocco <head> completo: meta, canonical, og:*, e IL FOGLIO DI STILE
   · FIRMA  — il piede di pagina delle schede
+
+LO SCHEMA UNICO (dall'08/09). Ogni scheda, di ogni tipo, ha la stessa spina:
+
+    tipo         uno di TIPI: lezione · dispensa · ascolto · verdetto
+    id           il nome che finisce nell'indirizzo (per la lezione: il numero, «001»)
+    titolo       il titolo, testo puro
+    standfirst   la riga sotto il titolo (puo' portare marcatura, se e' di casa)
+    data         AAAA-MM-GG — o null SOLO per le lezioni del formato v1, che non la
+                 portano: l'adattatore non la inventa (vedi tipo_lezione.py)
+    tag          un elenco di parole, anche vuoto
+    provenienza  `casa` o `proposta` — decide come si legge la marcatura (sotto)
+    fonte        {titolo, url http(s), chi, chi_corto} — SENZA, la scheda non esiste
+
+e poi un CORPO per tipo, che il modulo del tipo conosce (tipo_lezione.py: le quattro
+battute). La regola della fonte cliccabile, nata per le lezioni, vale per tutti perche'
+sta nella spina e non nel tipo.
+
+LE SEI LEZIONI ESISTENTI NON SI MIGRANO. Il loro JSON resta com'e' (formato v1:
+`n` invece di `id`+`tipo`, niente data, niente tag, niente provenienza): un
+adattatore in tipo_lezione.py lo legge e lo porta sulla spina. Riscrivere contenuto
+che funziona per compiacere uno schema e' il modo classico di perderlo.
 
 LA PROVENIENZA, che e' la vera difesa. Un testo arriva da uno di due posti:
   `casa`     lo abbiamo scritto noi. Puo' portare la marcatura minima — e SOLO
@@ -36,6 +59,7 @@ Nessuna dipendenza: solo la libreria standard.
 """
 
 import html
+import json
 import os
 import re
 
@@ -46,6 +70,67 @@ DOMINIO = "https://cyberboomer.ninja"
 FOGLIO = '<link rel="stylesheet" href="/stile.css">'
 
 PROVENIENZE = ("casa", "proposta")
+TIPI = ("lezione", "dispensa", "ascolto", "verdetto")
+SPINA = ("tipo", "id", "titolo", "standfirst", "data", "tag", "provenienza", "fonte")
+_DATA = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def valida(d):
+    """I difetti di una scheda rispetto alla spina. Lista vuota = passa."""
+    difetti = []
+    for c in SPINA:
+        if c not in d:
+            difetti.append(f"manca «{c}»")
+    if difetti:
+        return difetti
+    if d["tipo"] not in TIPI:
+        difetti.append(f"tipo «{d['tipo']}» sconosciuto (uno di: {', '.join(TIPI)})")
+    for c in ("id", "titolo", "standfirst"):
+        if not isinstance(d[c], str) or not d[c].strip():
+            difetti.append(f"«{c}» vuoto")
+    if d["data"] is None:
+        if d.get("_formato") != "lezione-v1":
+            difetti.append("«data» manca (AAAA-MM-GG)")
+    elif not isinstance(d["data"], str) or not _DATA.match(d["data"]):
+        difetti.append(f"«data» non e' AAAA-MM-GG: {d['data']!r}")
+    if not isinstance(d["tag"], list) or not all(isinstance(t, str) for t in d["tag"]):
+        difetti.append("«tag» non e' un elenco di parole")
+    if d["provenienza"] not in PROVENIENZE:
+        difetti.append(f"«provenienza» deve essere una di: {', '.join(PROVENIENZE)}")
+    f = d["fonte"] if isinstance(d["fonte"], dict) else {}
+    if not str(f.get("url", "")).startswith("http"):
+        difetti.append("la fonte non ha un URL cliccabile — "
+                       "non si pubblicano affermazioni che il lettore non puo' controllare")
+    for c in ("titolo", "chi", "chi_corto"):
+        if not f.get(c):
+            difetti.append(f"la fonte non ha «{c}»")
+    return difetti
+
+
+def carica(cartella, adatta=None):
+    """Le sorgenti di una cartella, adattate e validate. Al primo difetto stampa
+    file e motivo e torna None: una scheda storta ferma tutta la corsa, apposta."""
+    if not os.path.isdir(cartella):
+        return []
+    schede = []
+    for nome in sorted(os.listdir(cartella)):
+        if not nome.endswith(".json"):
+            continue
+        with open(os.path.join(cartella, nome), encoding="utf-8") as fh:
+            try:
+                d = json.load(fh)
+            except json.JSONDecodeError as err:
+                print(f"✗ {nome}: JSON rotto — {err}")
+                return None
+        if adatta:
+            d = adatta(d)
+        difetti = valida(d)
+        if difetti:
+            print(f"✗ {nome}: " + " · ".join(difetti))
+            return None
+        d["_file"] = nome
+        schede.append(d)
+    return schede
 
 # La marcatura ammessa nel grado `casa`: tag → {attributo → regola sul valore}.
 # Chiusa. Per allargarla si aggiunge una riga QUI e si passa il banco (prova-ricco.py).

@@ -19,10 +19,15 @@ Il contenuto vive in `lezioni/_sorgenti/*.json`.
 > Se una lezione va corretta, si corregge il **JSON**.
 
 Per una lezione nuova: copia un JSON esistente, cambia `n` e il contenuto, rigenera.
+Una corsa sola, che fa anche la sitemap:
 
 ```bash
-python3 scripts/genera-lezione.py && python3 scripts/genera-sitemap.py
+python3 scripts/genera-tutto.py
 ```
+
+Lo schema di ogni scheda (lezione, e i tipi che verranno) è la spina in
+`scripts/comune.py`: `tipo · id · titolo · standfirst · data · tag · provenienza · fonte`.
+Le sei lezioni del formato vecchio **non si migrano**: le legge un adattatore.
 
 Il vestito **non sta nei generatori e non sta nelle pagine**: sta in `stile.css`, uno
 per tutta la casa. Le pagine a mano (`index.html`, `404.html`) lo linkano e tengono

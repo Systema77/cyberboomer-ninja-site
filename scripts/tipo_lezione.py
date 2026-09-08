@@ -1,46 +1,40 @@
 #!/usr/bin/env python3
-"""genera-lezione.py — il motore del DOJO di cyberboomer.ninja.
+"""tipo_lezione.py — il tipo LEZIONE: l'adattatore del formato v1 e la forma delle pagine.
 
-    python3 scripts/genera-lezione.py
+Non si lancia: lo chiama genera-tutto.py. Una lezione del dojo ha sempre la stessa
+forma — quattro battute: LA TRAPPOLA · COS'E' SUCCESSO DAVVERO · LA MOSSA DEL NINJA
+· IL PROVERBIO. Questo modulo prende una scheda sulla spina (vedi comune.py) col
+corpo di una lezione e scrive:
 
-COS'E'. Una lezione del dojo ha sempre la stessa forma — quattro battute:
-LA TRAPPOLA · COS'E' SUCCESSO DAVVERO · LA MOSSA DEL NINJA · IL PROVERBIO.
-Questo script prende il CONTENUTO (un file JSON per lezione, in
-`lezioni/_sorgenti/`) e ci mette sopra LA FORMA. Scrive:
-
-    lezioni/lezione-NNN.html   una per sorgente
+    lezioni/lezione-NNN.html   una per scheda
     lezioni/index.html         l'indice del dojo, in ordine di numero
 
-PERCHE' UN GENERATORE E NON PAGINE SCRITTE A MANO. La lezione n.001 era stata
-scritta a mano il 02/08 e per un mese e' rimasta sola: ogni lezione nuova voleva
-ricopiare 200 righe di CSS e sperare di non sbagliarne una. Cosi' il dojo non e'
-un raccoglitore di pagine, e' una macchina: si scrive un JSON e la lezione esiste,
-identica alle altre. Il vestito non sta piu' qui: sta in `/stile.css`, uno per
-tutta la casa (dall'08/09) — cambiare il vestito a tutte e' un `replace` la'.
+L'ADATTATORE (`adatta`). Le sei lezioni scritte fino all'08/09 stanno in
+`lezioni/_sorgenti/*.json` nel formato v1: `n` invece di `id`, niente `tipo`,
+niente `data`, niente `tag`, niente `provenienza`. NON si migrano: l'adattatore
+le porta sulla spina al volo, senza toccare il file. Cosa mette e perche':
 
-LA REGOLA CHE LO SCRIPT FA RISPETTARE, e non e' burocrazia:
-**nessuna lezione senza una FONTE PUBBLICA CLICCABILE.**
-Il dojo parla di Meta e Google a gente che non ha modo di verificarci. Se non
-c'e' un link a una pagina ufficiale o a stampa indipendente, la lezione non si
-genera — e lo script si ferma dicendo quale manca. Si spiega, non si accusa:
-la differenza fra le due cose e' esattamente quel link.
+    tipo         «lezione» — e' quello che sono
+    id           n         — il numero e' gia' il nome nell'indirizzo
+    data         None      — il v1 non la porta e NON si inventa; la spina lo
+                             permette solo per questo formato (_formato: lezione-v1)
+    tag          []        — nessuno: un elenco vuoto e' un fatto, non una stima
+    provenienza  «casa»    — le ha scritte la casa, tutte e sei
 
-Nessuna dipendenza: solo la libreria standard.
+La prova che l'adattatore non altera niente: le sei pagine e l'indice escono
+BYTE-IDENTICI a quelli generati prima che esistesse (misurato l'08/09).
 
-— creato da FLUX, 2026-09-05
+— creato da FLUX, 2026-09-05 (come genera-lezione.py) · riorganizzato da JUDY, 2026-09-08
 """
 
-import json
 import os
-import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, ricco, testa  # noqa: E402
+from comune import DOMINIO, FIRMA, SITO, MarcaturaVietata, e, ricco, testa
 
 SORGENTI = os.path.join(SITO, "lezioni", "_sorgenti")
 USCITA = os.path.join(SITO, "lezioni")
 
-CAMPI = ("n", "titolo", "standfirst", "trappola", "davvero", "mossa", "proverbio", "fonte")
+CORPO = ("trappola", "davvero", "mossa", "proverbio")
 BATTUTE = ("La trappola", "Cos'è successo davvero", "La mossa del ninja", "Il proverbio del Boomer")
 
 # ————————————————————————————————— la forma ————————————————————————————————
@@ -119,6 +113,36 @@ __FIRMA__
 """
 
 
+# ————————————————————————————————— l'adattatore ————————————————————————————————
+
+def adatta(d):
+    """Formato v1 → spina. Se il file ha gia' `tipo`, e' gia' sulla spina: passa."""
+    if "tipo" in d:
+        return d
+    s = {
+        "tipo": "lezione",
+        "id": d.get("n"),
+        "titolo": d.get("titolo"),
+        "standfirst": d.get("standfirst"),
+        "data": None,
+        "tag": [],
+        "provenienza": "casa",
+        "fonte": d.get("fonte"),
+        "_formato": "lezione-v1",
+    }
+    for c in CORPO + ("x_aperto",):
+        if c in d:
+            s[c] = d[c]
+    return s
+
+
+def difetti_corpo(d):
+    """Cio' che una lezione deve avere oltre alla spina."""
+    return [f"manca «{c}»" for c in CORPO if not d.get(c)]
+
+
+# ————————————————————————————————— il corpo ————————————————————————————————
+
 def prosa(righe, pr):
     return "\n".join(f"      <p>{ricco(r, pr)}</p>" for r in righe)
 
@@ -159,7 +183,7 @@ def battute(d, pr):
     fuori.append((BATTUTE[3],
                   '    <figure class="proverbio">\n'
                   f'      <blockquote class="q">«{ricco(pv["testo"], pr)}»</blockquote>\n'
-                  f'      <figcaption class="who">— Cyber Boomer, lezione n.{e(d["n"])}</figcaption>\n'
+                  f'      <figcaption class="who">— Cyber Boomer, lezione n.{e(d["id"])}</figcaption>\n'
                   '    </figure>\n'))
 
     return "\n".join(
@@ -178,57 +202,23 @@ def share(x_aperto):
     return 'raccontalo a voce a qualcuno che ci sarebbe cascato. <em>Funziona meglio del retweet.</em>'
 
 
-def carica():
-    if not os.path.isdir(SORGENTI):
-        print(f"✗ manca {os.path.relpath(SORGENTI, SITO)}", file=sys.stderr)
-        return None
-    lezioni = []
-    for nome in sorted(os.listdir(SORGENTI)):
-        if not nome.endswith(".json"):
-            continue
-        percorso = os.path.join(SORGENTI, nome)
-        with open(percorso, encoding="utf-8") as f:
-            try:
-                d = json.load(f)
-            except json.JSONDecodeError as err:
-                print(f"✗ {nome}: JSON rotto — {err}", file=sys.stderr)
-                return None
-        mancanti = [c for c in CAMPI if not d.get(c)]
+# ————————————————————————————————— la corsa ————————————————————————————————
+
+def genera(schede):
+    """Scrive le pagine e l'indice. Torna i percorsi scritti, o None se si ferma."""
+    schede = sorted(schede, key=lambda d: d["id"])
+    scritti, voci = [], []
+
+    for d in schede:
+        mancanti = difetti_corpo(d)
         if mancanti:
-            print(f"✗ {nome}: mancano {', '.join(mancanti)}", file=sys.stderr)
+            print(f"✗ {d['_file']}: " + " · ".join(mancanti))
             return None
-        # LA REGOLA: nessuna lezione senza fonte cliccabile
-        url = (d.get("fonte") or {}).get("url", "")
-        if not url.startswith("http"):
-            print(f"✗ {nome}: la fonte non ha un URL cliccabile. "
-                  f"Il dojo non pubblica affermazioni che il lettore non può controllare.",
-                  file=sys.stderr)
-            return None
-        d["_file"] = nome
-        lezioni.append(d)
-    return lezioni
-
-
-def main():
-    lezioni = carica()
-    if lezioni is None:
-        return 1
-    if not lezioni:
-        print("✗ nessuna sorgente in lezioni/_sorgenti/", file=sys.stderr)
-        return 1
-
-    lezioni.sort(key=lambda d: d["n"])
-    voci = []
-
-    for d in lezioni:
-        n = e(d["n"])
+        n = e(d["id"])
         titolo = e(d["titolo"])
         desc = e(d["standfirst"])
         url = f"{DOMINIO}/lezioni/lezione-{n}.html"
-        # Le lezioni di questo formato le ha scritte la casa: provenienza `casa`, e
-        # la marcatura passa dalla allowlist di comune.py. Un testo di terzi non
-        # entra da qui: entrera' dallo schema unico, con la provenienza dichiarata.
-        pr = "casa"
+        pr = d["provenienza"]
         try:
             pagina = (PAGINA
                       .replace("__TESTA__", testa(f"{titolo} — Lezione n.{n} · Cyber Boomer", desc, url,
@@ -246,11 +236,12 @@ def main():
         except MarcaturaVietata as tag:
             print(f"✗ {d['_file']}: marcatura fuori dalla allowlist: {tag}\n"
                   f"  Nei testi di casa passano solo strong, em, span.falso e a con href http(s). "
-                  f"Si corregge il JSON, non si allarga la lista.", file=sys.stderr)
-            return 1
-        dest = os.path.join(USCITA, f"lezione-{d['n']}.html")
+                  f"Si corregge il JSON, non si allarga la lista.")
+            return None
+        dest = os.path.join(USCITA, f"lezione-{d['id']}.html")
         with open(dest, "w", encoding="utf-8") as f:
             f.write(pagina)
+        scritti.append(dest)
 
         voci.append(
             f'    <li><a href="lezione-{n}.html">\n'
@@ -270,15 +261,8 @@ def main():
                   "../favicon.svg"))
               .replace("__FIRMA__", FIRMA)
               .replace("__VOCI__", "\n".join(voci)))
-    with open(os.path.join(USCITA, "index.html"), "w", encoding="utf-8") as f:
+    dest = os.path.join(USCITA, "index.html")
+    with open(dest, "w", encoding="utf-8") as f:
         f.write(indice)
-
-    print(f"✓ {len(lezioni)} lezioni + l'indice del dojo")
-    for d in lezioni:
-        print(f"  – n.{d['n']}  {d['titolo']}")
-        print(f"           fonte: {d['fonte']['url']}")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    scritti.append(dest)
+    return scritti

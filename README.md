@@ -20,27 +20,39 @@ lezioni/index.html    il dojo — l'indice delle lezioni      ← GENERATO
 lezioni/lezione-*.html  le lezioni                          ← GENERATE
 lezioni/_sorgenti/*.json  il contenuto delle lezioni        ← QUI SI SCRIVE
 404.html · robots.txt · sitemap.xml · favicon.svg · og-image.png
-scripts/comune.py     il tronco dei generatori (head, piede, escaping)
-scripts/              i tre generatori
-strumenti/collaudo.mjs  il guardiano
+scripts/genera-tutto.py   LA CORSA: tutte le schede, gli indici, la sitemap
+scripts/comune.py         il tronco: la spina dello schema, ricco(), head, piede
+scripts/tipo_lezione.py   il tipo lezione: adattatore del formato v1 + le pagine
+scripts/prova-ricco.py    il banco dei casi cattivi di ricco()
+strumenti/collaudo.mjs    il guardiano
 ```
 
 **Le lezioni non si scrivono a mano.** Si scrive un JSON in `lezioni/_sorgenti/`
 e si rigenera: la forma (le quattro battute, le meta) la mette lo script.
 Modificare a mano un `lezione-*.html` è inutile — la prima rigenerazione lo sovrascrive.
 
+**Lo schema è uno.** Ogni scheda — lezione oggi, dispensa, ascolto e verdetto domani —
+ha la stessa spina: `tipo · id · titolo · standfirst · data · tag · provenienza · fonte`,
+più un corpo per tipo. È scritta in `scripts/comune.py`, e la regola della fonte
+cliccabile vale per tutti perché sta nella spina. **Le sei lezioni esistenti non
+sono state migrate:** un adattatore legge il loro formato e le porta sulla spina al
+volo, e le pagine escono byte-identiche a prima.
+
 **Il vestito è un file solo, `stile.css`.** Fino all'08/09 viveva in tre copie
 (home, 404, e una costante dentro il generatore) che dovevano essere uguali e non
 lo erano. Le pagine a mano tengono in un `<style>` solo ciò che è loro. Il guardiano
 legge anche il CSS: un colore o una parola vietata lì dentro lo fa diventare rosso.
 
-## I tre comandi
+## I due comandi
 
 ```bash
-python3 scripts/genera-lezione.py     # le lezioni + l'indice del dojo
-python3 scripts/genera-sitemap.py     # la mappa del sito, dai file veri
+python3 scripts/genera-tutto.py       # UNA corsa: banco di ricco(), lezioni, indice, sitemap
 node    scripts/genera-og-image.mjs   # l'immagine che si vede incollando il link
 ```
+
+`genera-tutto.py` si ferma al primo errore e dice quale: una scheda senza fonte, un
+tag fuori dalla allowlist, un JSON rotto. Non esiste più un generatore per tipo da
+lanciare a mano nell'ordine giusto.
 
 ## Il guardiano — si lancia PRIMA di ogni push
 
