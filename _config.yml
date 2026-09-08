@@ -5,9 +5,9 @@
 # no: fino all'08/09 erano online, con dentro il guardiano che per forza nomina i
 # colori vietati, e il guardiano stesso non li leggeva. Qui si tolgono dal sito.
 #
-# ⚠️ Da misurare dal runner dopo la prima pubblicazione (prova-porta.yml, anima-console):
-#    https://cyberboomer.ninja/strumenti/collaudo.mjs deve rispondere 404.
-#    Finche' non e' misurato, e' una dichiarazione.
+# ✓ Misurato dal runner l'08/09 alle 22:02 UTC (prova-porta.yml run #5, anima-console):
+#   https://cyberboomer.ninja/strumenti/collaudo.mjs → 404, lezioni/_sorgenti/… → 404.
+#   Se un giorno cambia, lo dice quella riga del runner, non questo commento.
 #
 # — creato da JUDY, 2026-09-08
 exclude:
