@@ -24,9 +24,21 @@ lezioni/_sorgenti/*.json  il contenuto delle lezioni        ← QUI SI SCRIVE
 scripts/genera-tutto.py   LA CORSA: tutte le schede, gli indici, la sitemap
 scripts/comune.py         il tronco: la spina dello schema, ricco(), head, piede
 scripts/tipo_lezione.py   il tipo lezione: adattatore del formato v1 + le pagine
+scripts/tipo_verdetto.py  il tipo verdetto: pubblica solo ciò che è stato riletto e firmato
+scripts/porta-verdetti.py porta i verdetti KIROSHI da anima-console (lo lancia una persona)
 scripts/prova-ricco.py    il banco dei casi cattivi di ricco()
 strumenti/collaudo.mjs    il guardiano
+verdetti/_sorgenti/       i verdetti importati, in attesa di rilettura (non serviti)
 ```
+
+**I verdetti non si rispecchiano: si riscrivono.** `porta-verdetti.py` li porta da
+`anima-console` sulla spina e ci attacca un blocco `_ninja` con l'impronta della
+sorgente. Tiene fuori da solo ciò che non può entrare (una persona, un rimando alla
+console, la parola vietata) e dice quali host delle fonti vanno dichiarati nel
+guardiano. Poi una persona rilegge e firma (`riletto_da`, `riletto_il`,
+`riletto_impronta`): il generatore pubblica **solo** i verdetti firmati sull'impronta
+corrente. Se la sorgente cambia a monte, la firma non combacia più e la pagina si
+ferma da sola finché qualcuno non rilegge.
 
 **Le lezioni non si scrivono a mano.** Si scrive un JSON in `lezioni/_sorgenti/`
 e si rigenera: la forma (le quattro battute, le meta) la mette lo script.

@@ -8,9 +8,10 @@ lanciare in fila e nell'ordine giusto. Adesso la corsa e' una, e fa in ordine:
 
     0. il banco di ricco()      — se il sanitizer non passa i suoi 58 casi, non si genera
     1. le LEZIONI               — lezioni/_sorgenti/*.json (formato v1, adattato al volo)
-    2. L'INDICE DELLA RICERCA   — archivio.json: una riga per scheda, col testo puro
-    3. la MAPPA DEL SITO        — sitemap.xml, dai file veri
-   (4. i tipi che verranno      — dispense, ascolti, verdetti: una riga ciascuno qui sotto)
+    2. i VERDETTI               — verdetti/_sorgenti/*.json: solo quelli RILETTI e firmati
+    3. L'INDICE DELLA RICERCA   — archivio.json: una riga per scheda, col testo puro
+    4. la MAPPA DEL SITO        — sitemap.xml, dai file veri
+   (5. i tipi che verranno      — dispense, ascolti: una riga ciascuno qui sotto)
 
 Si ferma al primo errore, e dice quale. Nessuna dipendenza: solo la libreria standard.
 
@@ -26,6 +27,7 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, QUI)
 
 import tipo_lezione  # noqa: E402
+import tipo_verdetto  # noqa: E402
 from comune import SITO, carica  # noqa: E402
 
 ARCHIVIO = os.path.join(SITO, "archivio.json")
@@ -60,18 +62,33 @@ def main():
         print(f"  – n.{d['id']}  {d['titolo']}")
         print(f"           fonte: {d['fonte']['url']}")
 
-    # 2. l'indice della ricerca: una riga per scheda, di ogni tipo, col testo puro.
+    # 2. i verdetti: si pubblicano solo quelli riletti e firmati per questa casa.
+    #    Gli altri aspettano, e si dice quanti. Un errore vero (parola vietata, campo
+    #    mancante, persona) ferma la corsa come per ogni altro tipo.
+    verdetti = carica(tipo_verdetto.SORGENTI)
+    if verdetti is None:
+        return 1
+    esito = tipo_verdetto.genera(verdetti)
+    if esito is None:
+        return 1
+    _, attesa, pubblicati = esito
+    if verdetti:
+        print(f"✓ {len(pubblicati)} verdetti pubblicati" + (f" · {len(attesa)} in attesa di rilettura" if attesa else ""))
+        for nome, motivo in attesa:
+            print(f"  ⏸ {nome}: {motivo}")
+
+    # 3. l'indice della ricerca: una riga per scheda, di ogni tipo, col testo puro.
     #    Lo legge il <script> inline dell'indice del dojo, stessa origine, per cercare
     #    anche dentro le lezioni e non solo nei titoli. Oltre le ~1500 voci questo
     #    disegno e' finito: la soglia sta nel guardiano, cosi' ce ne accorgiamo noi.
-    voci = [tipo_lezione.voce_archivio(d) for d in lezioni]
+    voci = [tipo_lezione.voce_archivio(d) for d in lezioni] + [tipo_verdetto.voce_archivio(d) for d in pubblicati]
     voci.sort(key=lambda v: (v["data"] or "", v["tipo"], v["id"]), reverse=True)
     with open(ARCHIVIO, "w", encoding="utf-8") as f:
         json.dump(voci, f, ensure_ascii=False, indent=1)
         f.write("\n")
     print(f"✓ archivio.json — {len(voci)} voci")
 
-    # 3. la mappa del sito, dai file che esistono adesso
+    # 4. la mappa del sito, dai file che esistono adesso
     if not passo("la sitemap non si e' rigenerata", "genera-sitemap.py"):
         return 1
     print("✓ sitemap.xml rigenerata")

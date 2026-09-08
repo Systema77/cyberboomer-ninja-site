@@ -112,7 +112,7 @@ __TESTA__
       <button type="button">Mostra tutte</button></p>
   </form>
 
-  <ul class="lezioni">
+  <ul class="lezioni elenco">
 __VOCI__
   </ul>
 
