@@ -25,9 +25,15 @@ Una corsa sola, che fa anche la sitemap:
 python3 scripts/genera-tutto.py
 ```
 
-Lo schema di ogni scheda (lezione, e i tipi che verranno) è la spina in
+Lo schema di ogni scheda (lezione, verdetto, e i tipi che verranno) è la spina in
 `scripts/comune.py`: `tipo · id · titolo · standfirst · data · tag · provenienza · fonte`.
 Le sei lezioni del formato vecchio **non si migrano**: le legge un adattatore.
+
+I **verdetti** arrivano da `anima-console` con `python3 scripts/porta-verdetti.py --scrivi`
+(una persona, mai un'automazione) e si pubblicano **solo dopo che qualcuno li ha riletti
+e firmati** nel blocco `_ninja` del JSON. «Leggibili qui» vuol dire riscritti qui, non
+rispecchiati: niente persone, niente rimandi alla console, niente lessico vietato — e
+ogni host delle fonti dichiarato nel guardiano prima di comparire.
 
 Il vestito **non sta nei generatori e non sta nelle pagine**: sta in `stile.css`, uno
 per tutta la casa. Le pagine a mano (`index.html`, `404.html`) lo linkano e tengono
