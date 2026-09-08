@@ -15,17 +15,24 @@ Pubblicato con GitHub Pages su `main`, path `/`.
 
 ```
 index.html            la home
+stile.css             IL VESTITO — uno per tutta la casa, linkato da ogni pagina
 lezioni/index.html    il dojo — l'indice delle lezioni      ← GENERATO
 lezioni/lezione-*.html  le lezioni                          ← GENERATE
 lezioni/_sorgenti/*.json  il contenuto delle lezioni        ← QUI SI SCRIVE
 404.html · robots.txt · sitemap.xml · favicon.svg · og-image.png
+scripts/comune.py     il tronco dei generatori (head, piede, escaping)
 scripts/              i tre generatori
 strumenti/collaudo.mjs  il guardiano
 ```
 
 **Le lezioni non si scrivono a mano.** Si scrive un JSON in `lezioni/_sorgenti/`
-e si rigenera: la forma (le quattro battute, il vestito, le meta) la mette lo script.
+e si rigenera: la forma (le quattro battute, le meta) la mette lo script.
 Modificare a mano un `lezione-*.html` è inutile — la prima rigenerazione lo sovrascrive.
+
+**Il vestito è un file solo, `stile.css`.** Fino all'08/09 viveva in tre copie
+(home, 404, e una costante dentro il generatore) che dovevano essere uguali e non
+lo erano. Le pagine a mano tengono in un `<style>` solo ciò che è loro. Il guardiano
+legge anche il CSS: un colore o una parola vietata lì dentro lo fa diventare rosso.
 
 ## I tre comandi
 
@@ -46,6 +53,7 @@ Controlla, con i numeri: colori di altre case, lessico vietato, link interni rot
 link esterni non dichiarati, meta obbligatorie, cookie e tracker, `prefers-reduced-motion`,
 e — aprendo davvero le pagine in un browser headless a **320 / 768 / 1600 px** —
 che nessuna pagina sbordi in orizzontale e che la console sia pulita.
+Colori, lessico e movimento li cerca **anche in `stile.css`**, non solo negli HTML.
 
 Esce con codice `1` se trova anche un solo rosso. Non ha dipendenze: niente `npm install`.
 

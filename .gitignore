@@ -1,6 +1,8 @@
 # repo pubblico due volte: quello che entra qui è in piazza (dottrina SUONO)
 .DS_Store
 Thumbs.db
+# lo lascia Python quando un generatore importa scripts/comune.py
+__pycache__/
 
 # ── Segreti: non dovrebbero mai arrivare qui, ma la porta si chiude lo stesso
 .env

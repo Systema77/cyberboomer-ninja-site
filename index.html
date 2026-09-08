@@ -15,52 +15,15 @@
 <meta property="og:site_name" content="Cyber Boomer">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/stile.css">
 <style>
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-  :root{
-    /* La voce è BLU LINK su nero — direzione JUDY (AD), DA-JUDY-ninja-blu-link.md, 08/08.
-       Il blu dei collegamenti ipertestuali portato al 2077: è internet-che-fu, il posto
-       da cui il Boomer parla. Il magenta è passato all'agenzia (ordine del Direttore). */
-    --bg-deep:    #0C0A0C;
-    --bg-surface: #161216;
-    --voice:      #5C7CFF;
-    --voice-soft: rgba(92,124,255,.09);
-    --text-hi:    #EFE6EB;
-    --text-lo:    #A89DA4;
-    --line:       #3B2E36;
-    --font-mono:  'Courier Prime','Courier New','Lucida Console',monospace;
-    --font-serif: 'Iowan Old Style','Palatino Linotype',Palatino,'Georgia',serif;
-  }
+  /* Il tronco (reset, colori, la luce 2077, vignettatura, grana) sta in /stile.css,
+     uno per tutta la casa. Qui sotto solo quello che è della home. — JUDY, 08/09 */
 
   html{ scroll-behavior:smooth; }
 
-  body{
-    background:var(--bg-deep);
-    color:var(--text-hi);
-    font-family:var(--font-serif);
-    line-height:1.6;
-    min-height:100vh;
-    overflow-x:hidden;
-    /* la luce 2077 (JUDY, 05/09) — uguale in tutta la galassia, col colore di
-       questa casa: una riga al neon in cima e un'alba blu dal bordo alto.
-       Ferma, alfa al 10%: il blu resta la voce, il buio resta il fondale. */
-    border-top:2px solid transparent;
-    border-image:linear-gradient(90deg, var(--voice) 0%, rgba(92,124,255,.35) 55%, transparent 100%) 1;
-    background-image:radial-gradient(60% 38% at 50% 0%, rgba(92,124,255,.10), transparent 70%);
-    background-repeat:no-repeat;
-  }
-
-  /* vignettatura */
-  body::before{
-    content:''; position:fixed; inset:0; pointer-events:none; z-index:9998;
-    background:radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.55) 100%);
-  }
-  /* grana 16mm */
-  body::after{
-    content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:.04;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  /* la home respira un filo più stretta delle schede (1.7) */
+  body{ line-height:1.6; }
 
   .wrap{ max-width:760px; margin:0 auto; padding:0 1.5rem; }
 
@@ -128,8 +91,6 @@
   .eyebrow::before{ content:'✳ '; }
 
   p + p{ margin-top:1em; }
-  .prose{ color:var(--text-lo); }
-  .prose strong{ color:var(--text-hi); font-weight:600; }
 
   /* il motto — cosa regala la voce */
   .motto{

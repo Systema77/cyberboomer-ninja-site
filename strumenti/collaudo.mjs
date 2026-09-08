@@ -7,9 +7,9 @@
  *
  * COS'E'. Un collaudo che si fida solo di quello che misura. Fa due mestieri:
  *
- *   ① STATICO — legge i file e cerca le cose che non devono esserci:
- *      colori di altre case, parole vietate, link a posti che non esistono
- *      o che non abbiamo aperto, file obbligatori di un sito pubblico.
+ *   ① STATICO — legge i file (gli HTML *e i fogli di stile*) e cerca le cose che
+ *      non devono esserci: colori di altre case, parole vietate, link a posti che
+ *      non esistono o che non abbiamo aperto, file obbligatori di un sito pubblico.
  *
  *   ② VIVO — apre davvero le pagine in un browser headless (Chrome o Brave, quello
  *      che c'e' sul Mac) a 320, 768 e 1600 px e guarda due cose che nessun grep
@@ -80,7 +80,7 @@ const CASA = {
 
   // Quello che un sito pubblico deve avere.
   fileObbligatori: ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.svg',
-                    'og-image.png', 'README.md', 'CLAUDE.md', 'lezioni/index.html'],
+                    'og-image.png', 'README.md', 'CLAUDE.md', 'lezioni/index.html', 'stile.css'],
 
   // Meta obbligatorie su ogni pagina che il pubblico puo' aprire.
   metaObbligatorie: [
@@ -111,12 +111,20 @@ const ok   = (t, d = '') => esiti.push({ stato: 'ok',  t, d });
 const male = (t, d = '') => esiti.push({ stato: 'no',  t, d });
 const nota = (t, d = '') => esiti.push({ stato: 'nota', t, d });
 
+/* Cosa legge il guardiano. Dall'08/09 il vestito non sta piu' dentro gli HTML: sta in
+   `/stile.css`. Se qui ci fosse solo `.html`, il controllo dei colori, quello del
+   lessico e quello del movimento passerebbero in verde SENZA AVER LETTO IL CSS —
+   un guardiano che diventa verde perche' e' diventato cieco e' peggio di nessun
+   guardiano. Per questo i fogli di stile entrano nell'elenco nello stesso commit
+   in cui il CSS e' uscito dalle pagine. */
+const LETTI = new Set(['.html', '.css']);
+
 function pagine(dir = CASA_DIR, out = []) {
   for (const n of readdirSync(dir).sort()) {
     if (n.startsWith('.') || n === 'node_modules' || n === 'strumenti' || n === 'scripts') continue;
     const p = join(dir, n);
     if (statSync(p).isDirectory()) pagine(p, out);
-    else if (extname(p) === '.html') out.push(p);
+    else if (LETTI.has(extname(p))) out.push(p);
   }
   return out;
 }
@@ -126,7 +134,10 @@ const rel = p => relative(CASA_DIR, p);
 /* ─────────────────────────── ① CONTROLLI STATICI ────────────────────────── */
 
 function statici() {
-  const html = pagine();
+  const tutte = pagine();
+  const html  = tutte.filter(p => extname(p) === '.html');   // quello che il pubblico apre
+  const fogli = tutte.filter(p => extname(p) === '.css');    // quello che il pubblico vede addosso alle pagine
+  const letti = `${html.length} pagine + ${fogli.length} fogli`;
 
   // file obbligatori
   const mancanti = CASA.fileObbligatori.filter(f => !existsSync(join(CASA_DIR, f)));
@@ -134,19 +145,19 @@ function statici() {
     ? male(`file obbligatori: ne mancano ${mancanti.length}`, mancanti.join(' · '))
     : ok(`file obbligatori: tutti presenti`, `${CASA.fileObbligatori.length} file`);
 
-  // colori vietati
+  // colori vietati — negli HTML e nei fogli di stile
   let trovatiColori = 0;
-  for (const p of html) {
+  for (const p of tutte) {
     const t = readFileSync(p, 'utf8');
     for (const [hex, chi] of Object.entries(CASA.coloriVietati)) {
       if (new RegExp(hex, 'i').test(t)) { male(`colore di un'altra casa in ${rel(p)}`, `${hex} — ${chi}`); trovatiColori++; }
     }
   }
-  if (!trovatiColori) ok('colori: nessun colore di altre case', Object.keys(CASA.coloriVietati).join(' · '));
+  if (!trovatiColori) ok('colori: nessun colore di altre case', `${Object.keys(CASA.coloriVietati).join(' · ')} — letti ${letti}`);
 
-  // lessico
+  // lessico — negli HTML e nei fogli di stile (anche un commento CSS e' in piazza)
   let trovatiLessico = 0;
-  for (const p of html) {
+  for (const p of tutte) {
     let t = readFileSync(p, 'utf8');
     for (const e of CASA.lessicoEsenzioni) t = t.replace(e, '§');
     for (const { re, perche } of CASA.lessicoVietato) {
@@ -154,7 +165,7 @@ function statici() {
       if (m) { male(`lessico in ${rel(p)}`, `«${m[0]}» ×${m.length} — ${perche}`); trovatiLessico++; }
     }
   }
-  if (!trovatiLessico) ok('lessico: pulito', `${CASA.lessicoVietato.length} regole`);
+  if (!trovatiLessico) ok('lessico: pulito', `${CASA.lessicoVietato.length} regole — letti ${letti}`);
 
   // link non ancora aperti
   let trovatiLink = 0;
@@ -218,16 +229,16 @@ function statici() {
   }
   if (!tracker) ok('niente cookie e niente tracker: verificato, non dichiarato');
 
-  // il movimento si puo' spegnere
+  // il movimento si puo' spegnere — in ogni file che ne contiene, HTML o CSS
   let senzaRidotto = 0;
-  for (const p of html) {
+  for (const p of tutte) {
     const t = readFileSync(p, 'utf8');
     if (/animation:|transition:/.test(t) && !/prefers-reduced-motion/.test(t)) {
       male(`movimento senza freno in ${rel(p)}`, 'ci sono animazioni ma nessun blocco prefers-reduced-motion');
       senzaRidotto++;
     }
   }
-  if (!senzaRidotto) ok('movimento: ogni pagina che si muove rispetta prefers-reduced-motion');
+  if (!senzaRidotto) ok('movimento: ogni file che si muove rispetta prefers-reduced-motion', `letti ${letti}`);
 
   return html;
 }

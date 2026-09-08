@@ -24,6 +24,10 @@ Per una lezione nuova: copia un JSON esistente, cambia `n` e il contenuto, rigen
 python3 scripts/genera-lezione.py && python3 scripts/genera-sitemap.py
 ```
 
+Il vestito **non sta nei generatori e non sta nelle pagine**: sta in `stile.css`, uno
+per tutta la casa. Le pagine a mano (`index.html`, `404.html`) lo linkano e tengono
+in un `<style>` solo ciò che è loro. Il guardiano legge anche il CSS.
+
 ## La regola numero due: nessuna affermazione senza fonte
 
 Ogni lezione ha un campo `fonte` con un `url` cliccabile — informativa ufficiale,
