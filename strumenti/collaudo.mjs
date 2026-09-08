@@ -168,8 +168,8 @@ const nota = (t, d = '') => esiti.push({ stato: 'nota', t, d });
    colore, una parola o un indirizzo. Le estensioni si confrontano in minuscolo
    (PROVA.HTML e' servita uguale). `scripts/` e `strumenti/` non si leggono perche'
    `_config.yml` li esclude dal sito (il guardiano stesso deve poter nominare i colori
-   vietati) — ⚠️ da misurare dal runner dopo la prima pubblicazione: la riga e' in
-   anima-console/.github/workflows/prova-porta.yml. Le cartelle che cominciano con «_»
+   vietati) — misurato dal runner l'08/09 alle 22:02 UTC (anima-console, prova-porta.yml
+   run #5): strumenti/collaudo.mjs → 404. Le cartelle che cominciano con «_»
    non le serve Jekyll e restano fuori; quelle che cominciano con «.» (es. .well-known)
    Pages le serve, e si leggono. */
 const PAGINE = new Set(['.html', '.htm']);
