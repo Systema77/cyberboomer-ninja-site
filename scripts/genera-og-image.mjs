@@ -12,10 +12,14 @@
  * binario per questo Mac, `@resvg/resvg-js-darwin-arm64`, e' vuota: 0 file.
  * Verificato il 05/09/2026. Chrome headless non chiede installazioni, disegna i
  * font di sistema meglio, e c'e' comunque perche' lo usa gia' il guardiano.
+ * Dall'08/09 lo cerca dove lo cerca il guardiano: anche su Linux e nella cache
+ * di Playwright, cosi' da una sessione remota o dal runner non si ferma alla
+ * prima riga. I font pero' sono quelli della macchina che rende: l'immagine
+ * buona resta quella cotta dal Mac.
  *
  * — creato da FLUX, 2026-09-05
  */
-import { writeFileSync, unlinkSync, existsSync, mkdtempSync, statSync } from 'node:fs';
+import { writeFileSync, unlinkSync, existsSync, mkdtempSync, statSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -25,10 +29,26 @@ const QUI = dirname(fileURLToPath(import.meta.url));
 const SITO = join(QUI, '..');
 const L = 1200, A = 630;
 
-const BROWSER = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-                 '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser',
-                 '/Applications/Chromium.app/Contents/MacOS/Chromium'].find(existsSync);
-if (!BROWSER) { console.error('✗ serve Chrome, Brave o Chromium in /Applications'); process.exit(1); }
+// Dove si cerca il browser: lo stesso giro del guardiano (strumenti/collaudo.mjs).
+// Fino all'08/09 solo in /Applications: su Linux e in CI si fermava alla prima riga.
+const dentro = (dir, coda) => {
+  try { return readdirSync(dir).filter(n => n.startsWith('chromium')).sort().reverse().map(n => join(dir, n, coda)); }
+  catch { return []; }
+};
+const BROWSER = [
+  process.env.COLLAUDO_BROWSER,
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser',
+  '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser',
+  ...dentro(process.env.PLAYWRIGHT_BROWSERS_PATH ?? '', 'chrome-linux/chrome'),
+  ...dentro('/opt/pw-browsers', 'chrome-linux/chrome'),
+  ...dentro(join(process.env.HOME ?? '', '.cache/ms-playwright'), 'chrome-linux/chrome'),
+].filter(Boolean).find(existsSync);
+if (!BROWSER) { console.error('✗ nessun browser: Chrome, Brave o Chromium in /Applications o /usr/bin, la cache di Playwright, o COLLAUDO_BROWSER=/percorso'); process.exit(1); }
+// Come root (contenitori, CI) Chromium non parte senza --no-sandbox: e' la condizione
+// per rendere qualcosa in quelle stanze, non una scelta di sicurezza nostra.
+const FLAG_ROOT = process.getuid?.() === 0 ? ['--no-sandbox'] : [];
 
 const V = '#5C7CFF', FONDO = '#0C0A0C', CARTA = '#EFE6EB', MUTO = '#A89DA4', LINEA = '#3B2E36';
 
@@ -75,7 +95,7 @@ writeFileSync(html, pagina);
 const dest = join(SITO, 'og-image.png');
 if (existsSync(dest)) unlinkSync(dest);
 
-const proc = spawn(BROWSER, ['--headless=new', `--screenshot=${dest}`,
+const proc = spawn(BROWSER, ['--headless=new', ...FLAG_ROOT, `--screenshot=${dest}`,
   `--window-size=${L},${A}`, '--hide-scrollbars', '--disable-gpu', '--no-first-run',
   '--no-default-browser-check', '--virtual-time-budget=3000',
   `--user-data-dir=${tmp}/prof`, html], { stdio: 'ignore', detached: false });
