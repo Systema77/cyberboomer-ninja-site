@@ -516,16 +516,39 @@ async function vivi(html) {
   const inElenco = (u, elenco) => elenco.some(a => u.toLowerCase().startsWith(a.toLowerCase()));
 
   const porta = 9000 + Math.floor(Math.random() * 900);
+  // stdio catturato, non buttato (D.R.A.G.O., 10/09). Con 'ignore' questo blocco sapeva
+  // dire SOLO «non si e' avviato»: sul runner GitHub il giro e' uscito rosso e da una
+  // sessione remota non c'era modo di sapere perche' — il browser parte qui e non la'.
+  // 📜 Un fallimento che non dice di chi e' la colpa costa piu' del guasto che segnala.
   const proc = spawn(BROWSER, ['--headless=new', `--remote-debugging-port=${porta}`,
     `--user-data-dir=/tmp/collaudo-${porta}`, '--no-first-run', '--no-default-browser-check',
-    '--disable-gpu', '--hide-scrollbars', ...FLAG_ROOT], { stdio: 'ignore' });
+    '--disable-gpu', '--hide-scrollbars', ...FLAG_ROOT], { stdio: ['ignore', 'ignore', 'pipe'] });
 
+  let lamento = '';           // le ultime righe di stderr del browser
+  let morto = null;           // com'e' morto, se e' morto
+  proc.stderr?.on('data', d => { lamento = (lamento + d).slice(-1200); });
+  proc.on('exit', (codice, segnale) => { morto = segnale ? `segnale ${segnale}` : `uscita ${codice}`; });
+  proc.on('error', e => { lamento += `\nspawn: ${e.message}`; });
+
+  // 20 s invece di 10: il primo avvio su un runner freddo e' piu' lento di uno in
+  // una stanza dove il browser e' gia' stato aperto. Aspettare non costa niente;
+  // un rosso che nasce da un'attesa corta costa un giro.
   let vers = null;
-  for (let i = 0; i < 40 && !vers; i++) {
+  for (let i = 0; i < 80 && !vers; i++) {
     await dormi(250);
     try { vers = await (await fetch(`http://127.0.0.1:${porta}/json/version`)).json(); } catch {}
   }
-  if (!vers) { proc.kill(); male('browser: non si è avviato', `${BROWSER} — porta ${porta}`); return; }
+  if (!vers) {
+    proc.kill();
+    // Le righe di dbus sono rumore in ogni contenitore: si tolgono, o coprono la causa vera.
+    const utili = lamento.split('\n').filter(r => r.trim() && !/dbus|Failed to connect to the bus/.test(r));
+    male('browser: non si è avviato',
+         `${BROWSER}\n     porta ${porta} · utente uid ${process.getuid?.() ?? '?'}` +
+         `${FLAG_ROOT.length ? ' · con --no-sandbox' : ' · senza --no-sandbox'}` +
+         `${morto ? ` · il processo e' morto (${morto})` : ' · il processo era ancora vivo: non ha aperto la porta'}` +
+         (utili.length ? `\n     lamento del browser: ${utili.slice(-4).join(' | ')}` : '\n     il browser non ha detto niente su stderr'));
+    return;
+  }
 
   const b = cdp(vers.webSocketDebuggerUrl); await b.pronto;
 
