@@ -39,11 +39,11 @@
   --text-lo:    #A89DA4;
   --line:       #3B2E36;
   --font-mono:  'Courier Prime','Courier New','Lucida Console',monospace;
-  --font-serif: 'Iowan Old Style','Palatino Linotype',Palatino,'Georgia',serif;
+  --font-body:  -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
 }
 body{
   background:var(--bg-deep); color:var(--text-hi);
-  font-family:var(--font-serif); line-height:1.7; min-height:100vh; overflow-x:hidden;
+  font-family:var(--font-body); line-height:1.7; min-height:100vh; overflow-x:hidden;
   /* la luce 2077 (JUDY, 05/09): riga al neon in cima e alba blu dal bordo alto. Ferma. */
   border-top:2px solid transparent;
   border-image:linear-gradient(90deg, var(--voice) 0%, rgba(92,124,255,.35) 55%, transparent 100%) 1;
@@ -61,6 +61,7 @@ body::after{
 
 /* ══════════════════ ② LE SCHEDE — le pagine generate ══════════════════════ */
 .wrap{ max-width:680px; margin:0 auto; padding:0 1.5rem; }
+.scena, ol.moves li, .fonte, ul.elenco a, .referto, .scheda-file, .ascolto{ border-radius:2px; }
 .masthead{ padding:2.2rem 0 0; font-family:var(--font-mono); text-align:center; }
 .masthead a{
   color:var(--text-lo); text-decoration:none; font-size:.7rem;
@@ -88,7 +89,8 @@ section.beat{ padding:2.6rem 0 0; }
 .prose a:hover, .prose a:focus-visible{ border-color:var(--voice); }
 /* la scena ricostruita: un SMS, una schermata, un pulsante */
 .scena{
-  margin:1.4rem 0 0; background:var(--bg-surface); border:1px solid var(--line);
+  margin:1.4rem 0 0; background:var(--bg-surface);
+  border:1px solid var(--line); border-left:3px solid var(--voice);
   padding:1.1rem 1.3rem; font-family:var(--font-mono); font-size:.9rem;
   color:var(--text-hi); line-height:1.6;
 }
@@ -101,21 +103,27 @@ ol.moves{ list-style:none; counter-reset:mossa; margin-top:1.4rem; }
 ol.moves li{
   counter-increment:mossa; position:relative;
   background:var(--bg-surface); border:1px solid var(--line);
-  padding:1.1rem 1.3rem 1.1rem 3.4rem; margin-bottom:.8rem; color:var(--text-lo);
+  padding:1.1rem 1.3rem 1.1rem 3.7rem; margin-bottom:.8rem; color:var(--text-lo);
 }
 ol.moves li::before{
-  content:counter(mossa); position:absolute; left:1.1rem; top:1.05rem;
-  font-family:var(--font-mono); font-weight:700; font-size:1.1rem; color:var(--voice);
+  content:counter(mossa); position:absolute; left:1.1rem; top:.85rem;
+  font-family:var(--font-mono); font-weight:700; font-size:1.8rem; color:var(--voice);
 }
 ol.moves li strong{ color:var(--text-hi); }
 ol.moves li a{ color:var(--voice); text-decoration:none; border-bottom:1px solid var(--line); }
 ol.moves li a:hover, ol.moves li a:focus-visible{ border-color:var(--voice); }
 .proverbio{
-  margin:3rem 0 0; padding:2rem 1.6rem; text-align:center;
+  margin:3rem 0 0; padding:2rem 1.6rem; text-align:center; position:relative;
   border-top:1px solid var(--voice); border-bottom:1px solid var(--voice);
   background:var(--voice-soft);
 }
-.proverbio .q{ font-size:clamp(1.15rem,3.4vw,1.5rem); line-height:1.5; font-style:italic; }
+.proverbio::before{
+  content:'«'; position:absolute; top:.2rem; left:50%; transform:translateX(-50%);
+  font-size:4rem; line-height:1; color:var(--voice); opacity:.18; font-style:normal;
+}
+.proverbio .q{
+  position:relative; font-size:clamp(1.15rem,3.4vw,1.5rem); line-height:1.5; font-style:italic;
+}
 .proverbio .who{
   margin-top:1rem; font-family:var(--font-mono); font-size:.68rem;
   letter-spacing:.28em; text-transform:uppercase; color:var(--text-lo);
@@ -191,6 +199,13 @@ ul.elenco .f{
 @media (prefers-reduced-motion: reduce){
   ul.elenco a{ transition:none; }
   ul.elenco a:hover, ul.elenco a:focus-visible{ transform:none; }
+}
+
+/* reveal allo scroll: le battute della lezione entrano una alla volta */
+.reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
 }
 
 /* il verdetto: un referto, e deve sembrare una macchina che ha misurato */
