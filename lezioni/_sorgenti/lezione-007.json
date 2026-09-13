@@ -1,0 +1,62 @@
+{
+ "tipo": "lezione",
+ "id": "007",
+ "titolo": "Le chiavi di casa a gente che non ricordo",
+ "standfirst": "Nel 2014 ho premuto «Accedi con Google» per vedere un oroscopo. Quell'app ce l'ha ancora, la chiave.",
+ "data": "2026-09-13",
+ "tag": [
+  "account",
+  "permessi",
+  "pulizie"
+ ],
+ "provenienza": "casa",
+ "trappola": {
+  "prosa": [
+   "Mia nipote mi fa vedere una cosa sul telefono e io, per dire qualcosa di intelligente, le chiedo quante app ha collegato all'account. Lei ride e apre una pagina. Ne ha quattro.",
+   "Poi apre la mia."
+  ],
+  "scena": {
+   "tipo": "banner",
+   "alt": "Ricostruzione dell'elenco dei collegamenti di un account",
+   "da": "L'elenco che non avevo mai aperto in vita mia",
+   "testo": "Collegamenti a terze parti\n\n      · un'app di oroscopi — <span class=\"falso\">ultimo accesso: 2014</span>\n      · un gioco di parole — <span class=\"falso\">ultimo accesso: 2016</span>\n      · un lettore di PDF che non ho più\n      · un'app della palestra che ha chiuso\n      ... e altri <strong>trentuno</strong>"
+  },
+  "dopo": [
+   "Trentacinque. <em>Non ne riconoscevo nove.</em>",
+   "E la cosa che mi ha fatto sedere non è il numero. È che <strong>l'app della palestra ha chiuso nel 2019</strong>, e il suo permesso di leggere la mia rubrica era ancora lì, acceso, in attesa."
+  ]
+ },
+ "davvero": {
+  "prosa": [
+   "Quel bottone comodo — «Accedi con Google» — non è un accesso: è una <strong>consegna di chiavi</strong>. L'app non riceve la password, riceve un permesso. E un permesso, a differenza di una visita, <em>non finisce quando te ne vai.</em>",
+   "Google lo scrive senza giri di parole nella pagina dei collegamenti: puoi controllare e rimuovere <strong>in qualsiasi momento</strong> le app e i servizi di terze parti che hanno accesso parziale ai dati del tuo account. Il potere di chiudere ce l'hai sempre avuto. Nessuno te l'ha mai messo davanti.",
+   "E c'è la riga che vale il viaggio, perché smonta l'illusione della pulizia: <strong>se togli il collegamento, l'accesso automatico si ferma, ma i dati che quell'app ha già preso restano suoi.</strong> Chiudere la porta non svuota le tasche di chi è già uscito.",
+   "Non è una truffa e non è un guasto. È che un permesso dato in tre secondi nel 2014 <em>non ha una scadenza</em>, e nessuno è incaricato di ricordartelo. Quel compito è tuo, e fino a ieri non sapevi di averlo."
+  ]
+ },
+ "mossa": {
+  "passi": [
+   {
+    "forte": "Aprila una volta. Solo guardare, per ora.",
+    "testo": "Nella tua pagina dell'account cerca la voce dei <strong>collegamenti con terze parti</strong>. Non decidere niente: leggi l'elenco. La prima volta è uno spettacolo, e lo spettacolo è già metà del lavoro."
+   },
+   {
+    "forte": "Togli solo quelle che non riconosci.",
+    "testo": "Non fare pulizie grandi alle undici di sera: si finisce per staccare il collegamento che serve e poi non si entra più da qualche parte. <em>Togli quelle che non sai nemmeno cosa siano</em>, e lascia stare il resto. Se sbagli si rifà: si riaccede e il permesso si ridà."
+   },
+   {
+    "forte": "Segnati la data, e rifallo fra un anno.",
+    "testo": "Come il controllo della caldaia. Ci vogliono cinque minuti e l'elenco si riempie da solo, perché ogni «Accedi con» che premi ci aggiunge una riga. <strong>Un anno è la distanza giusta:</strong> abbastanza da trovarne di nuove, abbastanza poco da ricordarsi ancora cos'erano."
+   }
+  ]
+ },
+ "proverbio": {
+  "testo": "Le chiavi date non tornano da sole. Chi non le chiede indietro, le ha regalate."
+ },
+ "fonte": {
+  "titolo": "Guida di Account Google — «Gestisci i collegamenti tra il tuo Account Google e terze parti»",
+  "url": "https://support.google.com/accounts/answer/13533235?hl=it",
+  "chi": "La pagina ufficiale di Google, in italiano. Spiega dove sta l'elenco, come si toglie un collegamento, e dice a chiare lettere che togliere l'accesso non cancella i dati già presi.",
+  "chi_corto": "Guida di Account Google"
+ }
+}
