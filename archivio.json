@@ -1,6 +1,34 @@
 [
  {
   "tipo": "lezione",
+  "id": "008",
+  "url": "/lezioni/lezione-008.html",
+  "titolo": "La lettera che non sapevo di poter scrivere",
+  "standfirst": "Per due anni un'azienda mi ha ignorato. Pensavo fosse finita lì. C'è un ufficio, in Italia, che le scrive per te.",
+  "tag": [
+   "diritti",
+   "garante",
+   "reclamo"
+  ],
+  "data": "2026-09-13",
+  "testo": "Avevo chiesto a una ditta di cancellare i miei dati. Ho scritto, educato, con la formula giusta. Silenzio. Ho riscritto dopo un mese. Silenzio. Ho riscritto dopo tre. Mi hanno risposto una frase sola: «Inoltrata all'ufficio competente.» Quale. Quando. A chi. E io ho fatto quello che fanno tutti: ho smesso. Perché a quel punto sembra che l'unica strada rimasta sia un avvocato, e per un indirizzo di casa in un archivio non ci vai. Gentile Cliente, la Sua richiesta è stata inoltrata all'ufficio competente. — nessun altro messaggio è mai arrivato — Non era l'unica strada. Ne esisteva una gratuita, e non la sapevo: si chiama reclamo al Garante . Il Garante per la protezione dei dati personali è l'autorità italiana che vigila su questa roba, e il reclamo è lo strumento con cui un cittadino le segnala una violazione e chiede che sia lei a verificare. Non chiedi un consiglio: metti in moto un ufficio dello Stato che ha il potere di andare a bussare al posto tuo. Non serve un avvocato: il reclamo può firmarlo direttamente l'interessato . Si manda via posta certificata o per posta ordinaria all'indirizzo dell'Autorità, e sul sito c'è un modello già pronto da riempire. L'unica cosa che chiede è precisione, ed è giusto così: vanno indicati i fatti e le circostanze su cui si fonda, comprese le richieste che hai già fatto all'azienda. Tradotto: le tue tre lettere ignorate non sono la prova di aver perso. Sono esattamente il documento che serve. Prima scrivi all'azienda. Una volta, e tieni la copia. Il reclamo funziona meglio quando dimostra che ci hai già provato. Quindi la prima lettera non è tempo perso: è il primo allegato . Salva quello che mandi e quello che ti rispondono, con le date. Se ti ignorano, scarica il modello. Sul sito del Garante c'è la pagina dei reclami con il modello già impostato. Non inventare la lettera da zero : quella pronta contiene già le voci che l'ufficio si aspetta di trovare, ed è la ragione per cui un reclamo viene letto invece che rimbalzato. Racconta i fatti, non la rabbia. Cosa hai chiesto, quando, a chi, cosa ti hanno risposto. Date e copie. La parte che pesa è la cronologia , non l'aggettivo: un elenco di tre righe con tre date vale più di due pagine di indignazione, ed è anche molto più veloce da scrivere. Il silenzio di chi doveva rispondere non chiude la storia: la consegna a qualcun altro. La pagina ufficiale dell'Autorità italiana: cos'è il reclamo, chi può firmarlo, cosa deve contenere e come si manda. Da lì si scarica anche il modello già pronto."
+ },
+ {
+  "tipo": "lezione",
+  "id": "007",
+  "url": "/lezioni/lezione-007.html",
+  "titolo": "Le chiavi di casa a gente che non ricordo",
+  "standfirst": "Nel 2014 ho premuto «Accedi con Google» per vedere un oroscopo. Quell'app ce l'ha ancora, la chiave.",
+  "tag": [
+   "account",
+   "permessi",
+   "pulizie"
+  ],
+  "data": "2026-09-13",
+  "testo": "Mia nipote mi fa vedere una cosa sul telefono e io, per dire qualcosa di intelligente, le chiedo quante app ha collegato all'account. Lei ride e apre una pagina. Ne ha quattro. Poi apre la mia. Trentacinque. Non ne riconoscevo nove. E la cosa che mi ha fatto sedere non è il numero. È che l'app della palestra ha chiuso nel 2019 , e il suo permesso di leggere la mia rubrica era ancora lì, acceso, in attesa. Collegamenti a terze parti · un'app di oroscopi — ultimo accesso: 2014 · un gioco di parole — ultimo accesso: 2016 · un lettore di PDF che non ho più · un'app della palestra che ha chiuso ... e altri trentuno Quel bottone comodo — «Accedi con Google» — non è un accesso: è una consegna di chiavi . L'app non riceve la password, riceve un permesso. E un permesso, a differenza di una visita, non finisce quando te ne vai. Google lo scrive senza giri di parole nella pagina dei collegamenti: puoi controllare e rimuovere in qualsiasi momento le app e i servizi di terze parti che hanno accesso parziale ai dati del tuo account. Il potere di chiudere ce l'hai sempre avuto. Nessuno te l'ha mai messo davanti. E c'è la riga che vale il viaggio, perché smonta l'illusione della pulizia: se togli il collegamento, l'accesso automatico si ferma, ma i dati che quell'app ha già preso restano suoi. Chiudere la porta non svuota le tasche di chi è già uscito. Non è una truffa e non è un guasto. È che un permesso dato in tre secondi nel 2014 non ha una scadenza , e nessuno è incaricato di ricordartelo. Quel compito è tuo, e fino a ieri non sapevi di averlo. Aprila una volta. Solo guardare, per ora. Nella tua pagina dell'account cerca la voce dei collegamenti con terze parti . Non decidere niente: leggi l'elenco. La prima volta è uno spettacolo, e lo spettacolo è già metà del lavoro. Togli solo quelle che non riconosci. Non fare pulizie grandi alle undici di sera: si finisce per staccare il collegamento che serve e poi non si entra più da qualche parte. Togli quelle che non sai nemmeno cosa siano , e lascia stare il resto. Se sbagli si rifà: si riaccede e il permesso si ridà. Segnati la data, e rifallo fra un anno. Come il controllo della caldaia. Ci vogliono cinque minuti e l'elenco si riempie da solo, perché ogni «Accedi con» che premi ci aggiunge una riga. Un anno è la distanza giusta: abbastanza da trovarne di nuove, abbastanza poco da ricordarsi ancora cos'erano. Le chiavi date non tornano da sole. Chi non le chiede indietro, le ha regalate. La pagina ufficiale di Google, in italiano. Spiega dove sta l'elenco, come si toglie un collegamento, e dice a chiare lettere che togliere l'accesso non cancella i dati già presi."
+ },
+ {
+  "tipo": "lezione",
   "id": "006",
   "url": "/lezioni/lezione-006.html",
   "titolo": "Chiedi il tuo fascicolo",
