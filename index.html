@@ -94,7 +94,7 @@
 
   /* il motto — cosa regala la voce */
   .motto{
-    margin-top:1.75rem; padding:1.3rem 1.5rem; text-align:center;
+    margin-top:1.75rem; padding:1.3rem 1.5rem; text-align:center; border-radius:2px;
     border:1px solid var(--voice); background:var(--voice-soft);
   }
   .motto .q{ font-size:clamp(1.05rem,3vw,1.3rem); font-style:italic; color:var(--text-hi); }
@@ -106,7 +106,8 @@
   /* le quattro battute del formato */
   .beats{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); margin-top:1.75rem; }
   .beat{
-    background:var(--bg-surface); border:1px solid var(--line); padding:1.1rem 1.2rem;
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:2px;
+    padding:1.1rem 1.2rem;
   }
   .beat .n{
     font-family:var(--font-mono); font-size:.65rem; letter-spacing:.22em;
@@ -121,7 +122,7 @@
   /* card lezione */
   a.tool{
     display:block; text-decoration:none; color:inherit; margin-top:1.75rem;
-    background:var(--bg-surface); border:1px solid var(--line);
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:2px;
     padding:1.4rem 1.5rem; transition:border-color .25s, background .25s, transform .25s;
   }
   a.tool:hover, a.tool:focus-visible{
@@ -162,7 +163,7 @@
     display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-bottom:1.5rem;
   }
   .badge{
-    border:1px solid var(--line); background:var(--bg-surface);
+    border:1px solid var(--line); background:var(--bg-surface); border-radius:2px;
     padding:.3em .7em; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
   }
   .badge b{ color:var(--voice); font-weight:700; }
@@ -194,8 +195,8 @@
   .vetrina{ margin-top:1.5rem; }
   .vetrina a{
     display:block; text-decoration:none; color:inherit; margin-bottom:.8rem;
-    background:var(--bg-surface); border:1px solid var(--line); padding:1.1rem 1.25rem;
-    transition:border-color .25s, background .25s, transform .25s;
+    background:var(--bg-surface); border:1px solid var(--line); border-radius:2px;
+    padding:1.1rem 1.25rem; transition:border-color .25s, background .25s, transform .25s;
   }
   .vetrina a:hover, .vetrina a:focus-visible{
     border-color:var(--voice); background:var(--voice-soft); transform:translateY(-2px);
@@ -216,7 +217,7 @@
   /* uno stato onesto: quello che non c'e' ancora si dice, non si promette */
   .inarrivo{
     margin-top:1.25rem; font-family:var(--font-mono); font-size:.72rem;
-    letter-spacing:.1em; color:var(--text-lo);
+    letter-spacing:.1em; color:var(--text-lo); border-radius:2px;
     border:1px dashed var(--line); padding:.9rem 1.1rem;
   }
   .inarrivo b{ color:var(--voice); letter-spacing:.18em; text-transform:uppercase; font-size:.65rem; }
@@ -225,12 +226,17 @@
   .constellation a{ color:var(--text-hi); text-decoration:none; border-bottom:1px solid var(--line); }
   .constellation a:hover, .constellation a:focus-visible{ border-color:var(--voice); color:var(--voice); }
 
+  /* reveal allo scroll: le sezioni sotto il hero entrano un filo, non di scatto */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
   @media (prefers-reduced-motion: reduce){
     .vetrina a{ transition:none; }
     .vetrina a:hover, .vetrina a:focus-visible{ transform:none; }
     a.tool{ transition:none; }
     a.tool:hover, a.tool:focus-visible{ transform:none; }
     html{ scroll-behavior:auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
   }
 
   @keyframes rise{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
@@ -267,7 +273,7 @@
 
 <main class="wrap">
 
-  <section id="chi-parla">
+  <section id="chi-parla" class="reveal">
     <h2 class="eyebrow">Chi parla</h2>
     <div class="prose">
       <p><strong>Boomer di nome, Cyber di cognome.</strong> Per gli amici: Mr.&nbsp;Cyber.
@@ -286,7 +292,7 @@
     </blockquote>
   </section>
 
-  <section id="dojo">
+  <section id="dojo" class="reveal">
     <h2 class="eyebrow">Il dojo — Lezioni dal 2077</h2>
     <div class="prose">
       <p>Ogni lezione è una trappola vera: raccontata, spiegata come si deve
@@ -336,7 +342,7 @@
     </div>
   </section>
 
-  <section id="ponte-x">
+  <section id="ponte-x" class="reveal">
     <h2 class="eyebrow">Il Boomer cinguetta</h2>
     <div class="prose">
       <p>Ogni proverbio è lungo quanto un cinguettio, e non è un caso:
@@ -347,7 +353,7 @@
     è il primo trucco che insegniamo a riconoscere.</em></p>
   </section>
 
-  <section id="costellazione">
+  <section id="costellazione" class="reveal">
     <h2 class="eyebrow">La costellazione</h2>
     <div class="prose">
       <p><strong>SYSTEMA 77 costruisce, qui si spiega.</strong> Chi vende e chi spiega non
@@ -368,6 +374,18 @@
   </section>
 
 </main>
+
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) { return; }
+  var oss = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) {
+      if (v.isIntersecting) { v.target.classList.add('is-visible'); oss.unobserve(v.target); }
+    });
+  }, { threshold: .12 });
+  [].slice.call(document.querySelectorAll('.reveal')).forEach(function (el) { oss.observe(el); });
+})();
+</script>
 
 <footer>
   <div class="badges">

@@ -70,6 +70,18 @@ __BATTUTE__
 
 __FIRMA__
 
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) { return; }
+  var oss = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) {
+      if (v.isIntersecting) { v.target.classList.add('is-visible'); oss.unobserve(v.target); }
+    });
+  }, { threshold: .12 });
+  [].slice.call(document.querySelectorAll('.reveal')).forEach(function (el) { oss.observe(el); });
+})();
+</script>
+
 </body>
 </html>
 """
@@ -262,7 +274,7 @@ def battute(d, pr):
                   '    </figure>\n'))
 
     return "\n".join(
-        f'  <section class="beat">\n'
+        f'  <section class="beat reveal">\n'
         f'    <h2 class="beat-label"><span class="num">{i + 1:02d}</span>{e(t)}</h2>\n'
         f'{c}  </section>\n'
         for i, (t, c) in enumerate(fuori))
