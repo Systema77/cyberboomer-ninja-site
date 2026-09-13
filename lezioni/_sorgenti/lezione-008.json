@@ -1,0 +1,62 @@
+{
+ "tipo": "lezione",
+ "id": "008",
+ "titolo": "La lettera che non sapevo di poter scrivere",
+ "standfirst": "Per due anni un'azienda mi ha ignorato. Pensavo fosse finita lì. C'è un ufficio, in Italia, che le scrive per te.",
+ "data": "2026-09-13",
+ "tag": [
+  "diritti",
+  "garante",
+  "reclamo"
+ ],
+ "provenienza": "casa",
+ "trappola": {
+  "prosa": [
+   "Avevo chiesto a una ditta di cancellare i miei dati. Ho scritto, educato, con la formula giusta. Silenzio.",
+   "Ho riscritto dopo un mese. Silenzio. Ho riscritto dopo tre. Mi hanno risposto una frase sola:"
+  ],
+  "scena": {
+   "tipo": "banner",
+   "alt": "Ricostruzione di una risposta via email",
+   "da": "La risposta, dopo tre mesi e tre lettere",
+   "testo": "Gentile Cliente,\n\n      la Sua richiesta è stata inoltrata all'ufficio competente.\n\n      <span class=\"falso\">— nessun altro messaggio è mai arrivato —</span>"
+  },
+  "dopo": [
+   "«Inoltrata all'ufficio competente.» <em>Quale. Quando. A chi.</em>",
+   "E io ho fatto quello che fanno tutti: <strong>ho smesso.</strong> Perché a quel punto sembra che l'unica strada rimasta sia un avvocato, e per un indirizzo di casa in un archivio non ci vai."
+  ]
+ },
+ "davvero": {
+  "prosa": [
+   "Non era l'unica strada. Ne esisteva una gratuita, e non la sapevo: si chiama <strong>reclamo al Garante</strong>.",
+   "Il Garante per la protezione dei dati personali è l'autorità italiana che vigila su questa roba, e il reclamo è lo strumento con cui un cittadino le segnala una violazione <em>e chiede che sia lei a verificare.</em> Non chiedi un consiglio: metti in moto un ufficio dello Stato che ha il potere di andare a bussare al posto tuo.",
+   "Non serve un avvocato: il reclamo <strong>può firmarlo direttamente l'interessato</strong>. Si manda via posta certificata o per posta ordinaria all'indirizzo dell'Autorità, e sul sito c'è un <em>modello già pronto</em> da riempire.",
+   "L'unica cosa che chiede è precisione, ed è giusto così: vanno indicati <strong>i fatti e le circostanze</strong> su cui si fonda, comprese le richieste che hai già fatto all'azienda. Tradotto: le tue tre lettere ignorate non sono la prova di aver perso. <em>Sono esattamente il documento che serve.</em>"
+  ]
+ },
+ "mossa": {
+  "passi": [
+   {
+    "forte": "Prima scrivi all'azienda. Una volta, e tieni la copia.",
+    "testo": "Il reclamo funziona meglio quando dimostra che ci hai già provato. Quindi la prima lettera non è tempo perso: è <strong>il primo allegato</strong>. Salva quello che mandi e quello che ti rispondono, con le date."
+   },
+   {
+    "forte": "Se ti ignorano, scarica il modello.",
+    "testo": "Sul sito del Garante c'è la pagina dei reclami con il modello già impostato. <em>Non inventare la lettera da zero</em>: quella pronta contiene già le voci che l'ufficio si aspetta di trovare, ed è la ragione per cui un reclamo viene letto invece che rimbalzato."
+   },
+   {
+    "forte": "Racconta i fatti, non la rabbia.",
+    "testo": "Cosa hai chiesto, quando, a chi, cosa ti hanno risposto. Date e copie. <strong>La parte che pesa è la cronologia</strong>, non l'aggettivo: un elenco di tre righe con tre date vale più di due pagine di indignazione, ed è anche molto più veloce da scrivere."
+   }
+  ]
+ },
+ "proverbio": {
+  "testo": "Il silenzio di chi doveva rispondere non chiude la storia: la consegna a qualcun altro."
+ },
+ "fonte": {
+  "titolo": "Garante per la protezione dei dati personali — «Reclami»",
+  "url": "https://www.garanteprivacy.it/diritti/come-agire-per-tutelare-i-tuoi-dati-personali/reclamo",
+  "chi": "La pagina ufficiale dell'Autorità italiana: cos'è il reclamo, chi può firmarlo, cosa deve contenere e come si manda. Da lì si scarica anche il modello già pronto.",
+  "chi_corto": "Garante Privacy"
+ }
+}
