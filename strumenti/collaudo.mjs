@@ -90,6 +90,8 @@ const CASA = {
     'https://support.google.com/', 'https://www.garanteprivacy.it/',
     'https://myactivity.google.com/', 'https://myadcenter.google.com/',
     'https://takeout.google.com/',
+    // la fonte della pagina /qr: gli adesivi sopra i QR dei parchimetri (SHUTTER, 11/10)
+    'https://consumer.ftc.gov/',
     // i notebook del Direttore: cartelle di Drive condivise a chi ha il link (ECHO-17 = 2, 04/10)
     'https://drive.google.com/',
   ],
