@@ -1,0 +1,60 @@
+# Il robot che fonde le PR di questo sito, se il guardiano è verde (S3, piano del 04/10; ordine del Direttore 11/10:
+# «il robot fonde i siti verdi»). Prima le fondeva il Direttore a mano, una casella per PR.
+#
+# Fonde solo se: PR non in bozza, dallo stesso repo, `node strumenti/collaudo.mjs` esce 0.
+# NON fonde, e lo scrive nella PR, se la PR aggiunge una pagina .html nuova o tocca CNAME:
+# una cosa pubblica nuova la decide il Direttore (uno dei suoi 4 casi).
+# Dopo la fusione chiede a GitHub Pages di ricostruire (una fusione col token del robot non lo fa da sola).
+#
+# — creato da SQUELCH, 2026-10-11
+name: fondi se verde
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+  pages: write
+
+concurrency:
+  group: fondi-sito-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  fondi:
+    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: guardiano del sito
+        env:
+          COLLAUDO_BROWSER: /usr/bin/google-chrome
+        run: node strumenti/collaudo.mjs
+      - name: una cosa pubblica nuova?
+        id: nuovo
+        run: |
+          NUOVE=$(git diff --name-only --diff-filter=A origin/${{ github.base_ref }}...HEAD -- '*.html' | tr '\n' ' ')
+          DOMINIO=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- CNAME)
+          echo "righe=${NUOVE}${DOMINIO}" >> "$GITHUB_OUTPUT"
+      - name: fondi
+        if: steps.nuovo.outputs.righe == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} --merge --repo ${{ github.repository }}
+          gh api -X POST repos/${{ github.repository }}/pages/builds || echo "ricostruzione di Pages non chiesta: la fa il prossimo push"
+      - name: al Direttore
+        if: steps.nuovo.outputs.righe != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} \
+            --body "🟡 Guardiano verde, ma la PR pubblica una cosa nuova (${{ steps.nuovo.outputs.righe }}): la fonde il Direttore."
