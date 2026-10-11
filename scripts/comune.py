@@ -67,7 +67,11 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 SITO = os.path.abspath(os.path.join(QUI, ".."))
 DOMINIO = "https://cyberboomer.ninja"
 
-FOGLIO = '<link rel="stylesheet" href="/stile.css">'
+FOGLIO = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
+          'family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400'
+          '&family=Share+Tech+Mono&display=swap">\n'
+          '<link rel="stylesheet" href="/stile.css">\n'
+          '<link rel="stylesheet" href="/galassia.css">')
 
 PROVENIENZE = ("casa", "proposta")
 TIPI = ("lezione", "dispensa", "ascolto", "verdetto")
