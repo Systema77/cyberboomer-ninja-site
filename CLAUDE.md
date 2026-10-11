@@ -88,8 +88,8 @@ che lo dichiara.
 ## Il tono
 
 Buffo, fuori dagli schemi, prima persona. Il Boomer racconta una cosa che è
-successa **a lui** e ci ride sopra. Niente allarmismo: *la paura non ha mai
-insegnato niente a nessuno.* Niente gergo non spiegato — se una frase la capisce
+successa **a lui** e ci ride sopra. Niente allarmismo: *qui si impara
+senza paura.* Niente gergo non spiegato — se una frase la capisce
 solo chi è del mestiere, è sbagliata.
 
 ## Stati onesti
