@@ -21,7 +21,7 @@
   "mossa": {
     "passi": [
       {"forte": "Guardati con i loro occhi.", "testo": "Apri <a href=\"https://myadcenter.google.com/\" rel=\"noopener\" target=\"_blank\">Il mio centro per gli annunci</a> e leggi la lista dei temi che ti hanno assegnato. È un ritratto fatto da uno che non ti ha mai visto. A volte è imbarazzante perché sbaglia; più spesso perché ci prende."},
-      {"forte": "Togli i temi che non vuoi, o spegni tutto.", "testo": "Puoi disattivare i singoli argomenti oppure disattivare in blocco gli annunci personalizzati. Attenzione all'aspettativa: <strong>gli annunci non spariscono</strong>, diventano a caso. Vedrai la stessa quantità di pubblicità, scelta peggio."},
+      {"forte": "Togli i temi che non vuoi, o spegni tutto.", "testo": "Puoi disattivare i singoli argomenti oppure disattivare in blocco gli annunci personalizzati. Attenzione all'aspettativa: <strong>gli annunci non spariscono</strong>, diventano generici: scelti in base all'ora, alla pagina e alla zona. Vedrai la stessa quantità di pubblicità, scelta peggio."},
       {"forte": "Fai la stessa passeggiata dentro Meta.", "testo": "Nelle impostazioni account, alla voce delle preferenze pubblicitarie, trovi l'elenco degli interessi che ti attribuisce e da dove pensa di averli presi. Stessa medicina, altro ambulatorio."}
     ]
   },
