@@ -1,0 +1,89 @@
+/* ◉ galassia.css — il canone di tutte le case di SYSTEMA 77 (Galassia V3, fetta 1)
+   Un file, identico nei 5 repo. Lo copia JUDY/identita/applica-canone.py, non si edita nel repo.
+
+   JUDY-46 = 1 (09/10/2026 19:25 UTC): due font per tutta la galassia.
+     NEWSREADER      → la voce umana: titoli e testo, in minuscolo, che si leggono.
+     SHARE TECH MONO → etichette, numeri, menu. Mai una frase: oltre sei parole è serif.
+   Escono Anton, Archivo Black, Courier Prime, Atkinson Hyperlegible, Iowan Old Style.
+
+   Due toni e un accento per casa: nero e carta ovunque; l'accento lo dice <html data-casa>.
+   I colori per casa vengono da systema77-site/stati-galassia.json (fissati il 05/10).
+   Si linka per ULTIMO nel <head>: i «ponti» qui sotto rimappano i nomi vecchi dei token
+   di ogni casa sul canone, e vincono perché arrivano dopo.
+
+   — creato da JUDY, 2026-10-11 */
+
+:root{
+  /* ── i due toni ── */
+  --nero:#0A0A0A;
+  --carta:#F7F7F2;
+  --testo:#C2C1B9;      /* 11,4:1 sul nero */
+  --muto:#94938A;       /*  6,9:1 sul nero */
+  --linea:#262626;
+  --linea-viva:#3A3A36;
+  --superficie:#141412;
+
+  /* ── gli accenti, uno per casa (si sceglie con data-casa, sotto) ── */
+  --giallo:#F2E205;     /* systema77.com */
+  --argento:#A9B8C6;    /* i lavori, lo studio */
+  --blu:#5C7CFF;        /* cyberboomer.ninja */
+  --verde:#38E08A;      /* animagame.io */
+  --oro:#FFC400;        /* lo shop — mai con il giallo nello stesso artefatto */
+  --ambra:#C9A15E;      /* anima.solar */
+  --accento:var(--giallo);
+
+  /* ── i due font ── */
+  --serif:'Newsreader',Georgia,serif;
+  --mono:'Share Tech Mono',ui-monospace,Menlo,monospace;
+
+  /* ── i ponti: i nomi vecchi di ogni casa puntano al canone ── */
+  /* systema77.com */
+  --anton:var(--serif); --archivo:var(--serif);
+  /* systema77.studio */
+  --bg:var(--nero); --fg:var(--carta); --mute:var(--muto); --line:var(--linea); --acc:var(--accento); --card:var(--superficie);
+  /* anima.solar */
+  --amber:var(--ambra); --hi:var(--carta); --lo:var(--muto);
+  /* animagame.io */
+  --fondo:var(--superficie); --font-mono:var(--mono); --font-serif:var(--serif);
+  /* cyberboomer.ninja */
+  --bg-deep:var(--nero); --bg-surface:var(--superficie); --voice:var(--accento);
+  --text-hi:var(--carta); --text-lo:var(--muto); --font-body:var(--serif);
+}
+html[data-casa="com"]   {--accento:var(--giallo)}
+html[data-casa="lavori"]{--accento:var(--argento)}
+html[data-casa="ninja"] {--accento:var(--blu)}
+html[data-casa="gioco"] {--accento:var(--verde)}
+html[data-casa="shop"]  {--accento:var(--oro)}
+html[data-casa="solar"] {--accento:var(--ambra)}
+
+/* ── la base: la stessa in ogni casa ── */
+body{font-family:var(--serif);background:var(--nero);color:var(--testo);line-height:1.6}
+h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--carta);letter-spacing:0}
+.etichetta,.g-etichetta{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muto)}
+:focus-visible{outline:2px solid var(--accento);outline-offset:3px}
+
+/* ── la testata unica (fetta 2): marca · Lavori · Servizi · Come lavoriamo · Shop · Contatti · ▶ Radio ── */
+.g-testata{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:stretch;background:var(--nero);border-bottom:2px solid var(--linea)}
+.g-testata .marca{display:flex;align-items:center;padding:.8rem 1.4rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accento);text-decoration:none}
+.g-menu{display:flex;flex:1 1 auto;flex-wrap:wrap}
+.g-menu a{font-family:var(--mono);font-size:.84rem;letter-spacing:.18em;text-transform:uppercase;color:var(--carta);text-decoration:none;padding:.8rem 1rem;border-left:2px solid var(--linea)}
+.g-menu a[aria-current]{border-bottom:3px solid var(--accento)}
+.g-radio{display:flex;align-items:center;margin-left:auto;padding:.6rem .9rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accento);text-decoration:none;border-left:2px solid var(--linea);white-space:nowrap}
+
+/* ── il piede unico (fetta 4): una riga, uguale in tutte le case ── */
+.g-piede{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;padding:1.4rem;border-top:2px solid var(--linea);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muto)}
+.g-piede a{color:var(--muto);text-decoration:none}
+.g-piede a:hover,.g-piede a:focus-visible{color:var(--carta)}
+
+/* ── la griglia dei lavori (fetta 3): carte uguali, al massimo 4 per riga, 0 frecce ── */
+.g-griglia{display:grid;gap:2px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));background:var(--linea)}
+.g-carta{display:grid;grid-template-rows:auto 1fr;background:var(--nero);color:inherit;text-decoration:none;min-height:100%}
+.g-carta img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;display:block}
+.g-carta.quattro-terzi img{aspect-ratio:4/3}
+.g-carta .corpo{padding:.9rem 1rem 1.1rem;display:grid;gap:.3rem}
+.g-carta .nome{font-family:var(--serif);font-size:1.1rem;line-height:1.3;color:var(--carta)}
+.g-carta .mezzo{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accento)}
+.g-carta .anno{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--muto)}
+.g-carta:hover .nome,.g-carta:focus-visible .nome{color:var(--accento)}
+@media(max-width:700px){.g-griglia{grid-template-columns:1fr 1fr}.g-carta .corpo{padding:.7rem .8rem .9rem}}
+@media(max-width:420px){.g-griglia{grid-template-columns:1fr}}
