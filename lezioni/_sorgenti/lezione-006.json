@@ -13,8 +13,8 @@
   },
   "davvero": {
     "prosa": [
-      "Aveva ragione, e non era un trucco da smanettoni. Sia Google sia Meta hanno una pagina ufficiale dove <strong>ti consegnano una copia di quello che hanno</strong>: da Google si chiama <em>Takeout</em>, da Meta <em>Scarica le tue informazioni</em>. Prepari la richiesta, aspetti, ti arriva un archivio da scaricare.",
-      "Non è cortesia aziendale: è il <strong>diritto di accesso</strong>, quello di cui parlavamo nella lezione precedente. Loro hanno costruito il pulsante perché la legge dice che devono darti i dati.",
+      "Aveva ragione, e non era un trucco da smanettoni. Sia Google sia Meta hanno una pagina ufficiale dove <strong>ti consegnano una copia di quello che hanno</strong>: da Google si chiama <em>Takeout</em>, da Meta <em>Scarica</em> o <em>Esporta le tue informazioni</em>. Prepari la richiesta, aspetti, ti arriva un archivio da scaricare.",
+      "Non è cortesia aziendale: è il <strong>diritto di accesso</strong>, quello di cui parlavamo nella lezione precedente. Il pulsante di Google c'è dal 2011, prima della legge di oggi. Ma oggi la legge dice che devono darti i dati, pulsante o no.",
       "Cosa c'è dentro, in concreto: le ricerche, i video, le posizioni, i messaggi, i contatti, le foto, ogni «mi piace», le pubblicità su cui hai cliccato, e liste di aziende che hanno caricato il tuo contatto senza che tu lo sapessi. <strong>Non è un file. È un archivio.</strong>",
       "Il punto della lezione non è spaventarti: è che <em>finché non lo apri, stai indovinando.</em> Dopo che l'hai aperto, tutte le decisioni delle altre lezioni — spegni, cancella, metti la scadenza — le prendi guardando una cosa vera invece che una tua impressione."
     ]
@@ -25,7 +25,7 @@
     ],
     "passi": [
       {"forte": "Chiedi il fascicolo a Google.", "testo": "<a href=\"https://takeout.google.com/\" rel=\"noopener\" target=\"_blank\">takeout.google.com</a>: scegli cosa vuoi (la prima volta, prendi tutto), lancia la richiesta e aspetta la mail. Non è immediato: per gli account vecchi possono volerci ore."},
-      {"forte": "Chiedi il fascicolo a Meta.", "testo": "Nelle impostazioni dell'account, alla voce <em>Scarica le tue informazioni</em>. Puoi scegliere il formato: prendi <strong>HTML</strong>, che si apre nel browser e si legge come un sito, invece del formato per programmatori."},
+      {"forte": "Chiedi il fascicolo a Meta.", "testo": "Nelle impostazioni dell'account, alla voce <em>Scarica</em> o <em>Esporta le tue informazioni</em>. Puoi scegliere il formato: prendi <strong>HTML</strong>, che si apre nel browser e si legge come un sito, invece del formato per programmatori."},
       {"forte": "Aprilo con qualcuno che ti vuole bene.", "testo": "Sul serio: è più utile e fa meno paura. Cerca due cose per cominciare — <em>l'elenco degli inserzionisti che hanno il tuo contatto</em> e <em>le posizioni</em>. Sono le due cartelle che convincono chiunque a cambiare due impostazioni."}
     ]
   },
