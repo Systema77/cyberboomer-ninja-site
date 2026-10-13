@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hai scansionato un QR trovato per strada — Cyber Boomer</title>
+<meta name="description" content="Era il nostro. Il prossimo potrebbe non esserlo: tre cose da guardare prima di scansionare un QR.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://cyberboomer.ninja/qr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hai scansionato un QR trovato per strada — Cyber Boomer">
+<meta property="og:description" content="Era il nostro. Il prossimo potrebbe non esserlo.">
+<meta property="og:url" content="https://cyberboomer.ninja/qr/">
+<meta property="og:image" content="https://cyberboomer.ninja/og-image.png">
+<meta property="og:site_name" content="Cyber Boomer">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/stile.css">
+<style>
+  /* Il tronco sta in /stile.css. Qui solo la pagina dell'adesivo «il QR trovato per strada»:
+     chi arriva ha appena inquadrato un QR attaccato su un palo. — SHUTTER, 11/10 */
+  body{ padding:3rem 1.5rem; }
+  .box{ max-width:620px; margin:0 auto; }
+  .code{ font-family:var(--font-mono); font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); }
+  h1{ margin-top:1rem; font-size:clamp(1.6rem,6vw,2.4rem); font-weight:700; line-height:1.15; }
+  .lead{ margin-top:1.2rem; font-size:1.15rem; }
+  p{ margin-top:1rem; }
+  .piano{ color:var(--text-lo); }
+  ol{ margin:1.5rem 0 0; padding:0; list-style:none; counter-reset:n; }
+  ol li{ counter-increment:n; border:1px solid var(--line); border-radius:2px; background:var(--bg-surface);
+         padding:1rem 1.1rem 1rem 3.2rem; margin-top:.7rem; position:relative; }
+  ol li::before{ content:counter(n); position:absolute; left:1.1rem; top:.95rem;
+                 font-family:var(--font-mono); font-weight:700; color:var(--voice); }
+  .fonte{ margin-top:1.5rem; font-size:.85rem; color:var(--text-lo); }
+  .fonte a{ color:var(--voice); }
+  .torna{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:2.5rem; }
+  .torna a{
+    font-family:var(--font-mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--voice); text-decoration:none; border:1px solid var(--line); border-radius:2px;
+    background:var(--bg-surface); padding:.75em 1.1em; transition:border-color .25s, background .25s;
+  }
+  .torna a:hover, .torna a:focus-visible{ border-color:var(--voice); background:var(--voice-soft); }
+  @media (prefers-reduced-motion: reduce){ .torna a{ transition:none; } }
+</style>
+</head>
+<body>
+  <div class="box">
+    <p class="code">QR trovato per strada</p>
+    <h1>Hai appena inquadrato un QR attaccato su un palo.</h1>
+    <p class="lead"><strong>Era il nostro.</strong> Qui non si paga niente, non si chiede niente,
+    non si scarica niente. <strong>Il prossimo potrebbe non esserlo.</strong></p>
+
+    <p>Al parchimetro succede così. Inquadri il QR, si apre una pagina bella e ordinata,
+    paghi. Solo che quel QR era <em>un adesivo attaccato sopra quello vero</em>: i soldi vanno
+    a uno che col parcheggio non c'entra niente. Da ridere, dopo. Prima, molto meno.</p>
+
+    <p class="piano">Prima di inquadrare il prossimo, tre cose da guardare:</p>
+    <ol>
+      <li><strong>Tocca il QR.</strong> Se è un adesivo appiccicato sopra un altro codice, o sopra un cartello stampato, non lo scansionare.</li>
+      <li><strong>Leggi l'indirizzo prima di aprirlo.</strong> Il telefono te lo mostra: lettere scambiate o un nome strano vogliono dire «chiudi».</li>
+      <li><strong>Se ti chiede di pagare o di entrare in un tuo conto, chiudi.</strong> Vai sul sito o sull'app che conosci già e fallo da lì.</li>
+    </ol>
+
+    <p class="fonte">Fonti: Polizia Postale, «Quishing: il furto di dati tramite QR code», 20 novembre 2023 —
+    <a href="https://www.commissariatodips.it/notizie/articolo/quishing-il-furto-di-dati-tramite-qr-code/index.html" rel="noopener">commissariatodips.it</a>
+    · Federal Trade Commission, gli adesivi sopra i QR dei parchimetri, 6 dicembre 2023 (in inglese) —
+    <a href="https://consumer.ftc.gov/consumer-alerts/2023/12/scammers-hide-harmful-links-qr-codes-steal-your-information" rel="noopener">consumer.ftc.gov</a></p>
+
+    <p class="piano">E l'adesivo che hai davanti? Lo abbiamo attaccato apposta, dove ce l'hanno permesso,
+    per fartelo imparare con le mani invece che con la paura.</p>
+
+    <div class="torna">
+      <a href="/">← La voce</a>
+      <a href="/lezioni/">Il dojo</a>
+    </div>
+  </div>
+<!-- — creato da SHUTTER, 2026-10-11 -->
+</body>
+</html>
