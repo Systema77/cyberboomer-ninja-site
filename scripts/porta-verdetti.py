@@ -80,11 +80,24 @@ def impronta(percorso):
         return hashlib.sha256(fh.read()).hexdigest()
 
 
+def peso(a):
+    """L'autorevolezza arriva in due forme: un numero (2-5) o a parole («alta — fonte
+    primaria», «media-alta»…). Misurato il 04/10 in anima-console: 109 «alta», 69 numeri.
+    Le parole si leggono dall'inizio. — ECHO, 04/10"""
+    if isinstance(a, (int, float)):
+        return a
+    a = str(a or "").strip().lower()
+    for parola, n in (("media-alta", 3.5), ("alta", 4), ("media", 3), ("bassa", 2)):
+        if a.startswith(parola):
+            return n
+    return 0
+
+
 def fonte_principale(fonti):
     buone = [f for f in fonti if isinstance(f, dict) and url_ok(f.get("url"))]
     if not buone:
         return None
-    f = max(buone, key=lambda x: (x.get("autorevolezza") or 0))
+    f = max(buone, key=lambda x: peso(x.get("autorevolezza")))
     return {"titolo": f.get("titolo") or f["url"], "url": f["url"],
             "chi": f.get("tipo") or "fonte", "chi_corto": f.get("tipo") or "fonte"}
 

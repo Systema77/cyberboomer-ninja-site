@@ -2,67 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cyberboomer.ninja/chi-siamo.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-001.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-002.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-003.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-004.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-005.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-006.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-007.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-008.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/lezioni/lezione-009.html</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cyberboomer.ninja/piazza/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0001-sway-audima.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0006-insta360-luna-ultra.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0008-openai-assetto-e-modello-di-business.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0009-anthropic-assetto-e-finanziamenti.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0010-google-deepmind-alphabet.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0011-meta-superintelligence-labs.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0012-nvidia-il-fornitore-che-e-anche-socio.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/0013-deepseek-high-flyer.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cyberboomer.ninja/verdetti/</loc>
+    <lastmod>2026-10-14</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
