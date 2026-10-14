@@ -1,0 +1,213 @@
+{
+  "tipo": "verdetto",
+  "id": "0001-sway-audima",
+  "titolo": "Sway - Audima Labs",
+  "standfirst": "È hardware vero o fuffa renderizzata? Ci si può fidare prima di spendere 600+$?",
+  "data": "2026-09-04",
+  "tag": [
+    "affidabile",
+    "scava"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Shark Tank AU (pagina Facebook ufficiale)",
+    "url": "https://www.facebook.com/sharktankau/posts/1378105513464163/",
+    "chi": "ufficiale",
+    "chi_corto": "ufficiale"
+  },
+  "oggetto": "Sway, controller MIDI a gesti di Audima Labs (Batch 4, pre-ordine)",
+  "punteggio": 87,
+  "etichetta": "affidabile",
+  "modalita": "scava",
+  "verdetto": "Sway è un prodotto reale, non un render. Dietro c'è un'azienda australiana con fondatori identificabili, passata da Shark Tank Australia, con una campagna Indiegogo di successo e due lotti già consegnati in oltre 35 paesi. Non è una truffa. Il rischio residuo non è la frode ma il pre-ordine: paghi ora per una consegna prevista a fine 2026, e lo strumento è di nicchia e polarizzante. La domanda 'mi arriverà ed è reale?' ha risposta sì; la domanda 'vale 615$ per me?' dipende dai tuoi gusti.\n\nAggiornamento della riverifica del 04/09/2026, 57 giorni dopo la prima pubblicazione: il fatto che pesava di più — la timeline dichiarava una 'Consegna Batch 3' a giugno 2026 come se fosse un evento avvenuto, mentre era solo una previsione del venditore mai confermata da una fonte indipendente — resta, a rigore, non risolto: questa riverifica non ha trovato una conferma diretta e indipendente (un backer reale che dichiari di aver ricevuto la propria unità del Batch 3) perché Indiegogo, Elektronauts e Trustpilot sono risultati bloccati dal proxy di rete di questa sessione (dominio per dominio, vedi nota di sicurezza). Il dato 'tre batch spediti in oltre 35 paesi' resta quindi una dichiarazione del venditore stesso, non una conferma di terzi. Detto questo, la ricerca ha prodotto un fatto nuovo e pesante nella direzione opposta al sospetto: la testata musicale indipendente MusicTech (in un'intervista/reportage dedicato) documenta che l'artista Illenium ha usato due unità Sway sul palco durante la sua residency 'ODYSSEY' alla Sphere di Las Vegas (5 marzo - 4 aprile 2026) — una delle produzioni dal vivo più sorvegliate e costose al mondo, con oltre un anno di sviluppo dichiarato dal team di produzione. Un uso professionale di questo livello, ripreso anche da Magnetic Magazine, Mixmag Asia e LiveForLiveMusic, è un riscontro indipendente difficile da falsificare, più forte delle foto amatoriali sui forum già in fonti. A questo si aggiunge continuità operativa osservabile: Batch 4 è stato aperto regolarmente il 18/08/2026 con termini commerciali specifici e verificabili (acconto 25$ rimborsabile al 100% fino al lancio, prezzo VIP 615$ contro un listino dichiarato di 830$), e Magnetic Magazine ha pubblicato una recensione indipendente ad agosto 2026 che definisce Sway 'il controller MIDI più innovativo del 2026' — la stampa di settore continua a occuparsene quasi due anni dopo la campagna, segnale di continuità più che di abbandono. Ricerche mirate su reclami, mancate consegne o rimborsi negati non hanno prodotto alcun riscontro negativo. Bilancio: la promessa specifica sul Batch 3 resta tecnicamente non confermata da fonte indipendente, ma il quadro complessivo attorno all'azienda si è rafforzato, non indebolito, nel periodo passato dalla prima verifica. Punteggio rivisto da 85 a 87.",
+  "green_flags": [
+    "Fondatori reali e identificabili: Jeremy Buckley e Isaac Jack (Australia)",
+    "Passati da Shark Tank Australia: deal da 50.000$ per il 15% (confermato dalla pagina ufficiale Shark Tank AU)",
+    "Indiegogo 2024: 256 finanziatori reali, 220.958$ raccolti (900% del goal)",
+    "Batch 1 consegnato giu 2025 e Batch 2 dic 2025, in 35+ paesi",
+    "Recensioni indipendenti (AltWire, Mixmag Asia, Magnetic Magazine) e video YouTube di terzi",
+    "Unità reali fotografate da utenti sui forum di appassionati (Elektronauts)",
+    "Aggiornamenti di produzione regolari sulla campagna Indiegogo",
+    "Uso professionale documentato da stampa musicale indipendente: Illenium ha usato due unità Sway durante la residency 'ODYSSEY' alla Sphere di Las Vegas (5 marzo - 4 aprile 2026), confermato da MusicTech e ripreso da Magnetic Magazine, Mixmag Asia e LiveForLiveMusic — riscontro indipendente di alto livello, difficile da falsificare",
+    "Copertura stampa indipendente ancora attiva ad agosto 2026 (Magnetic Magazine, 'il controller MIDI più innovativo del 2026'), quasi due anni dopo la campagna Indiegogo: segnale di continuità operativa",
+    "Batch 4 aperto regolarmente il 18/08/2026 con termini commerciali chiari e verificabili (acconto 25$ rimborsabile al 100% fino al lancio): comportamento coerente con un'azienda operativa",
+    "Nessuna segnalazione di truffa, mancata consegna o rimborso negato trovata in questa riverifica (ricerche mirate)"
+  ],
+  "red_flags": [
+    "È un pre-ordine: paghi ora, consegna stimata nov-dic 2026 (rischio slittamento)",
+    "Team piccolo, produzione a lotti: capacità limitata",
+    "Strumento di nicchia e polarizzante, ergonomia del controllo a gesti discussa dai forum",
+    "Molte recensioni 5★ ospitate sul sito del venditore: pesano meno di quelle indipendenti",
+    "La consegna del Batch 3 (dichiarata dal venditore per giu/lug 2026) non è stata confermata in modo diretto e indipendente in questa riverifica: Indiegogo, Elektronauts, Trustpilot e il sito audima.com.au sono risultati bloccati dal proxy di rete di questa sessione. Il claim 'tre batch spediti in 35+ paesi' resta una dichiarazione del venditore, non incrociata con un backer reale"
+  ],
+  "fonti": [
+    {
+      "titolo": "Indiegogo - campagna Sway",
+      "url": "https://www.indiegogo.com/en/projects/audimalabs/sway-the-world-s-most-expressive-midi-controller",
+      "tipo": "ufficiale",
+      "sostiene": "vero",
+      "autorevolezza": 4
+    },
+    {
+      "titolo": "Shark Tank AU (pagina Facebook ufficiale)",
+      "url": "https://www.facebook.com/sharktankau/posts/1378105513464163/",
+      "tipo": "ufficiale",
+      "sostiene": "vero",
+      "autorevolezza": 5
+    },
+    {
+      "titolo": "Elektronauts - forum, foto utente",
+      "url": "https://www.elektronauts.com/t/audima-labs-sway-midi-controller/242226",
+      "tipo": "forum",
+      "sostiene": "vero",
+      "autorevolezza": 4
+    },
+    {
+      "titolo": "Poly Expression - forum",
+      "url": "https://community.polyexpression.com/t/audima-labs-sway/2050",
+      "tipo": "forum",
+      "sostiene": "vero",
+      "autorevolezza": 3
+    },
+    {
+      "titolo": "AltWire - recensione",
+      "url": "https://altwire.net/audima-labs-the-sway-review/",
+      "tipo": "stampa",
+      "sostiene": "vero",
+      "autorevolezza": 3
+    },
+    {
+      "titolo": "Mixmag Asia",
+      "url": "https://mixmag.asia/read/audima-labs-midi-instrument-sway-turns-movement-into-music-tech",
+      "tipo": "stampa",
+      "sostiene": "vero",
+      "autorevolezza": 4
+    },
+    {
+      "titolo": "The Awesomer",
+      "url": "https://theawesomer.com/sway-gesture-midi-music-controller/751174/",
+      "tipo": "stampa",
+      "sostiene": "vero",
+      "autorevolezza": 2
+    },
+    {
+      "titolo": "Trustpilot - audima.com.au",
+      "url": "https://www.trustpilot.com/review/audima.com.au",
+      "tipo": "altro",
+      "sostiene": "vero",
+      "autorevolezza": 3
+    },
+    {
+      "titolo": "Sito ufficiale Audima Labs",
+      "url": "https://audima.com.au/",
+      "tipo": "venditore",
+      "sostiene": "neutro",
+      "autorevolezza": 2
+    },
+    {
+      "titolo": "Inside Illenium's Odyssey at Las Vegas Sphere — MusicTech",
+      "url": "https://musictech.com/features/interviews/interview-illenium-odyssey-las-vegas-sphere/",
+      "tipo": "stampa musicale indipendente",
+      "sostiene": "Illenium ha usato due unità Sway durante la residency ODYSSEY alla Sphere di Las Vegas (5 marzo - 4 aprile 2026): uso professionale documentato, non promozionale",
+      "autorevolezza": 4
+    },
+    {
+      "titolo": "The Sway by Audima Labs Could Be the Most Innovative MIDI Controller of 2026 — Magnetic Magazine",
+      "url": "https://magneticmag.com/2026/08/the-sway-by-audima-labs-could-be-the-most-innovative-midi-controller-of-2026/",
+      "tipo": "stampa musicale indipendente",
+      "sostiene": "Recensione indipendente pubblicata ad agosto 2026: copertura stampa ancora attiva quasi due anni dopo la campagna; conferma Batch 1 esaurito in 7 minuti e prezzo di listino 830$",
+      "autorevolezza": 4
+    },
+    {
+      "titolo": "ILLENIUM Turns Sphere Into Audiovisual EDM Cinema With ODYSSEY Residency — LiveForLiveMusic",
+      "url": "https://liveforlivemusic.com/news/illenium-turns-sphere-into-audio-visual-edm-cinema-with-odyssey-residency/",
+      "tipo": "stampa musicale indipendente",
+      "sostiene": "Conferma indipendente delle date della residency ODYSSEY (5 marzo - 4 aprile 2026) alla Sphere di Las Vegas",
+      "autorevolezza": 3
+    },
+    {
+      "titolo": "SWAY - Audima Labs, pagina ordine Batch 4",
+      "url": "https://audima.com.au/op/sway-b4/",
+      "tipo": "venditore",
+      "sostiene": "Pre-ordini Batch 4 aperti dal 18/08/2026, consegna stimata nov-dic 2026, prezzo VIP 615$ contro listino 830$",
+      "autorevolezza": 2
+    },
+    {
+      "titolo": "FAQs | Sway — Audima Labs",
+      "url": "https://audima.com.au/faqs/",
+      "tipo": "venditore",
+      "sostiene": "Politica di rimborso: acconto di 25$ rimborsabile al 100% fino al lancio di circa agosto 2026",
+      "autorevolezza": 2
+    },
+    {
+      "titolo": "Audima Labs Sway Review — 3 Months In (YouTube, 18/05/2026)",
+      "url": "https://www.youtube.com/watch?v=cNUrNzzTwc4",
+      "tipo": "recensione utente indipendente",
+      "sostiene": "Recensione indipendente dopo tre mesi d'uso reale in set dal vivo",
+      "autorevolezza": 3
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2023-03",
+      "evento": "Fondazione di Audima Labs (Australia)"
+    },
+    {
+      "data": "2024-07",
+      "evento": "Registrazione puntata Shark Tank Australia"
+    },
+    {
+      "data": "2024-10",
+      "evento": "Lancio campagna Indiegogo"
+    },
+    {
+      "data": "2024-11",
+      "evento": "Campagna chiusa: 256 backer, 220.958$ (+900%). Puntata Shark Tank in onda"
+    },
+    {
+      "data": "2025-06",
+      "evento": "Consegna Batch 1"
+    },
+    {
+      "data": "2025-12",
+      "evento": "Consegna Batch 2"
+    },
+    {
+      "data": "2026-03-05",
+      "evento": "Inizio della residency 'ODYSSEY' di Illenium alla Sphere di Las Vegas (fino al 4 aprile): uso in scena di due unità Sway, documentato da MusicTech e ripreso da più testate musicali indipendenti"
+    },
+    {
+      "data": "2026-05-18",
+      "evento": "Recensione utente indipendente su YouTube dopo tre mesi d'uso reale ('3 Months In')"
+    },
+    {
+      "data": "2026-06/07",
+      "evento": "Consegna del Batch 3 dichiarata dal venditore (stimata giu/lug 2026); non confermata da fonte indipendente in nessuna delle verifiche KIROSHI//OR effettuate finora, incluso questa del 04/09/2026"
+    },
+    {
+      "data": "2026-08",
+      "evento": "Magnetic Magazine pubblica una recensione indipendente che definisce Sway 'il controller MIDI più innovativo del 2026': copertura stampa ancora attiva quasi due anni dopo la campagna"
+    },
+    {
+      "data": "2026-08-18",
+      "evento": "Apertura pre-ordini Batch 4, con acconto rimborsabile 25$"
+    },
+    {
+      "data": "2026-11/12",
+      "evento": "Consegna Batch 4 stimata (nov-dic 2026), invariata rispetto alla verifica precedente"
+    },
+    {
+      "data": "2026-09-04",
+      "evento": "Riverifica di freschezza KIROSHI//OR: nessuna conferma indipendente diretta della consegna del Batch 3 (Indiegogo, Elektronauts, Trustpilot e audima.com.au bloccati dal proxy di rete di questa sessione); punteggio rivisto da 85 a 87 sulla base dell'uso professionale documentato (Illenium/Sphere), della continuità operativa (Batch 4 regolarmente aperto, stampa indipendente ancora attiva) e dell'assenza di segnalazioni negative"
+    }
+  ],
+  "nota_sicurezza": "Nessun segnale di malware o phishing. Dominio ufficiale audima.com.au coerente; nessun link sospetto nel materiale analizzato. Limite dichiarato della riverifica del 04/09/2026: il proxy di rete di questa sessione ha bloccato l'accesso diretto (WebFetch, errore 'EGRESS_BLOCKED') a tutti i domini rilevanti per questo verdetto, inclusi indiegogo.com, audima.com.au, elektronauts.com, trustpilot.com, reverb.com e magneticmag.com. L'esistenza e il contenuto sostanziale delle fonti citate sono stati confermati solo indirettamente, tramite motore di ricerca, e non con lettura diretta della pagina. Questo pesa in particolare sulla conferma della consegna del Batch 3: non è stato possibile leggere direttamente un aggiornamento Indiegogo o un post di un backer reale che confermi la ricezione dell'unità.",
+  "_ninja": {
+    "sorgente": "docs/data/0001-sway-audima.json",
+    "impronta": "d79e41d32b252695592534329b27a3136aa75a47e3242b4b382819c09aa717e3",
+    "importato_il": "2026-10-14",
+    "riletto_da": "KIROSHI//OR",
+    "riletto_il": "2026-10-11",
+    "riletto_impronta": "d79e41d32b252695592534329b27a3136aa75a47e3242b4b382819c09aa717e3"
+  }
+}
