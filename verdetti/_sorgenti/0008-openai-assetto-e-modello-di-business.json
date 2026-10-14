@@ -1,0 +1,160 @@
+{
+  "tipo": "verdetto",
+  "id": "0008-openai-assetto-e-modello-di-business",
+  "titolo": "OpenAI — assetto proprietario, storico e modello di business",
+  "standfirst": "L'assetto proprietario e i numeri che OpenAI dichiara sono verificabili da fonti indipendenti? E da cosa entrano davvero i soldi?",
+  "data": "2026-09-09",
+  "tag": [
+    "ditta reale, assetto documentato, conti verificabili solo a metà",
+    "scava"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Our Structure — pagina ufficiale OpenAI sull'assetto societario",
+    "url": "https://openai.com/our-structure/",
+    "chi": "dichiarazione della società",
+    "chi_corto": "dichiarazione della società"
+  },
+  "oggetto": "OpenAI: nata nel 2015 come ente non profit, dal 28 ottobre 2025 ricapitalizzata in due entità — la OpenAI Foundation (non profit, che mantiene il controllo) e la OpenAI Group PBC (public benefit corporation, il veicolo che opera e raccoglie capitale). Prodotti: ChatGPT, i modelli GPT, l'API per sviluppatori.",
+  "punteggio": 62,
+  "etichetta": "ditta reale, assetto documentato, conti verificabili solo a metà",
+  "modalita": "scava",
+  "verdetto": "OpenAI esiste, l'assetto è documentato e la ricostruzione è pubblica: fondata nel 2015 come non profit, nel 2019 si dà una struttura a profitto limitato che apre la porta a Microsoft, e il 28 ottobre 2025 completa la ricapitalizzazione in OpenAI Foundation (non profit, che controlla) + OpenAI Group PBC (l'operativa). Alla ricapitalizzazione Microsoft risulta al 27% circa (~135 miliardi di dollari) e la Foundation al 26% circa (~130 miliardi), su una valutazione intorno ai 500 miliardi. Fin qui il terreno è solido: la struttura è dichiarata dalla società stessa e riportata in modo concorde da più testate.\n\nDove il terreno cede è sui NUMERI. OpenAI è privata e non deposita bilanci pubblici certificati: tutto ciò che circola sui ricavi arriva da fughe di notizie e da stime di terzi, e le cifre NON concordano fra loro. Per il 2025 si legge un ricavo di 13,1 miliardi. Per il 2026 si legge sia un giro d'affari annualizzato di circa 40 miliardi (agosto) sia stime di 24-25 miliardi, e ad aprile 2026 la stampa riporta che la società ha MANCATO le proprie proiezioni di ricavi e crescita utenti. Una forbice del genere sullo stesso anno non è un dettaglio: è il segnale che il numero non è verificabile, non che sia falso.\n\nIl modello di business, per quel che è ricostruibile: la parte grossa sono gli abbonamenti a ChatGPT (consumer e aziendali), poi l'API a consumo per gli sviluppatori, poi accordi e partnership; nel 2026 compare anche la pubblicità. La stima più ricorrente è 65% abbonamenti / 25% API / 10% partnership, ma è una stima di terzi, non un dato di bilancio. Il punto che pesa di più non è quanto entra: è quanto è già stato PROMESSO in uscita. Gli impegni di calcolo dichiarati sono passati da un annunciato 1.400 miliardi a un obiettivo di spesa «intorno ai 600 miliardi entro il 2030», e i contratti coinvolgono Oracle (300 miliardi su cinque anni), Stargate con SoftBank e Oracle, AMD, Broadcom e NVIDIA. Un'azienda che deve alzare capitale in continuazione per onorare impegni di quella scala è per definizione più fragile del suo fatturato. A giugno 2026 ha depositato in forma non pubblica la documentazione per la quotazione: se l'IPO va avanti, per la prima volta ci saranno conti certificati — ed è il momento in cui questo verdetto andrà rifatto.\n\nDiritto di replica garantito: se OpenAI pubblica dati certificati che contraddicono quanto sopra, il punteggio si rivede.",
+  "green_flags": [
+    "Assetto societario dichiarato dalla società stessa in una pagina pubblica dedicata (openai.com/our-structure) e riportato in modo concorde da testate indipendenti diverse nella stessa data (28 ottobre 2025).",
+    "Il controllo resta a un ente non profit (OpenAI Foundation): non è una promessa verbale, è la forma giuridica dichiarata nella ricapitalizzazione.",
+    "Storico lungo e continuo, dal 2015 a oggi, con passaggi datati e verificabili (2015 non profit · 2019 profitto limitato e ingresso Microsoft · 2025 ricapitalizzazione in PBC).",
+    "Gli investitori sono nomi identificabili e quotati (Microsoft, NVIDIA, Amazon, SoftBank): non capitali anonimi o veicoli opachi.",
+    "Deposito non pubblico per la quotazione a giugno 2026: se l'IPO procede, i conti diventano certificati e controllabili da chiunque."
+  ],
+  "red_flags": [
+    "Nessun bilancio pubblico certificato. Ogni cifra su ricavi e perdite è una fuga di notizie o una stima di terzi: né io né il lettore possiamo risalire a un documento depositato.",
+    "Le cifre di ricavo 2026 che circolano si contraddicono fra loro (circa 40 miliardi annualizzati contro stime di 24-25 miliardi). Una forbice così larga sullo stesso anno significa che il numero NON è verificato.",
+    "Ad aprile 2026 la stampa riporta che OpenAI ha mancato le proprie proiezioni di ricavi e di crescita utenti, con reazione negativa dei titoli dei fornitori (Oracle, AMD, Broadcom): il piano dichiarato e i risultati non coincidono.",
+    "Impegni di spesa in calcolo di scala tale da superare di ordini di grandezza il fatturato, e già rivisti al ribasso una volta (da 1.400 miliardi annunciati a «circa 600 miliardi entro il 2030»). Un numero che cambia così tanto era un annuncio, non un piano.",
+    "Dipendenza incrociata con i propri fornitori-azionisti: NVIDIA vende i chip E investe nella società che li compra, Microsoft è insieme socio al 27% e fornitore di cloud. È la struttura che la stampa finanziaria chiama «finanziamento circolare» e che rende difficile leggere la domanda reale.",
+    "La ripartizione dei ricavi (abbonamenti/API/partnership) è una stima di analisti, non un dato aziendale: va letta come ordine di grandezza, non come numero."
+  ],
+  "fonti": [
+    {
+      "titolo": "Our Structure — pagina ufficiale OpenAI sull'assetto societario",
+      "url": "https://openai.com/our-structure/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "L'assetto in due entità: OpenAI Foundation (non profit, che controlla) e OpenAI Group PBC. È la fonte della società su sé stessa: va pesata come tale.",
+      "autorevolezza": "alta sull'assetto giuridico, ma è parte in causa — non ho potuto aprire la pagina (dominio bloccato dal proxy in questa sessione)"
+    },
+    {
+      "titolo": "OpenAI completes restructure, solidifying Microsoft as a major shareholder — CNBC, 28 ottobre 2025",
+      "url": "https://www.cnbc.com/2025/10/28/open-ai-for-profit-microsoft.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Completamento della ricapitalizzazione e posizione di Microsoft come azionista rilevante.",
+      "autorevolezza": "alta — testata finanziaria indipendente"
+    },
+    {
+      "titolo": "OpenAI restructures into public-benefit firm, Microsoft takes 27% stake — Al Jazeera, 28 ottobre 2025",
+      "url": "https://www.aljazeera.com/economy/2025/10/28/openai-restructures-into-public-benefit-firm-microsoft-takes-27-stake",
+      "tipo": "stampa indipendente",
+      "sostiene": "La quota Microsoft del 27% nella OpenAI Group PBC. Seconda fonte indipendente sulla stessa cifra.",
+      "autorevolezza": "alta — riscontro incrociato su una cifra chiave"
+    },
+    {
+      "titolo": "OpenAI reorg sets up $500 billion for-profit AI behemoth — Axios, 28 ottobre 2025",
+      "url": "https://www.axios.com/2025/10/28/openai-completes-recapitalization",
+      "tipo": "stampa indipendente",
+      "sostiene": "Valutazione intorno ai 500 miliardi di dollari alla ricapitalizzazione e quota della Foundation.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "OpenAI resets spending expectations, tells investors compute target is around $600 billion by 2030 — CNBC, 20 febbraio 2026",
+      "url": "https://www.cnbc.com/2026/02/20/openai-resets-spend-expectations-targets-around-600-billion-by-2030.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "La revisione degli impegni di calcolo da 1.400 miliardi annunciati a circa 600 miliardi entro il 2030.",
+      "autorevolezza": "alta — è la prova documentale che il numero annunciato è cambiato"
+    },
+    {
+      "titolo": "OpenAI reportedly missed revenue targets. Shares of Oracle and these chip stocks are falling — CNBC, 28 aprile 2026",
+      "url": "https://www.cnbc.com/2026/04/28/openai-reportedly-missed-revenue-targets-shares-of-oracle-and-these-chip-stocks-are-falling.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "OpenAI ha mancato le proprie proiezioni di ricavi e crescita utenti; reazione negativa dei titoli dei fornitori.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "OpenAI's tangled web of high-priced deals has some investors concerned — CNBC, 28 settembre 2025",
+      "url": "https://www.cnbc.com/2025/09/28/a-look-at-openais-tangled-web-of-dealmaking.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "La mappa degli accordi incrociati fra OpenAI, i suoi fornitori e i suoi investitori, e le preoccupazioni degli investitori.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "OpenAI announces $110 billion funding round with backing from Amazon, Nvidia, SoftBank — CNBC, 27 febbraio 2026",
+      "url": "https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Round da 110 miliardi con Amazon (50), NVIDIA (30), SoftBank (30). ⚠️ La pagina OpenAI corrispondente parla di 122 miliardi: le due cifre non coincidono e non ho potuto aprire nessuna delle due per capire perché.",
+      "autorevolezza": "alta, ma con discrepanza dichiarata"
+    },
+    {
+      "titolo": "OpenAI raises $122 billion to accelerate the next phase of AI — annuncio OpenAI",
+      "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "La società dichiara 122 miliardi raccolti. Cifra diversa dai 110 riportati dalla stampa: entrambe sono qui, senza sceglierne una.",
+      "autorevolezza": "media — parte in causa, e non apribile in questa sessione"
+    },
+    {
+      "titolo": "OpenAI confidentially files for IPO — CNBC, 8 giugno 2026",
+      "url": "https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Deposito non pubblico per la quotazione: è il fatto che, se procede, renderà i conti certificati e verificabili.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "OpenAI closes funding round at an $852 billion valuation — CNBC, 31 marzo 2026",
+      "url": "https://www.cnbc.com/2026/03/31/openai-funding-round-ipo.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Valutazione di 852 miliardi a fine marzo 2026, contro i circa 500 dell'ottobre 2025.",
+      "autorevolezza": "alta"
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2015-12",
+      "evento": "OpenAI nasce come organizzazione non profit."
+    },
+    {
+      "data": "2019",
+      "evento": "Si dota di una struttura a profitto limitato; entra Microsoft come investitore e fornitore di cloud."
+    },
+    {
+      "data": "2025-10-28",
+      "evento": "Completata la ricapitalizzazione: OpenAI Foundation (non profit, che controlla) + OpenAI Group PBC. Microsoft ~27% (~135 mld), Foundation ~26% (~130 mld), valutazione ~500 mld."
+    },
+    {
+      "data": "2026-02-20",
+      "evento": "OpenAI rivede gli impegni di calcolo: dagli annunciati 1.400 miliardi a un obiettivo di «circa 600 miliardi entro il 2030»."
+    },
+    {
+      "data": "2026-02-27",
+      "evento": "Annunciato un round da 110 miliardi (Amazon 50, NVIDIA 30, SoftBank 30). La società parla altrove di 122 miliardi."
+    },
+    {
+      "data": "2026-03-31",
+      "evento": "Round chiuso a una valutazione di 852 miliardi di dollari."
+    },
+    {
+      "data": "2026-04-28",
+      "evento": "La stampa riporta che OpenAI ha mancato le proprie proiezioni di ricavi e crescita utenti; scendono i titoli di Oracle, AMD e Broadcom."
+    },
+    {
+      "data": "2026-06-08",
+      "evento": "Deposito non pubblico della documentazione per la quotazione in borsa."
+    }
+  ],
+  "nota_sicurezza": "Nessun link è stato aperto o eseguito: l'oggetto di questa verifica sono ditte, non un sito sospetto. ⚠️ LIMITE MISURATO IN QUESTA SESSIONE, non dedotto: il proxy di rete ha bloccato l'apertura diretta di TUTTI i domini delle fonti (openai.com, cnbc.com, sec.gov, anthropic.com, investor.nvidia.com, europa.eu — provati, errore EGRESS_BLOCKED / codice 000). Le fonti elencate sono URL reali restituiti dall'indice di ricerca con titolo e data corrispondenti, e sono cliccabili per il lettore, ma NON le ho aperte una per una: ho incrociato più risultati indipendenti. Dove una cifra compare in una fonte sola o solo in aggregatori, è detto nelle red flags. «Non ho potuto aprirlo» vale più di «dovrebbe funzionare».",
+  "_ninja": {
+    "sorgente": "docs/data/0008-openai-assetto-e-modello-di-business.json",
+    "impronta": "fd980a3cd343b2b30a4312eafc394de8f0b7d98a48552230d14ac5db8a3742e8",
+    "importato_il": "2026-10-14",
+    "riletto_da": "BRAINDANCE",
+    "riletto_il": "2026-10-14",
+    "riletto_impronta": "fd980a3cd343b2b30a4312eafc394de8f0b7d98a48552230d14ac5db8a3742e8"
+  }
+}
