@@ -1,0 +1,100 @@
+{
+  "tipo": "verdetto",
+  "id": "0010-google-deepmind-alphabet",
+  "titolo": "Google DeepMind — cos'è davvero e di chi è",
+  "standfirst": "Google DeepMind è una ditta autonoma o un reparto? E i suoi numeri sono verificabili?",
+  "data": "2026-09-09",
+  "tag": [
+    "reale e verificabile — ma i numeri sono quelli di Alphabet, non suoi",
+    "rapida"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Alphabet (GOOGL) Q1 2026 earnings — CNBC, 29 aprile 2026",
+    "url": "https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html",
+    "chi": "stampa finanziaria indipendente",
+    "chi_corto": "stampa finanziaria indipendente"
+  },
+  "oggetto": "Google DeepMind: la divisione di ricerca e sviluppo IA di Alphabet Inc., nata nell'aprile 2023 dall'unione di DeepMind (società britannica acquisita da Google nel 2014) e Google Brain. Prodotti: i modelli Gemini, l'app Gemini, i processori TPU. NON è una società a sé che raccoglie capitali: è una divisione di una quotata.",
+  "punteggio": 88,
+  "etichetta": "reale e verificabile — ma i numeri sono quelli di Alphabet, non suoi",
+  "modalita": "rapida",
+  "verdetto": "Prima cosa, perché cambia la domanda: Google DeepMind NON è una società indipendente. È una divisione di Alphabet Inc., società quotata negli Stati Uniti, nata nell'aprile 2023 fondendo DeepMind (comprata da Google nel 2014) con Google Brain. Non ha round di finanziamento, non ha valutazione propria, non ha un fatturato pubblicato: è una voce di costo e di prodotto dentro il bilancio di Alphabet. Questo la mette in una categoria diversa da OpenAI e Anthropic, e va detto prima di qualunque confronto: paragonare «DeepMind» a «OpenAI» sui soldi è un confronto fra un reparto e un'azienda.\n\nProprio per questo è il caso più verificabile dei sei. Alphabet deposita bilanci trimestrali certificati presso la SEC e tiene conferenze pubbliche con gli investitori: chiunque può leggere i numeri veri, e il vincolo di legge sulla veridicità è di un altro ordine rispetto a un annuncio di una società privata. Dai documenti e dalle comunicazioni agli investitori del 2026: utile netto del primo trimestre 2026 pari a 62,58 miliardi di dollari (+81% sull'anno prima) e una guida sugli investimenti in conto capitale per l'intero 2026 rivista a 195-205 miliardi di dollari, esplicitamente destinati anche alla capacità di calcolo per Google DeepMind.\n\nLa posizione competitiva ha una particolarità che conta nella mappa: Google è l'unico dei grandi che progetta e usa i propri acceleratori (le TPU, arrivate all'ottava generazione), quindi dipende da NVIDIA molto meno degli altri. Ed è al tempo stesso finanziatore di un concorrente diretto, Anthropic. L'app Gemini viene dichiarata a oltre 750 milioni di utenti attivi mensili: è un dato aziendale, non misurato da terzi.\n\nDiritto di replica garantito.",
+  "green_flags": [
+    "Appartiene a una società quotata che deposita bilanci certificati presso la SEC: i numeri sono controllabili da chiunque e mentire ha conseguenze legali.",
+    "Storia societaria limpida e datata: DeepMind acquisita da Google nel 2014, fusione con Google Brain nell'aprile 2023.",
+    "Comunicazione finanziaria pubblica e regolare (conferenze trimestrali con gli investitori, presentazioni sul sito Alphabet).",
+    "Integrazione verticale sul silicio: progetta e usa le proprie TPU: la dipendenza da un fornitore esterno di chip è strutturalmente minore di quella dei concorrenti.",
+    "La spesa dichiarata in conto capitale è una voce di bilancio soggetta a revisione contabile, non un annuncio: 195-205 miliardi per il 2026."
+  ],
+  "red_flags": [
+    "Non esistono conti separati di Google DeepMind: ricavi e margini della divisione IA non sono pubblicati. Chi cita «il fatturato di DeepMind» sta inventando o estrapolando.",
+    "Il numero di utenti dell'app Gemini (oltre 750 milioni al mese) è dichiarato dall'azienda, senza metodo di conteggio pubblicato né verifica di terzi.",
+    "Conflitto strutturale: Alphabet finanzia Anthropic, cioè un concorrente diretto dei propri modelli, e insieme gli vende infrastruttura.",
+    "La guida sugli investimenti è stata rivista al rialzo in corso d'anno: le cifre di spesa in questo settore invecchiano nel giro di un trimestre, comprese quelle di questa scheda."
+  ],
+  "fonti": [
+    {
+      "titolo": "Alphabet Investor Relations — 2026 Q1 Earnings Call",
+      "url": "https://abc.xyz/investor/events/event-details/2026/2026-Q1-Earnings-Call-2026-nW8kCrBAKS/default.aspx",
+      "tipo": "comunicazione finanziaria ufficiale di una società quotata",
+      "sostiene": "I risultati del primo trimestre 2026 e la guida sugli investimenti. È la fonte primaria: soggetta agli obblighi di legge sulle società quotate.",
+      "autorevolezza": "massima — società quotata, obblighi di veridicità verso il mercato"
+    },
+    {
+      "titolo": "Alphabet (GOOGL) Q1 2026 earnings — CNBC, 29 aprile 2026",
+      "url": "https://www.cnbc.com/2026/04/29/alphabet-googl-q1-2026-earnings.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Utile netto del primo trimestre 2026 di 62,58 miliardi di dollari, +81% sull'anno precedente.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Alphabet resets the bar for AI infrastructure spending — CNBC, 4 febbraio 2026",
+      "url": "https://www.cnbc.com/2026/02/04/alphabet-resets-the-bar-for-ai-infrastructure-spending.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "La revisione al rialzo della spesa in conto capitale 2026 (195-205 miliardi), destinata anche alla capacità di calcolo per Google DeepMind.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Alphabet earnings call, Q1 2026 — le parole del CEO Sundar Pichai",
+      "url": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "Utenti dichiarati dell'app Gemini e stato dei prodotti. È l'azienda che parla di sé: da pesare come tale.",
+      "autorevolezza": "media — parte in causa"
+    },
+    {
+      "titolo": "Alphabet investor presentation, giugno 2026",
+      "url": "https://blog.google/alphabet/investor-presentation-june-2026/",
+      "tipo": "documento per gli investitori",
+      "sostiene": "Quadro aggiornato di prodotti, TPU e infrastruttura presentato agli investitori.",
+      "autorevolezza": "media-alta — parte in causa ma destinato al mercato"
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2014",
+      "evento": "Google acquisisce DeepMind Technologies, società britannica."
+    },
+    {
+      "data": "2023-04",
+      "evento": "DeepMind e Google Brain vengono fuse in un'unica divisione: Google DeepMind."
+    },
+    {
+      "data": "2026-02-04",
+      "evento": "Alphabet alza la guida sugli investimenti in conto capitale per il 2026 a 195-205 miliardi di dollari, anche per la capacità di calcolo di Google DeepMind."
+    },
+    {
+      "data": "2026-04-29",
+      "evento": "Risultati del primo trimestre 2026: utile netto di 62,58 miliardi, +81% sull'anno prima."
+    }
+  ],
+  "nota_sicurezza": "Nessun link è stato aperto o eseguito: l'oggetto di questa verifica sono ditte, non un sito sospetto. ⚠️ LIMITE MISURATO IN QUESTA SESSIONE, non dedotto: il proxy di rete ha bloccato l'apertura diretta di TUTTI i domini delle fonti (openai.com, cnbc.com, sec.gov, anthropic.com, investor.nvidia.com, europa.eu — provati, errore EGRESS_BLOCKED / codice 000). Le fonti elencate sono URL reali restituiti dall'indice di ricerca con titolo e data corrispondenti, e sono cliccabili per il lettore, ma NON le ho aperte una per una: ho incrociato più risultati indipendenti. Dove una cifra compare in una fonte sola o solo in aggregatori, è detto nelle red flags. «Non ho potuto aprirlo» vale più di «dovrebbe funzionare».",
+  "_ninja": {
+    "sorgente": "docs/data/0010-google-deepmind-alphabet.json",
+    "impronta": "0857f9b6f59dfafc8d665364117bad6a5f93bb0e6d8b9361d6f151b593fc4d45",
+    "importato_il": "2026-10-14",
+    "riletto_da": "BRAINDANCE",
+    "riletto_il": "2026-10-14",
+    "riletto_impronta": "0857f9b6f59dfafc8d665364117bad6a5f93bb0e6d8b9361d6f151b593fc4d45"
+  }
+}
