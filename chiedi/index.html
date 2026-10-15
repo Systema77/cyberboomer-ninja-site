@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chiedi un verdetto — Cyber Boomer · cyberboomer.ninja</title>
+<meta name="description" content="Chiedi a Cyber Boomer di verificare una cosa: una notizia, una persona pubblica, una ditta o un prodotto. È gratis, e i verdetti sono pubblici per tutti.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://cyberboomer.ninja/chiedi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chiedi un verdetto — Cyber Boomer">
+<meta property="og:description" content="Una cosa da verificare? Dillo qui. Gratis, e il verdetto è pubblico per tutti.">
+<meta property="og:url" content="https://cyberboomer.ninja/chiedi/">
+<meta property="og:image" content="https://cyberboomer.ninja/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/stile.css">
+<style>
+  /* Il modulo dei verdetti (ordine del Direttore, 14/10): tre campi, niente account.
+     Stesso vestito della piazza. Il server è di SQUELCH, la coda di BRAINDANCE; qui solo la porta. — ECHO */
+  body{ line-height:1.6; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 1.5rem 4rem; }
+  .px-btn{
+    display:inline-block; font:inherit; font-family:var(--font-mono); font-weight:700; font-size:.72rem;
+    letter-spacing:.16em; text-transform:uppercase; text-decoration:none; color:var(--text-hi);
+    background:var(--bg-surface); border:2px solid var(--voice); padding:.6em 1em; cursor:pointer;
+    box-shadow:4px 4px 0 var(--line); transition:transform .12s steps(2), box-shadow .12s steps(2);
+  }
+  .px-btn:hover, .px-btn:focus-visible{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--line); }
+  .px-btn:active{ transform:translate(2px,2px); box-shadow:0 0 0 var(--line); }
+  .px-btn[disabled]{ opacity:.5; cursor:wait; }
+  header{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding:2.2rem 0 1.4rem; }
+  h1{ font-family:var(--font-mono); font-size:1.4rem; letter-spacing:.3em; color:var(--voice); }
+  .torna{ font-family:var(--font-mono); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); text-decoration:none; }
+  .regola{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-lo); letter-spacing:.06em; margin-bottom:1.2rem; }
+  .chiusa{ color:var(--voice); }
+  form[hidden], .chiusa[hidden]{ display:none; }
+  form{ display:grid; gap:.7rem; margin-bottom:1.8rem; background:var(--bg-surface); border:2px solid var(--line); box-shadow:4px 4px 0 var(--bg-deep); padding:1rem 1.1rem; }
+  label{ font-family:var(--font-mono); font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--voice); }
+  input, textarea, select{
+    width:100%; font:inherit; color:var(--text-hi); background:var(--bg-deep);
+    border:2px solid var(--line); padding:.55em .7em;
+  }
+  input:focus, textarea:focus, select:focus{ outline:none; border-color:var(--voice); }
+  textarea{ min-height:6em; resize:vertical; }
+  .riga{ display:flex; flex-wrap:wrap; gap:.7rem; align-items:center; justify-content:space-between; }
+  .esito{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-lo); }
+  .avviso{ font-family:var(--font-mono); font-size:.72rem; color:var(--text-lo); letter-spacing:.04em; }
+  @media (prefers-reduced-motion: reduce){ .px-btn{ transition:none; } .px-btn:hover, .px-btn:focus-visible{ transform:none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>CHIEDI UN VERDETTO</h1>
+    <a class="torna" href="/verdetti/">← I verdetti</a>
+  </header>
+  <p class="regola">Hai sentito una cosa e non sai se è vera? Scrivila qui. Niente account, niente cookie.</p>
+  <p class="regola chiusa" id="chiusa">Il modulo non è ancora acceso: i verdetti si leggono, le richieste arrivano presto.</p>
+
+  <form id="chiedi" hidden>
+    <label for="cosa">Cosa vuoi far verificare</label>
+    <textarea id="cosa" name="cosa" maxlength="500" required></textarea>
+    <label for="tipo">Di che cosa si tratta</label>
+    <select id="tipo" name="tipo">
+      <option value="notizia">Una notizia</option>
+      <option value="persona">Una persona pubblica</option>
+      <option value="ditta">Una ditta</option>
+      <option value="prodotto">Un prodotto</option>
+    </select>
+    <label for="link">Un link (se ce l'hai)</label>
+    <input id="link" name="link" type="url" maxlength="500" placeholder="https://">
+    <p class="avviso">Gratis. Scegliamo noi cosa verificare, e i verdetti sono pubblici per tutti. Le persone private non si verificano.</p>
+    <div class="riga">
+      <span class="esito" id="esito" role="status"></span>
+      <button class="px-btn" type="submit">▶ Invia</button>
+    </div>
+  </form>
+</main>
+<footer style="text-align:center;font-family:var(--font-mono);font-size:.68rem;color:var(--text-lo);padding:2rem 1rem;letter-spacing:.12em">Niente cookie: me li mangio io · Nessun tracker a bordo</footer>
+
+<script>
+/* La porta del modulo. Il server (SQUELCH) risponde a POST /piazza/verdetto con
+   {cosa, tipo, link}; la coda è una Issue letta da BRAINDANCE/scripts/coda.py.
+   Si accende con ACCESO = true, solo dopo il deploy del Worker e la chiave GITHUB_TOKEN. — ECHO, 14/10 */
+(function () {
+  var API = 'https://piazza-ninja.insieme.workers.dev/piazza/verdetto';
+  var ACCESO = false;
+  document.getElementById('chiedi').hidden = !ACCESO;
+  document.getElementById('chiusa').hidden = ACCESO;
+  var f = document.getElementById('chiedi'), esito = document.getElementById('esito');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = f.querySelector('button'); b.disabled = true; esito.textContent = 'Invio…';
+    fetch(API, {
+      method: 'POST', credentials: 'omit', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cosa: f.cosa.value.trim(), tipo: f.tipo.value, link: f.link.value.trim() })
+    }).then(function (r) {
+      if (r.status === 429) { throw new Error('Troppe richieste insieme. Riprova fra un minuto.'); }
+      if (r.status === 503) { throw new Error('Il modulo è chiuso per un momento. Riprova più tardi.'); }
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        if (!r.ok) { throw new Error(d.errore || ('Il modulo non risponde (' + r.status + ').')); }
+        return d;
+      });
+    }).then(function () {
+      esito.textContent = 'Ricevuto. Grazie: se lo verifichiamo, lo trovi fra i verdetti.';
+      f.reset();
+    }).catch(function (err) { esito.textContent = err.message; })
+      .then(function () { b.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
