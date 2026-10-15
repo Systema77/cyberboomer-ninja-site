@@ -1,0 +1,296 @@
+{
+  "tipo": "verdetto",
+  "id": "0014-mappa-player-ia-e-stati",
+  "titolo": "La mappa dei player dell'IA — chi manca all'elenco, chi finanzia chi, e a che punto sono gli Stati",
+  "standfirst": "Sei nomi circolano come «i player del mercato mondiale dell'IA». Sono loro, o ne manca qualcuno? Chi sono gli altri, come interagiscono fra loro, e a che punto sono gli Stati rispetto ai privati? Solo la parte fattuale: chi esiste, chi possiede cosa, quali programmi pubblici sono in vigore.",
+  "data": "2026-09-14",
+  "tag": [
+    "elenco incompleto — la mappa vera è fatta di dipendenze incrociate",
+    "scava"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Elon Musk's xAI raises $20 billion from investors including Nvidia, Cisco, Fidelity — CNBC, 6 gennaio 2026",
+    "url": "https://www.cnbc.com/2026/01/06/elon-musk-xai-raises-20-billion-from-nvidia-cisco-investors.html",
+    "chi": "stampa finanziaria indipendente",
+    "chi_corto": "stampa finanziaria indipendente"
+  },
+  "oggetto": "Il mercato mondiale dell'intelligenza artificiale al settembre 2026, letto come struttura di proprietà e di dipendenze: chi c'è oltre ai sei nomi più citati, chi mette i soldi a chi, chi vende i chip a chi, e cosa stanno facendo gli Stati rispetto ai privati.",
+  "punteggio": 70,
+  "etichetta": "elenco incompleto — la mappa vera è fatta di dipendenze incrociate",
+  "modalita": "scava",
+  "verdetto": "RISPOSTA SECCA ALLA DOMANDA: no, l'elenco non è completo, e manca soprattutto una CATEGORIA, non solo dei nomi.\n\nChi manca fra chi costruisce i modelli: xAI (di Elon Musk: 20 miliardi raccolti a gennaio 2026 a una valutazione intorno ai 230 miliardi, con NVIDIA e Cisco fra gli investitori); Mistral AI, il campione europeo, che a settembre 2026 ha chiuso il più grande round azionario mai fatto da una società tecnologica europea — circa 3 miliardi di euro guidati da Samsung, valutazione oltre 21 miliardi di euro; Microsoft e Amazon, che nell'elenco non compaiono ma sono decisive per una ragione doppia (sono i maggiori azionisti-fornitori dei laboratori indipendenti E hanno modelli propri); e i grandi cinesi oltre DeepSeek — Alibaba, ByteDance, Baidu, Tencent, Moonshot — che nell'elenco non ci sono affatto.\n\nMa la categoria davvero assente è CHI FA FUNZIONARE LA COSA: i produttori di silicio e di infrastruttura, senza cui nessuno dei sei esiste. TSMC fabbrica materialmente i chip; ASML è l'unica al mondo a costruire le macchine litografiche più avanzate; AMD e Broadcom sono le alternative a NVIDIA; Oracle, CoreWeave e SoftBank costruiscono e finanziano i centri dati. Chi ragiona sui «player dell'IA» guardando solo chi fa i modelli, guarda la punta e non la leva.\n\nCOME INTERAGISCONO — e qui sta il fatto più importante di tutta questa serie: NON sono sei concorrenti separati. Sono un intreccio in cui gli stessi soggetti sono contemporaneamente investitore, fornitore e concorrente l'uno dell'altro. Microsoft ha circa il 27% di OpenAI ed è fra i finanziatori di Anthropic. Amazon investe in Anthropic, la ospita, e ha messo 50 miliardi nel round OpenAI di febbraio 2026. Google finanzia Anthropic e insieme le fa concorrenza con Gemini. NVIDIA vende i chip a tutti e ha investito oltre 40 miliardi nei propri clienti, xAI compresa. La stampa finanziaria chiama questa struttura «finanziamento circolare» e ne discute apertamente il rischio: quando il fornitore finanzia il cliente che compra i suoi prodotti, dall'esterno diventa difficile dire quanta domanda sia autonoma. Non è un'accusa: è la forma degli accordi, ed è documentata.\n\nGLI STATI RISPETTO AI PRIVATI. Il divario di scala è netto e va detto con i numeri. Solo quattro aziende private (Microsoft, Meta, Alphabet, Amazon) hanno programmato per il 2026 oltre 470 miliardi di dollari di investimenti in conto capitale. L'Unione Europea, sul fronte pubblico, ha messo in campo un pacchetto per la sovranità tecnologica (giugno 2026) e una gara per un massimo di sette «gigafabbriche dell'IA» con oltre 30 miliardi di euro di investimento: un ordine di grandezza sotto. La leva europea, semmai, è normativa: dal 2 agosto 2026 la Commissione ha iniziato ad applicare le regole del regolamento sull'IA, con le modifiche dell'«omnibus» adottate a giugno 2026 ed entrate in vigore il 27 luglio 2026. La stessa Commissione dichiara che l'UE dipende da fuori per oltre l'80% di prodotti, servizi, infrastrutture e proprietà intellettuale digitali chiave. Sul versante cinese, il segnale misurabile è che i fondi di indirizzo di governi locali stanno entrando nel capitale privato (il caso DeepSeek). Sul versante statunitense esiste il progetto Stargate come impresa comune fra OpenAI, Oracle e SoftBank: è un'iniziativa privata annunciata in cornice politica, non un programma pubblico finanziato dallo Stato, e vanno tenute distinte.\n\nGLI ALTRI STATI — secondo giro, 14 settembre 2026. Il buco dichiarato al primo giro è ora coperto per sette giurisdizioni. Due cose contano più delle cifre.\n\nPRIMA: ANNUNCIATO NON È SPESO. L'India è il solo caso in cui il divario è pubblico e misurabile: la missione IndiaAI ha una dotazione approvata di 10.372 crore di rupie su cinque anni, ma nel 2024-25 risultano erogati 21,79 crore contro una previsione riveduta di 173, e nel 2025-26 379,15 crore contro 800. Chi mette in fila «programmi pubblici» e «spesa privata» quasi sempre sta confrontando un annuncio con una fattura. Per gli altri sei paesi il dato di erogazione effettiva non l'ho trovato: non vuol dire che il divario non ci sia.\n\nSECONDA: NEL GOLFO LO STATO NON È L'ALTERNATIVA AL PRIVATO, NE È L'INVESTITORE. MGX — creata a marzo 2024 da Mubadala, G42 e il consiglio statale emiratino per l'IA — punta a 100 miliardi di dollari di attivi; HUMAIN è interamente del fondo sovrano saudita PIF. Questo denaro pubblico non finanzia un'alternativa pubblica: compra dentro la stessa filiera privata. Stargate UAE si costruisce con OpenAI, Oracle, NVIDIA, Cisco e SoftBank. Contare queste cifre come «spesa pubblica contrapposta ai privati» è un errore di categoria, e va detto prima dei numeri.\n\nPaese per paese, con quel che ho potuto verificare:\n\n• STATI UNITI — Genesis Mission, nata da un ordine esecutivo del novembre 2025; il 22 luglio 2026 la Casa Bianca annuncia oltre 5 miliardi di dollari di impegni federali, il Dipartimento dell'Energia seleziona i primi 278 progetti (87 dei laboratori nazionali, 168 di università, 19 di imprese, 4 di enti non profit) e più di 15 agenzie si allineano su cinque sfide nazionali. È denaro pubblico vero, ma è IA per la scienza — non calcolo commerciale di frontiera.\n\n• CINA — fondo nazionale per l'industria dell'IA da 60,06 miliardi di yuan (circa 8,2 miliardi di dollari), istituito dal Ministero dell'Industria e dell'Informatica insieme al Ministero delle Finanze, con orizzonte dichiarato di 13 anni e il «Grande Fondo» dei semiconduttori fase III come unico sottoscrittore. La cifra è concorde su più fonti; la data no (vedi red flags). Il segnale già registrato al primo giro — fondi di indirizzo pubblici che entrano nel capitale privato — è quindi strutturale, non episodico.\n\n• REGNO UNITO — 1 miliardo di sterline sul calcolo pubblico, con l'obiettivo dichiarato di moltiplicarlo per venti in cinque anni; fino a 250 milioni per la capacità cloud della risorsa di ricerca sull'IA; fino a 500 milioni per l'unità sovrana per l'IA. Accanto, oltre 25 miliardi di sterline di investimenti privati annunciati su nuovi centri dati.\n\n• GIAPPONE — il più grosso impegno pubblico dichiarato del gruppo. Bilancio del ministero dell'economia per l'esercizio 2026 intorno a 3,07 trilioni di yen, di cui circa 1,23 trilioni destinati a semiconduttori e IA: dentro, 150 miliardi a Rapidus e 387,3 miliardi allo sviluppo nazionale dell'IA. La cornice pluriennale dichiarata è di oltre 10 trilioni di yen di sostegno pubblico in sette anni fino all'esercizio 2030, riportata in inglese come «65 miliardi di dollari».\n\n• INDIA — 10.372 crore di rupie di dotazione; oltre 38.000 GPU già messe a disposizione di startup e università tramite il portale pubblico, con obiettivo 100.000 entro dicembre 2026. E il divario di erogazione detto sopra.\n\n• EMIRATI ARABI UNITI — Stargate UAE, campus da 5 gigawatt ad Abu Dhabi annunciato a maggio 2025 con OpenAI, Oracle, NVIDIA, Cisco e SoftBank; prima tranche da 200 megawatt attesa nel 2026. Microsoft dichiara ulteriori 7,9 miliardi di dollari fra il 2026 e la fine del 2029, portando il totale nel paese a 15,2 miliardi.\n\n• ARABIA SAUDITA — HUMAIN, interamente del PIF, nata a maggio 2025; gara per un campus da 6 gigawatt a est di Riad; obiettivo 1,9 gigawatt di capacità entro il 2030 e oltre 6 entro il 2034; joint venture con l'operatore telefonico nazionale (51% HUMAIN, 49% stc). A settembre 2026 sta raccogliendo 2,5 miliardi di dollari per un fondo dedicato ai centri dati: che una società di un fondo sovrano da oltre 900 miliardi debba cercare capitale esterno è essa stessa un'informazione.\n\nLA RISPOSTA ALLA DOMANDA. Gli Stati non stanno correndo la stessa gara dei privati, e non perché siano indietro: perché giocano un altro ruolo. Preso da solo, nessuno di questi programmi pubblici arriva a un decimo dei 470 miliardi di dollari che quattro sole aziende private hanno programmato per il 2026. Ma il confronto per importi è quello sbagliato. L'Europa REGOLA (e dichiara di dipendere da fuori per oltre l'80% del digitale chiave). Il Golfo COMPRA dentro la filiera privata, con soldi sovrani. Stati Uniti, Giappone e Cina FINANZIANO la ricerca e la fabbrica di chip, cioè il piano sotto ai modelli. Nessuno Stato, in nessuna delle sette giurisdizioni verificate, sta costruendo in proprio calcolo di frontiera alla scala dei privati. Chi cerca «lo Stato concorrente di OpenAI» sta cercando una cosa che al settembre 2026 non esiste.\n\n⚠️ LIMITE, ORA PIÙ STRETTO: il buco del primo giro è colmato, ma a uno standard più debole del resto del verdetto. Nessuna delle fonti nuove è stata APERTA: in questa sessione la rete del contenitore blocca l'apertura diretta di TUTTI i domini provati — whitehouse.gov, gov.uk, digital-strategy.ec.europa.eu, brookings.edu e persino wikipedia.org, cinque su cinque. La ricerca per indice funziona, l'apertura no. Quel che segue sono URL reali con titolo e data corrispondenti, incrociati fra loro; dove una cifra sta in una fonte sola o solo in aggregatori, è detto nelle red flags. Resta scoperto il dato di erogazione effettiva per sei paesi su sette.",
+  "green_flags": [
+    "Le sei aziende più citate esistono tutte e sono tutte effettivamente rilevanti: l'elenco è incompleto, non sbagliato.",
+    "La struttura degli accordi incrociati è documentata da stampa finanziaria indipendente e in parte da comunicazioni ufficiali al mercato: non è una ricostruzione mia.",
+    "Sui privati quotati (Alphabet, Meta, NVIDIA, Microsoft, Amazon) le cifre di spesa sono verificabili in documenti depositati.",
+    "Sul fronte europeo esistono fonti ufficiali della Commissione con date e importi, consultabili direttamente dal lettore.",
+    "Il round di Mistral (settembre 2026) è recentissimo e riportato con importi espliciti: l'Europa ha almeno un soggetto privato di scala rilevante.",
+    "Sui programmi pubblici esistono documenti ufficiali che il lettore può aprire da sé anche dove io non ho potuto: Casa Bianca e ai.gov per gli Stati Uniti, gov.uk e il cruscotto delivery.ai.gov.uk per il Regno Unito, il Press Information Bureau per l'India, pif.gov.sa per l'Arabia Saudita. Il controllo non dipende dalla mia parola."
+  ],
+  "red_flags": [
+    "Il buco sugli Stati è colmato per sette giurisdizioni, ma a uno standard più debole del resto del verdetto: nessuna fonte nuova è stata aperta. In questa sessione l'apertura diretta è fallita su cinque domini su cinque provati, whitehouse.gov e wikipedia.org compresi. Sono titoli, URL e riassunti d'indice, incrociati fra loro.",
+    "Sul fondo cinese da 60,06 miliardi di yuan le fonti concordano sulla CIFRA e non sulla DATA: gennaio 2025, aprile 2025 e febbraio 2026 compaiono in fonti diverse per quello che sembra lo stesso fondo. La cifra è usabile, la data no — e chi la cita come «nuova del 2026» sta probabilmente ripetendo un aggregatore.",
+    "Annunciato non è speso, ed è il vizio che rende quasi tutti questi numeri pubblici non confrontabili con la spesa privata. L'India è l'unico caso in cui il divario è pubblico: 379,15 crore erogati contro 800 previsti nel 2025-26, su una dotazione di 10.372. Per gli altri sei paesi il dato di erogazione non l'ho trovato.",
+    "Le cifre del Golfo — 100 miliardi di dollari per MGX, 100 miliardi attribuiti a HUMAIN — sono obiettivi di raccolta dichiarati, non capitale versato, e circolano soprattutto in aggregatori e siti di settore. Vanno lette come ambizione dichiarata, non come bilancio.",
+    "L'equivalenza fra i «oltre 10 trilioni di yen» giapponesi e i «65 miliardi di dollari» dei titoli in inglese è riportata dalle fonti, non calcolata qui: in questo verdetto non c'è nessuna conversione di valuta fatta da me.",
+    "Le valutazioni delle società private (xAI 230 miliardi, Anthropic 965, OpenAI 852) sono prezzi concordati fra privati in operazioni di finanziamento, non valori di mercato verificabili: non sono confrontabili con la capitalizzazione di una quotata.",
+    "Il finanziamento circolare rende poco leggibile la domanda reale di chip e di calcolo: nessuno dall'esterno può oggi separare la domanda autonoma da quella finanziata dal venditore.",
+    "Le classifiche di settore («chi è il più grande») sono compilate da terzi con metodi non pubblicati e cambiano di mese in mese: usarle come misura è un errore.",
+    "Il mercato si muove più in fretta di qualunque scheda: le cifre qui hanno la data del 9 settembre 2026 e vanno rilette come una fotografia, non come uno stato permanente.",
+    "Le domande su cosa «prevedono di fare» e «come si organizzeranno» sono previsioni: qui non ci sono, perché una previsione non è un fatto verificabile e qui non se ne emettono."
+  ],
+  "fonti": [
+    {
+      "titolo": "Elon Musk's xAI raises $20 billion from investors including Nvidia, Cisco, Fidelity — CNBC, 6 gennaio 2026",
+      "url": "https://www.cnbc.com/2026/01/06/elon-musk-xai-raises-20-billion-from-nvidia-cisco-investors.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "L'esistenza e la scala di xAI (20 miliardi raccolti, valutazione intorno ai 230 miliardi) e la presenza di NVIDIA fra gli investitori: uno dei nomi mancanti all'elenco.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Mistral bags $24 billion valuation as Samsung leads funding for Europe's AI champion — CNBC, 8 settembre 2026",
+      "url": "https://www.cnbc.com/2026/09/08/mistral-ai-funding-valuation-samsung.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Il round di Mistral guidato da Samsung: il soggetto europeo mancante all'elenco. ⚠️ Il titolo dice 24 miliardi di dollari, il testo circa 21 miliardi di euro: sono la stessa cifra in valute diverse, riportata qui in euro.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Making sovereign, open-weight AI the technology frontier — Mistral AI",
+      "url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "Il posizionamento dichiarato di Mistral su sovranità e pesi aperti.",
+      "autorevolezza": "media — parte in causa"
+    },
+    {
+      "titolo": "OpenAI announces $110 billion funding round with backing from Amazon, Nvidia, SoftBank — CNBC, 27 febbraio 2026",
+      "url": "https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "La prova concreta dell'intreccio: Amazon 50 miliardi, NVIDIA 30, SoftBank 30 dentro un solo round di un solo concorrente.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Nvidia embraces AI investor role, topping $40 billion in equity bets — CNBC, 9 maggio 2026",
+      "url": "https://www.cnbc.com/2026/05/09/nvidia-embraces-ai-investor-topping-40-billion-in-equity-bets-2026.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Il fornitore di chip come azionista dei propri clienti: il nodo centrale della mappa delle dipendenze.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Nvidia reignites \"circular\" AI concerns — Axios, 27 luglio 2026",
+      "url": "https://www.axios.com/2026/07/27/nvidia-openai-financing-ai-jensen-huang-ssi",
+      "tipo": "stampa indipendente",
+      "sostiene": "Il dibattito pubblico sul finanziamento circolare: qui come fatto documentato, non come tesi avallata.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Tech AI spending approaches $700 billion in 2026, cash taking big hit — CNBC, 6 febbraio 2026",
+      "url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Oltre 470 miliardi di dollari di investimenti in conto capitale programmati nel 2026 dai quattro grandi operatori di cloud: il termine di paragone per misurare gli Stati.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Commission proposes tech sovereignty package to strengthen Europe's digital autonomy and resilience — Commissione europea, 3 giugno 2026",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1187",
+      "tipo": "registro ufficiale / comunicazione istituzionale",
+      "sostiene": "Il pacchetto europeo per la sovranità tecnologica e la dipendenza dichiarata dell'UE da fuori per oltre l'80% dei prodotti e servizi digitali chiave.",
+      "autorevolezza": "massima — fonte istituzionale primaria"
+    },
+    {
+      "titolo": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August — Commissione europea",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1714",
+      "tipo": "registro ufficiale / comunicazione istituzionale",
+      "sostiene": "L'avvio dell'applicazione del regolamento europeo sull'IA dal 2 agosto 2026: la leva effettiva dell'UE è normativa, non di capitale.",
+      "autorevolezza": "massima — fonte istituzionale primaria"
+    },
+    {
+      "titolo": "AI Act — quadro normativo, Commissione europea",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "tipo": "registro ufficiale",
+      "sostiene": "Il testo e il calendario di applicazione del regolamento, comprese le modifiche dell'omnibus.",
+      "autorevolezza": "massima"
+    },
+    {
+      "titolo": "Europe unveils tech sovereignty package amid growing concerns over reliance on U.S. tech — CNBC, 3 giugno 2026",
+      "url": "https://www.cnbc.com/2026/06/03/europe-tech-sovereignty-us-tech-reliance.html",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Lettura indipendente del pacchetto europeo, a riscontro della fonte istituzionale.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Stargate advances with 4.5 GW partnership with Oracle — annuncio OpenAI",
+      "url": "https://openai.com/index/stargate-advances-with-partnership-with-oracle/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "Stargate come impresa comune fra privati (OpenAI, Oracle, SoftBank), non come programma finanziato dallo Stato: distinzione che questa scheda tiene ferma.",
+      "autorevolezza": "media — parte in causa, e pagina non apribile in questa sessione"
+    },
+    {
+      "titolo": "Trump Administration Announces More Than $5 Billion for the Genesis Mission, a National Mission on AI for Science — La Casa Bianca, 22 luglio 2026",
+      "url": "https://www.whitehouse.gov/releases/2026/07/45502/",
+      "tipo": "comunicazione ufficiale di governo",
+      "sostiene": "L'importo, la data e il perimetro del principale programma pubblico statunitense: oltre 5 miliardi di dollari, 278 progetti, più di 15 agenzie.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "AI.gov — President Trump's AI Strategy and Action Plan",
+      "url": "https://www.ai.gov/",
+      "tipo": "sito ufficiale di governo",
+      "sostiene": "L'esistenza e l'impianto del piano d'azione federale sull'IA, consultabile direttamente dal lettore.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "Where does federal AI spending stand in 2026? — Brookings",
+      "url": "https://www.brookings.edu/articles/where-does-federal-ai-spending-stand-in-2026/",
+      "tipo": "centro studi indipendente",
+      "sostiene": "La scala della spesa federale statunitense in contratti sull'IA. ⚠️ Le cifre di crescita dei contratti (da 4,6 a 91,8 miliardi di valore potenziale) le ho viste solo qui: fonte sola.",
+      "autorevolezza": "media — fonte sola per quelle cifre"
+    },
+    {
+      "titolo": "China sets up 60b yuan national AI fund to accelerate tech innovation — China Daily",
+      "url": "https://www.chinadaily.com.cn/a/202504/18/WS6802358ea3104d9fd38204b5.html",
+      "tipo": "stampa di Stato cinese",
+      "sostiene": "L'istituzione e l'importo del fondo nazionale cinese per l'industria dell'IA.",
+      "autorevolezza": "media — parte in causa, ma concorde con fonti terze sulla cifra"
+    },
+    {
+      "titolo": "New AI fund in China to pour US$8 billion into early-stage projects — South China Morning Post",
+      "url": "https://www.scmp.com/tech/policy/article/3306047/new-ai-fund-china-pour-us8-billion-early-stage-projects",
+      "tipo": "stampa indipendente",
+      "sostiene": "La stessa cifra letta in dollari (circa 8,2 miliardi), i ministeri promotori e l'orizzonte di 13 anni.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Full Stack: China's Evolving Industrial Policy for AI — RAND",
+      "url": "https://www.rand.org/pubs/perspectives/PEA4012-1.html",
+      "tipo": "centro studi indipendente",
+      "sostiene": "L'impianto complessivo della politica industriale cinese sull'IA, oltre il singolo fondo.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "AI to power national renewal as government announces billions of additional investment — GOV.UK",
+      "url": "https://www.gov.uk/government/news/ai-to-power-national-renewal-as-government-announces-billions-of-additional-investment-and-new-plans-to-boost-uk-businesses-jobs-and-innovation",
+      "tipo": "comunicazione ufficiale di governo",
+      "sostiene": "Gli importi britannici sul calcolo pubblico e l'unità sovrana per l'IA.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "AI Opportunities Action Plan — Government Response (CP 1242)",
+      "url": "https://assets.publishing.service.gov.uk/media/678639913a9388161c5d2376/ai_opportunities_action_plan_government_repsonse.pdf",
+      "tipo": "documento ufficiale di governo",
+      "sostiene": "Il piano britannico nella sua forma depositata, con gli impegni presi punto per punto.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "AI Opportunities Action Plan — 2026 Progress (delivery.ai.gov.uk)",
+      "url": "https://delivery.ai.gov.uk/",
+      "tipo": "cruscotto ufficiale di governo",
+      "sostiene": "L'avanzamento dichiarato del piano britannico, compreso il percorso di capacità di calcolo.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "METI budget hike lifts Japan chip and AI funding for FY 2026 — eeNews Europe",
+      "url": "https://www.eenewseurope.com/en/meti-budget-hike-japan-chip-ai-fy-2026/",
+      "tipo": "stampa di settore",
+      "sostiene": "La ripartizione del bilancio giapponese: 3,07 trilioni di yen complessivi, 1,23 per semiconduttori e IA, 150 miliardi a Rapidus, 387,3 allo sviluppo nazionale dell'IA.",
+      "autorevolezza": "media-alta"
+    },
+    {
+      "titolo": "Japan commits to invest $65 billion in semiconductor and AI sector — S&P Global",
+      "url": "https://autotechinsight.spglobal.com/news/5279004/japan-commits-to-invest-65-billion-in-semiconductor-and-ai-sector",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "La cornice pluriennale giapponese letta in dollari: è la fonte da cui viene l'equivalenza con i 10 trilioni di yen, non un mio calcolo.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "IndiaAI Mission Expands AI Ecosystem with Affordable Compute and Startup Support — Press Information Bureau, Governo dell'India",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2245069&reg=3&lang=1",
+      "tipo": "comunicazione ufficiale di governo",
+      "sostiene": "La dotazione di 10.372 crore di rupie e le oltre 38.000 GPU messe a disposizione.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "The United Arab Emirates' AI Ambitions — CSIS",
+      "url": "https://www.csis.org/analysis/united-arab-emirates-ai-ambitions",
+      "tipo": "centro studi indipendente",
+      "sostiene": "L'impianto della strategia emiratina, la nascita di MGX (marzo 2024) e il ruolo del consiglio statale per l'IA.",
+      "autorevolezza": "alta"
+    },
+    {
+      "titolo": "Introducing Stargate UAE — OpenAI",
+      "url": "https://openai.com/index/introducing-stargate-uae/",
+      "tipo": "dichiarazione della società",
+      "sostiene": "Scala, partner e fasi del campus di Abu Dhabi. ⚠️ Parte in causa: OpenAI è uno dei costruttori.",
+      "autorevolezza": "media — parte in causa"
+    },
+    {
+      "titolo": "HUMAIN — Public Investment Fund (PIF), Arabia Saudita",
+      "url": "https://www.pif.gov.sa/en/our-investments/our-portfolio/humain/",
+      "tipo": "comunicazione ufficiale del fondo sovrano",
+      "sostiene": "Che HUMAIN sia interamente del PIF: il fatto che regge l'intera lettura del caso saudita.",
+      "autorevolezza": "alta — fonte primaria, ma non aperta da me"
+    },
+    {
+      "titolo": "Saudi AI giant races to fund data center expansion — Fortune, 9 settembre 2026",
+      "url": "https://fortune.com/2026/09/09/saudis-humain-turns-to-outside-investment-as-the-kingdom-reins-in-fiscal-spending/",
+      "tipo": "stampa finanziaria indipendente",
+      "sostiene": "Che HUMAIN stia cercando capitale esterno mentre il Regno frena la spesa pubblica: il contrappeso alle cifre d'annuncio.",
+      "autorevolezza": "alta"
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2026-01-06",
+      "evento": "xAI raccoglie 20 miliardi di dollari, valutazione intorno ai 230 miliardi; fra gli investitori NVIDIA e Cisco."
+    },
+    {
+      "data": "2026-02-06",
+      "evento": "I quattro grandi operatori di cloud programmano per il 2026 oltre 470 miliardi di dollari di investimenti in conto capitale."
+    },
+    {
+      "data": "2026-02-27",
+      "evento": "Round OpenAI con Amazon (50 mld), NVIDIA (30) e SoftBank (30): l'intreccio in una sola operazione."
+    },
+    {
+      "data": "2026-06-03",
+      "evento": "La Commissione europea presenta il pacchetto per la sovranità tecnologica; dichiara una dipendenza esterna superiore all'80% sui digitali chiave."
+    },
+    {
+      "data": "2026-07-22",
+      "evento": "La Casa Bianca annuncia oltre 5 miliardi di dollari per la Genesis Mission; il Dipartimento dell'Energia seleziona 278 progetti e oltre 15 agenzie si allineano su cinque sfide nazionali."
+    },
+    {
+      "data": "2026-07-27",
+      "evento": "Entrano in vigore le modifiche «omnibus» al regolamento europeo sull'IA."
+    },
+    {
+      "data": "2026-08-02",
+      "evento": "La Commissione avvia l'applicazione delle regole del regolamento sull'IA e dei nuovi obblighi di trasparenza."
+    },
+    {
+      "data": "2026-08-28",
+      "evento": "In Cina, fondi di indirizzo di governi locali si muovono per entrare nel capitale di DeepSeek."
+    },
+    {
+      "data": "2026-09-04",
+      "evento": "HUMAIN, società del fondo sovrano saudita PIF, risulta impegnata a raccogliere 2,5 miliardi di dollari per un fondo dedicato ai centri dati."
+    },
+    {
+      "data": "2026-09-08",
+      "evento": "Mistral AI chiude il maggiore round azionario mai realizzato da una società tecnologica europea, guidato da Samsung."
+    },
+    {
+      "data": "2026-09-09",
+      "evento": "Fortune riporta che HUMAIN cerca capitale esterno mentre il Regno frena la spesa pubblica: l'annuncio da 100 miliardi e la cassa non coincidono."
+    }
+  ],
+  "nota_sicurezza": "Nessun link è stato aperto o eseguito: l'oggetto di questa verifica sono ditte, non un sito sospetto. ⚠️ LIMITE MISURATO IN QUESTA SESSIONE, non dedotto: il proxy di rete ha bloccato l'apertura diretta di TUTTI i domini delle fonti (openai.com, cnbc.com, sec.gov, anthropic.com, investor.nvidia.com, europa.eu — provati, errore EGRESS_BLOCKED / codice 000). Le fonti elencate sono URL reali restituiti dall'indice di ricerca con titolo e data corrispondenti, e sono cliccabili per il lettore, ma NON le ho aperte una per una: ho incrociato più risultati indipendenti. Dove una cifra compare in una fonte sola o solo in aggregatori, è detto nelle red flags. «Non ho potuto aprirlo» vale più di «dovrebbe funzionare». ⚠️ SECONDO GIRO, 14 settembre 2026 — rimisurato, non ricopiato: la ricerca per indice in questa sessione FUNZIONA (a differenza del primo giro), ma l'apertura diretta delle pagine è bloccata su CINQUE domini su cinque provati — whitehouse.gov, gov.uk, digital-strategy.ec.europa.eu, brookings.edu, en.wikipedia.org — con errore EGRESS_BLOCKED; curl dà codice 000 su tutti. Quindi la parte nuova sugli Stati sta allo stesso standard dichiarato della prima: fonti incrociate, mai aperte.",
+  "_ninja": {
+    "sorgente": "docs/data/0014-mappa-player-ia-e-stati.json",
+    "impronta": "4ea7827dc12b34b17181a6d73085dff4e98bf1b4f685b655bf6de28dd4916c68",
+    "importato_il": "2026-10-15",
+    "riletto_da": "BRAINDANCE",
+    "riletto_il": "2026-10-15",
+    "riletto_impronta": "4ea7827dc12b34b17181a6d73085dff4e98bf1b4f685b655bf6de28dd4916c68"
+  }
+}
