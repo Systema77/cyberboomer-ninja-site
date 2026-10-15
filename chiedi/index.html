@@ -81,10 +81,10 @@
 <script>
 /* La porta del modulo. Il server (SQUELCH) risponde a POST /piazza/verdetto con
    {cosa, tipo, link}; la coda è una Issue letta da BRAINDANCE/scripts/coda.py.
-   Si accende con ACCESO = true, solo dopo il deploy del Worker e la chiave GITHUB_TOKEN. — ECHO, 14/10 */
+   Si accende con ACCESO = true, solo dopo il deploy del Worker e la chiave GITHUB_TOKEN. — ECHO, 14/10 · acceso il 15/10 col sì del Direttore in chat: rotta misurata da SQUELCH, 202 e Issue #121 */
 (function () {
   var API = 'https://piazza-ninja.insieme.workers.dev/piazza/verdetto';
-  var ACCESO = false;
+  var ACCESO = true;
   document.getElementById('chiedi').hidden = !ACCESO;
   document.getElementById('chiusa').hidden = ACCESO;
   var f = document.getElementById('chiedi'), esito = document.getElementById('esito');
