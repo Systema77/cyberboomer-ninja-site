@@ -1,0 +1,202 @@
+{
+  "tipo": "verdetto",
+  "id": "0004-palantir-crollo",
+  "titolo": "Palantir è crollata per colpa dei documentari e della stampa critica?",
+  "standfirst": "Il titolo Palantir è sceso in borsa da circa 180 a 113 €. È colpa dei documentari e della stampa critica, come si sente dire?",
+  "data": "2026-08-02",
+  "tag": [
+    "il calo è reale, la causa attribuita no",
+    "scava"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Palantir Technologies (PLTR) — serie storica dei prezzi, StockAnalysis",
+    "url": "https://stockanalysis.com/stocks/pltr/history/",
+    "chi": "dati di mercato",
+    "chi_corto": "dati di mercato"
+  },
+  "oggetto": "Palantir Technologies (PLTR), quotata al Nasdaq. Andamento del titolo fra il massimo storico del novembre 2025 e il 31 luglio 2026.",
+  "punteggio": 35,
+  "etichetta": "il calo è reale, la causa attribuita no",
+  "modalita": "scava",
+  "verdetto": "Il crollo è esistito ed è stato severo, ma è in gran parte rientrato, e le cifre qui sotto sono LETTURE A UNA DATA, non fatti permanenti: al 31 luglio 2026 PLTR chiudeva a 123,06 dollari, il 40,7% sotto il massimo storico; alla rilettura del 9 settembre 2026 quota intorno a 170 dollari, cioè circa il 18% sotto lo stesso massimo. Il -40,7% era vero il 31 luglio ed è falso oggi: chi lo legge senza la data legge un numero sbagliato. Ma le due cifre della domanda vanno corrette, e in direzioni opposte. Il massimo storico è 207,52 dollari il 3 novembre 2025, non 180: il «180» corrisponde alla chiusura di fine 2025 (177,75), cioè al punto di partenza dell'anno, non a un picco. Il «113» corrisponde alla finestra di fine giugno 2026. Due precisazioni tecniche: il titolo quota in dollari, non in euro, e sul Nasdaq — si è trasferito dal NYSE a novembre 2024. Sulla causa la risposta è no, e a dirlo è la cronologia. Il massimo storico è stato toccato dopo l'inchiesta di 404 Media sul contratto ICE (aprile 2025), dopo il rapporto di Amnesty International (agosto 2025) e dopo il disinvestimento etico di Storebrand (ottobre 2024): nel 2025 il titolo è salito di circa il 138% attraversando la fase più intensa di critica pubblica. Sui documentari la premessa non trova riscontro: nelle fonti consultate non risulta alcun documentario rilevante sul soggetto nel 2025-2026; l'unico esistente è tedesco ed è del 2024. Quasi tutte le fonti finanziarie indicano come causa dominante la compressione dei multipli da una valutazione estrema, dentro un derating generale del software e dell'AI. Questo non significa che la critica pubblica sia irrilevante: significa che il canale attraverso cui diventa finanziariamente reale non è l'indignazione, sono i contratti e i soldi istituzionali. Su questo terreno gli effetti sono tracciabili con date e importi.",
+  "green_flags": [
+    "Il calo è reale, documentato e verificabile su serie storiche di mercato — e va letto con la sua data: -40,7% dal massimo del 3 novembre 2025 e -30,8% da inizio 2026 alla chiusura del 31 luglio, con minimo a 52 settimane di 106,37 dollari intraday il 25 giugno 2026. Alla rilettura del 9 settembre 2026 il titolo è risalito intorno a 170 dollari (circa -18% dal massimo): il calo resta reale, la sua profondità no.",
+    "Le critiche pubbliche esistono e non sono voci di rete: sono documentate da organizzazioni con metodologia dichiarata (Amnesty International, EFF) e da testate che lavorano su documenti primari — documenti di appalto, atti giudiziari, guide utente trapelate.",
+    "Il soggetto ha esercitato il diritto di replica in tutti i casi principali, e le repliche sono pubblicamente consultabili: il lettore può confrontare le due versioni.",
+    "La tesi della domanda è verificabile da chiunque con un test ripetibile: le date degli scoop critici e le date dei movimenti di prezzo sono entrambe pubbliche, e il confronto è riproducibile.",
+    "Dove la critica ha prodotto effetti finanziari, questi sono tracciabili con precisione e importi: la Commissione Scienza e Tecnologia dei Comuni britannici ha raccomandato il 3 giugno 2026 di sciogliere il contratto NHS, e il fondo pensione olandese ABP ha disinvestito 825 milioni di euro il 2 aprile 2026.",
+    "La società stessa riconosce nel proprio 10-K che la copertura mediatica e lo scrutinio esterno costituiscono un fattore di rischio: il tema non è liquidabile come invenzione dei critici.",
+    "I fondamentali dichiarati sono cresciuti mentre il titolo scendeva: nel Q4 2025 ricavi 1,407 miliardi di dollari, +70% su base annua, e guidance 2026 alzata sopra il consenso. Il calo non è coinciso con un deterioramento dei ricavi."
+  ],
+  "red_flags": [
+    "La premessa sui documentari non trova riscontro: nelle fonti consultate non risulta alcun documentario rilevante su Palantir nel 2025-2026. L'unico esistente è tedesco e del 2024, quindi precede di oltre un anno il periodo in esame.",
+    "La cronologia contraddice la tesi della stampa critica: il massimo storico è successivo alle principali inchieste critiche, e nel 2025 il titolo è salito di circa il 138% proprio mentre la critica era più intensa.",
+    "Le due cifre della domanda non corrispondono ai riferimenti corretti: il massimo è 207,52 dollari, non 180; e la valuta è il dollaro, non l'euro.",
+    "Le attribuzioni causali della stampa finanziaria sono molli e fra loro incoerenti: per il calo del 6,08% del 28 luglio 2026 una testata indica una nota di Cleveland Research sulla debolezza della spesa commerciale, un'altra indica presa di profitto dopo il rialzo della seduta precedente.",
+    "Sulle vendite degli insider circolano aggregati elevati che non sono stati riscontrati sui Form 4 depositati presso la SEC, che sarebbero la fonte primaria: poggiano su un aggregatore sindacato, la fonte più debole del dossier.",
+    "La valutazione resta storicamente tesa anche dopo il calo, con multipli sugli utili e sulle vendite molto sopra la media del comparto: la compressione può non essersi esaurita.",
+    "Due articoli CNBC pertinenti hanno respinto la lettura automatica con errore 403: il loro contenuto non è stato verificato direttamente e non viene usato a sostegno di alcun passaggio."
+  ],
+  "fonti": [
+    {
+      "titolo": "Palantir Technologies (PLTR) — serie storica dei prezzi, StockAnalysis",
+      "url": "https://stockanalysis.com/stocks/pltr/history/",
+      "tipo": "dati di mercato",
+      "sostiene": "Massimo storico di chiusura a 207,52 dollari il 3 novembre 2025, chiusura 2025 a 177,75, minimo a 52 settimane di 106,37 il 25 giugno 2026, chiusura del 31 luglio 2026 a 123,06. Tutte le percentuali di questo verdetto sono state ricalcolate su questa serie, non riprese dai testi.",
+      "autorevolezza": "alta — serie giornaliere verificabili e riproducibili"
+    },
+    {
+      "titolo": "Palantir Technologies — Form 8-A12B, trasferimento della quotazione al Nasdaq, SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165524000230/a20241125form8-12b.htm",
+      "tipo": "registro ufficiale",
+      "sostiene": "Il titolo è quotato al Nasdaq dal novembre 2024, non al NYSE",
+      "autorevolezza": "massima — deposito ufficiale presso la SEC"
+    },
+    {
+      "titolo": "Earnings call transcript — Palantir Q4 2025, Investing.com",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-palantirs-q4-2025-revenue-surges-stock-rises-93CH-4480410",
+      "tipo": "documento finanziario",
+      "sostiene": "Ricavi Q4 2025 di 1,407 miliardi di dollari, +70% su base annua, e guidance 2026 alzata sopra il consenso",
+      "autorevolezza": "alta — trascrizione della call trimestrale"
+    },
+    {
+      "titolo": "Why Palantir Stock Plunged 34% in the First Half of 2026 — The Motley Fool, 9 luglio 2026",
+      "url": "https://www.fool.com/investing/2026/07/09/why-palantir-stock-plunged-34-in-the-first-half-of/",
+      "tipo": "stampa finanziaria",
+      "sostiene": "Ricostruzione delle cause del primo semestre 2026, centrate sulla compressione dei multipli e sul derating del comparto software",
+      "autorevolezza": "media-alta — testata finanziaria indipendente, ma editoriale con orientamento pro-azionario"
+    },
+    {
+      "titolo": "Why Did Palantir Technologies Stock Drop Again? — The Motley Fool, 28 luglio 2026",
+      "url": "https://www.fool.com/investing/2026/07/28/why-did-palantir-technologies-stock-drop-again/",
+      "tipo": "stampa finanziaria",
+      "sostiene": "Il calo del 28 luglio 2026 viene attribuito a una nota di Cleveland Research sulla debolezza della spesa commerciale fra i partner",
+      "autorevolezza": "media-alta"
+    },
+    {
+      "titolo": "Palantir Just Crushed Earnings. So Why Is the Stock Down? — The Motley Fool, 8 maggio 2026",
+      "url": "https://www.fool.com/investing/2026/05/08/palantir-just-crushed-earnings-so-why-is-the-stock/",
+      "tipo": "stampa finanziaria",
+      "sostiene": "Il titolo scende nonostante trimestrali sopra le attese, perché il rapporto prezzo/vendite si stava già comprimendo",
+      "autorevolezza": "media-alta"
+    },
+    {
+      "titolo": "Palantir Hits 52-Week Low as «SaaSpocalypse» Drags Stock Down 40% YTD — AskTraders",
+      "url": "https://www.asktraders.com/analysis/palantir-pltr-stock-falls-40-percent-ytd-saaspocalypse-2026/",
+      "tipo": "stampa finanziaria specializzata",
+      "sostiene": "Inquadramento del calo dentro un derating generale del software. Nota: la stessa fonte definisce giugno 2026 «worst month on record», affermazione che i dati mensili smentiscono.",
+      "autorevolezza": "media — elenco cause dettagliato e datato, ma con almeno un superlativo errato"
+    },
+    {
+      "titolo": "Palantir CEO Karp sells 397,744 shares after RSU vesting — Form 4 SEC via StockTitan",
+      "url": "https://www.stocktitan.net/sec-filings/PLTR/form-4-palantir-technologies-inc-insider-trading-activity-48a8d6e385ad.html",
+      "tipo": "documento societario",
+      "sostiene": "Vendita di 397.744 azioni il 20 maggio 2026 sotto piano Rule 10b5-1, a copertura di ritenute fiscali su RSU maturate",
+      "autorevolezza": "alta — riproduce un deposito obbligatorio presso la SEC"
+    },
+    {
+      "titolo": "Science, Innovation and Technology Committee — raccomandazioni sul contratto NHS, Parlamento del Regno Unito",
+      "url": "https://committees.parliament.uk/committee/135/science-innovation-and-technology-committee/",
+      "tipo": "fonte istituzionale primaria",
+      "sostiene": "Il 3 giugno 2026 la commissione raccomanda di sciogliere il contratto con Palantir per la piattaforma dati del servizio sanitario britannico",
+      "autorevolezza": "massima — atto parlamentare, fonte primaria"
+    },
+    {
+      "titolo": "Palantir to switch stock listing to Nasdaq from NYSE — Investing.com",
+      "url": "https://www.investing.com/news/company-news/palantir-to-switch-stock-listing-to-nasdaq-from-nyse-93CH-3724218",
+      "tipo": "stampa finanziaria",
+      "sostiene": "Conferma giornalistica del trasferimento di listino",
+      "autorevolezza": "media-alta"
+    },
+    {
+      "titolo": "Palantir Technologies Inc. (PLTR) — quotazione e intervallo a 52 settimane",
+      "url": "https://www.investing.com/equities/palantir-technologies-inc",
+      "tipo": "dati di mercato",
+      "sostiene": "Quotazione corrente e intervallo a 52 settimane, a riscontro della serie storica",
+      "autorevolezza": "media-alta — aggregatore di dati di mercato"
+    },
+    {
+      "titolo": "Palantir Technologies — storico dei prezzi (massimo storico 207,18 in chiusura, 3 nov 2025)",
+      "url": "https://www.macrotrends.net/stocks/charts/PLTR/palantir-technologies/stock-price-history",
+      "tipo": "dati di mercato",
+      "sostiene": "Riscontro del massimo storico del 3 novembre 2025: 207,18 dollari in chiusura (StockAnalysis: 207,52)",
+      "autorevolezza": "media-alta — aggregatore di dati di mercato"
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2024-10-25",
+      "evento": "Storebrand esclude Palantir dai propri investimenti per ragioni etiche. Nessun effetto rilevabile sul prezzo: il titolo salirà fortemente nei mesi successivi."
+    },
+    {
+      "data": "2024-11-26",
+      "evento": "Palantir trasferisce la quotazione dal NYSE al Nasdaq, ticker invariato."
+    },
+    {
+      "data": "2025-04-18",
+      "evento": "404 Media pubblica l'inchiesta sul contratto ICE, basata su documenti di appalto pubblici. È l'inizio della catena critica moderna."
+    },
+    {
+      "data": "2025-08-21",
+      "evento": "Rapporto di Amnesty International. Il titolo continua a salire."
+    },
+    {
+      "data": "2025-11-03",
+      "evento": "MASSIMO STORICO: chiusura a 207,52 dollari, nel giorno della trimestrale Q3 2025 (ricavi 1,18 miliardi, +63%). Il titolo quel giorno sale del 3,35%: il ribasso non parte da qui, parte dopo."
+    },
+    {
+      "data": "2025-12-31",
+      "evento": "Chiusura 2025 a 177,75 dollari, anno a +138%. È il livello ricordato nella domanda come «180»."
+    },
+    {
+      "data": "2026-01-02",
+      "evento": "Prima seduta del 2026 a -5,9%: rotazione dal software verso i semiconduttori e presa di profitto differita a fine anno fiscale."
+    },
+    {
+      "data": "2026-02-02",
+      "evento": "Trimestrale Q4 2025 largamente sopra le attese e guidance alzata. Il titolo rimbalza ma non torna sui massimi."
+    },
+    {
+      "data": "2026-04-02",
+      "evento": "Il fondo pensione olandese ABP disinveste 825 milioni di euro."
+    },
+    {
+      "data": "2026-05-08",
+      "evento": "Trimestrale Q1 2026 forte su tutte le voci. Il titolo scende comunque: il rapporto prezzo/vendite si è già contratto da circa 100 a 67."
+    },
+    {
+      "data": "2026-06-03",
+      "evento": "La Commissione Scienza e Tecnologia dei Comuni britannici raccomanda di sciogliere il contratto con il servizio sanitario nazionale."
+    },
+    {
+      "data": "2026-06-25",
+      "evento": "Minimo a 52 settimane: 106,37 dollari intraday. Giugno chiuderà a -25,47%, il mese peggiore di questa discesa ma non della storia del titolo: nel febbraio 2021 fece -32,06%."
+    },
+    {
+      "data": "2026-07-28",
+      "evento": "-6,08% in giornata dopo una nota di Cleveland Research sulla debolezza della spesa commerciale fra i partner."
+    },
+    {
+      "data": "2026-07-31",
+      "evento": "Chiusura a 123,06 dollari: -40,7% dal massimo, -30,8% da inizio anno. Livello di riferimento di questa verifica."
+    },
+    {
+      "data": "2026-08-04",
+      "evento": "Trimestrale del secondo trimestre: ricavi +93% a 1,935 miliardi di dollari e guida annuale alzata. È l'evento che inverte la discesa — e conferma il verdetto sulla causa: a muovere il titolo sono i conti, non la stampa."
+    },
+    {
+      "data": "2026-09-09",
+      "evento": "Rilettura: il titolo quota intorno a 170 dollari, circa -18% dal massimo storico di 207,52 (intraday, 3 novembre 2025; 207,18 in chiusura). Il -40,7% di questa verifica era una fotografia del 31 luglio: resta agli atti come tale."
+    }
+  ],
+  "nota_sicurezza": "Questo è un verdetto sui fatti e sulle cause documentate, non un parere di investimento: non contiene e non deve essere letto come una raccomandazione a comprare, vendere o mantenere. I limiti vanno dichiarati. Primo: i dati di prezzo provengono da un unico fornitore di serie storiche, sul quale sono state ricalcolate tutte le percentuali; fra vendor diversi esistono divergenze di pochi centesimi su singole chiusure, irrilevanti per la sostanza ma reali. Secondo: nessuna fonte quantifica quanta parte del calo sia attribuibile a ciascun fattore, quindi la gerarchia delle cause qui esposta riflette il peso che le fonti finanziarie danno loro, non una misurazione. Terzo: l'affermazione che non esistano documentari rilevanti nel periodo è una negativa, dimostrabile solo entro le fonti consultate. Quarto: la trimestrale Q2 2026 era attesa per il 3 agosto 2026, subito dopo questa verifica: ogni riferimento al livello «attuale» è fermo al 31 luglio 2026 e può essere già superato. Le persone fisiche citate compaiono soltanto per operazioni depositate presso registri pubblici o per dichiarazioni pubbliche, senza alcuna valutazione personale.\n\n⏱ LE CIFRE DI MERCATO SONO LETTURE A UNA DATA, e invecchiano da sole. Questa verifica nasce con i valori del 31 luglio 2026 e li ha riletti il 9 settembre 2026. La rilettura è stata corroborata su due ricerche indipendenti che concordano anche sul minimo di 106,37 dollari del 25 giugno già registrato qui — segno che leggono la stessa serie; le pagine di quotazione non erano raggiungibili in modo diretto dalla sessione che ha misurato, e questo va detto invece di farlo sembrare un dato letto in prima persona. Chi usa questo verdetto dopo il 9 settembre 2026 deve rileggere il prezzo prima di citarlo.",
+  "_ninja": {
+    "sorgente": "docs/data/0004-palantir-crollo.json",
+    "impronta": "18d897f8d26e02becb0f3e07b44a114f661410c9061c91837a3f9bdea22ca9d3",
+    "importato_il": "2026-10-15",
+    "riletto_da": "BRAINDANCE",
+    "riletto_il": "2026-10-15",
+    "riletto_impronta": "18d897f8d26e02becb0f3e07b44a114f661410c9061c91837a3f9bdea22ca9d3"
+  }
+}

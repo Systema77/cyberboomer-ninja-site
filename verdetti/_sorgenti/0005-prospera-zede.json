@@ -1,0 +1,276 @@
+{
+  "tipo": "verdetto",
+  "id": "0005-prospera-zede",
+  "titolo": "Próspera — la «città senza Stato» di Roatán alla prova dei fatti",
+  "standfirst": "Circola un titolo: «Prospera, la città senza Stato di Peter Thiel diventa realtà». Prospera è reale? Cos'è davvero — un ente, un progetto, un luogo? Ci si può fidare di ciò che dichiara? E il «diventa realtà» del titolo regge?",
+  "data": "2026-08-29",
+  "tag": [
+    "reale, ma sub iudice",
+    "scava"
+  ],
+  "provenienza": "casa",
+  "fonte": {
+    "titolo": "Honduras Próspera Inc. e altri c. Repubblica dell'Honduras, ICSID Case No. ARB/23/2 — italaw",
+    "url": "https://www.italaw.com/cases/9971",
+    "chi": "database giuridico indipendente di atti arbitrali",
+    "chi_corto": "database giuridico indipendente di atti arbitrali"
+  },
+  "oggetto": "Honduras Próspera Inc., corporation di diritto del Delaware (USA) fondata da Erick Brimen (LLC dall'agosto 2017, corporation dal dicembre 2020), e Próspera ZEDE, zona a statuto speciale su oltre 400 acri dell'isola di Roatán, Honduras. Sito prospera.co.",
+  "punteggio": 54,
+  "etichetta": "reale, ma sub iudice",
+  "modalita": "scava",
+  "verdetto": "Próspera esiste: non è un rendering, non è una truffa. È una zona a statuto speciale (ZEDE) su oltre 400 acri di Roatán, sviluppata e amministrata da una società privata statunitense — Honduras Próspera Inc., Delaware: LLC dall'agosto 2017, corporation dal dicembre 2020 — fondata e guidata da Erick Brimen. Sul terreno ci sono almeno una torre residenziale operativa (Duna: 14 piani, 85 appartamenti, descritta come l'edificio più alto dell'isola), una clinica di medicina rigenerativa (GARM), un programma di e-residency a 130 dollari l'anno. Quel titolo sbaglia però due volte. Primo: non è «la città di Peter Thiel». Thiel risulta uno dei finanziatori, tramite Pronomos Capital (fondo di Patri Friedman, seed di circa 9 milioni di dollari nel 2019), dentro una raccolta complessiva di 110-120 milioni da un centinaio di investitori; il progetto è di Brimen, e i rapporti del Dipartimento di Stato USA al Congresso (agosto 2025 e giugno 2026) confermano oltre 100 milioni di capitale americano. Secondo, ed è il punto che pesa: il «senza Stato» oggi non ha base legale riconosciuta dallo Stato ospite. Il Congresso honduregno ha abrogato all'unanimità la legge ZEDE il 20 aprile 2022 e la Corte Suprema l'ha dichiarata incostituzionale con effetto retroattivo il 20 settembre 2024 (voto di stretta maggioranza, sentenza in Gaceta il 25-26 novembre 2024). Próspera continua a operare e ad espandersi appellandosi a una garanzia di «stabilità giuridica di 50 anni» che nessuna fonte primaria indipendente consultata riporta per esteso, e dal dicembre 2022 porta avanti un arbitrato ICSID contro l'Honduras (caso ARB/23/2: richiesta iniziale 10,775 miliardi di dollari, oggi 1,63 miliardi come rimedio subordinato al ripristino del regime), tuttora pendente al 29 agosto 2026. Il «diventa realtà» fotografa un fatto vero — con il presidente Asfura (insediato il 27/01/2026) il clima politico è cambiato, l'Honduras è rientrato nel CIADI il 16 agosto 2026 e il governo tratta la zona con favore di fatto — ma tace che un anno e mezzo prima la stampa finanziaria indipendente raccontava la stessa vicenda come «un incubo da 11 miliardi» (Bloomberg, febbraio 2025), e che il conflitto con la comunità adiacente di Crawfish Rock è documentato dal 2019. Realtà fisica sì; giurisdizione autonoma consolidata no: progetto vivo, conteso, giuridicamente sospeso.\n\nAggiornamento della riverifica del 29/08/2026, dodici giorni dopo la prima pubblicazione: l'arbitrato ICSID resta esattamente dov'era — nessuna sentenza di merito, ultimo atto noto ancora il Procedural Order No. 7 del 6 maggio 2026, e nessuna data di udienza sul merito è stata reperita. Una fonte indipendente aggiuntiva (Rio Times, agosto 2026) riporta che il procuratore generale honduregno Dagoberto Aspra ha dichiarato a metà agosto che 18 reclami risultano pendenti presso ICSID contro l'Honduras, e che il rientro nel CIADI del 16/08/2026 copre solo i fatti successivi a quella data — il vuoto di due anni (25/08/2024-16/08/2026) resta tale. Il fatto nuovo che pesa di più, però, è un altro: un'inchiesta giornalistica indipendente esterna, non ancora disponibile alla prima verifica — «Foreign Correspondent» di ABC News Australia, andata in onda il 18/08/2026 e ripresa in un articolo del 22/08/2026 — è entrata fisicamente a Próspera e riporta circa 200 residenti permanenti effettivi e oltre 220 imprese registrate. Sono meno della metà delle imprese e circa un decimo dei residenti che Próspera stessa dichiarava per il 2024 (~2.000 residenti, 413 imprese): un riscontro indipendente, sul campo, che conferma proprio il sospetto già segnalato nella prima verifica — i numeri di Próspera sono largamente gonfiati rispetto alla realtà osservabile. Per questo il punteggio scende da 58 a 54: non perché la realtà fisica o legale del progetto sia cambiata, ma perché una fonte indipendente ha ora quantificato quanto siano distanti dal vero le cifre che la società diffonde su di sé — il punto su cui la fiducia va più graduata. Limite dichiarato, come nella prima verifica: il proxy di rete della sandbox ha bloccato il fetch diretto anche delle nuove fonti (abc.net.au, riotimesonline.com), lette solo per snippet di ricerca — verifica «a due gradi», dichiarata come tale, sia oggi sia il 17/08.",
+  "green_flags": [
+    "Esistenza fisica verificata da stampa indipendente sul campo: reportage Rest of World (2021) e Bloomberg (13-14/02/2025) descrivono cantieri, edifici e residenti reali a Roatán, non solo rendering.",
+    "Torre residenziale Duna operativa: 14 piani, 85 appartamenti, descritta come l'edificio più alto di Roatán; occupazione al 100% per tre mesi consecutivi dichiarata a marzo 2025 (dato di parte).",
+    "Società madre tracciabile: Honduras Próspera Inc., corporation del Delaware (LLC dall'agosto 2017, conversione dicembre 2020), CEO Erick Brimen — ricostruzione concorde di più fonti legali e giornalistiche, non smentita da alcuna fonte.",
+    "Investimento confermato da fonte governativa terza: i rapporti del Dipartimento di Stato USA al Congresso (agosto 2025 e giugno 2026) attestano oltre 100 milioni di dollari di capitale statunitense in Honduras Próspera Inc.",
+    "Contenzioso reale e pubblico: il caso ICSID ARB/23/2 è registrato con atti consultabili (italaw, Jus Mundi, UNCTAD) — le pretese di Próspera passano da un tribunale internazionale, non solo da comunicati stampa.",
+    "Il 26/02/2025 il tribunale ICSID ha respinto le eccezioni preliminari dell'Honduras (mancato esaurimento dei rimedi interni): la causa di Próspera ha superato un primo vaglio e prosegue nel merito.",
+    "La stessa sentenza di incostituzionalità (20/09/2024) riconosce tutela agli investimenti e alle proprietà acquisiti in buona fede dalle imprese ZEDE preesistenti: non tutto è azzerato.",
+    "Regole interne pubblicate: la zona ha una gazzetta ufficiale (pzgps.hn) con governance dichiarata — Segretario Tecnico, Council of Trustees, regolatore finanziario RIFC — anche se emanata dalla stessa entità regolata.",
+    "Attività confermata come reale e in corso anche da un'inchiesta giornalistica indipendente esterna: 'Foreign Correspondent' di ABC News Australia (18-22/08/2026) è entrata fisicamente sul posto e descrive una comunità operativa di imprenditori tech e biohacker, non un progetto abbandonato o solo sulla carta."
+  ],
+  "red_flags": [
+    "La base giuridica dell'autonomia è stata cancellata: legge ZEDE abrogata all'unanimità dal Congresso il 20/04/2022 (sanzione presidenziale 25/04) e dichiarata incostituzionale con effetto retroattivo dalla Corte Suprema il 20/09/2024, sentenza pubblicata in Gaceta il 25-26/11/2024.",
+    "Il possessivo del titolo è fuorviante: Próspera non è «di Peter Thiel». Thiel risulta uno dei backer tramite Pronomos Capital (seed ~9 M$, 2019) su 110-120 M$ raccolti da circa 100 investitori; fondatore e CEO è Erick Brimen. Una fonte minoritaria non verificabile nega perfino l'investimento di Thiel.",
+    "I numeri chiave sono autodichiarati e ora si sono rivelati fortemente sovrastimati: ~2.000 residenti e 413 imprese dichiarati per il 2024, contro i circa 200 residenti permanenti e le poco più di 220 imprese registrate riscontrati sul campo da un'inchiesta indipendente esterna (ABC News Australia, 'Foreign Correspondent', 18-22/08/2026) — uno scarto di quasi dieci volte sui residenti.",
+    "L'obiettivo dichiarato di 500 M$ investiti in Honduras e 10.000 posti di lavoro entro il 2025 non risulta confermato da alcuna fonte indipendente, e appare ancora meno plausibile alla luce del riscontro sul campo di agosto 2026.",
+    "Arbitrato miliardario pendente dal 20/12/2022 (ICSID ARB/23/2): richiesta iniziale di 10,775 miliardi di dollari — circa due terzi del bilancio statale honduregno 2022 — poi riquantificata a 1,63 miliardi come rimedio subordinato; nessuna sentenza al 29/08/2026, nessuna data di udienza di merito reperita.",
+    "Conflitto documentato con la comunità adiacente di Crawfish Rock (~600 abitanti): mai consultata alla nascita del progetto, disputa sull'accesso all'acqua dall'estate 2019 (Rest of World, 2021), opposizione tuttora aperta guidata dal consiglio comunitario.",
+    "Il 14/10/2024 il sindaco di Roatán ha ordinato la chiusura temporanea di parte della zona per circa 12 milioni di lempiras (~480.000 $) di tasse comunali contestate; Próspera ha definito l'atto illegale e si è detta in regola.",
+    "Status giuridico contraddittorio al 29/08/2026: incostituzionale sulla carta, tollerata e di fatto favorita dal governo Asfura — non è stato reperito alcun atto formale che risolva la contraddizione. Il rientro dell'Honduras nel CIADI (16/08/2026) copre solo i fatti successivi a quella data: il procuratore generale honduregno ha dichiarato a metà agosto che restano 18 reclami pendenti contro lo Stato presso ICSID (fonte: Rio Times).",
+    "Espansione territoriale proseguita dopo la sentenza: oltre 3,2 milioni di mq (~4% del territorio di Roatán), con nuove acquisizioni nell'area di Crawfish Rock documentate da Criterio.hn.",
+    "La garanzia di «stabilità giuridica di 50 anni» invocata da Próspera non è stata letta in alcuna fonte primaria indipendente; una costituzionalista honduregna (Reina Rivera) sostiene che la sentenza 2024 ha effetto ex tunc e travolge ogni atto ZEDE.",
+    "Critiche pubbliche di soggetti qualificati: Paul Romer — ispiratore del concetto di charter city, dimessosi nel 2012 dalla commissione di trasparenza ZEDE — giudica Próspera lontana da un modello raccomandabile (citazione riportata di seconda mano dalla stampa critica, non letta in fonte diretta); esperti ONU nel 2021 hanno espresso preoccupazioni sui diritti umani (documento ONU non letto direttamente).",
+    "Il framing «diventa realtà» (articoli italiani e italofoni, luglio-agosto 2026) è ribaltato rispetto alla stampa finanziaria indipendente: Bloomberg (febbraio 2025) racconta la stessa vicenda come «incubo da 11 miliardi». L'articolo italiano con quel titolo esatto non è stato individuato."
+  ],
+  "fonti": [
+    {
+      "titolo": "Próspera — sito ufficiale",
+      "url": "https://www.prospera.co/en",
+      "tipo": "sito del soggetto",
+      "sostiene": "Visione, servizi (e-residency a 130 $/anno, industrie ammesse) e cifre di impatto dichiarate dalla società; fetch diretto bloccato dal proxy, contenuti ripresi solo via snippet di ricerca",
+      "autorevolezza": "bassa — fonte diretta interessata, numeri autodichiarati senza verifica terza"
+    },
+    {
+      "titolo": "Honduras Próspera Inc. e altri c. Repubblica dell'Honduras, ICSID Case No. ARB/23/2 — italaw",
+      "url": "https://www.italaw.com/cases/9971",
+      "tipo": "database giuridico indipendente di atti arbitrali",
+      "sostiene": "Parti, numero di caso, tribunale e atti procedurali del contenzioso ICSID avviato nel dicembre 2022",
+      "autorevolezza": "alta — repository accademico di riferimento per l'arbitrato investitore-Stato; letto solo via snippet, fetch diretto bloccato"
+    },
+    {
+      "titolo": "Honduras Próspera v. Honduras — Procedural Order No. 7 (6 maggio 2026) — Jus Mundi",
+      "url": "https://jusmundi.com/en/document/decision/en-honduras-prospera-inc-st-john-s-bay-development-company-llc-and-prospera-arbitration-center-llc-v-republic-of-honduras-procedural-order-no-7-on-applications-to-intervene-by-amicus-curiae-wednesday-6th-may-2026",
+      "tipo": "atti processuali (riprodotti da database giuridico)",
+      "sostiene": "Il procedimento arbitrale risultava ancora aperto e senza sentenza al 6 maggio 2026, ultimo atto noto ancora al 29/08/2026",
+      "autorevolezza": "molto alta — riproduce l'atto ufficiale del tribunale; letto solo via snippet, fetch diretto bloccato"
+    },
+    {
+      "titolo": "Corte Suprema de Honduras declara inconstitucionales zonas económicas especiales — Voz de América",
+      "url": "https://www.vozdeamerica.com/a/corte-suprema-honduras-declara-inconstitucionales-zonas-economicas-especiales-/7793209.html",
+      "tipo": "stampa internazionale indipendente",
+      "sostiene": "La sentenza della Corte Suprema honduregna del 20/09/2024: incostituzionalità retroattiva della legge ZEDE, articoli costituzionali violati, reazioni",
+      "autorevolezza": "alta — agenzia internazionale con desk America Latina"
+    },
+    {
+      "titolo": "Congreso Nacional deroga en su totalidad las ZEDE — La Prensa Honduras",
+      "url": "https://www.laprensa.hn/honduras/congreso-nacional-deroga-totalidad-zede-honduras-DC7765173",
+      "tipo": "stampa nazionale honduregna indipendente",
+      "sostiene": "Abrogazione unanime della legge ZEDE da parte del Congresso (20/04/2022) e sanzione presidenziale (25/04/2022)",
+      "autorevolezza": "alta — principale quotidiano honduregno, cronaca diretta dei fatti legislativi"
+    },
+    {
+      "titolo": "Próspera reduce a $1,630 millones su reclamo contra Honduras ante el Ciadi — La Prensa Honduras",
+      "url": "https://www.laprensa.hn/economia/prospera-reduce-demanda-honduras-1-630-millones-reclamo-pgr-GK27877919",
+      "tipo": "stampa nazionale honduregna indipendente",
+      "sostiene": "La riduzione della richiesta economica di Próspera nell'arbitrato da 10.775 a circa 1.630 milioni di dollari",
+      "autorevolezza": "medio-alta — testata consolidata; dato ripreso via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "United States Investment in Prospera ZEDE — Report to Congress (giugno 2026), Dipartimento di Stato USA",
+      "url": "https://www.state.gov/wp-content/uploads/2026/06/United-States-Investment-in-Prospera-ZEDE-Accessible-HRC1399978.pdf",
+      "tipo": "documento governativo ufficiale",
+      "sostiene": "Oltre 100 milioni di dollari di investimento statunitense in Honduras Próspera Inc. e persistente incertezza sullo status giuridico della ZEDE",
+      "autorevolezza": "molto alta come fonte primaria governativa, ma del Paese d'origine degli investitori; contenuto ripreso solo via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "The Dream Was a Libertarian Island Enclave. It's Become an $11 Billion Nightmare — Bloomberg (feb 2025)",
+      "url": "https://www.bloomberg.com/news/features/2025-02-13/a-honduras-dream-city-now-faces-11-billion-political-dispute",
+      "tipo": "stampa finanziaria internazionale indipendente",
+      "sostiene": "Reportage sul campo: la zona esiste fisicamente ma è al centro di una disputa legale multimiliardaria — framing opposto al «diventa realtà»",
+      "autorevolezza": "alta — testata finanziaria di riferimento; testo integrale dietro paywall/proxy, letto via snippet"
+    },
+    {
+      "titolo": "A libertarian 'startup city' in Honduras faces its biggest hurdle: the locals — Rest of World (2021)",
+      "url": "https://restofworld.org/2021/honduran-islanders-push-back-libertarian-startup/",
+      "tipo": "stampa indipendente specializzata, reportage sul campo",
+      "sostiene": "La comunità di Crawfish Rock (~600 abitanti) non fu consultata; conflitto documentato sull'accesso all'acqua dal 2019 e opposizione locale",
+      "autorevolezza": "alta — reportage originale sul posto; letto via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "ZEDE Próspera gana impulso con respaldo de Asfura y el Cohep — Criterio.hn",
+      "url": "https://criterio.hn/inconstitucional-zede-prospera-gana-impulso-con-respaldo-de-asfura-y-el-cohep/",
+      "tipo": "stampa investigativa honduregna indipendente",
+      "sostiene": "L'avvicinamento del governo Asfura e del COHEP a Próspera nel 2026 nonostante l'incostituzionalità dichiarata; tesi della costituzionalista Reina Rivera sull'effetto ex tunc",
+      "autorevolezza": "media-alta — testata investigativa riconosciuta, con orientamento dichiaratamente critico verso il progetto"
+    },
+    {
+      "titolo": "Honduras Signs the ICSID Convention — comunicato ICSID/World Bank",
+      "url": "https://icsid.worldbank.org/news-and-events/news-releases/honduras-signs-icsid-convention",
+      "tipo": "comunicato istituzionale ufficiale",
+      "sostiene": "La firma della ri-adesione dell'Honduras alla Convenzione ICSID (marzo 2026, 166° Stato firmatario), che inverte la denuncia del 2024",
+      "autorevolezza": "massima come fonte primaria istituzionale; letta solo via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "Honduras regresa al Ciadi el 16 de agosto tras casi dos años fuera — El Heraldo",
+      "url": "https://www.elheraldo.hn/economia/honduras-regresa-ciadi-16-de-agosto-casi-dos-anos-fuera-HF31700968",
+      "tipo": "stampa nazionale honduregna indipendente",
+      "sostiene": "Il rientro formale dell'Honduras nel CIADI/ICSID il 16/08/2026",
+      "autorevolezza": "alta, ma qui solo il titolo è stato verificato: testo integrale non accessibile per blocco proxy"
+    },
+    {
+      "titolo": "Peter Thiel Is Unleashing a Neocolonial Billionaire Fantasy in Honduras — Truthout (16/02/2026)",
+      "url": "https://truthout.org/articles/peter-thiel-is-unleashing-a-neocolonial-billionaire-fantasy-in-honduras/",
+      "tipo": "stampa indipendente di orientamento critico dichiarato",
+      "sostiene": "Il ruolo di Peter Thiel e Pronomos Capital nel finanziamento di Próspera, riportato qui come puro fatto societario-finanziario",
+      "autorevolezza": "media — linea editoriale esplicitamente critica verso il soggetto, da bilanciare con le fonti neutre; i dati finanziari coincidono però con quelli di più fonti terze"
+    },
+    {
+      "titolo": "Próspera Demands Honduras Pay $11 Billion for Outlawing Privately Run City — CorpWatch",
+      "url": "https://www.corpwatch.org/article/prospera-demands-honduras-pay-11-billion-outlawing-privately-run-city",
+      "tipo": "giornalismo investigativo indipendente no-profit (watchdog)",
+      "sostiene": "Il raffronto fra la richiesta iniziale da 10,775 miliardi di dollari e il bilancio statale honduregno 2022 (circa due terzi)",
+      "autorevolezza": "media — watchdog dichiaratamente critico verso il soggetto; letto via snippet, fetch bloccato dal proxy"
+    },
+    {
+      "titolo": "ZEDE Próspera expande su territorio en Roatán pese a fallo de inconstitucionalidad — Criterio.hn",
+      "url": "https://criterio.hn/zede-prospera-expande-su-territorio-en-roatan-pese-a-fallo-de-inconstitucionalidad/",
+      "tipo": "stampa investigativa honduregna indipendente",
+      "sostiene": "L'espansione territoriale oltre 3,2 milioni di mq (~4% di Roatán) e le nuove acquisizioni nell'area di Crawfish Rock dopo la sentenza di incostituzionalità",
+      "autorevolezza": "media-alta — testata investigativa riconosciuta, con orientamento critico dichiarato; letta via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "Alcaldía de Roatán cierra Próspera por no pagar impuestos — El País Honduras",
+      "url": "https://www.elpais.hn/alcaldia-de-roatan-cierra-prospera-por-no-pagar-impuestos/",
+      "tipo": "stampa nazionale honduregna indipendente",
+      "sostiene": "La chiusura temporanea di parte della zona ordinata dal sindaco di Roatán il 14/10/2024 per circa 12 milioni di lempiras di tasse comunali contestate",
+      "autorevolezza": "media — cronaca locale; letta via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "Publicado en La Gaceta sentencia de la CSJ sobre las ZEDE — La Tribuna (26/11/2024)",
+      "url": "https://www.latribuna.hn/2024/11/26/publicado-en-la-gaceta-sentencia-de-la-csj-sobre-las-zede/",
+      "tipo": "stampa nazionale honduregna",
+      "sostiene": "La pubblicazione in Gaceta della sentenza della Corte Suprema sulle ZEDE, 25-26 novembre 2024",
+      "autorevolezza": "media-alta — quotidiano nazionale; letta via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "Secretario técnico de Próspera ZEDE: «Mientras el Estado cumpla con la garantía de 50 años no habrá problema» — La Tribuna (23/12/2022)",
+      "url": "https://www.latribuna.hn/2022/12/23/secretario-tecnico-de-prospera-zede-mientras-el-estado-cumpla-con-la-garantia-de-50-anos-no-habra-problema/",
+      "tipo": "stampa nazionale honduregna (intervista a fonte di parte)",
+      "sostiene": "La garanzia di «stabilità giuridica di 50 anni» invocata pubblicamente da Próspera per bocca del suo Segretario Tecnico: un'affermazione di parte riportata da testata terza, non un atto letto in originale",
+      "autorevolezza": "media — intervista a fonte interessata su testata terza; letta via snippet, fetch bloccato"
+    },
+    {
+      "titolo": "Report to Congress: United States investment in Próspera ZEDE (agosto 2025) — Dipartimento di Stato USA",
+      "url": "https://www.state.gov/wp-content/uploads/2025/08/Report-United-States-investment-in-Pro%C2%B4spera-ZEDE-006088-1-508-Accessible-HRC1152641.pdf",
+      "tipo": "documento governativo ufficiale",
+      "sostiene": "Il primo dei due rapporti al Congresso sull'investimento statunitense nella ZEDE (il secondo, giugno 2026, è linkato sopra)",
+      "autorevolezza": "molto alta come fonte primaria governativa; qui verificati solo titolo e URL per via indiretta, fetch bloccato"
+    },
+    {
+      "titolo": "Inside Próspera, the libertarian utopia on a Caribbean island off the coast of Honduras — ABC News Australia (22/08/2026)",
+      "url": "https://www.abc.net.au/news/2026-08-22/honduras-prospera-libertarian-utopia-caribbean-roatan/107045960",
+      "tipo": "stampa/inchiesta televisiva indipendente estera",
+      "sostiene": "Inchiesta 'Foreign Correspondent' sul campo: circa 200 residenti permanenti e oltre 220 imprese registrate — cifre nettamente inferiori a quelle autodichiarate da Próspera per il 2024",
+      "autorevolezza": "alta — emittente pubblica australiana, programma investigativo con giornalista sul posto; fetch diretto bloccato dal proxy in questa sessione, contenuto ripreso via snippet di ricerca"
+    },
+    {
+      "titolo": "Honduras ICSID Return: What It Means for Investors — The Rio Times (agosto 2026)",
+      "url": "https://www.riotimesonline.com/honduras-returns-icsid-2026/",
+      "tipo": "stampa indipendente regionale (America Latina)",
+      "sostiene": "Dichiarazione del procuratore generale honduregno Dagoberto Aspra: 18 reclami pendenti contro l'Honduras presso ICSID; il rientro nel CIADI del 16/08/2026 copre solo i fatti successivi a quella data",
+      "autorevolezza": "media-alta — testata anglofona specializzata su Brasile/America Latina; fetch diretto bloccato dal proxy in questa sessione, contenuto ripreso via snippet di ricerca"
+    }
+  ],
+  "timeline": [
+    {
+      "data": "2013",
+      "evento": "L'Honduras vara il regime ZEDE: riforma costituzionale (decreto 236-2012) e legge organica (decreto 120-2013), che consentono zone con autonomia normativa, fiscale e giudiziaria."
+    },
+    {
+      "data": "2017-08",
+      "evento": "Honduras Próspera nasce in Delaware (USA) come LLC, fondata da Erick Brimen; viene convertita in corporation nel dicembre 2020. Raccolti nel tempo 110-120 M$ da circa 100 investitori, tra cui Pronomos Capital (backer documentati: Peter Thiel, Marc Andreessen — fatto societario-finanziario)."
+    },
+    {
+      "data": "2020-2021",
+      "evento": "Inizia la costruzione fisica su Roatán; la comunità adiacente di Crawfish Rock, non consultata, apprende la reale portata del progetto a cantiere già avviato (reportage Rest of World, 2021)."
+    },
+    {
+      "data": "2022-04-20",
+      "evento": "Il Congresso honduregno abroga all'unanimità (128 voti) la legge ZEDE; la presidente Castro sanziona il 25/04. Fonte di stampa segnala una ratifica formale mai completata, mai chiarita del tutto."
+    },
+    {
+      "data": "2022-12-20",
+      "evento": "Honduras Próspera Inc. e due consociate depositano la Request for Arbitration ICSID contro l'Honduras (caso ARB/23/2, base CAFTA-DR): richiesta iniziale 10.775 M$."
+    },
+    {
+      "data": "2024-02-24",
+      "evento": "L'Honduras (governo Castro) denuncia la Convenzione ICSID, con effetto dal 25/08/2024; per l'art. 72 il caso Próspera, già incardinato, prosegue comunque."
+    },
+    {
+      "data": "2024-09-20",
+      "evento": "La Corte Suprema honduregna dichiara incostituzionali con effetto retroattivo i decreti ZEDE (voto di stretta maggioranza; il conteggio varia tra le fonti — 8 a 7 per alcune, 3 a 2 per altre); sentenza pubblicata in Gaceta il 25-26/11/2024. Riconosciuta tutela agli investimenti acquisiti in buona fede."
+    },
+    {
+      "data": "2024-10-14",
+      "evento": "Il sindaco di Roatán, Ron McNab, ordina la chiusura temporanea di parte della zona per ~12 milioni di lempiras (~480.000 $) di tasse comunali contestate; Próspera definisce l'atto illegale."
+    },
+    {
+      "data": "2025-02-26",
+      "evento": "Il tribunale ICSID respinge le eccezioni preliminari dell'Honduras (mancato esaurimento dei rimedi interni): la causa prosegue nel merito."
+    },
+    {
+      "data": "2025-09-30",
+      "evento": "I periti di parte Próspera rivalutano il piano trentennale in 10,6-26,4 miliardi di dollari, ma la compensazione richiesta come rimedio subordinato (il rimedio primario è il ripristino del regime ZEDE) scende a ~1,63 miliardi — dettaglio spesso perso nella narrativa del «reclamo da 11 miliardi»."
+    },
+    {
+      "data": "2025-11-30",
+      "evento": "Elezioni generali in Honduras: il 24/12 il CNE proclama vincitore Nasry Asfura (40,27% contro 39,53% di Nasralla, che contesta il risultato)."
+    },
+    {
+      "data": "2026-01-27",
+      "evento": "Asfura si insedia come presidente 2026-2030; il giorno dopo avvia il processo di rientro dell'Honduras nel CIADI. Il nuovo governo assume una postura di fatto favorevole a Próspera."
+    },
+    {
+      "data": "2026-03-06",
+      "evento": "Asfura firma la ri-adesione alla Convenzione ICSID (166° Stato firmatario); il 19/03 il tribunale respinge la richiesta honduregna di biforcazione del procedimento (Procedural Order No. 6)."
+    },
+    {
+      "data": "2026-08-16",
+      "evento": "L'Honduras rientra formalmente nel CIADI dopo quasi due anni (titolo El Heraldo). L'arbitrato ARB/23/2 resta pendente: ultimo atto noto il Procedural Order No. 7 (06/05/2026)."
+    },
+    {
+      "data": "2026-08-18/22",
+      "evento": "'Foreign Correspondent' (ABC News Australia) pubblica un'inchiesta sul campo: circa 200 residenti permanenti e oltre 220 imprese registrate, contro i circa 2.000 residenti e 413 imprese autodichiarati da Próspera per il 2024."
+    },
+    {
+      "data": "2026-08 (metà mese)",
+      "evento": "Il procuratore generale honduregno Dagoberto Aspra dichiara 18 reclami pendenti contro l'Honduras presso ICSID; il rientro nel CIADI copre solo i fatti dal 16/08/2026 in poi (fonte: Rio Times)."
+    },
+    {
+      "data": "2026-08-29",
+      "evento": "Riverifica di freschezza: nessuna sentenza di merito nell'arbitrato ICSID, nessuna data di udienza reperita; punteggio rivisto da 58 a 54 alla luce del riscontro indipendente sui numeri autodichiarati."
+    }
+  ],
+  "nota_sicurezza": "Nessun segnale di malware, phishing o raggiro: il dominio prospera.co è autentico e il soggetto è reale e ampiamente documentato. I limiti di questa verifica vanno però dichiarati, e sono più pesanti del solito. Primo: il proxy di rete della sandbox ha bloccato il fetch diretto di quasi tutte le fonti primarie — prospera.co, pzgps.hn, ICSID/World Bank, italaw, Jus Mundi, state.gov, Bloomberg, La Prensa, El Heraldo, abc.net.au, riotimesonline.com, perfino Wikipedia — quindi ogni dato qui riportato viene da riassunti di ricerca che citano quelle pagine, non da lettura diretta: verifica «a due gradi», non di prima mano, sia nella verifica del 17/08 sia in questa riverifica del 29/08. Secondo: l'iscrizione di Honduras Próspera Inc. nel registro societario del Delaware non è stata verificata sul registro ufficiale, solo su ricostruzioni secondarie concordi. Terzo: i numeri su residenti e imprese restano in parte autodichiarati da Próspera (fermi al 2024), ma oggi esiste anche un riscontro indipendente esterno (ABC News Australia, agosto 2026) che li colloca molto più in basso — un dato che rafforza, non risolve, il dubbio sulla loro affidabilità. Quarto: il testo dei contratti di «stabilità giuridica di 50 anni» non è mai stato letto in fonte primaria; l'articolo italiano con quel titolo esatto non è stato individuato; il conteggio dei voti della sentenza CSJ varia tra le fonti. Quinto: l'arbitrato ICSID è pendente — qualunque affermazione sull'esito sarebbe una previsione, non un fatto; alla data di questa riverifica (29/08/2026) non è stata reperita nessuna data di udienza sul merito. Avvertenza pratica, fatti e non consigli finanziari: chi valutasse e-residency, immobili o investimenti nella zona deve sapere che il regime giuridico su cui tutto poggia è stato dichiarato incostituzionale con effetto retroattivo dallo Stato ospite (sentenza 20/09/2024) ed è oggetto di un contenzioso internazionale non concluso; la tolleranza attuale del governo Asfura è una prassi politica, non un atto formale reperito. Chi debba decidere parta dagli atti primari — sentenza in Gaceta, atti ICSID, rapporti del Dipartimento di Stato — non da questo verdetto né dai comunicati del soggetto. Infine: Peter Thiel e gli altri investitori sono citati qui esclusivamente come fatto societario-finanziario documentato; su di loro come persone questo verdetto non dice e non deve dire nulla.",
+  "_ninja": {
+    "sorgente": "docs/data/0005-prospera-zede.json",
+    "impronta": "c24ebe725e8c5d9c9203b218e5ebcfb9b44d3847d0f3247486ab34dbea5356e4",
+    "importato_il": "2026-10-15",
+    "riletto_da": "BRAINDANCE",
+    "riletto_il": "2026-10-15",
+    "riletto_impronta": "c24ebe725e8c5d9c9203b218e5ebcfb9b44d3847d0f3247486ab34dbea5356e4"
+  }
+}
