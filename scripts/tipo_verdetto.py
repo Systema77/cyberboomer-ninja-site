@@ -81,6 +81,7 @@ __NOTA__
 
 __FIRMA__
 
+<script src="/ninja.js" defer></script>
 </body>
 </html>
 """
@@ -119,6 +120,7 @@ __VOCI__
 
 __FIRMA__
 
+<script src="/ninja.js" defer></script>
 </body>
 </html>
 """

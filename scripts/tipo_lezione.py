@@ -83,6 +83,7 @@ __FIRMA__
 })();
 </script>
 
+<script src="/ninja.js" defer></script>
 </body>
 </html>
 """
@@ -161,6 +162,7 @@ __FIRMA__
 })();
 </script>
 
+<script src="/ninja.js" defer></script>
 </body>
 </html>
 """

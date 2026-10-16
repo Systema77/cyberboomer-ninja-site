@@ -96,17 +96,6 @@
   .carta .t{ font-size:1rem; color:var(--text-hi); line-height:1.35; }
   .carta .va{ margin-top:auto; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); }
 
-  /* ── PIXEL, che passeggia in fondo (proposta di ECHO, il look lo approva JUDY) ── */
-  .pista{ position:relative; height:86px; margin:2.6rem 0 0; border-bottom:2px solid var(--line); overflow:hidden; }
-  .pixel{ position:absolute; bottom:0; left:0; width:36px; animation:passeggia 14s steps(56) infinite alternate; }
-  .pixel svg{ width:36px; height:auto; position:absolute; bottom:0; left:0; }
-  .pixel .b{ visibility:hidden; animation:passo .5s steps(1) infinite; }
-  .pixel .a{ animation:passo .5s steps(1) infinite reverse; }
-  .fumetto{
-    position:absolute; left:50%; top:4px; transform:translateX(-50%); white-space:nowrap;
-    font-family:var(--font-mono); font-size:.68rem; letter-spacing:.06em; color:var(--text-hi);
-    background:var(--bg-surface); border:2px solid var(--text-hi); padding:.35em .7em;
-  }
 
   /* ── PIEDE ── */
   footer{ padding:2.2rem 1.5rem 3rem; text-align:center; font-family:var(--font-mono); color:var(--text-lo); font-size:.75rem; }
@@ -118,17 +107,13 @@
   .vicini a{ color:var(--voice); }
 
   @keyframes blink{ 0%,55%{ opacity:1;} 56%,100%{ opacity:0;} }
-  @keyframes passeggia{ from{ left:0; } to{ left:calc(100% - 36px); } }
-  @keyframes passo{ 0%{ visibility:visible; } 50%{ visibility:hidden; } }
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .logo .wm-punto, .cursor, .pixel, .pixel .a, .pixel .b{ animation:none; }
-    .pixel{ left:12px; } .pixel .b{ visibility:hidden; }
+    .logo .wm-punto, .cursor{ animation:none; }
     .px-btn, .carta, .porta{ transition:none; }
     .px-btn:hover, .px-btn:focus-visible, a.carta:hover, a.carta:focus-visible, .porta:hover, .porta:focus-visible{ transform:none; }
   }
-  @media (max-width:420px){ .fumetto{ font-size:.6rem; } }
 
   /* La prima schermata: il ninja col cartello (JUDY, 16/10, scelta del Direttore fra tre proposte).
      Colori del disegno: i token della casa più tre grigi del personaggio, dichiarati qui. */
@@ -275,13 +260,6 @@
     <noscript><p class="gettoni"><span><a href="lezioni/index.html">Tutte le lezioni →</a></span></p></noscript>
   </section>
 
-  <div class="pista" aria-hidden="true">
-    <span class="fumetto">Premi un bottone. Il resto lo smonto io.</span>
-    <div class="pixel">
-      <svg class="px a" viewBox="0 0 12 16"><rect x="4" y="0" width="4" height="1" fill="#EFE6EB"/><rect x="3" y="1" width="6" height="1" fill="#EFE6EB"/><rect x="2" y="2" width="8" height="1" fill="#EFE6EB"/><rect x="2" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="3" width="6" height="1" fill="#5C7CFF"/><rect x="9" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="4" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="5" y="4" width="2" height="1" fill="#5C7CFF"/><rect x="7" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="8" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="9" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="5" width="6" height="1" fill="#5C7CFF"/><rect x="9" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="6" width="6" height="1" fill="#EFE6EB"/><rect x="4" y="7" width="4" height="1" fill="#A89DA4"/><rect x="2" y="8" width="8" height="1" fill="#EFE6EB"/><rect x="1" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="9" width="2" height="1" fill="#EFE6EB"/><rect x="5" y="9" width="2" height="1" fill="#5C7CFF"/><rect x="7" y="9" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="1" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="10" width="6" height="1" fill="#EFE6EB"/><rect x="10" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="11" width="6" height="1" fill="#EFE6EB"/><rect x="3" y="12" width="2" height="1" fill="#EFE6EB"/><rect x="7" y="12" width="2" height="1" fill="#EFE6EB"/><rect x="3" y="13" width="2" height="1" fill="#EFE6EB"/><rect x="8" y="13" width="2" height="1" fill="#EFE6EB"/><rect x="2" y="14" width="2" height="1" fill="#EFE6EB"/><rect x="9" y="14" width="2" height="1" fill="#EFE6EB"/><rect x="2" y="15" width="2" height="1" fill="#3B2E36"/><rect x="9" y="15" width="2" height="1" fill="#3B2E36"/></svg>
-      <svg class="px b" viewBox="0 0 12 16"><rect x="4" y="0" width="4" height="1" fill="#EFE6EB"/><rect x="3" y="1" width="6" height="1" fill="#EFE6EB"/><rect x="2" y="2" width="8" height="1" fill="#EFE6EB"/><rect x="2" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="3" width="6" height="1" fill="#5C7CFF"/><rect x="9" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="4" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="5" y="4" width="2" height="1" fill="#5C7CFF"/><rect x="7" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="8" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="9" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="5" width="6" height="1" fill="#5C7CFF"/><rect x="9" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="6" width="6" height="1" fill="#EFE6EB"/><rect x="4" y="7" width="4" height="1" fill="#A89DA4"/><rect x="2" y="8" width="8" height="1" fill="#EFE6EB"/><rect x="1" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="9" width="2" height="1" fill="#EFE6EB"/><rect x="5" y="9" width="2" height="1" fill="#5C7CFF"/><rect x="7" y="9" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="1" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="10" width="6" height="1" fill="#EFE6EB"/><rect x="10" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="11" width="6" height="1" fill="#EFE6EB"/><rect x="3" y="12" width="2" height="1" fill="#EFE6EB"/><rect x="7" y="12" width="2" height="1" fill="#EFE6EB"/><rect x="4" y="13" width="2" height="1" fill="#EFE6EB"/><rect x="7" y="13" width="2" height="1" fill="#EFE6EB"/><rect x="4" y="14" width="2" height="1" fill="#EFE6EB"/><rect x="7" y="14" width="2" height="1" fill="#EFE6EB"/><rect x="4" y="15" width="2" height="1" fill="#3B2E36"/><rect x="7" y="15" width="2" height="1" fill="#3B2E36"/></svg>
-    </div>
-  </div>
 </main>
 
 <footer>
@@ -389,6 +367,7 @@
   if(ridotto){ segno.innerHTML=prezzo; } else gira();
 })();
 </script>
+<script src="/ninja.js" defer></script>
 </body>
 </html>
 <!-- — riscritta da ECHO, 2026-10-04 (la home a bottoni; il testo di prima è in /chi-siamo.html) -->
