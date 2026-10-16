@@ -91,6 +91,7 @@
   }
   a.carta:hover, a.carta:focus-visible{ transform:translate(-2px,-2px); border-color:var(--voice); box-shadow:6px 6px 0 var(--line); }
   .carta svg.px{ width:40px; height:auto; }
+  .carta[data-tipo="strumento"]{ border-color:var(--voice); outline:1px solid var(--voice); outline-offset:4px; background:rgba(92,124,255,.09); } /* la carta-porta di BRAINDANCE, vestito di JUDY 15/10 */
   .carta .et{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; color:var(--voice); }
   .carta .t{ font-size:1rem; color:var(--text-hi); line-height:1.35; }
   .carta .va{ margin-top:auto; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); }
@@ -247,7 +248,7 @@
       pezzi.appendChild(carta('notebook', 'notebook', 'Notebook · ' + n.tema, n.titolo, n.url));
     });
     if (schede.some(function (s) { return s.tipo === 'verdetto'; })) {
-      pezzi.appendChild(carta('strumento', 'strumento', 'Strumento · BRAINDANCE', 'I verdetti: è vero? Ci si può fidare?', 'verdetti/'));
+      pezzi.appendChild(carta('strumento', 'strumento', 'Strumento · BRAINDANCE', 'È vero o no? Chiedilo, e controlla le fonti da te.', 'braindance/'));
     }
     if (schede.length) { griglia.textContent = ''; }
     griglia.appendChild(pezzi);

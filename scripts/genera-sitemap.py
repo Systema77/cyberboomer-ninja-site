@@ -20,7 +20,7 @@ DOMINIO = "https://cyberboomer.ninja"
 FUORI = {"404.html"}
 # Le cartelle che il sito pubblica: la radice e le stanze delle schede. Un HTML lasciato
 # altrove (una bozza, una prova) non finisce nella mappa che leggono i motori.
-DENTRO = ("lezioni", "verdetti", "dispense", "ascolti", "piazza")  # piazza: ECHO, 04/10
+DENTRO = ("lezioni", "verdetti", "dispense", "ascolti", "piazza", "braindance")  # piazza: ECHO, 04/10 · braindance: ECHO, 16/10
 
 
 def pagine():
