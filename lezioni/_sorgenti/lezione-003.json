@@ -5,34 +5,30 @@
   "x_aperto": false,
   "trappola": {
     "prosa": [
-      "Tre anni fa ho cercato una cosa che non dirò. Diciamo che riguardava un dolore alla spalla e una diagnosi che mi ero fatto da solo alle due di notte.",
-      "L'avevo dimenticata. <strong>Io.</strong> Poi un pomeriggio, per curiosità, apro una pagina che si chiama <em>La mia attività</em>."
-    ],
-    "scena": {
-      "tipo": "schermo",
-      "alt": "Ricostruzione della pagina La mia attività",
-      "da": "myactivity.google.com · scorrendo all'indietro",
-      "testo": "14 marzo · 02:14 — ricerca\n      12 marzo · 23:50 — ricerca\n      12 marzo · 23:47 — YouTube\n      <span class=\"falso\">…e così per tremila giorni</span>"
-    },
-    "dopo": [
-      "Non era un archivio segreto. Era il mio. Con la data, l'ora e il minuto. <em>Alle due e quattordici di notte, uno che si preoccupa.</em>"
+      "Tre anni fa, alle due di notte, ho cercato una diagnosi per la mia spalla. L'avevo dimenticata. <strong>Io.</strong>",
+      "Apro la pagina <em>La mia attività</em>: c'è tutto, con data, ora e minuto."
     ]
   },
   "davvero": {
     "prosa": [
-      "Si chiama <strong>Attività web e app</strong>. Se è accesa, il tuo account Google conserva quello che cerchi, i video che guardi, le cose che chiedi all'assistente. Non è nascosto e non è illegale: è scritto nelle impostazioni, e serve a farti trovare le cose più in fretta e a venderti pubblicità più mirata.",
-      "La parte che quasi nessuno sa è che <strong>si può guardare, e si può mettere una scadenza.</strong> Google offre la <em>cancellazione automatica</em>: puoi tenere le attività per <strong>3, 18 o 36 mesi</strong> e far sparire da sole quelle più vecchie.",
-      "E c'è un dettaglio che vale da solo il viaggio: nella guida ufficiale Google scrive che <strong>alcune cose spariscono prima</strong> — per esempio la posizione del dispositivo e l'indirizzo IP vengono eliminati dall'Attività web e app <strong>dopo 30 giorni</strong>. Quindi «tutto per sempre» non è vero. Ma «niente» non è vero uguale: <em>la verità sta nel pannello, e il pannello è aperto.</em>"
+      "Si chiama <strong>Attività web e app</strong>. Se è accesa, Google conserva ricerche, video e domande all'assistente. Non è nascosto: è nelle impostazioni.",
+      "Puoi dare una scadenza: <strong>3, 18 o 36 mesi</strong>. Alcune cose, come posizione e IP, spariscono dopo <strong>30 giorni</strong>."
     ]
   },
   "mossa": {
-    "intro": [
-      "La prima mossa non è cancellare. È <strong>guardare</strong>: finché non hai visto la tua lista, stai discutendo di un'idea. Dopo, stai decidendo su un fatto."
-    ],
     "passi": [
-      {"forte": "Aprila.", "testo": "<a href=\"https://myactivity.google.com/\" rel=\"noopener\" target=\"_blank\">myactivity.google.com</a>, con il tuo account. Scorri indietro finché non ti stupisci. Ci vogliono due minuti e cambia il modo in cui guardi il telefono."},
-      {"forte": "Metti una scadenza.", "testo": "Nella stessa pagina cerca <em>Elimina automaticamente</em> e scegli 3 mesi. Non perdi niente di utile: perdi una coda di anni che non ti serve e che intanto è lì."},
-      {"forte": "Decidi con calma cosa resta acceso.", "testo": "Attività web e app, cronologia di YouTube, posizioni: sono interruttori separati. Spegnerli tutti rende qualche servizio più scemo. <strong>Scegli tu il baratto</strong> — il punto non è spegnere, è sapere che stai barattando."}
+      {
+        "forte": "Aprila.",
+        "testo": "<a href=\"https://myactivity.google.com/\" rel=\"noopener\" target=\"_blank\">myactivity.google.com</a>, col tuo account. Scorri indietro."
+      },
+      {
+        "forte": "Metti una scadenza.",
+        "testo": "Cerca <em>Elimina automaticamente</em> e scegli 3 mesi."
+      },
+      {
+        "forte": "Scegli cosa resta acceso.",
+        "testo": "Sono interruttori separati. Spegnere tutto rende i servizi più scemi: <strong>scegli tu il baratto</strong>."
+      }
     ]
   },
   "proverbio": {
@@ -41,7 +37,20 @@
   "fonte": {
     "titolo": "Guida di Account Google — «Elimina le attività»",
     "url": "https://support.google.com/accounts/answer/465?hl=it",
-    "chi": "La guida ufficiale di Google, in italiano: dice dov'è il pannello, come si cancella e cosa sparisce da solo dopo 30 giorni.",
+    "chi": "La guida ufficiale di Google: dov'è il pannello e come si cancella.",
     "chi_corto": "Guida ufficiale Google"
+  },
+  "striscia": {
+    "aria": "Striscia a 8 vignette: il ninja non ricorda cosa cercava nel 2019; apre La mia attività di Google; ne esce uno scontrino infinito; trova una ricerca che aveva dimenticato; la cancella; imposta la cancellazione automatica a 3 mesi; decide ogni interruttore da solo; la regola: Google non si ricorda di te, si ricorda tutto di te.",
+    "alt": [
+      "Sul divano il ninja si gratta la testa, con un punto di domanda: Cosa cercavo nel 2019? Boh, chi se lo ricorda.",
+      "Un pomeriggio, per curiosità. Primo piano del telefono sulla pagina La mia attività. Voce fuori campo: La mia attività? Vediamo.",
+      "Dal telefono esce uno scontrino infinito di ricerche (ricetta parmigiana, mal di schiena, voli per Bari, nodo cravatta) che sommerge il ninja: Ah. Google se lo ricorda.",
+      "Il ninja, occhi sbarrati, legge la riga evidenziata mal di schiena, ore 2:14: Questa l'avevo dimenticata io!",
+      "Il ninja cancella la riga mal di schiena con una gomma enorme: Prima guardo la lista. Poi cancello quello che non voglio.",
+      "Nelle impostazioni Elimina automaticamente, con 3, 18 o 36 mesi, il ninja preme 3: Tre mesi. Il resto sparisce da solo.",
+      "Tre interruttori separati: Attività web e app, Cronologia YouTube, Posizioni. Il ninja: Ogni interruttore lo decido io.",
+      "Il ninja accanto a un elefante pixel col quaderno, sopra la scritta Google. La regola: Non si ricorda di te. Si ricorda tutto di te."
+    ]
   }
 }

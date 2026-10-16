@@ -1,61 +1,63 @@
 {
- "tipo": "lezione",
- "id": "009",
- "titolo": "Il negozio che sembrava vero",
- "standfirst": "Le scarpe giuste, il logo giusto, il prezzo dimezzato. Ho pagato in tre minuti. Il negozio esisteva solo per quei tre minuti.",
- "data": "2026-10-11",
- "tag": [
-  "acquisti",
-  "truffe",
-  "siti"
- ],
- "provenienza": "casa",
- "trappola": {
-  "prosa": [
-   "Cercavo un paio di scarpe di marca. Le ho trovate in un negozio online con le foto della marca, il logo della marca, i colori della marca. E il prezzo a metà.",
-   "In cima alla pagina c'era scritto che l'offerta finiva a mezzanotte. Erano le undici e mezza. Non ho controllato niente: ho pagato."
+  "tipo": "lezione",
+  "id": "009",
+  "titolo": "Il negozio che sembrava vero",
+  "standfirst": "Le scarpe giuste, il logo giusto, il prezzo dimezzato. Ho pagato in tre minuti. Il negozio esisteva solo per quei tre minuti.",
+  "data": "2026-10-11",
+  "tag": [
+    "acquisti",
+    "truffe",
+    "siti"
   ],
-  "scena": {
-   "tipo": "banner",
-   "alt": "Ricostruzione di una pagina di offerta",
-   "da": "La pagina, alle 23:30",
-   "testo": "SCONTO 50% · SOLO OGGI\n\n      Mancano <strong>00:29:58</strong> alla fine dell'offerta.\n\n      <span class=\"falso\">— dopo il pagamento, il sito non ha più risposto —</span>"
+  "provenienza": "casa",
+  "trappola": {
+    "prosa": [
+      "Scarpe di marca, logo giusto, prezzo a metà. L'offerta finiva a mezzanotte, erano le undici e mezza. Ho pagato.",
+      "Le scarpe non sono mai arrivate. <em>Dopo qualche settimana il sito non c'era più.</em>"
+    ]
   },
-  "dopo": [
-   "Le scarpe non sono mai arrivate. Il negozio non rispondeva più alle mail. <em>Il sito, dopo qualche settimana, non c'era più.</em>",
-   "E io pensavo: ma era identico a quello vero. <strong>Appunto.</strong>"
-  ]
- },
- "davvero": {
-  "prosa": [
-   "La Polizia Postale lo descrive così: siti che <strong>imitano graficamente negozi online ufficiali o rivenditori autorizzati</strong>, con cataloghi di prodotti molto richiesti a prezzi più bassi del mercato.",
-   "Dopo il pagamento il venditore diventa irreperibile. Quando qualcosa arriva, spesso è un prodotto di scarso valore, diverso da quello comprato.",
-   "Il trucco non è la grafica: copiare un logo costa niente. Il trucco è <em>il tempo</em>. Il conto alla rovescia serve a una cosa sola: farti pagare prima che ti venga voglia di controllare."
-  ]
- },
- "mossa": {
-  "passi": [
-   {
-    "forte": "Leggi l'indirizzo, non la pagina.",
-    "testo": "La grafica si copia, l'indirizzo no. Guarda la barra in alto: <strong>è il sito della marca, o solo un nome che le somiglia?</strong> Se non sei sicuro, cerca la marca e entra dal suo sito ufficiale."
-   },
-   {
-    "forte": "Un prezzo dimezzato è una domanda, non un regalo.",
-    "testo": "Quando lo sconto è molto più grande di quello che trovi altrove, <em>chiediti chi ci guadagna</em>. Di solito la risposta è: chi ha fatto il sito."
-   },
-   {
-    "forte": "Se ti mettono fretta, rallenta.",
-    "testo": "Un'offerta che scade fra mezz'ora ti chiede di decidere senza guardare. <strong>Chiudi la pagina e riaprila domani</strong>: un negozio vero c'è ancora."
-   }
-  ]
- },
- "proverbio": {
-  "testo": "Il logo si copia in un minuto. Un negozio vero c'è ancora domani mattina."
- },
- "fonte": {
-  "titolo": "Polizia Postale — «Falsi siti di e-commerce e offerte ingannevoli online» (21/04/2026)",
-  "url": "https://www.commissariatodips.it/notizie/articolo/falsi-siti-di-e-commerce-e-offerte-ingannevoli-online/index.html",
-  "chi": "L'avviso ufficiale della Polizia Postale: come funzionano i siti che imitano i negozi veri, i segnali d'allarme e i consigli per comprare online.",
-  "chi_corto": "Polizia Postale"
- }
+  "davvero": {
+    "prosa": [
+      "La Polizia Postale descrive siti che <strong>imitano graficamente negozi online ufficiali</strong>, con prezzi più bassi del mercato. Dopo il pagamento il venditore diventa irreperibile.",
+      "Il trucco è <em>il tempo</em>: il conto alla rovescia ti fa pagare prima di controllare."
+    ]
+  },
+  "mossa": {
+    "passi": [
+      {
+        "forte": "Leggi l'indirizzo, non la pagina.",
+        "testo": "La grafica si copia, l'indirizzo no. <strong>È il sito della marca?</strong>"
+      },
+      {
+        "forte": "Un prezzo dimezzato è una domanda.",
+        "testo": "<em>Chiediti chi ci guadagna.</em> Di solito: chi ha fatto il sito."
+      },
+      {
+        "forte": "Se ti mettono fretta, rallenta.",
+        "testo": "<strong>Chiudi la pagina e riaprila domani</strong>: un negozio vero c'è ancora."
+      }
+    ]
+  },
+  "proverbio": {
+    "testo": "Il logo si copia in un minuto. Un negozio vero c'è ancora domani mattina."
+  },
+  "fonte": {
+    "titolo": "Polizia Postale — «Falsi siti di e-commerce e offerte ingannevoli online» (21/04/2026)",
+    "url": "https://www.commissariatodips.it/notizie/articolo/falsi-siti-di-e-commerce-e-offerte-ingannevoli-online/index.html",
+    "chi": "L'avviso ufficiale della Polizia Postale sui falsi negozi online.",
+    "chi_corto": "Polizia Postale"
+  },
+  "striscia": {
+    "aria": "Striscia a 8 vignette: il ninja vede le scarpe FULMINO a metà prezzo con un conto alla rovescia e paga in tre minuti; il giorno dopo il negozio non c'è più, era un fondale di cartone; con la lente legge l'indirizzo, che è finto; il negozio vero ha l'indirizzo vero, fulminoscarpe.it; il logo si copia in un minuto, l'indirizzo no.",
+    "alt": [
+      "Il ninja davanti alla vetrina FULMINO con le scarpe a −50%: Wow, le scarpe dei miei sogni a metà prezzo!",
+      "Sul telefono l'offerta con il conto alla rovescia 29:59. Il ninja: Mezz'ora? Pago subito!",
+      "Il ninja paga con la carta sul telefono, la spunta verde. Fatto. In tre minuti.",
+      "Il giorno dopo. Il lotto è vuoto, il ninja a occhi sbarrati ha in mano lo scontrino PAGATO: Il negozio non c'è più. Ma io ho pagato.",
+      "La vetrina era un fondale di cartone retto da due pali, e cade. Il ninja a occhi sbarrati: Era tutto finto. Anche il logo.",
+      "Il ninja guarda con la lente l'indirizzo fulmino-sconti-shop.xyz: Leggi l'indirizzo in alto. Non guardare le figure.",
+      "Due barre d'indirizzo: fulmino-sconti-shop.xyz con la X rossa, fulminoscarpe.it con la spunta verde. Il ninja indica quella giusta: Il negozio vero ha l'indirizzo vero.",
+      "Mattina. Il ninja chiude con calma la pagina del falso negozio. La regola: Il logo si copia in un minuto. L'indirizzo no. Se ti mettono fretta, rallenta."
+    ]
+  }
 }
