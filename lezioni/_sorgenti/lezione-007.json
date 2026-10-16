@@ -1,62 +1,63 @@
 {
- "tipo": "lezione",
- "id": "007",
- "titolo": "Le chiavi di casa a gente che non ricordo",
- "standfirst": "Nel 2014 ho premuto «Accedi con Google» per vedere un oroscopo. Quell'app ce l'ha ancora, la chiave.",
- "data": "2026-09-13",
- "tag": [
-  "account",
-  "permessi",
-  "pulizie"
- ],
- "provenienza": "casa",
- "trappola": {
-  "prosa": [
-   "Mia nipote mi fa vedere una cosa sul telefono e io, per dire qualcosa di intelligente, le chiedo quante app ha collegato all'account. Lei ride e apre una pagina. Ne ha quattro.",
-   "Poi apre la mia."
+  "tipo": "lezione",
+  "id": "007",
+  "titolo": "Le chiavi di casa a gente che non ricordo",
+  "standfirst": "Nel 2014 ho premuto «Accedi con Google» per vedere un oroscopo. Quell'app ce l'ha ancora, la chiave.",
+  "data": "2026-09-13",
+  "tag": [
+    "account",
+    "permessi",
+    "pulizie"
   ],
-  "scena": {
-   "tipo": "banner",
-   "alt": "Ricostruzione dell'elenco dei collegamenti di un account",
-   "da": "L'elenco che non avevo mai aperto in vita mia",
-   "testo": "Collegamenti a terze parti\n\n      · un'app di oroscopi — <span class=\"falso\">ultimo accesso: 2014</span>\n      · un gioco di parole — <span class=\"falso\">ultimo accesso: 2016</span>\n      · un lettore di PDF che non ho più\n      · un'app della palestra che ha chiuso\n      ... e altri <strong>trentuno</strong>"
+  "provenienza": "casa",
+  "trappola": {
+    "prosa": [
+      "Mia nipote ha collegato quattro app al suo account. Apro il mio elenco: <strong>trentacinque</strong>. Nove non le riconosco.",
+      "L'app della palestra <strong>ha chiuso nel 2019</strong>, ma il permesso di leggere la mia rubrica è ancora lì."
+    ]
   },
-  "dopo": [
-   "Trentacinque. <em>Non ne riconoscevo nove.</em>",
-   "E la cosa che mi ha fatto sedere non è il numero. È che <strong>l'app della palestra ha chiuso nel 2019</strong>, e il suo permesso di leggere la mia rubrica era ancora lì, nell'elenco, in attesa."
-  ]
- },
- "davvero": {
-  "prosa": [
-   "Quel bottone comodo — «Accedi con Google» — non è un accesso: è una <strong>consegna di chiavi</strong>. L'app non riceve la password, riceve un permesso. E un permesso, a differenza di una visita, <em>non finisce quando te ne vai.</em>",
-   "Google lo scrive senza giri di parole nella pagina dei collegamenti: puoi controllare e rimuovere <strong>in qualsiasi momento</strong> le app e i servizi di terze parti che hanno accesso parziale ai dati del tuo account. Il potere di chiudere ce l'hai sempre avuto. Nessuno te l'ha mai messo davanti.",
-   "E c'è la riga che vale il viaggio, perché smonta l'illusione della pulizia: <strong>se togli il collegamento, l'accesso automatico si ferma, ma i dati che quell'app ha già preso restano suoi.</strong> Chiudere la porta non svuota le tasche di chi è già uscito.",
-   "Non è una truffa e non è un guasto. È che un permesso dato in tre secondi nel 2014 <em>resta nell'elenco finché non lo togli tu</em>, e nessuno è incaricato di ricordartelo. Quel compito è tuo, e fino a ieri non sapevi di averlo."
-  ]
- },
- "mossa": {
-  "passi": [
-   {
-    "forte": "Aprila una volta. Solo guardare, per ora.",
-    "testo": "Nella tua pagina dell'account cerca la voce dei <strong>collegamenti con terze parti</strong>. Non decidere niente: leggi l'elenco. La prima volta è uno spettacolo, e lo spettacolo è già metà del lavoro."
-   },
-   {
-    "forte": "Togli solo quelle che non riconosci.",
-    "testo": "Non fare pulizie grandi alle undici di sera: si finisce per staccare il collegamento che serve e poi non si entra più da qualche parte. <em>Togli quelle che non sai nemmeno cosa siano</em>, e lascia stare il resto. Se sbagli si rifà: si riaccede e il permesso si ridà."
-   },
-   {
-    "forte": "Segnati la data, e rifallo fra un anno.",
-    "testo": "Come il controllo della caldaia. Ci vogliono cinque minuti e l'elenco si riempie da solo, perché ogni «Accedi con» che premi ci aggiunge una riga. <strong>Un anno è la distanza giusta:</strong> abbastanza da trovarne di nuove, abbastanza poco da ricordarsi ancora cos'erano."
-   }
-  ]
- },
- "proverbio": {
-  "testo": "Le chiavi date non tornano da sole. Chi non le chiede indietro, le ha regalate."
- },
- "fonte": {
-  "titolo": "Guida di Account Google — «Gestisci i collegamenti tra il tuo Account Google e terze parti»",
-  "url": "https://support.google.com/accounts/answer/13533235?hl=it",
-  "chi": "La pagina ufficiale di Google, in italiano. Spiega dove sta l'elenco, come si toglie un collegamento, e dice a chiare lettere che togliere l'accesso non cancella i dati già presi.",
-  "chi_corto": "Guida di Account Google"
- }
+  "davvero": {
+    "prosa": [
+      "«Accedi con Google» non è un accesso: è una <strong>consegna di chiavi</strong>. E un permesso <em>non finisce quando te ne vai.</em>",
+      "Google scrive che puoi rimuovere i collegamenti <strong>in qualsiasi momento</strong>. Ma <strong>i dati già presi restano suoi</strong>: chiudere la porta non svuota le tasche."
+    ]
+  },
+  "mossa": {
+    "passi": [
+      {
+        "forte": "Aprila e guarda.",
+        "testo": "Cerca i <strong>collegamenti con terze parti</strong> nel tuo account. Non decidere ancora."
+      },
+      {
+        "forte": "Togli quelle che non riconosci.",
+        "testo": "Il resto lascialo. Se sbagli, il permesso si ridà."
+      },
+      {
+        "forte": "Rifallo fra un anno.",
+        "testo": "Cinque minuti, come il controllo della caldaia."
+      }
+    ]
+  },
+  "proverbio": {
+    "testo": "Le chiavi date non tornano da sole. Chi non le chiede indietro, le ha regalate."
+  },
+  "fonte": {
+    "titolo": "Guida di Account Google — «Gestisci i collegamenti tra il tuo Account Google e terze parti»",
+    "url": "https://support.google.com/accounts/answer/13533235?hl=it",
+    "chi": "La pagina ufficiale di Google: dove sta l'elenco e cosa non cancella.",
+    "chi_corto": "Guida di Account Google"
+  },
+  "striscia": {
+    "aria": "Striscia a 8 vignette: nel 2014 il ninja accede con Google per un oroscopo; oggi ha un mazzo enorme di chiavi che non ricorda; accedi con Google dà una chiave a un'app; dalle impostazioni Account, Sicurezza, App collegate; rimuove l'accesso all'oroscopo; di sera toglie solo le app che non riconosce; la chiave torna ma i dati restano all'app; si rimette le chiavi in tasca.",
+    "alt": [
+      "2014. Il ninja davanti al telefono con l'app oroscopo e il bottone Accedi con Google: Volevo solo guardare l'oroscopo, ok?",
+      "Oggi. Un mazzo enorme di chiavi con i cartellini oroscopo, quiz, torcia, giochino. Il ninja, occhi sbarrati: E tutte queste chi ce le ha?",
+      "Il ninja porge una chiave a una scatola con scritto app: «Accedi con Google» non apre una porta. Dà una chiave.",
+      "Il telefono mostra Account, Sicurezza, App collegate e l'elenco delle app. Il ninja indica: Account, sicurezza, app collegate.",
+      "La riga Oroscopo con il bottone Rimuovi accesso e il dito del ninja che lo preme: Rimuovi.",
+      "23:00. Il ninja assonnato davanti a un orologio e a una luna: Solo quelle che non riconosco. Non tutte, a mezzanotte.",
+      "La chiave torna al ninja, la busta i tuoi dati resta sulla scatola app: La chiave torna. Quello che hanno preso, no.",
+      "Il ninja infila il mazzo di chiavi in tasca. La regola: Se non te le riprendi tu, nessuno te le ridà."
+    ]
+  }
 }

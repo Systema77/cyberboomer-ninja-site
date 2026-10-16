@@ -5,24 +5,30 @@
   "x_aperto": false,
   "trappola": {
     "prosa": [
-      "Pranzo di famiglia. Mia cognata dice che le fa male la schiena, io dico che è il materasso, parte mezz'ora di dibattito sulle molle insacchettate.",
-      "La sera apro il telefono. Materassi. <strong>Materassi ovunque.</strong>",
-      "E lì parte la frase che ho detto anch'io per anni, con l'aria di quello che ha capito tutto: <em>«Hai visto? Ci ascoltano.»</em>"
+      "Pranzo di famiglia: si parla di materassi. La sera il telefono è pieno di materassi.",
+      "<em>«Hai visto? Ci ascoltano.»</em>"
     ]
   },
   "davvero": {
     "prosa": [
-      "Quasi mai. Nel 2023 un'agenzia americana, Cox Media Group, si è vantata di saperlo fare: lo ha raccontato 404 Media. Ma ascoltare di nascosto milioni di persone costerebbe una montagna di soldi e lascerebbe tracce. <strong>Non serve.</strong> Perché quello che hanno è più economico e funziona meglio: <em>un profilo.</em>",
-      "Il profilo è fatto di cose che hai fatto davvero: cosa hai cercato, su che siti sei passato, che video guardi, che età hai, in che zona vivi, che telefono usi. Da lì si <strong>deduce</strong>. Un uomo di cinquant'anni, in quella zona, che la settimana scorsa ha cercato «dolore lombare»: quanto vuoi scommettere che gli interessa un materasso?",
-      "Non hanno sentito il pranzo. <strong>Hanno indovinato il pranzo.</strong> E hanno indovinato anche i pranzi di altre diecimila persone come me — a mia cognata gli annunci sono arrivati per la sua strada, non per la mia.",
-      "Google chiama quel pannello <strong>«Il mio centro per gli annunci»</strong> e lì dentro puoi vedere i temi e i marchi che ti ha attaccato addosso, toglierli, o spegnere del tutto la personalizzazione. Meta ha un pannello suo, con le stesse idee dentro."
+      "Quasi mai: ascoltare milioni di persone costerebbe troppo, e <strong>non serve</strong>. Hanno <em>un profilo</em>: cosa cerchi, che siti visiti, età, zona. Da lì <strong>deducono</strong>.",
+      "Non hanno sentito il pranzo. <strong>Hanno indovinato il pranzo.</strong>"
     ]
   },
   "mossa": {
     "passi": [
-      {"forte": "Guardati con i loro occhi.", "testo": "Apri <a href=\"https://myadcenter.google.com/\" rel=\"noopener\" target=\"_blank\">Il mio centro per gli annunci</a> e leggi la lista dei temi che ti hanno assegnato. È un ritratto fatto da uno che non ti ha mai visto. A volte è imbarazzante perché sbaglia; più spesso perché ci prende."},
-      {"forte": "Togli i temi che non vuoi, o spegni tutto.", "testo": "Puoi disattivare i singoli argomenti oppure disattivare in blocco gli annunci personalizzati. Attenzione all'aspettativa: <strong>gli annunci non spariscono</strong>, diventano generici: scelti in base all'ora, alla pagina e alla zona. Vedrai pubblicità lo stesso, solo scelta peggio."},
-      {"forte": "Fai la stessa passeggiata dentro Meta.", "testo": "Nelle impostazioni account, alla voce delle preferenze pubblicitarie, trovi gli <em>argomenti delle inserzioni</em>, e su ogni inserzione la voce <em>Perché vedo questa inserzione?</em> Stessa medicina, altro ambulatorio."}
+      {
+        "forte": "Guardati con i loro occhi.",
+        "testo": "Apri <a href=\"https://myadcenter.google.com/\" rel=\"noopener\" target=\"_blank\">Il mio centro per gli annunci</a> e leggi i temi che ti hanno assegnato."
+      },
+      {
+        "forte": "Togli i temi, o spegni tutto.",
+        "testo": "Gli annunci <strong>non spariscono</strong>: diventano generici."
+      },
+      {
+        "forte": "Stesso giro dentro Meta.",
+        "testo": "Nelle preferenze pubblicitarie c'è <em>Perché vedo questa inserzione?</em>"
+      }
     ]
   },
   "proverbio": {
@@ -31,7 +37,20 @@
   "fonte": {
     "titolo": "Guida di «Il mio centro per gli annunci» — Come funzionano gli annunci personalizzati",
     "url": "https://support.google.com/My-Ad-Center-Help/answer/12155656?hl=it",
-    "chi": "La spiegazione ufficiale di Google, in italiano, su quali informazioni usa per scegliere cosa mostrarti e come si cambiano.",
+    "chi": "La spiegazione ufficiale di Google su come sceglie gli annunci.",
     "chi_corto": "Guida ufficiale Google"
+  },
+  "striscia": {
+    "aria": "Striscia a 8 vignette: a pranzo il ninja parla di materassi con il telefono accanto al piatto; la sera il telefono mostra un annuncio di materassi; non lo ascoltano, costerebbe troppo; la bacheca mostra che l'hanno indovinato; il permesso era nei termini e condizioni accettati senza leggere; il centro annunci mostra come lo vedono; il ninja spegne gli annunci personalizzati; di notte capisce che lo conoscono.",
+    "alt": [
+      "Pranzo: il ninja a tavola, con il mal di schiena e il telefono accanto al piatto. Che mal di schiena. Mi serve un materasso nuovo.",
+      "La sera. Primo piano del telefono in mano al ninja: un annuncio di materassi. Voce fuori campo: Mi hai ascoltato! Il telefono: Chi, io? Mai.",
+      "Il ninja sicuro di sé indica il telefono con il microfono: Hai visto? Ci ascoltano! Fascia in basso: Quasi mai. Costerebbe troppo.",
+      "Una bacheca da detective con fili rossi: 50 anni, ha cercato mal di schiena, zona, telefono, al centro MATERASSO. Non hanno sentito il pranzo. L'hanno indovinato.",
+      "I fili partono dal rotolo Termini e condizioni con la spunta accetto, verso età, ricerche, amici, posizione e MATERASSO. Il ninja: Il permesso gliel'ho dato io. Senza leggere.",
+      "Il ninja apre Il mio centro annunci: materassi, crociere, pensione, dentiere. Ecco come mi vedono.",
+      "Il ninja spegne l'interruttore Annunci personalizzati: i temi spariscono. Questi temi, via.",
+      "Notte: il ninja a letto, occhi sbarrati. La regola: Non ti ascoltano: ti conoscono. Glielo hai permesso tu."
+    ]
   }
 }

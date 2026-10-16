@@ -55,7 +55,7 @@ __TESTA__
     <h1>__TITOLO__</h1>
     <p class="standfirst">__STANDFIRST__</p>
   </header>
-
+__STRISCIA__
 __BATTUTE__
 
   <div class="fonte">
@@ -183,7 +183,7 @@ def adatta(d):
         "fonte": d.get("fonte"),
         "_formato": "lezione-v1",
     }
-    for c in CORPO + ("x_aperto",):
+    for c in CORPO + ("x_aperto", "striscia"):
         if c in d:
             s[c] = d[c]
     return s
@@ -281,6 +281,21 @@ def battute(d, pr):
         for i, (t, c) in enumerate(fuori))
 
 
+def striscia(d):
+    """La striscia a 8 vignette in testa alla lezione (v3, JUDY 15/10). Se la scheda non ha
+    `striscia`, niente: le lezioni senza fumetto escono come prima. Le immagini sono SVG di casa
+    in lezioni/strisce/, alt scritti vignetta per vignetta."""
+    s = d.get("striscia")
+    if not s:
+        return ""
+    alts = s["alt"]
+    img = "\n".join(
+        f'    <li><img src="strisce/lezione-{d["id"]}-vignetta-{i:02d}-v3.svg" alt="{e(a)}" '
+        f'width="400" height="480" loading="{"eager" if i <= 2 else "lazy"}"></li>'
+        for i, a in enumerate(alts, 1))
+    return f'\n  <ul class="striscia" aria-label="{e(s["aria"])}">\n{img}\n  </ul>\n'
+
+
 def share(x_aperto):
     """Il ponte verso X esiste solo se l'account e' aperto e verificato.
     Finche' non lo e', non si promette un posto che non c'e'."""
@@ -314,6 +329,7 @@ def genera(schede):
                                                   "article", f"{titolo} — Lezione n.{n}", desc,
                                                   "../favicon.svg"))
                       .replace("__FIRMA__", FIRMA)
+                      .replace("__STRISCIA__", striscia(d))
                       .replace("__BATTUTE__", battute(d, pr))
                       .replace("__TITOLO__", titolo)
                       .replace("__STANDFIRST__", ricco(d["standfirst"], pr))
