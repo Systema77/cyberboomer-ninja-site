@@ -224,6 +224,10 @@ ul.elenco .f{
   text-transform:uppercase; color:var(--text-hi);
 }
 .referto .oggetto{ font-size:.95rem; color:var(--text-lo); line-height:1.5; }
+/* le 10 tacche del vestito BRAINDANCE: una ogni 10 punti */
+.referto .tacche{ grid-column:2; display:grid; grid-template-columns:repeat(10,1fr); gap:3px; max-width:180px; margin-top:.4rem; }
+.referto .tacche i{ height:12px; background:var(--line); }
+.referto .tacche i.on{ background:var(--voice); }
 ul.segnali{ list-style:none; margin-top:.2rem; }
 ul.segnali li{
   position:relative; padding:.55rem 0 .55rem 1.7rem; border-bottom:1px dashed var(--line);

@@ -61,6 +61,7 @@ __TESTA__
     <span class="punteggio">__PUNTEGGIO__<small>/100</small></span>
     <span class="etichetta">__ETICHETTA__</span>
     <span class="oggetto">__OGGETTO__</span>
+    <span class="tacche" aria-hidden="true">__TACCHE__</span>
   </div>
 
 __SEZIONI__
@@ -182,6 +183,12 @@ def sezioni(d, pr):
         for i, (t, c) in enumerate(fuori))
 
 
+def tacche(punti):
+    """Il punteggio a 10 tacche del vestito BRAINDANCE (JUDY, 15/10): una ogni 10 punti, 88 -> 9."""
+    accese = (punti + 5) // 10
+    return "".join('<i class="on"></i>' if i < accese else "<i></i>" for i in range(10))
+
+
 def fonti(d, pr):
     righe = []
     for f in d["fonti"]:
@@ -242,6 +249,7 @@ def genera(schede):
                       .replace("__STANDFIRST__", ricco(d["standfirst"], pr))
                       .replace("__OGGETTO__", ricco(d["oggetto"], pr))
                       .replace("__PUNTEGGIO__", str(d["punteggio"]))
+                      .replace("__TACCHE__", tacche(d["punteggio"]))
                       .replace("__ETICHETTA__", e(d["etichetta"]))
                       .replace("__MODALITA__", e(d.get("modalita") or "rapida"))
                       .replace("__RILETTO_DA__", e(n["riletto_da"]))
