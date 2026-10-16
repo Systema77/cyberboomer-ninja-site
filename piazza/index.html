@@ -78,6 +78,8 @@
       <option value="proposta">Proposta o idea</option>
       <option value="verdetto">Chiedi un verdetto</option>
     </select>
+    <p class="regola" id="porta" hidden>Chiedi un verdetto è la stessa porta di <a href="/chiedi/">cyberboomer.ninja/chiedi/</a>: una richiesta, un solo posto dove la leggiamo. Gratis. Scegliamo noi cosa verificare, e le persone private non si verificano.</p>
+    <div id="campi">
     <label for="tit">Titolo</label>
     <input id="tit" name="titolo" maxlength="120" required>
     <label for="txt">Testo</label>
@@ -85,6 +87,7 @@
     <div class="riga">
       <span class="esito" id="esito" role="status"></span>
       <button class="px-btn" type="submit">▶ Pubblica</button>
+    </div>
     </div>
   </form>
 
@@ -111,7 +114,7 @@
   var SCRIVERE = true;
   document.getElementById('scrivi').hidden = !SCRIVERE;
   document.getElementById('chiusa').hidden = SCRIVERE;
-  var NOMI = { chiacchiera: 'Chiacchiera', proposta: 'Proposta', verdetto: 'Chiede un verdetto' };
+  var NOMI = { chiacchiera: 'Chiacchiera', proposta: 'Proposta', verdetto: 'Verdetto' };
   var lista = document.getElementById('lista'), vuoto = document.getElementById('vuoto');
   var esito = document.getElementById('esito'), filtro = '';
 
@@ -143,6 +146,7 @@
 
   function filo(f) {
     var li = el('li'), box = el('article', 'filo');
+    li.setAttribute('data-id', f.id);
     box.appendChild(el('span', 'et', (NOMI[f.categoria] || f.categoria) + ' · ' + quando(f.quando)));
     box.appendChild(el('h2', '', f.titolo));
     box.appendChild(el('p', '', f.testo));
@@ -178,6 +182,19 @@
   }
 
   var altri = document.getElementById('altri'), cursore = null;
+  // «Parlane in piazza» dalla pagina di un verdetto: /piazza/#<id> apre quel filo (SQUELCH, 16/10)
+  function apriDalLink() {
+    var id = (location.hash || '').slice(1);
+    if (!/^[0-9a-f]{16}$/.test(id)) { return; }
+    function apri(li) { li.scrollIntoView(); li.querySelector('.piede button').click(); }
+    var gia = lista.querySelector('[data-id="' + id + '"]');
+    if (gia) { apri(gia); return; }
+    chiama('GET', '/filo/' + id).then(function (d) {
+      if (!d.filo) { return; }
+      var li = filo(d.filo); lista.insertBefore(li, lista.firstChild); vuoto.hidden = true; apri(li);
+    }).catch(function (e) { esito.textContent = e.message; });
+  }
+  var primo = true;
   function carica(avanti) {
     var via = '/fili' + (avanti && cursore ? '?da=' + encodeURIComponent(cursore) : '');
     chiama('GET', via).then(function (d) {
@@ -187,10 +204,17 @@
       cursore = d.dopo || null;
       altri.hidden = !cursore;
       vuoto.hidden = lista.children.length > 0;
+      if (primo) { primo = false; apriDalLink(); }
     }).catch(function (e) { esito.textContent = e.message; });
   }
   altri.addEventListener('click', function () { carica(true); });
 
+  var cat = document.getElementById('cat');
+  cat.addEventListener('change', function () {
+    var porta = cat.value === 'verdetto';
+    document.getElementById('porta').hidden = !porta;
+    document.getElementById('campi').hidden = porta;
+  });
   document.getElementById('scrivi').addEventListener('submit', function (ev) {
     ev.preventDefault();
     var f = ev.target, b = f.querySelector('button');

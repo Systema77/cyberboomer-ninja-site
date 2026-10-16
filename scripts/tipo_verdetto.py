@@ -7,6 +7,7 @@ l'incidente dell'01/08). Questo modulo scrive:
 
     verdetti/<id>.html      una per verdetto RILETTO
     verdetti/index.html     l'indice, solo se c'e' almeno un verdetto pubblicabile
+    verdetti/fili.json      il filo in piazza di ogni verdetto (lo legge il Worker della piazza)
 
 LA REGOLA CHE FA LA DIFFERENZA FRA «RISPECCHIATO» E «RISCRITTO»: il blocco `_ninja`.
 porta-verdetti.py ci scrive l'impronta (sha256) della sorgente al momento
@@ -22,6 +23,7 @@ rimando alla console E' un errore, e ferma la corsa: si riscrive, non si esenta.
 — creato da JUDY, 2026-09-08
 """
 
+import hashlib
 import json
 import os
 import re
@@ -61,7 +63,6 @@ __TESTA__
     <span class="punteggio">__PUNTEGGIO__<small>/100</small></span>
     <span class="etichetta">__ETICHETTA__</span>
     <span class="oggetto">__OGGETTO__</span>
-    <span class="tacche" aria-hidden="true">__TACCHE__</span>
   </div>
 
 __SEZIONI__
@@ -77,6 +78,8 @@ __NOTA__
   <p class="riletto">Riletto e riscritto per questa casa da __RILETTO_DA__ il __RILETTO_IL__.
   Verifica originale del Dipartimento Verità (modalità __MODALITA__): __DATA__.
   Il punteggio dice quanto ci si può fidare, non se conviene: la seconda è un'altra domanda.</p>
+
+  <p class="riletto"><a href="../piazza/#__FILO__">Parlane in piazza</a></p>
 
 </div>
 
@@ -183,12 +186,6 @@ def sezioni(d, pr):
         for i, (t, c) in enumerate(fuori))
 
 
-def tacche(punti):
-    """Il punteggio a 10 tacche del vestito BRAINDANCE (JUDY, 15/10): una ogni 10 punti, 88 -> 9."""
-    accese = (punti + 5) // 10
-    return "".join('<i class="on"></i>' if i < accese else "<i></i>" for i in range(10))
-
-
 def fonti(d, pr):
     righe = []
     for f in d["fonti"]:
@@ -212,6 +209,26 @@ def voce_archivio(d):
         "titolo": d["titolo"], "standfirst": piano(d["standfirst"]),
         "tag": d["tag"], "data": d["data"], "testo": piano(testo(d)),
     }
+
+
+# ————————————————————————————————— il filo in piazza ————————————————————————
+# Ogni verdetto pubblicato apre un filo (JUDY-69 = 1, 16/10). L'id del filo e' fisso,
+# ricavato dall'id del verdetto: il Worker lo inserisce una volta sola, e un filo tolto
+# da ECHO resta tolto. Testo e titolo: il modello di ECHO, SQUELCH/DA-ECHO-2026-10-16-*.
+
+def id_filo(d):
+    return hashlib.sha256(("verdetto:" + d["id"]).encode()).hexdigest()[:16]
+
+
+def voce_filo(d):
+    titolo = d["titolo"] if len(d["titolo"]) <= 120 else d["titolo"][:117] + "…"
+    giudizio = d["etichetta"] + (f" ({d['punteggio']} su 100)" if d.get("punteggio") is not None else "")
+    testo = (f"Cyber Boomer ha pubblicato un verdetto: {giudizio}.\n\n"
+             f"{piano(d['standfirst'])}\n\n"
+             f"Il verdetto, con le fonti e la linea del tempo: {DOMINIO}/verdetti/{d['id']}.html\n\n"
+             "Hai una fonte in più, una correzione o un dubbio? Scrivilo qui sotto, meglio se con un link. "
+             "Il verdetto cambia solo con una nota datata, non a voce.")
+    return {"id": id_filo(d), "categoria": "verdetto", "titolo": titolo, "testo": testo[:2000]}
 
 
 # ————————————————————————————————— la corsa ————————————————————————————————
@@ -249,11 +266,11 @@ def genera(schede):
                       .replace("__STANDFIRST__", ricco(d["standfirst"], pr))
                       .replace("__OGGETTO__", ricco(d["oggetto"], pr))
                       .replace("__PUNTEGGIO__", str(d["punteggio"]))
-                      .replace("__TACCHE__", tacche(d["punteggio"]))
                       .replace("__ETICHETTA__", e(d["etichetta"]))
                       .replace("__MODALITA__", e(d.get("modalita") or "rapida"))
                       .replace("__RILETTO_DA__", e(n["riletto_da"]))
                       .replace("__RILETTO_IL__", e(n["riletto_il"]))
+                      .replace("__FILO__", id_filo(d))
                       .replace("__DATA__", e(d["data"])))
         except MarcaturaVietata as tag:
             print(f"✗ {d['_file']}: marcatura fuori dalla allowlist: {tag}")
@@ -285,5 +302,10 @@ def genera(schede):
         dest = os.path.join(USCITA, "index.html")
         with open(dest, "w", encoding="utf-8") as f:
             f.write(indice)
+        scritti.append(dest)
+        dest = os.path.join(USCITA, "fili.json")
+        with open(dest, "w", encoding="utf-8") as f:
+            json.dump({"fili": [voce_filo(d) for d in pronti]}, f, ensure_ascii=False, indent=1)
+            f.write("\n")
         scritti.append(dest)
     return scritti, attesa, pronti
