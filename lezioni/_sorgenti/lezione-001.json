@@ -3,9 +3,22 @@
   "titolo": "Il pacco che non aspettavi",
   "standfirst": "L'SMS del corriere fantasma, la giacenza da €1,99 e il pacco che non è mai esistito.",
   "x_aperto": false,
+  "striscia": {
+    "aria": "Striscia a 8 vignette: il ninja aspetta un caricatore e riceve un SMS di giacenza da 1,99 euro da «DHLL-EXPRESS»; nota le due elle, capisce che l'euro è l'esca per la carta, non tocca il link, cerca il corriere a mano; se non hai ordinato niente, il pacco non esiste.",
+    "alt": [
+      "Sabato mattina. Il ninja aspetta un caricatore ordinato martedì.",
+      "Il telefono vibra: un SMS di giacenza, per la riconsegna paga €1,99, con un link strano.",
+      "Il ninja: Un euro e novantanove? Ma è un regalo!",
+      "Il mittente ingrandito: DHLL-EXPRESS, le due elle cerchiate. Il ninja: Due elle? Da quando i corrieri balbettano?",
+      "Si chiama smishing. Mille numeri, qualcuno ci casca.",
+      "L'€1,99 è l'esca. Vogliono la carta.",
+      "Il ninja: Il link non lo tocco. Nemmeno per vedere. Il corriere lo cerco io, a mano, dal sito ufficiale.",
+      "Se non hai ordinato niente, il pacco non esiste. Come i miei capelli."
+    ]
+  },
   "trappola": {
     "prosa": [
-      "Sabato mattina. Sto aspettando un caricatore che ho ordinato martedì — quindi quando il telefono vibra, ci casco con tutto il ciabattino:"
+      "Sabato mattina. Aspetto un caricatore ordinato martedì, e il telefono vibra:"
     ],
     "scena": {
       "tipo": "sms",
@@ -14,20 +27,29 @@
       "testo": "Il tuo pacco e' in giacenza presso il nostro magazzino.\n      Per la riconsegna paga la tassa di €1,99: <span class=\"falso\">dhll-riconsegna-24.top</span>"
     },
     "dopo": [
-      "Un euro e novantanove. Meno di un caffè al bar del 2077. Il dito era già a mezz'aria quando l'occhio mi è caduto sul mittente: <em>due elle</em>. Da quando i corrieri balbettano?"
+      "Un euro e novantanove. Poi ho visto il mittente: <em>due elle</em>. Da quando i corrieri balbettano?"
     ]
   },
   "davvero": {
     "prosa": [
-      "Si chiama <strong>smishing</strong>: phishing via SMS, cioè pesca a strascico col telefonino. Mandano lo stesso messaggio a tantissimi numeri insieme; per statistica, qualcuno starà davvero aspettando un pacco. Quel giorno, io.",
-      "Il link porta a una copia quasi perfetta del sito del corriere. E qui il trucco: <strong>l'€1,99 non è il prezzo, è l'esca.</strong> Per pagarlo digiti i dati della carta — e quelli valgono molto più di due euro. Un corriere vero chiede soldi via SMS solo per i dazi doganali, e mai con un link a un dominio strano."
+      "Si chiama <strong>smishing</strong>: phishing via SMS. Lo stesso messaggio parte verso tantissimi numeri; qualcuno starà davvero aspettando un pacco.",
+      "Il link porta a una copia del sito del corriere. <strong>L'€1,99 non è il prezzo, è l'esca:</strong> per pagarlo dai i dati della carta. Un corriere vero non chiede soldi con un link strano."
     ]
   },
   "mossa": {
     "passi": [
-      {"forte": "Non toccare il link.", "testo": "Mai, nemmeno «solo per vedere». Il dito curioso è il migliore amico del truffatore."},
-      {"forte": "Vai tu dal corriere, non lui da te.", "testo": "Apri a mano l'app o il sito ufficiale e incolla lì il tuo numero di tracciamento. Se il pacco esiste, sta lì."},
-      {"forte": "Guarda il mittente come guarderesti un documento.", "testo": "Nomi storpiati, domini strani, urgenza e mini-cifre da pagare: tre indizi, una truffa."}
+      {
+        "forte": "Non toccare il link.",
+        "testo": "Mai, nemmeno «solo per vedere»."
+      },
+      {
+        "forte": "Vai tu dal corriere, non lui da te.",
+        "testo": "Apri a mano l'app o il sito ufficiale e metti lì il numero di tracciamento."
+      },
+      {
+        "forte": "Guarda il mittente come guarderesti un documento.",
+        "testo": "Nomi storpiati, domini strani, fretta e mini-cifre: tre indizi, una truffa."
+      }
     ]
   },
   "proverbio": {
@@ -36,7 +58,7 @@
   "fonte": {
     "titolo": "Polizia Postale — «SMS truffa: pacco in arrivo»",
     "url": "https://www.commissariatodips.it/notizie/articolo/sms-truffa-pacco-in-arrivo/index.html",
-    "chi": "L'avviso ufficiale della Polizia Postale su questa truffa degli SMS del pacco. Se ci sei cascato, è anche il posto dove si segnala.",
+    "chi": "L'avviso ufficiale della Polizia Postale. Se ci sei cascato, si segnala lì.",
     "chi_corto": "Polizia Postale"
   }
 }
