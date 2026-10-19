@@ -208,26 +208,44 @@ ul.elenco .f{
   .reveal{ opacity:1; transform:none; transition:none; }
 }
 
-/* il verdetto: un referto, e deve sembrare una macchina che ha misurato */
+/* il verdetto: prima la LETTURA VELOCE (punteggio, etichetta, chi e', segnali a favore e contro),
+   poi la spiegazione lunga a paragrafi. Ordine del Direttore, 19/10: piu' chiaro il riassunto, formattati i dettagli. */
+.veloce{ margin:2.2rem 0 0; }
+.veloce .beat-label{ margin-bottom:.9rem; }
 .referto{
-  margin:2.4rem 0 0; display:grid; grid-template-columns:auto 1fr; gap:.3rem 1.4rem;
-  align-items:baseline; background:var(--bg-surface); border:1px solid var(--line);
-  padding:1.3rem 1.5rem;
+  display:grid; grid-template-columns:auto 1fr; gap:.4rem 1.4rem; align-items:start;
+  background:var(--bg-surface); border:2px solid var(--voice); padding:1.3rem 1.5rem;
+  box-shadow:4px 4px 0 var(--line);
 }
 .referto .punteggio{
-  grid-row:1 / span 2; font-family:var(--font-mono); font-weight:700;
-  font-size:clamp(2.6rem,9vw,4rem); line-height:1; color:var(--voice);
+  grid-row:1 / span 3; font-family:var(--font-mono); font-weight:700;
+  font-size:clamp(2.8rem,10vw,4.2rem); line-height:1; color:var(--voice);
 }
 .referto .punteggio small{ font-size:.32em; font-weight:400; color:var(--text-lo); margin-left:.15em; }
-.referto .etichetta{
-  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.26em;
-  text-transform:uppercase; color:var(--text-hi);
-}
-.referto .oggetto{ font-size:.95rem; color:var(--text-lo); line-height:1.5; }
+.referto .etichetta{ font-size:clamp(1.05rem,2.6vw,1.25rem); line-height:1.4; color:var(--text-hi); font-weight:600; }
+.referto .etichetta::first-letter{ text-transform:uppercase; }
 /* le 10 tacche del vestito BRAINDANCE: una ogni 10 punti */
-.referto .tacche{ grid-column:2; display:grid; grid-template-columns:repeat(10,1fr); gap:3px; max-width:180px; margin-top:.4rem; }
-.referto .tacche i{ height:12px; background:var(--line); }
+.referto .tacche{ grid-column:2; display:grid; grid-template-columns:repeat(10,1fr); gap:3px; max-width:220px; }
+.referto .tacche i{ display:block; height:12px; background:var(--line); }
 .referto .tacche i.on{ background:var(--voice); }
+.referto .oggetto{ grid-column:2; font-size:.95rem; color:var(--text-lo); line-height:1.55; margin-top:.3rem; }
+@media (max-width:480px){
+  .referto{ grid-template-columns:1fr; padding:1.1rem 1.1rem; }
+  .referto .punteggio{ grid-row:auto; }
+  .referto .tacche, .referto .oggetto{ grid-column:1; }
+}
+.segnali-due{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+@media (max-width:640px){ .segnali-due{ grid-template-columns:1fr; } }
+.seg{ background:var(--bg-surface); border:1px solid var(--line); padding:.9rem 1.1rem 1rem; }
+.seg h3{
+  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.3em; text-transform:uppercase;
+  margin-bottom:.3rem; color:var(--voice);
+}
+.seg.contro h3{ color:var(--text-hi); }
+.seg ul.segnali li{ font-size:.95rem; }
+.seg ul.segnali li:last-child{ border-bottom:0; }
+section.beat .prose p{ font-size:1.02rem; line-height:1.75; }
+section.beat .prose p + p{ margin-top:1.1em; }
 ul.segnali{ list-style:none; margin-top:.2rem; }
 ul.segnali li{
   position:relative; padding:.55rem 0 .55rem 1.7rem; border-bottom:1px dashed var(--line);
@@ -240,11 +258,12 @@ ul.segnali li::before{
 ul.segnali.pro li::before{ content:'+'; }
 ul.segnali.contro li::before{ content:'−'; }
 ul.crono{ list-style:none; margin-top:.2rem; }
-ul.crono li{ padding:.45rem 0; border-bottom:1px dashed var(--line); color:var(--text-lo); line-height:1.55; }
+ul.crono li{ display:grid; grid-template-columns:5.2em 1fr; gap:.2rem .9rem; padding:.6rem 0; border-bottom:1px dashed var(--line); color:var(--text-lo); line-height:1.55; }
 ul.crono time{
-  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; color:var(--voice);
-  margin-right:.8em; white-space:nowrap;
+  font-family:var(--font-mono); font-size:.72rem; font-weight:700; letter-spacing:.1em; color:var(--voice);
+  white-space:nowrap; padding-top:.25em;
 }
+@media (max-width:480px){ ul.crono li{ grid-template-columns:1fr; gap:0; } }
 .fonte ul.fonti{ list-style:none; }
 .fonte ul.fonti li + li{ margin-top:.7rem; }
 .nota{
