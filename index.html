@@ -88,10 +88,26 @@
   .testata h2{ font-family:var(--font-mono); font-size:1rem; letter-spacing:.3em; color:var(--voice); }
   .filtri{ display:flex; flex-wrap:wrap; gap:.6rem; }
   .filtri .px-btn{ font-size:.62rem; padding:.5em .8em; box-shadow:3px 3px 0 var(--line); }
-  .griglia{ list-style:none; display:grid; gap:1.1rem; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
+  /* La home a griglia (passo 2 del piano .ninja, KIROSHI 19/10; parole di ECHO): carte tutte della
+     stessa misura, 3 per riga, 2 sotto i 600 px; ogni lezione mostra la sua prima vignetta v3. */
+  .griglia{ list-style:none; display:grid; gap:1.1rem; grid-template-columns:repeat(3,1fr); }
+  @media (max-width:600px){ .griglia{ grid-template-columns:repeat(2,1fr); gap:.8rem; } }
+  .sotto{ font-family:var(--font-mono); font-size:.8rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text-hi); margin:0 0 1rem; }
+  .sotto small{ display:block; margin-top:.35rem; font-size:.66rem; letter-spacing:.06em; text-transform:none; color:var(--text-lo); }
+  .uscita{ margin:1.2rem 0 0; text-align:right; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; }
+  .uscita a{ color:var(--voice); text-decoration:none; border-bottom:2px solid var(--line); }
+  .uscita a:hover, .uscita a:focus-visible{ border-color:var(--voice); }
+  .blocco + .blocco{ margin-top:2.4rem; padding-top:2rem; border-top:1px solid var(--line); }
+  .carta .img{ display:block; width:calc(100% + 2.1rem); height:auto; aspect-ratio:5/6; object-fit:cover; margin:-1rem -1.05rem 0; background:var(--bg-deep); border-bottom:2px solid var(--line); }
+  .carta .img.vuota{ display:grid; place-items:center; }
+  .carta .img.vuota svg.px{ width:38%; }
+  .carta .tacche{ display:flex; gap:3px; }
+  .carta .tacche i{ display:block; width:10px; height:10px; border:1.5px solid var(--voice); }
+  .carta .tacche i.on{ background:var(--voice); }
+  .carta .d{ font-family:Georgia,'Iowan Old Style',serif; font-style:italic; font-size:.84rem; color:var(--text-lo); line-height:1.35; }
   .carta{
     display:flex; flex-direction:column; gap:.7rem; height:100%; min-height:178px;
-    padding:1rem 1.05rem; text-decoration:none; color:inherit;
+    padding:1rem 1.05rem; text-decoration:none; color:inherit; overflow:hidden;
     background:var(--bg-surface); border:2px solid var(--line); box-shadow:4px 4px 0 var(--bg-deep);
     transition:transform .12s steps(2), border-color .12s steps(2), box-shadow .12s steps(2);
   }
@@ -99,7 +115,7 @@
   .carta svg.px{ width:40px; height:auto; }
   .carta .et{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; color:var(--voice); }
   .carta .t{ font-size:1rem; color:var(--text-hi); line-height:1.35; }
-  .carta .va{ margin-top:auto; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); }
+  .carta .va{ margin-top:auto; font-family:var(--font-mono); font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; color:var(--voice); }  /* più grande e meno spaziato: JUDY, 19/10 */
 
 
   /* ── PIEDE ── */
@@ -180,7 +196,7 @@
   <p class="claim">Trappole digitali vere, smontate ridendo.</p>
   <p class="gettoni">
     <span>Con la <b>fonte</b>, sempre</span>
-    <span><b>Gratis</b>, senza account</span>
+    <span><b>Gratis davvero</b>, senza account</span>
   </p>
   <nav class="porte" aria-label="Le tre porte">
     <a class="porta" href="https://systema77.com/radio.html" rel="noopener">
@@ -214,12 +230,17 @@
         <button type="button" class="px-btn" data-filtro="notebook" aria-pressed="false">Notebook</button>
       </div>
     </div>
-    <ul class="griglia" id="griglia">
-      <li><a class="carta" href="lezioni/index.html" data-tipo="lezione">
-        <svg class="px" viewBox="0 0 16 12" aria-hidden="true"><use href="#ico-lezione"/></svg>
-        <span class="et">Lezioni</span><span class="t">Tutte le lezioni del dojo</span><span class="va">Entra →</span></a></li>
-    </ul>
-    <noscript><p class="gettoni"><span><a href="lezioni/index.html">Tutte le lezioni →</a></span></p></noscript>
+    <div class="blocco" id="blocco-lezioni">
+      <h3 class="sotto" id="t-lezioni">Le lezioni del dojo</h3>
+      <ul class="griglia" id="griglia" aria-labelledby="t-lezioni"></ul>
+      <p class="uscita"><a href="lezioni/index.html">Tutte le lezioni →</a></p>
+    </div>
+    <!-- Gli ultimi verdetti: carte di BRAINDANCE, titolo e etichetta come sono. Parole di ECHO, 19/10. — KIROSHI -->
+    <div class="blocco" id="blocco-verdetti">
+      <h3 class="sotto" id="t-verdetti">Gli ultimi verdetti<small>Vero, falso o incerto. Con le fonti in chiaro.</small></h3>
+      <ul class="griglia" id="griglia-verdetti" aria-labelledby="t-verdetti"></ul>
+      <p class="uscita"><a href="verdetti/">Tutti i verdetti →</a></p>
+    </div>
   </section>
 
 </main>
@@ -243,18 +264,29 @@
   var griglia = document.getElementById('griglia');
   var ETICHETTA = { lezione: 'Lezione', verdetto: 'Verdetto', dispensa: 'Dispensa', ascolto: 'Ascolto' };
 
-  function carta(tipo, ico, et, titolo, href) {
+  /* Ogni lezione porta la sua prima vignetta v3 (lezioni/strisce/, nomi fissi: coda X di ECHO);
+     un notebook ha il riquadro con l'icona, della stessa misura. — KIROSHI, 19/10 */
+  function carta(tipo, ico, et, titolo, href, img, sotto, punteggio) {
     var li = document.createElement('li');
     var c = document.createElement('a');
     c.className = 'carta';
     c.setAttribute('data-tipo', tipo);
     c.href = href;
     if (/^https?:/.test(href)) { c.rel = 'noopener'; }
-    c.innerHTML = '<svg class="px" viewBox="' + (ico === 'lezione' ? '0 0 16 16' : '0 0 16 11') +
-      '" aria-hidden="true"><use href="#ico-' + ico + '"/></svg><span class="et"></span><span class="t"></span><span class="va"></span>';
+    c.innerHTML = (img ? '<img class="img" alt="" width="400" height="480" loading="lazy">'
+      : tipo === 'verdetto' ? '' : '<span class="img vuota"><svg class="px" viewBox="' + (ico === 'lezione' ? '0 0 16 16' : '0 0 16 11') +
+        '" aria-hidden="true"><use href="#ico-' + ico + '"/></svg></span>') +
+      '<span class="et"></span>' + (tipo === 'verdetto' ? '<span class="tacche" aria-hidden="true"></span>' : '') +
+      '<span class="t"></span>' + (sotto ? '<span class="d"></span>' : '') + '<span class="va"></span>';
+    if (img) { c.querySelector('.img').src = img; }
+    if (tipo === 'verdetto' && punteggio != null) {
+      var tk = ''; for (var i = 0; i < 10; i++) { tk += '<i' + (i * 10 < punteggio ? ' class="on"' : '') + '></i>'; }
+      c.querySelector('.tacche').innerHTML = tk;
+    }
     c.querySelector('.et').textContent = et;
     c.querySelector('.t').textContent = titolo;
-    c.querySelector('.va').textContent = 'Apri →';
+    if (sotto) { c.querySelector('.d').textContent = sotto; }
+    c.querySelector('.va').textContent = tipo === 'verdetto' ? 'Leggi →' : 'Apri →';
     li.appendChild(c);
     return li;
   }
@@ -264,19 +296,29 @@
   }
 
   Promise.all([leggi('/archivio.json'), leggi('/notebook.json')]).then(function (dati) {
-    var schede = dati[0].slice().sort(function (a, b) { return a.id < b.id ? 1 : -1; });
+    /* Le lezioni dalla 001 alla 009: un principiante legge dall'alto (ECHO, 19/10). */
+    var schede = dati[0].slice().sort(function (a, b) { return a.id < b.id ? -1 : 1; });
     var notebook = dati[1];
     var pezzi = document.createDocumentFragment();
     /* Verdetti e lezioni separati (ordine del Direttore, 15/10, consegna di BRAINDANCE): in griglia
        solo lezioni, dispense, ascolti. Dal 19/10 BRAINDANCE ha il suo bottone sotto le tre porte, non una carta qui. — ECHO, KIROSHI */
     schede.filter(function (s) { return s.tipo !== 'verdetto'; }).forEach(function (s) {
-      pezzi.appendChild(carta(s.tipo, 'lezione', (ETICHETTA[s.tipo] || s.tipo) + ' ' + s.id, s.titolo, s.url));
+      var vignetta = s.tipo === 'lezione' ? '/lezioni/strisce/lezione-' + s.id + '-vignetta-01-v3.svg' : null;
+      pezzi.appendChild(carta(s.tipo, 'lezione', (ETICHETTA[s.tipo] || s.tipo) + ' ' + s.id, s.titolo, s.url, vignetta));
     });
     notebook.filter(function (n) { return n.url; }).forEach(function (n) {
       pezzi.appendChild(carta('notebook', 'notebook', 'Notebook · ' + n.tema, n.titolo, n.url));
     });
-    if (schede.length) { griglia.textContent = ''; }
     griglia.appendChild(pezzi);
+    /* Gli ultimi 3 verdetti, i piu' recenti per data: titolo ed etichetta di BRAINDANCE come sono. */
+    var gv = document.getElementById('griglia-verdetti');
+    var verdetti = dati[0].filter(function (s) { return s.tipo === 'verdetto'; })
+      .sort(function (a, b) { return a.data < b.data ? 1 : a.data > b.data ? -1 : (a.id < b.id ? 1 : -1); }).slice(0, 3);
+    verdetti.forEach(function (v) {
+      gv.appendChild(carta('verdetto', 'lezione', 'Verdetto · ' + v.data + (v.punteggio != null ? ' · ' + v.punteggio + '/100' : ''), v.titolo, v.url,
+        null, v.tag && v.tag[0], v.punteggio));
+    });
+    document.getElementById('blocco-verdetti').hidden = !verdetti.length;
     [].slice.call(document.querySelectorAll('[data-filtro],[data-vai]')).forEach(function (b) {
       var tipo = b.getAttribute('data-filtro') || b.getAttribute('data-vai');
       if (tipo !== 'tutto' && tipo !== 'lezione' && !griglia.querySelector('[data-tipo="' + tipo + '"]')) { b.hidden = true; }
