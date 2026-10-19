@@ -234,6 +234,7 @@ def voce_archivio(d):
         "tipo": "verdetto", "id": d["id"], "url": f"/verdetti/{d['id']}.html",
         "titolo": d["titolo"], "standfirst": piano(d["standfirst"]),
         "tag": d["tag"], "data": d["data"], "testo": piano(testo(d)),
+        "punteggio": d["punteggio"],   # lo legge la home, per la carta (KIROSHI, 19/10)
     }
 
 
