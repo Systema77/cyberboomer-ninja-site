@@ -41,6 +41,7 @@
   .px-btn:active{ transform:translate(2px,2px); box-shadow:0 0 0 var(--line); }
   .px-btn[aria-pressed="true"]{ background:var(--voice); color:var(--bg-deep); }
   .px-btn[hidden]{ display:none; }
+  .px-btn .px-ico{ width:1.5em; height:1.5em; vertical-align:-.4em; margin-right:.45em; }
 
   /* ── IN CIMA ── */
   .cima{ text-align:center; padding:3.2rem 1.5rem 1.6rem; }
@@ -75,6 +76,11 @@
   .porta svg.px{ width:44px; height:auto; }
   .porta .n{ font-family:var(--font-mono); font-weight:700; font-size:.82rem; letter-spacing:.2em; text-transform:uppercase; }
   .porta .d{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.06em; color:var(--text-lo); text-align:center; }
+  .porta.bd{ grid-column:1 / -1; flex-direction:row; justify-content:center; gap:1rem; padding:.9rem 1rem; background:var(--voice-soft); }
+  .porta.bd img{ width:44px; height:44px; image-rendering:pixelated; flex:none; }
+  .porta.bd .bd-t{ display:flex; flex-direction:column; align-items:flex-start; gap:.3rem; min-width:0; }
+  .porta.bd .n{ color:var(--voice); font-size:.95rem; letter-spacing:.3em; }
+  .porta.bd .d{ text-align:left; font-size:.7rem; }
 
   /* ── LE RISORSE: carte tutte della stessa misura, in griglia ── */
   .risorse{ padding:2.4rem 0 1rem; border-top:1px solid var(--line); margin-top:2.4rem; }
@@ -91,7 +97,6 @@
   }
   a.carta:hover, a.carta:focus-visible{ transform:translate(-2px,-2px); border-color:var(--voice); box-shadow:6px 6px 0 var(--line); }
   .carta svg.px{ width:40px; height:auto; }
-  .carta[data-tipo="strumento"]{ border-color:var(--voice); outline:1px solid var(--voice); outline-offset:4px; background:rgba(92,124,255,.09); } /* la carta-porta di BRAINDANCE, vestito di JUDY 15/10 */
   .carta .et{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; color:var(--voice); }
   .carta .t{ font-size:1rem; color:var(--text-hi); line-height:1.35; }
   .carta .va{ margin-top:auto; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--voice); }
@@ -140,7 +145,7 @@
 
 <!-- le icone a blocchi: una mappa di bit per tipo, usate dalle carte -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="ico-lezione" viewBox="0 0 16 12"><rect x="4" y="0" width="6" height="1" fill="#5C7CFF"/><rect x="3" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="10" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="2" width="1" height="1" fill="#5C7CFF"/><rect x="6" y="2" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="2" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="3" width="1" height="1" fill="#5C7CFF"/><rect x="6" y="3" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="3" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="6" y="4" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="4" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="5" width="1" height="1" fill="#5C7CFF"/><rect x="6" y="5" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="5" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="6" width="1" height="1" fill="#5C7CFF"/><rect x="10" y="6" width="1" height="1" fill="#5C7CFF"/><rect x="3" y="7" width="1" height="1" fill="#5C7CFF"/><rect x="6" y="7" width="2" height="1" fill="#EFE6EB"/><rect x="10" y="7" width="1" height="1" fill="#5C7CFF"/><rect x="4" y="8" width="6" height="1" fill="#5C7CFF"/><rect x="0" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="4" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="6" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="8" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="10" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="12" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="14" y="10" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="11" width="16" height="1" fill="#EFE6EB"/></symbol>
+  <symbol id="ico-lezione" viewBox="0 0 16 16"><path fill="#5C7CFF" d="M1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM0 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM1 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM1 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1z"/><path fill="#EFE6EB" d="M1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM14 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM13 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM6 9h1v1h-1zM9 9h1v1h-1zM14 9h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM12 10h1v1h-1zM13 10h1v1h-1zM14 10h1v1h-1zM2 11h1v1h-1zM3 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM6 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM11 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1z"/><path fill="#A89DA4" d="M2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1z"/></symbol>
   <symbol id="ico-notebook" viewBox="0 0 16 11"><rect x="2" y="0" width="10" height="1" fill="#EFE6EB"/><rect x="1" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="1" width="1" height="1" fill="#EFE6EB"/><rect x="3" y="1" width="8" height="1" fill="#A89DA4"/><rect x="11" y="1" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="2" width="10" height="1" fill="#EFE6EB"/><rect x="1" y="3" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="11" y="3" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="4" y="4" width="5" height="1" fill="#5C7CFF"/><rect x="11" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="1" y="5" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="11" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="6" width="1" height="1" fill="#EFE6EB"/><rect x="4" y="6" width="6" height="1" fill="#5C7CFF"/><rect x="11" y="6" width="1" height="1" fill="#EFE6EB"/><rect x="1" y="7" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="7" width="1" height="1" fill="#EFE6EB"/><rect x="11" y="7" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="8" width="1" height="1" fill="#EFE6EB"/><rect x="4" y="8" width="4" height="1" fill="#5C7CFF"/><rect x="11" y="8" width="1" height="1" fill="#EFE6EB"/><rect x="1" y="9" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="11" y="9" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="10" width="10" height="1" fill="#EFE6EB"/></symbol>
   <symbol id="ico-strumento" viewBox="0 0 16 11"><rect x="11" y="0" width="1" height="1" fill="#5C7CFF"/><rect x="10" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="9" y="2" width="1" height="1" fill="#5C7CFF"/><rect x="0" y="3" width="15" height="1" fill="#EFE6EB"/><rect x="0" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="15" y="4" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="5" width="3" height="1" fill="#5C7CFF"/><rect x="7" y="5" width="6" height="1" fill="#EFE6EB"/><rect x="15" y="5" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="6" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="6" width="3" height="1" fill="#5C7CFF"/><rect x="15" y="6" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="7" width="1" height="1" fill="#EFE6EB"/><rect x="2" y="7" width="3" height="1" fill="#5C7CFF"/><rect x="7" y="7" width="6" height="1" fill="#EFE6EB"/><rect x="15" y="7" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="8" width="1" height="1" fill="#EFE6EB"/><rect x="15" y="8" width="1" height="1" fill="#EFE6EB"/><rect x="0" y="9" width="16" height="1" fill="#EFE6EB"/><rect x="1" y="10" width="2" height="1" fill="#EFE6EB"/><rect x="13" y="10" width="2" height="1" fill="#EFE6EB"/></symbol>
   <symbol id="ico-meteo" viewBox="0 0 16 11"><rect x="4" y="0" width="1" height="1" fill="#5C7CFF"/><rect x="1" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="4" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="7" y="1" width="1" height="1" fill="#5C7CFF"/><rect x="2" y="2" width="5" height="1" fill="#5C7CFF"/><rect x="2" y="3" width="5" height="1" fill="#5C7CFF"/><rect x="8" y="3" width="4" height="1" fill="#EFE6EB"/><rect x="0" y="4" width="6" height="1" fill="#5C7CFF"/><rect x="7" y="4" width="7" height="1" fill="#EFE6EB"/><rect x="2" y="5" width="3" height="1" fill="#5C7CFF"/><rect x="6" y="5" width="9" height="1" fill="#EFE6EB"/><rect x="1" y="6" width="1" height="1" fill="#5C7CFF"/><rect x="5" y="6" width="11" height="1" fill="#EFE6EB"/><rect x="5" y="7" width="11" height="1" fill="#EFE6EB"/><rect x="6" y="8" width="9" height="1" fill="#EFE6EB"/><rect x="3" y="10" width="1" height="1" fill="#A89DA4"/><rect x="6" y="10" width="1" height="1" fill="#A89DA4"/><rect x="9" y="10" width="1" height="1" fill="#A89DA4"/></symbol>
@@ -187,9 +192,13 @@
     <a class="porta" href="/piazza/">
       <svg class="px" viewBox="0 0 16 11" aria-hidden="true"><use href="#ico-piazza"/></svg>
       <span class="n">Piazza</span><span class="d">Leggi cosa si dice</span></a>
+    <!-- BRAINDANCE ha un bottone tutto suo, fuori dalle lezioni (ordine del Direttore, 19/10). — KIROSHI -->
+    <a class="porta bd" href="/braindance/">
+      <img src="/braindance/lente.svg" alt="" width="44" height="44">
+      <span class="bd-t"><span class="n">BRAINDANCE</span><span class="d">È vero o no? Chiedilo, e controlla le fonti da te.</span></span></a>
   </nav>
   <nav class="menu" aria-label="Menu">
-    <a class="px-btn" href="#risorse" data-vai="lezione">▶ Lezioni</a>
+    <a class="px-btn" href="#risorse" data-vai="lezione"><svg class="px-ico" viewBox="0 0 16 16" aria-hidden="true"><use href="#ico-lezione"/></svg>Lezioni</a>
     <a class="px-btn" href="#risorse" data-vai="notebook">▶ Notebook</a>
     <a class="px-btn" href="/chi-siamo.html">▶ Chi siamo</a>
   </nav>
@@ -241,7 +250,7 @@
     c.setAttribute('data-tipo', tipo);
     c.href = href;
     if (/^https?:/.test(href)) { c.rel = 'noopener'; }
-    c.innerHTML = '<svg class="px" viewBox="' + (ico === 'lezione' ? '0 0 16 12' : '0 0 16 11') +
+    c.innerHTML = '<svg class="px" viewBox="' + (ico === 'lezione' ? '0 0 16 16' : '0 0 16 11') +
       '" aria-hidden="true"><use href="#ico-' + ico + '"/></svg><span class="et"></span><span class="t"></span><span class="va"></span>';
     c.querySelector('.et').textContent = et;
     c.querySelector('.t').textContent = titolo;
@@ -259,16 +268,13 @@
     var notebook = dati[1];
     var pezzi = document.createDocumentFragment();
     /* Verdetti e lezioni separati (ordine del Direttore, 15/10, consegna di BRAINDANCE): in griglia
-       solo lezioni, dispense, ascolti; i verdetti hanno una carta-porta sola verso lo strumento. — ECHO */
+       solo lezioni, dispense, ascolti. Dal 19/10 BRAINDANCE ha il suo bottone sotto le tre porte, non una carta qui. — ECHO, KIROSHI */
     schede.filter(function (s) { return s.tipo !== 'verdetto'; }).forEach(function (s) {
       pezzi.appendChild(carta(s.tipo, 'lezione', (ETICHETTA[s.tipo] || s.tipo) + ' ' + s.id, s.titolo, s.url));
     });
     notebook.filter(function (n) { return n.url; }).forEach(function (n) {
       pezzi.appendChild(carta('notebook', 'notebook', 'Notebook · ' + n.tema, n.titolo, n.url));
     });
-    if (schede.some(function (s) { return s.tipo === 'verdetto'; })) {
-      pezzi.appendChild(carta('strumento', 'strumento', 'Strumento · BRAINDANCE', 'È vero o no? Chiedilo, e controlla le fonti da te.', 'braindance/'));
-    }
     if (schede.length) { griglia.textContent = ''; }
     griglia.appendChild(pezzi);
     [].slice.call(document.querySelectorAll('[data-filtro],[data-vai]')).forEach(function (b) {

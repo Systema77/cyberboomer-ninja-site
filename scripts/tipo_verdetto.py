@@ -20,7 +20,7 @@ piu', e la pagina resta ferma finche' qualcuno non rilegge. Un verdetto non rile
 non e' un errore: e' uno stato, e si aspetta. Un verdetto con dentro «social» o un
 rimando alla console E' un errore, e ferma la corsa: si riscrive, non si esenta.
 
-— creato da JUDY, 2026-09-08
+— creato da JUDY, 2026-09-08 · lettura veloce in testa e spiegazione a paragrafi: KIROSHI, 2026-10-19
 """
 
 import hashlib
@@ -59,11 +59,15 @@ __TESTA__
     <p class="standfirst">__STANDFIRST__</p>
   </header>
 
-  <div class="referto" role="group" aria-label="Il punteggio di affidabilità">
-    <span class="punteggio">__PUNTEGGIO__<small>/100</small></span>
-    <span class="etichetta">__ETICHETTA__</span>
-    <span class="oggetto">__OGGETTO__</span>
-  </div>
+  <section class="veloce" aria-labelledby="t-veloce">
+    <h2 class="beat-label" id="t-veloce"><span class="num">▶</span>Lettura veloce</h2>
+    <div class="referto" role="group" aria-label="Il punteggio di affidabilità">
+      <span class="punteggio">__PUNTEGGIO__<small>/100</small></span>
+      <span class="etichetta">__ETICHETTA__</span>
+      <span class="tacche" aria-hidden="true">__TACCHE__</span>
+      <span class="oggetto">__OGGETTO__</span>
+    </div>
+__SEGNALI__  </section>
 
 __SEZIONI__
 
@@ -169,14 +173,36 @@ def elenco(voci, pr, classe):
             + "\n    </ul>\n")
 
 
-def sezioni(d, pr):
-    fuori = [("Il verdetto", f'    <div class="prose">\n      <p>{ricco(d["verdetto"], pr)}</p>\n    </div>\n')]
+_FRASE = re.compile(r"(?<=[.!?…»])\s+(?=[A-ZÀ-ÖØ-Þ«\"(0-9])")
+
+
+def paragrafi(t, pr, per=3):
+    """La spiegazione e' lunga e arriva in un blocco solo: qui si spezza in paragrafi
+    di `per` frasi, senza cambiare una parola (ordine del Direttore, 19/10: «i dettagli
+    sono lunghi, ok; vanno formattati meglio»)."""
+    frasi = [f for f in _FRASE.split(str(t).strip()) if f]
+    gruppi = [" ".join(frasi[i:i + per]) for i in range(0, len(frasi), per)]
+    return "\n".join(f"      <p>{ricco(g, pr)}</p>" for g in gruppi)
+
+
+def segnali(d, pr):
+    """I segnali a favore e contro, affiancati: sono la lettura veloce."""
+    blocchi = []
     if d.get("green_flags"):
-        fuori.append(("Segnali a favore", elenco(d["green_flags"], pr, "pro")))
+        blocchi.append(f'      <div class="seg pro"><h3>A favore</h3>\n{elenco(d["green_flags"], pr, "pro")}      </div>')
     if d.get("red_flags"):
-        fuori.append(("Segnali contro", elenco(d["red_flags"], pr, "contro")))
+        blocchi.append(f'      <div class="seg contro"><h3>Contro</h3>\n{elenco(d["red_flags"], pr, "contro")}      </div>')
+    return ('    <div class="segnali-due">\n' + "\n".join(blocchi) + "\n    </div>\n") if blocchi else ""
+
+
+def tacche(p):
+    return "".join(f'<i class="{"on" if i * 10 < p else ""}"></i>' for i in range(10))
+
+
+def sezioni(d, pr):
+    fuori = [("La spiegazione", f'    <div class="prose">\n{paragrafi(d["verdetto"], pr)}\n    </div>\n')]
     if d.get("timeline"):
-        righe = "\n".join(f'      <li><time>{e(t.get("data", ""))}</time> {ricco(t.get("evento", ""), pr)}</li>'
+        righe = "\n".join(f'      <li><time>{e(t.get("data", ""))}</time> <span>{ricco(t.get("evento", ""), pr)}</span></li>'
                           for t in d["timeline"])
         fuori.append(("La cronologia", f'    <ul class="crono">\n{righe}\n    </ul>\n'))
     return "\n".join(
@@ -259,6 +285,8 @@ def genera(schede):
                                                   f"{titolo} — Verdetto", desc, "../favicon.svg"))
                       .replace("__FIRMA__", FIRMA)
                       .replace("__SEZIONI__", sezioni(d, pr))
+                      .replace("__SEGNALI__", segnali(d, pr))
+                      .replace("__TACCHE__", tacche(d["punteggio"]))
                       .replace("__FONTI__", fonti(d, pr))
                       .replace("__NOTA__", f'  <p class="nota">✳ {ricco(d["nota_sicurezza"], pr)}</p>\n'
                                if d.get("nota_sicurezza") else "")
