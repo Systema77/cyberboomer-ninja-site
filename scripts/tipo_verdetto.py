@@ -279,10 +279,13 @@ def genera(schede):
         pr, n = d["provenienza"], d["_ninja"]
         titolo, desc = e(d["titolo"]), e(piano(d["standfirst"]))
         url = f"{DOMINIO}/verdetti/{d['id']}.html"
+        # la carta del verdetto (scripts/genera-carte-verdetti.mjs): og:image solo se il PNG c'e'
+        carta = (f"{DOMINIO}/verdetti/carte/{d['id']}.png"
+                 if os.path.exists(os.path.join(USCITA, "carte", f"{d['id']}.png")) else None)
         try:
             pagina = (PAGINA
                       .replace("__TESTA__", testa(f"{titolo} — Verdetto · Cyber Boomer", desc, url, "article",
-                                                  f"{titolo} — Verdetto", desc, "../favicon.svg"))
+                                                  f"{titolo} — Verdetto", desc, "../favicon.svg", og_image=carta))
                       .replace("__FIRMA__", FIRMA)
                       .replace("__SEZIONI__", sezioni(d, pr))
                       .replace("__SEGNALI__", segnali(d, pr))

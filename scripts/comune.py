@@ -251,9 +251,11 @@ def ricco(t, provenienza):
     return t
 
 
-def testa(titolo, descrizione, url, og_tipo, og_titolo, og_descrizione, favicon):
+def testa(titolo, descrizione, url, og_tipo, og_titolo, og_descrizione, favicon, og_image=None):
     """Il <head> di una scheda. `titolo` e `descrizione` arrivano gia' con l'escaping
-    fatto dal chiamante, come tutto il resto: qui si compone, non si pulisce."""
+    fatto dal chiamante, come tutto il resto: qui si compone, non si pulisce.
+    `og_image`: l'indirizzo assoluto di un'immagine propria (la carta di un verdetto);
+    senza, resta l'og-image.png del sito."""
     return f"""<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{titolo}</title>
@@ -264,7 +266,7 @@ def testa(titolo, descrizione, url, og_tipo, og_titolo, og_descrizione, favicon)
 <meta property="og:title" content="{og_titolo}">
 <meta property="og:description" content="{og_descrizione}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{DOMINIO}/og-image.png">
+<meta property="og:image" content="{og_image or DOMINIO + "/og-image.png"}">
 <meta property="og:site_name" content="Cyber Boomer">
 <meta name="twitter:card" content="summary_large_image">
 {FOGLIO}"""

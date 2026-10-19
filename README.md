@@ -31,6 +31,7 @@ scripts/tipo_ascolto.py   il tipo ascolto: audio fuori da git, trascrizione in p
 scripts/porta-verdetti.py porta i verdetti KIROSHI da anima-console (lo lancia una persona)
 scripts/genera-sitemap.py la mappa del sito (la corsa lo chiama; si può lanciare da solo)
 scripts/genera-og-image.mjs  l'immagine che si vede incollando il link (a mano, dal Mac)
+scripts/genera-carte-verdetti.mjs  una carta per verdetto, l'og:image della sua pagina (a mano, dal Mac, prima della corsa)
 scripts/prova-ricco.py    il banco dei casi cattivi di ricco()
 strumenti/collaudo.mjs    il guardiano
 verdetti/_sorgenti/       i verdetti importati, in attesa di rilettura (non serviti)
@@ -67,6 +68,7 @@ legge anche il CSS: un colore o una parola vietata lì dentro lo fa diventare ro
 ```bash
 python3 scripts/genera-tutto.py       # UNA corsa: banco di ricco(), lezioni, indice, sitemap
 node    scripts/genera-og-image.mjs   # l'immagine che si vede incollando il link
+node    scripts/genera-carte-verdetti.mjs   # le carte dei verdetti (verdetti/carte/), prima della corsa
 ```
 
 `genera-tutto.py` si ferma al primo errore e dice quale: una scheda senza fonte, un
